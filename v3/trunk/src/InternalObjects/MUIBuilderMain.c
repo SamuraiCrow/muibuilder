@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$
+
+***************************************************************************/
+
 #include <dos/dos.h>
 #include <clib/alib_protos.h>
 #include <clib/exec_protos.h>
@@ -32,10 +57,10 @@
 #if defined(__SASC)
 #define REG(x) register __ ## x
 #define SAVEDS __saveds
-#define ASM __asm                               
-#define REGARGS __regargs                       
-#endif                                          
-#endif 
+#define ASM __asm
+#define REGARGS __regargs
+#endif
+#endif
 
 #define SUPERCLASS MUIC_Window
 
@@ -95,14 +120,14 @@ ULONG SAVEDS ASM AboutMUI(REG(a2) Object *obj)
       End;
     }
   else set(aboutmui, MUIA_Window_Open, TRUE);
-  
+
   return(0);
 }
 
 ULONG SAVEDS ASM AboutMUIBuilder(REG(a2) Object *obj)
 {
   MUI_Request(app, obj, 0, NULL, "Ok", "\033cMUIBuilder 3.0\n\nMUI Application Builder\n\nBy\nEric Totel\nand\nJérome Souquières");
-  
+
   return(0);
 }
 
@@ -164,7 +189,7 @@ SAVEDS ULONG mNewMUIBMain(Class *cl, Object *obj, struct opSet *msg)
                                   MUIA_Menuitem_Title, "Open",
                                   MUIA_Menuitem_Shortcut, "O",
                                 End,
-			        MUIA_Family_Child, MUI_MakeObject(MUIO_Menuitem, NM_BARLABEL, 0, 0, 0), 
+			        MUIA_Family_Child, MUI_MakeObject(MUIO_Menuitem, NM_BARLABEL, 0, 0, 0),
 			        MUIA_Family_Child, mnaboutmuib = MenuitemObject,
                                   MUIA_Menuitem_Title, "About",
                                   MUIA_Menuitem_Shortcut, "?",
@@ -177,7 +202,7 @@ SAVEDS ULONG mNewMUIBMain(Class *cl, Object *obj, struct opSet *msg)
 			        MUIA_Family_Child, mnquit = MenuitemObject,
                                   MUIA_Menuitem_Title, "Quit",
                                   MUIA_Menuitem_Shortcut, "Q",
-                                End, 
+                                End,
                               End,
 			      MUIA_Family_Child, MenuitemObject,
 			        MUIA_Menuitem_Title, "Windows",
@@ -237,7 +262,7 @@ SAVEDS ULONG mNewMUIBMain(Class *cl, Object *obj, struct opSet *msg)
 	       retval, 2, MUIM_CallHook, &AboutMUIBuilderHook);
       DoMethod(mnquit, MUIM_Notify, MUIA_Menuitem_Trigger, MUIV_EveryTime,
 	       app, 2, MUIM_Application_ReturnID, MUIV_Application_ReturnID_Quit);
-	       
+
     }
 
   return((ULONG)retval);

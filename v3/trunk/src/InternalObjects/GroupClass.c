@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$
+
+***************************************************************************/
+
 #include <dos/dos.h>
 #include <clib/alib_protos.h>
 #include <clib/exec_protos.h>
@@ -30,10 +55,10 @@
 #if defined(__SASC)
 #define REG(x) register __ ## x
 #define SAVEDS __saveds
-#define ASM __asm                               
-#define REGARGS __regargs                       
-#endif                                          
-#endif 
+#define ASM __asm
+#define REGARGS __regargs
+#endif
+#endif
 
 #define GROUP_TYPE "MBGroup"
 
@@ -118,7 +143,7 @@ SAVEDS ULONG mNewGroup(Class *cl, Object *obj, struct opSet *msg)
   APTR retval = NULL;
   char *aux;
 
-  if (retval = (APTR)DoSuperNew(cl, obj, 
+  if (retval = (APTR)DoSuperNew(cl, obj,
 				MBA_Area_Frame, 11,
 				MBA_Area_Background, 9,
 				TAG_MORE, msg->ops_AttrList,
@@ -153,7 +178,7 @@ ULONG mDisposeGroup(Class *cl, Object *obj, Msg msg)
           DisposeObject(node->ln_Name);
         }
     }
-  
+
   FreeVec(data->childs);
   return(DoSuperMethodA(cl, obj, msg));
 }
@@ -236,7 +261,7 @@ SAVEDS APTR mCreateEditionGroup(Class *cl, Object *obj, Msg msg)
               }
           }
     }
-  
+
   set(obj, MBA_Object_MUIObject, retval);
   return(retval);
 }
@@ -257,7 +282,7 @@ SAVEDS APTR mCreateTestGroup(Class *cl, Object *obj, Msg msg)
         DoMethod(retval, OM_ADDMEMBER,
                  DoMethod((APTR)node->ln_Name, MBM_Object_CreateTest, TAG_DONE));
       }
-  
+
   return(retval);
 }
 
@@ -428,7 +453,7 @@ SAVEDS ULONG mSaveAttributesGroup(Class *cl, Object *obj, Msg msg)
 {
   struct GroupData *data = INST_DATA(cl, obj);
   char   *aux;
-  struct Node *node;  
+  struct Node *node;
 
   MB_SaveAttribute("MUIA_Group_Horiz", TYPE_BOOL, data->horiz);
   MB_SaveAttribute("MUIA_Group_ActivePage", TYPE_INT, data->activepage);

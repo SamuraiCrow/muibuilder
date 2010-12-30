@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$
+
+***************************************************************************/
+
 #include <dos/dos.h>
 #include <clib/alib_protos.h>
 #include <clib/exec_protos.h>
@@ -37,10 +62,10 @@
 #if defined(__SASC)
 #define REG(x) register __ ## x
 #define SAVEDS __saveds
-#define ASM __asm                               
-#define REGARGS __regargs                       
-#endif                                          
-#endif 
+#define ASM __asm
+#define REGARGS __regargs
+#endif
+#endif
 
 #define AREA_TYPE "AreaClass"
 
@@ -313,14 +338,14 @@ SAVEDS ULONG mAttributesEditArea(Class *cl, Object *obj, struct MBP_AttributesEd
       Child, ColGroup(2),
         Child, Label("_Background"), Child, data->CY_background = KeyCycle(Backgrounds, 'b'),
         Child, Label("_Frame"), Child, data->CY_frame = KeyCycle(Frames, 'f'),
-        Child, Label("F_ont"), Child, data->CY_fonts = KeyCycle(Fonts, 'o'),        
+        Child, Label("F_ont"), Child, data->CY_fonts = KeyCycle(Fonts, 'o'),
       End,
       Child, ColGroup(4),
         Child, Label("_Disabled"), Child, data->CH_disabled = KeyCheckMark(data->disabled, 'd'),
         Child, Label("_Show me"), Child, data->CH_show = KeyCheckMark(data->show, 's'),
         Child, Label("_HorizDisappear"), Child, data->CH_horizdisappear = KeyCheckMark(data->horizdisappear, 'h'),
         Child, Label("_VertDisappear"), Child, data->CH_vertdisappear = KeyCheckMark(data->vertdisappear, 'v'),
-        Child, Label("_PhantomHoriz"), Child, data->CH_phantomhoriz = KeyCheckMark(data->phantomhoriz, 'p'),        
+        Child, Label("_PhantomHoriz"), Child, data->CH_phantomhoriz = KeyCheckMark(data->phantomhoriz, 'p'),
       End,
       Child, HGroup,
         Child, Label("Frame _Title"),
