@@ -1,0 +1,808 @@
+#include "gencodec.h"
+
+char *version = "$VER: GenCodeC 2.2 (03.03.95)";
+
+struct Library * MUIBBase = NULL;
+
+/* Global variables */
+ULONG	varnb;			/* number of variables */
+
+BOOL	Code, Env;		/* flags-options */
+BOOL	Locale, Declarations;
+BOOL	Notifications;
+BOOL	ExternalExist = FALSE;
+char	*FileName, *CatalogName;/* Strings */
+char	*GetString;
+char	*GetMBString;
+
+FILE	*file;
+
+char	HeaderFile[512];
+char	GUIFile[512];
+char	MBDir[512];
+char	Externals[512];
+char	Main[512];
+
+/* variable types */
+char	*STR_type[] =
+{
+  "BOOL",
+  "int",
+  "char *",
+  "char *",
+  "APTR",
+  "",
+  "",
+  "",
+  "APTR",
+  "APTR"
+  };
+
+void Indent(int nb)
+{
+  int     i;
+  
+  for(i=0;i<nb;i++) fprintf(file, "\t");
+}
+
+void WriteParameters(void)
+{
+  int   i;
+  char  *varname, *typename;
+  ULONG type,size;
+  BOOL  comma = FALSE;
+  
+  typename = STR_type[ TYPEVAR_EXTERNAL_PTR - 1 ];
+  if (Notifications)
+    for(i=0;i<varnb;i++)
+      {
+	MB_GetVarInfo (i,
+		       MUIB_VarType, &type,
+		       MUIB_VarName, &varname,
+		       MUIB_VarSize, &size,
+		       TAG_END
+		       );
+	if (type == TYPEVAR_EXTERNAL_PTR)
+	  {
+	    if (comma) fprintf(file, ", ");
+	    comma = TRUE;
+	    fprintf(file, "%s %s", typename, varname);
+	  }
+      }
+  if (!comma) fprintf(file, "void");
+}
+
+void WriteDeclarations(int vartype)
+{
+	int	i;
+	char	*varname;
+	ULONG	type, size;
+	char	*typename;
+	int	nb_ident = 1;
+	char	buffer[150];
+	
+	typename = STR_type[ vartype - 1 ];		/* find the name 'BOOL ...'	*/
+	buffer[0] = '\0';
+	for(i=0;i<varnb;i++)
+	{
+		MB_GetVarInfo (i,
+			   	MUIB_VarType, &type,
+			   	MUIB_VarName, &varname,
+			   	MUIB_VarSize, &size,
+				TAG_END
+			     );
+		if (type == vartype)
+			switch(type)
+			{
+			case TYPEVAR_TABSTRING:
+				fprintf(file, "\t%s\t%s[%d];\n",
+					 typename,
+					 varname,
+					 size+1
+					);
+				break;
+			case TYPEVAR_IDENT:
+				fprintf(file,"#define %s %d\n", varname, nb_ident++);
+				break;
+			case TYPEVAR_LOCAL_PTR:
+				if (strlen(buffer)==0) sprintf(buffer, "\t%s\t%s", typename, varname);
+				else
+				{
+					strcat(buffer, ", ");
+					strcat(buffer, varname);
+				}
+				if (strlen(buffer)>=70)
+				{
+					strcat(buffer, ";\n");
+					fprintf(file, "%s", buffer);
+					buffer[0] = '\0';
+				}
+			break;
+			default:
+				fprintf(file, "\t%s\t%s;\n",typename, varname);
+				break;
+			}
+	}
+	if (strlen(buffer)>0) fprintf(file, "%s;\n", buffer);
+}
+
+void WriteInitialisations(int vartype)
+{
+	int	i, j;
+	ULONG	type, size;
+	char	*inits, *name;
+	BOOL	enter = FALSE;
+
+	for(i=0;i<varnb;i++)
+	{
+		MB_GetVarInfo(i,
+			       MUIB_VarType	, &type,
+			       MUIB_VarName	, &name,
+			       MUIB_VarSize	, &size,
+			       MUIB_VarInitPtr	, &inits,
+			       TAG_END
+			     );
+		if (type == vartype)
+		{
+			enter = TRUE;
+			switch(type)
+			{
+			case TYPEVAR_TABSTRING:
+				for(j=0;j<size;j++)
+				{
+					if (!Locale) fprintf(file, "\tObject->%s[%d] = \"%s\";\n", name, j, inits);
+					else	    fprintf(file, "\tObject->%s[%d] = %s(%s);\n", name, j, GetMBString, inits);
+					inits = inits + strlen(inits) + 1;
+				}
+				fprintf(file, "\tObject->%s[%d] = NULL;\n", name, j);
+				break;
+			case TYPEVAR_STRING:
+			 	if (*inits != 0)
+				{
+					if (!Locale) fprintf(file, "\tObject->%s = \"%s\";\n", name, inits);
+					else	   fprintf(file, "\tObject->%s = %s(%s);\n", name, GetMBString, inits);
+				}
+				else fprintf(file, "\tObject->%s = NULL;\n", name);
+				break;
+			case TYPEVAR_HOOK:
+				fprintf(file, "\tstatic const struct Hook %sHook = { { NULL,NULL },(VOID *)%s,NULL,NULL };\n", name, name);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	if (enter) fprintf(file, "\n");
+}
+
+void WriteCode(void)
+{
+	ULONG	type;
+	char*	code;
+	BOOL	InFunction     = FALSE;
+	BOOL	IndentFunction = TRUE ;
+	BOOL	obj_function   	      ;
+	BOOL	InObj		      ;
+	int	nb_indent      = 1    ;
+	int	nb_function    = 0    ;
+	int	name;
+
+	extern void End(void);
+
+	MB_GetNextCode(&type, &code);
+	while(type != -1)
+	{
+		switch(type)
+		{
+		case TC_CREATEOBJ:
+			name = atoi(code);
+			fprintf(file, "%s,\n",MUIStrings[name]);
+			nb_indent++;
+			IndentFunction = TRUE;
+			MB_GetNextCode(&type, &code);
+			InObj = TRUE;
+			break;
+		case TC_ATTRIBUT:
+			Indent(nb_indent);
+			name = atoi(code);
+			fprintf(file, "%s, ",MUIStrings[name]);
+			IndentFunction = FALSE;
+			MB_GetNextCode(&type, &code);
+			break;
+		case TC_END:
+			nb_indent--;
+			InObj = FALSE;
+			Indent(nb_indent);
+			name = atoi(code);
+			fprintf(file, "%s",MUIStrings[name]);
+			IndentFunction = TRUE;
+			MB_GetNextCode(&type, &code);
+			fprintf(file, ";\n\n");
+			break;
+		case TC_MUIARG_OBJFUNCTION:
+			if (IndentFunction) Indent(nb_indent);
+			nb_function++;
+			name = atoi(code);
+			fprintf(file, "%s(",MUIStrings[name]);
+			IndentFunction = FALSE;
+			InFunction     = TRUE;
+			MB_GetNextCode(&type, &code);
+			obj_function = TRUE;
+			InFunction = TRUE;
+			break;
+		case TC_MUIARG_FUNCTION:
+		case TC_FUNCTION:
+			if (IndentFunction) Indent(nb_indent);
+			nb_function++;
+			name = atoi(code);
+			fprintf(file, "%s(",MUIStrings[name]);
+			IndentFunction = FALSE;
+			InFunction     = TRUE;
+			MB_GetNextCode(&type, &code);
+			obj_function = FALSE;
+			break;
+		case TC_OBJFUNCTION:
+			if (IndentFunction) Indent(nb_indent);
+			nb_function++;
+			name = atoi(code);
+			fprintf(file, "%s(",MUIStrings[name]);
+			InFunction     = TRUE;
+			IndentFunction = FALSE;
+			MB_GetNextCode(&type,&code);
+			obj_function = TRUE;
+			break;
+		case TC_STRING:
+			fprintf(file, "\"%s\"",code);
+			MB_GetNextCode(&type, &code);
+			IndentFunction = TRUE;
+			if (InFunction)
+			{
+				if (type  != TC_END_FUNCTION) fprintf(file, ", ");
+				IndentFunction = FALSE;
+			}
+			else	fprintf(file, ",\n");
+			break;
+		case TC_LOCALESTRING:
+			fprintf(file, "%s(%s)",GetMBString, code);
+                        MB_GetNextCode(&type, &code);
+                        IndentFunction = TRUE;
+                        if (InFunction)
+                        {
+                                if (type  != TC_END_FUNCTION) fprintf(file, ", ");
+                                IndentFunction = FALSE;
+                        }
+                        else    fprintf(file, ",\n");
+                        break;
+		case TC_LOCALECHAR:
+			fprintf(file, "%s(%s)[0]",GetString, code);
+                        MB_GetNextCode(&type, &code);
+                        IndentFunction = TRUE;
+                        if (InFunction)
+                        {
+                                if (type  != TC_END_FUNCTION) fprintf(file, ", ");
+                                IndentFunction = FALSE;
+                        }
+                        else    fprintf(file, ",\n");
+                        break;
+		case TC_INTEGER:
+			fprintf(file, "%s", code);
+                        MB_GetNextCode(&type, &code);
+                        IndentFunction = TRUE;
+                        if (InFunction)
+                        {
+                                if (type  != TC_END_FUNCTION) fprintf(file, ", ");
+                                IndentFunction = FALSE;
+                        }
+                        else    fprintf(file, ",\n");
+                        break;
+		case TC_CHAR:
+			fprintf(file, "'%s'",code);
+                        MB_GetNextCode(&type, &code);
+                        IndentFunction = TRUE;
+                        if (InFunction)
+                        {
+                                if (type  != TC_END_FUNCTION) fprintf(file, ", ");
+                                IndentFunction = FALSE;
+                        }
+                        else    fprintf(file, ",\n");
+                        break;	
+		case TC_VAR_AFFECT:
+			name = atoi(code);
+			MB_GetVarInfo(name, MUIB_VarName, &code, MUIB_VarType, &type, TAG_END);
+			if (type == TYPEVAR_LOCAL_PTR) fprintf( file, "\t%s = ", code);
+			else fprintf(file, "\tObject->%s = ", code); 
+			IndentFunction = FALSE;
+			MB_GetNextCode(&type, &code);
+			break;
+		case TC_OBJ_ARG:
+		case TC_VAR_ARG:
+			name = atoi(code);
+			MB_GetVarInfo(name, MUIB_VarName, &code, MUIB_VarType, &type, TAG_END);
+			if (type == TYPEVAR_LOCAL_PTR) fprintf(file, "%s", code);
+			else			       fprintf(file, "Object->%s", code);
+			MB_GetNextCode(&type, &code);
+			if ((InFunction)&&(type != TC_END_FUNCTION)) fprintf(file, ", ");
+			if (!InFunction)
+			{
+				fprintf(file, ",\n");
+				IndentFunction = TRUE;
+			}
+			break;
+		case TC_END_FUNCTION:
+			MB_GetNextCode(&type, &code);
+			if (nb_function>1)
+			{
+				if (type != TC_END_FUNCTION) fprintf(file, "),");
+				else			     fprintf(file, ")");
+			}	
+			else
+			{
+				if (obj_function) fprintf(file, ");\n\n");
+				else		  fprintf(file, "),\n");
+				IndentFunction = TRUE;
+				InFunction     = FALSE;
+				obj_function   = FALSE;
+			}
+			nb_function--;
+			break;
+		case TC_BOOL:
+			if (*code == '0')	fprintf(file, "FALSE");
+			else			fprintf(file, "TRUE" );
+			MB_GetNextCode(&type, &code);
+			if (InFunction)
+			{
+				if (type != TC_END_FUNCTION)
+				{
+					fprintf(file, ", ");
+					IndentFunction = FALSE;
+				}
+			}
+			else fprintf(file, ",\n");
+			break;
+		case TC_MUIARG:
+			if (IndentFunction) Indent(nb_indent);
+			name = atoi(code);
+			fprintf(file, "%s", MUIStrings[name]);
+			MB_GetNextCode(&type, &code);
+			if (InFunction)
+			{
+				if (type != TC_END_FUNCTION)
+				{
+					fprintf(file, ", ");
+					IndentFunction = FALSE;
+				}
+			}
+			else
+			{
+				fprintf(file, ",\n");
+				IndentFunction = TRUE;
+			}
+			break;
+		case TC_MUIARG_ATTRIBUT:
+			if (IndentFunction) Indent(nb_indent);
+			name = atoi(code);
+			MB_GetNextCode(&type, &code);
+			if ((InObj)) fprintf(file, "%s,\n", MUIStrings[name]);
+			else
+			{
+				if (InFunction)
+				{
+					if (type != TC_END_FUNCTION)
+						fprintf(file, "%s,", MUIStrings[name]);
+					else	fprintf(file, "%s", MUIStrings[name]);
+				}
+				else
+				{
+					fprintf(file, "%s;\n\n", MUIStrings[name]);
+				}
+			}
+			break;
+		case TC_MUIARG_OBJ:
+			if (IndentFunction) Indent(nb_indent);
+			name = atoi(code);
+			MB_GetNextCode(&type, &code);
+			fprintf(file, "%s;\n\n", MUIStrings[name]);
+			break;
+		case TC_EXTERNAL_FUNCTION:
+			fprintf(file, "&%sHook", code);
+			MB_GetNextCode(&type, &code);
+			if (InFunction)
+			{
+				if (type != TC_END_FUNCTION)	
+				{
+					fprintf(file, ", ");
+					IndentFunction = FALSE;
+				}
+			}
+			else
+			{
+				fprintf(file, ",\n");
+				IndentFunction = TRUE;
+			}
+			break;
+		default:
+			printf("Type = %d\n", type);
+			printf("ERROR !!!!! THERE IS A PROBLEM WITH THIS FILE !!!\n");
+			End();
+			exit(1);
+			break;
+		}
+	}
+}
+
+void WriteNotify(void)
+{
+	ULONG	type;
+	char*	code;
+	int	name;
+	BOOL	indent = FALSE;
+
+	extern void End(void);
+
+	fprintf(file, "\n");
+	MB_GetNextNotify(&type, &code);
+	while(type != -1)
+	{
+		if (indent) fprintf(file, "\t\t");
+		indent = TRUE;
+		switch(type)
+		{
+		case TC_END_FUNCTION:
+		case TC_END_NOTIFICATION:
+			fprintf(file, ");\n\n");
+			MB_GetNextNotify(&type, &code);
+			indent = FALSE;
+			break;
+		case TC_BEGIN_NOTIFICATION:
+			name = atoi(code);
+			MB_GetVarInfo(name, MUIB_VarName, &code, MUIB_VarType, &type, TAG_END);
+			if (type == TYPEVAR_LOCAL_PTR) fprintf(file, "\tDoMethod(%s,\n", code);
+			else                           fprintf(file, "\tDoMethod(Object->%s,\n", code);
+			MB_GetNextNotify(&type, &code);
+			break;
+		case TC_FUNCTION:
+			name = atoi(code);
+			fprintf(file, "\t%s(", MUIStrings[name]);
+			MB_GetNextNotify(&type, &code);
+			indent = FALSE;
+			break;
+		case TC_STRING:
+			fprintf(file, "\"%s\"",code);
+			MB_GetNextNotify(&type, &code);
+			if ((type  != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION))  fprintf(file, ",\n");
+			else fprintf(file, "\n");
+			break;
+		case TC_LOCALESTRING:
+			fprintf(file, "%s(%s)",GetMBString, code);
+                        MB_GetNextNotify(&type, &code);
+                        if ((type  != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+                        break;
+		case TC_LOCALECHAR:
+			fprintf(file, "%s(%s)[0]\n",GetString, code);
+                        MB_GetNextNotify(&type, &code);
+                        if ((type  != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+                        break;
+		case TC_INTEGER:
+			fprintf(file, "%s", code);
+                        MB_GetNextNotify(&type, &code);
+                        if ((type  != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+                        break;
+		case TC_CHAR:
+			fprintf(file, "'%s'",code);
+                        MB_GetNextNotify(&type, &code);
+                        if ((type  != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+                        break;	
+		case TC_VAR_ARG:
+			name = atoi(code);
+			MB_GetVarInfo(name, MUIB_VarName, &code, MUIB_VarType, &type, TAG_END);
+			if ((type==TYPEVAR_LOCAL_PTR)||(type==TYPEVAR_EXTERNAL_PTR)) fprintf(file, "%s", code);
+			else                           fprintf(file, "Object->%s", code);
+			MB_GetNextNotify(&type, &code);
+			if ((type != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+			break;
+		case TC_BOOL:
+			if (*code == '0')	fprintf(file, "FALSE");
+			else			fprintf(file, "TRUE" );
+			MB_GetNextNotify(&type, &code);
+			if ((type != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+			break;
+		case TC_MUIARG:
+		case TC_MUIARG_OBJ:
+			name = atoi(code);
+			fprintf(file, "%s", MUIStrings[name]);
+			MB_GetNextNotify(&type, &code);
+			if ((type != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ", ");
+			indent = FALSE;
+			break;
+		case TC_MUIARG_ATTRIBUT:
+			name = atoi(code);
+			fprintf(file, "%s", MUIStrings[name]);
+			MB_GetNextNotify(&type, &code);
+			if ((type != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+			break;
+		case TC_EXTERNAL_CONSTANT:
+                        fprintf(file, "%s", code);
+                        MB_GetNextNotify(&type, &code);
+                        if ((type != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+                        break;
+		case TC_EXTERNAL_FUNCTION:
+			fprintf(file, "&%sHook", code);
+			MB_GetNextNotify(&type, &code);
+                        if ((type != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+			break;
+		case TC_EXTERNAL_VARIABLE:
+			fprintf(file, "%s", code);
+			MB_GetNextNotify(&type, &code);
+                        if ((type != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
+			else fprintf(file, "\n");
+			break;
+		default:
+			printf("Type = %d\n", type);
+			printf("ERROR !!!!! THERE IS A PROBLEM WITH THIS FILE !!!\n");
+			End();
+			exit(1);
+			break;
+		}
+	}
+}
+
+void Init(void)
+{
+	BPTR	lock;
+
+	/* Get all needed variables */
+	MB_Get	(
+		MUIB_VarNumber		, &varnb,
+		MUIB_Code		, &Code,
+		MUIB_Environment	, &Env,
+		MUIB_Locale		, &Locale,
+		MUIB_Notifications	, &Notifications,
+		MUIB_Declarations	, &Declarations,
+		MUIB_FileName		, &FileName,
+		MUIB_CatalogName	, &CatalogName,
+		MUIB_GetStringName	, &GetString,
+		TAG_END
+		);
+
+	/* Create 'GetMBString' name */
+	if (strcmp(GetString, "GetMBString") == 0) GetMBString  = "GetMBString2";
+	else					   GetMBString = "GetMBString";
+
+	/* Create File Names */
+	remove_extend(FileName);
+	strncpy(GUIFile, FileName, 512);
+	add_extend(GUIFile, ".c");
+	strncpy(HeaderFile, FileName, 512);
+	add_extend(HeaderFile, ".h");
+	strncpy(Externals, FileName, 512);
+	strncat(Externals, "Extern", 512);
+	add_extend(Externals, ".h");
+	strncpy(Main, FileName, 512);
+	strncat(Main, "Main", 512);
+	add_extend(Main, ".c");
+
+
+	/* Get Current Directory Name */
+	lock = Lock("PROGDIR:", ACCESS_READ);
+	NameFromLock(lock, MBDir, 512);
+	UnLock(lock);
+}
+
+void WriteHeaderFile(void)
+{
+	char	*name;
+	char	buffer[600];
+	char	buffer2[600];
+
+	if (Env)
+	{
+		strncpy(buffer, MBDir, 600);
+		AddPart(buffer, "H-Header", 512);
+		sprintf(buffer2, "copy \"%s\" \"%s\"", buffer, HeaderFile);
+		Execute(buffer2,0,0);
+	}
+	else   DeleteFile(HeaderFile);
+	file = fopen(HeaderFile, "a+");
+	if (file)
+	{
+		MB_GetVarInfo(0, MUIB_VarName, &name, TAG_END);
+		fprintf(file, "struct Obj%s\n{\n", name);
+		WriteDeclarations(TYPEVAR_PTR 	   );
+		WriteDeclarations(TYPEVAR_BOOL	   );
+		WriteDeclarations(TYPEVAR_INT 	   );
+		WriteDeclarations(TYPEVAR_STRING   );
+		WriteDeclarations(TYPEVAR_TABSTRING);
+		fprintf(file, "};\n\n");
+		if (Notifications)
+		{
+			WriteDeclarations(TYPEVAR_IDENT    );
+			fprintf(file, "\n");
+		}
+		if (Env)
+		{
+			fprintf(file,"extern struct Obj%s * Create%s(void);\n", name, name);
+			fprintf(file,"extern void Dispose%s(struct Obj%s *);\n", name, name);
+		}
+		fclose(file);
+	}
+}
+
+void WriteGUIFile(void)
+{
+	char	buffer[600];
+	char	buffer2[600];
+	char	*name;
+
+	if (Env)
+	{
+		strncpy(buffer, MBDir, 600);
+		AddPart(buffer, "C-Header", 512);
+		sprintf(buffer2, "copy \"%s\" \"%s\"", buffer, GUIFile);
+		Execute(buffer2,0,0);
+	}
+	else DeleteFile(GUIFile);
+	if (file = fopen(GUIFile, "a+"))
+	  {
+	    if (Env)
+	      {
+		MB_GetVarInfo(0, MUIB_VarName, &name, TAG_END);
+		fprintf(file, "\n#include \"%s\"\n", FilePart(HeaderFile));
+		if (ExternalExist) fprintf(file, "#include \"%s\"\n\n", FilePart(Externals));
+		if (Locale)
+		  {
+		    remove_extend( CatalogName );
+		    fprintf(file, "#include \"%s_cat.h\"\n\n", FilePart(CatalogName) );
+		    fprintf(file, "extern char* %s(int);\n", GetString);
+		    fprintf(file, "\nstatic char *%s(int ref)\n{\n", GetMBString);
+		    fprintf(file, "\tchar *aux;\n\n");
+		    fprintf(file, "\taux = %s(ref);\n", GetString);
+		    fprintf(file, "\tif (aux[1] == '\\0') return(&aux[2]);\n");
+		    fprintf(file, "\telse                return(aux);\n}\n");
+		  }
+		fprintf(file, "\nstruct Obj%s * Create%s(", name, name);
+		WriteParameters();
+		fprintf(file, ")\n");
+		fprintf(file, "{\n\tstruct Obj%s * Object;\n\n", name);
+	      }
+	    if (Declarations)
+	      {
+		WriteDeclarations   (TYPEVAR_LOCAL_PTR);
+		WriteInitialisations(TYPEVAR_HOOK    );
+	      }
+	    if (Env) fprintf(file, "\n\tif (!(Object = AllocVec(sizeof(struct Obj%s), MEMF_PUBLIC|MEMF_CLEAR)))\n\t\treturn(NULL);\n", name);
+	    if (Declarations)
+	      {
+		WriteInitialisations(TYPEVAR_PTR      );
+		WriteInitialisations(TYPEVAR_BOOL     );
+		WriteInitialisations(TYPEVAR_INT      );
+		WriteInitialisations(TYPEVAR_STRING   );
+		WriteInitialisations(TYPEVAR_TABSTRING);
+	      }
+	    if (Code) WriteCode();
+	    if (Env)
+	      {
+		fprintf(file, "\n\tif (!Object->%s)\n\t{\n\t\tFreeVec(Object);", name);
+		fprintf(file, "\n\t\treturn(NULL);\n\t}\n");
+	      }
+	    if (Notifications)
+	      {
+		WriteNotify();
+	      }
+	    if (Env)
+	      {
+		fprintf(file, "\n\treturn(Object);\n}\n");
+		fprintf(file, "\nvoid Dispose%s(struct Obj%s * Object)\n{\n", name, name);
+		fprintf(file, "\tMUI_DisposeObject(Object->%s);\n", name);
+		fprintf(file, "\tFreeVec(Object);\n}\n");
+	      }
+	    fclose(file);
+	  }
+	else printf("Unable to open GUI-File !\n");
+}
+
+/* Create a file where are the external variables and functions declarations */
+BOOL WriteExternalFile( void )
+{
+	int	i;
+	ULONG	length, type;
+	BPTR	TMPfile;
+	char	*adr_file = NULL;
+	__aligned struct  FileInfoBlock   Info;
+	BOOL	bool_aux = FALSE;
+	char    *varname;
+	BOOL	result = FALSE;
+
+	/* If the file already exists, we load it in memory */
+	if (TMPfile = Open(Externals, MODE_OLDFILE))
+	{
+		ExamineFH(TMPfile, &Info);
+		length = Info.fib_Size;
+		adr_file = AllocVec(length+1, MEMF_PUBLIC|MEMF_CLEAR);
+		Read( TMPfile, adr_file, length);
+		adr_file[length] = '\0';
+		Close(TMPfile);
+	}
+	if (file = fopen(Externals, "a+"))
+	{
+		for(i=0;i<varnb;i++)
+		{
+			MB_GetVarInfo (i,
+			   		MUIB_VarType, &type,
+			   		MUIB_VarName, &varname,
+					TAG_END
+			     	);
+			switch(type)	/* if the declaration doesn't exist, we generate it */
+			{
+			case TYPEVAR_EXTERNAL:
+				if (adr_file) bool_aux = (strstr(adr_file,varname)!=NULL);
+				if (!bool_aux) fprintf(file, "extern int %s;\n", varname);
+				break;
+			case TYPEVAR_HOOK:
+				if (adr_file) bool_aux = (strstr(adr_file,varname)!=NULL);
+				if (!bool_aux) fprintf(file, "extern void %s( Object* );\n", varname);
+				break;
+			}
+		}
+		fclose(file);
+	}
+	if (adr_file) FreeVec(adr_file);
+	if (TMPfile = Open(Externals, MODE_OLDFILE))	/* if the file is 0 bytes long : we remove it */
+	{
+		ExamineFH(TMPfile, &Info);
+		Close(TMPfile);
+		length = Info.fib_Size;
+		if (length == 0) DeleteFile(Externals);
+		else		 result = TRUE;
+	}
+	return(result);
+}
+
+void End(void)
+{
+	MB_Close();		/* Free Memory and Close Temporary Files */
+	if (MUIBBase) CloseLibrary(MUIBBase);	/* Close Library */
+	if (DOSBase) CloseLibrary(DOSBase);
+}
+
+int main()
+{
+	/* Open MUIBuilder Library */
+	MUIBBase = OpenLibrary("muibuilder.library", 0);
+
+	/* Open Dos Library */
+	DOSBase  = OpenLibrary("dos.library", 0);
+
+	/* exit if it can't open */
+	if ((!MUIBBase)||(!DOSBase))
+	{
+		printf("Unable to open a library\n");
+		exit(20);
+	}
+
+	/* exit if we can't init the Library */
+	if (!MB_Open())
+	{
+		printf("Unable to Get Temporary files !\n");
+		End();
+		exit(20);
+	}
+
+	Init();
+
+	if (Declarations) 	WriteHeaderFile();
+	if (Env) 		ExternalExist = WriteExternalFile();
+				WriteGUIFile();
+
+	End();
+
+	exit(0);
+}
