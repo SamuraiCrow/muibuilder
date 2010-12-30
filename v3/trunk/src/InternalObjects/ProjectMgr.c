@@ -23,19 +23,15 @@
 
 ***************************************************************************/
 
-#include <dos/dos.h>
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/utility_protos.h>
-#include <clib/muimaster_protos.h>
+#define MUI_OBSOLETE
 
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/dos_pragmas.h>
-#include <pragmas/intuition_pragmas.h>
-#include <pragmas/utility_pragmas.h>
-#include <pragmas/muimaster_pragmas.h>
+#include <dos/dos.h>
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/intuition.h>
+#include <proto/utility.h>
+#include <proto/muimaster.h>
 
 #include <libraries/mui.h>
 #include <exec/memory.h>
@@ -44,22 +40,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "/object.h"
-#include "/LoadSave/Save.h"
-
-#if defined(_DCC)
-#define REG(x) __ ## x
-#define SAVEDS __geta4
-#define ASM
-#define REGARGS __regargs
-#else
-#if defined(__SASC)
-#define REG(x) register __ ## x
-#define SAVEDS __saveds
-#define ASM __asm
-#define REGARGS __regargs
-#endif
-#endif
+#include "../object.h"
+#include "../LoadSave/Save.h"
+#include "SDI_compiler.h"
+#include "SDI_hook.h"
 
 #define SUPERCLASS MUIC_Window
 
@@ -89,7 +73,8 @@ struct MUI_CustomClass *ProjectMgrClass;
 /* ProjectMgr Class Definition */
 /*******************************/
 
-ULONG SAVEDS ASM DisplayRessource(REG(a2) char **array, REG(a1) Object *obj)
+HOOKPROTONH(DisplayRessource, ULONG, char **array, Object *obj)
+//ULONG SAVEDS ASM (REG(a2) char **array, REG(a1) Object *obj)
 {
   static char *txt;
 
@@ -102,7 +87,8 @@ ULONG SAVEDS ASM DisplayRessource(REG(a2) char **array, REG(a1) Object *obj)
   return(0);
 }
 
-ULONG SAVEDS ASM RessourceEdit(REG(a2) Object *list)
+HOOKPROTONHNP(RessourceEdit, ULONG, Object *list)
+//ULONG SAVEDS ASM RessourceEdit(REG(a2) Object *list)
 {
   APTR res;
 
@@ -115,7 +101,8 @@ ULONG SAVEDS ASM RessourceEdit(REG(a2) Object *list)
   return(0);
 }
 
-ULONG SAVEDS ASM NewRessource(REG(a2) Object *prjmgr)
+HOOKPROTONHNP(NewRessource, ULONG, Object *prjmgr)
+//ULONG SAVEDS ASM NewRessource(REG(a2) Object *prjmgr)
 {
   struct ProjectMgrData *data;
   int    restype;
@@ -155,9 +142,9 @@ SAVEDS ULONG mNewProjectMgr(Class *cl, Object *obj, struct opSet *msg)
       "AmigaGuide",
       NULL
     };
-  static const struct Hook DisplayHook = {{NULL, NULL}, (VOID*)DisplayRessource, NULL, NULL};
-  static const struct Hook RessourceEditHook = {{NULL, NULL}, (VOID*)RessourceEdit, NULL, NULL};
-  static const struct Hook NewRessourceHook = {{NULL, NULL}, (VOID*)NewRessource, NULL, NULL};
+  MakeStaticHook(DisplayHook, DisplayRessource);
+  MakeStaticHook(RessourceEditHook, RessourceEdit);
+  MakeStaticHook(NewRessourceHook, NewRessource);
 
   retval = (APTR)DoSuperNew(cl, obj,
                             MUIA_Window_Title, "ProjectMgr",
@@ -256,9 +243,7 @@ SAVEDS ULONG mGetProjectMgr(Class *cl, Object *obj, struct opGet * msg)
   return(retval);
 }
 
-ASM SAVEDS ULONG mSetProjectMgr(REG(a0) Class *cl,
-                               REG(a2) Object *obj,
-                               REG(a1) struct opSet *msg)
+ASM SAVEDS ULONG mSetProjectMgr(Class *cl, Object *obj, struct opSet *msg)
 {
   struct ProjectMgrData *data = INST_DATA(cl, obj);
   struct TagItem *ti, *tstate;
@@ -299,9 +284,7 @@ SAVEDS ULONG mSaveProjectMgr(Class *cl, Object *obj, Msg msg)
   return(DoSuperMethodA(cl, obj, msg));
 }
 
-ASM SAVEDS ULONG DispatcherProjectMgr(REG(a0) struct IClass *cl,
-                                     REG(a2) Object *obj,
-                                     REG(a1) Msg msg)
+DISPATCHER(DispatcherProjectMgr)
 {
   APTR retval = NULL;
 

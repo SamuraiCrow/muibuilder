@@ -24,18 +24,12 @@
 ***************************************************************************/
 
 #include <dos/dos.h>
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/utility_protos.h>
-#include <clib/muimaster_protos.h>
-
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/dos_pragmas.h>
-#include <pragmas/intuition_pragmas.h>
-#include <pragmas/utility_pragmas.h>
-#include <pragmas/muimaster_pragmas.h>
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/intuition.h>
+#include <proto/utility.h>
+#include <proto/muimaster.h>
 
 #include <libraries/mui.h>
 #include <libraries/gadtools.h>
@@ -45,22 +39,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "/object.h"
-#include "/LoadSave/Save.h"
-
-#if defined(_DCC)
-#define REG(x) __ ## x
-#define SAVEDS __geta4
-#define ASM
-#define REGARGS __regargs
-#else
-#if defined(__SASC)
-#define REG(x) register __ ## x
-#define SAVEDS __saveds
-#define ASM __asm
-#define REGARGS __regargs
-#endif
-#endif
+#include "../object.h"
+#include "../LoadSave/Save.h"
+#include "SDI_compiler.h"
+#include "SDI_hook.h"
 
 #define SUPERCLASS MUIC_Window
 
@@ -86,7 +68,8 @@ int    windowid = 10000;
 /* MUIBMain Class Definition */
 /******************************/
 
-ULONG SAVEDS ASM DisplayProjects(REG(a2) char **array, REG(a1) Object *obj)
+HOOKPROTONH(DisplayProjects, ULONG, char **array, Object *obj)
+//ULONG SAVEDS ASM DisplayProjects(REG(a2) char **array, REG(a1) Object *obj)
 {
   char *txt;
 
@@ -97,7 +80,8 @@ ULONG SAVEDS ASM DisplayProjects(REG(a2) char **array, REG(a1) Object *obj)
   return(0);
 }
 
-ULONG SAVEDS ASM ProjectEdit(REG(a2) Object *list)
+HOOKPROTONHNP(ProjectEdit, ULONG, Object *list)
+//ULONG SAVEDS ASM ProjectEdit(REG(a2) Object *list)
 {
   APTR project;
 
@@ -110,7 +94,8 @@ ULONG SAVEDS ASM ProjectEdit(REG(a2) Object *list)
   return(0);
 }
 
-ULONG SAVEDS ASM AboutMUI(REG(a2) Object *obj)
+HOOKPROTONHNP(AboutMUI, ULONG, Object *obj)
+//ULONG SAVEDS ASM AboutMUI(REG(a2) Object *obj)
 {
   if (!aboutmui)
     {
@@ -124,14 +109,16 @@ ULONG SAVEDS ASM AboutMUI(REG(a2) Object *obj)
   return(0);
 }
 
-ULONG SAVEDS ASM AboutMUIBuilder(REG(a2) Object *obj)
+HOOKPROTONHNP(AboutMUIBuilder, ULONG, Object *obj)
+//ULONG SAVEDS ASM AboutMUIBuilder(REG(a2) Object *obj)
 {
-  MUI_Request(app, obj, 0, NULL, "Ok", "\033cMUIBuilder 3.0\n\nMUI Application Builder\n\nBy\nEric Totel\nand\nJérome Souquières");
+  MUI_Request(app, obj, 0, NULL, "Ok", "\033cMUIBuilder 3.0\n\nMUI Application Builder\n\nBy\nEric Totel\nand\nJérome Souquières", NULL);
 
   return(0);
 }
 
-ULONG SAVEDS ASM LoadProject(REG(a2) Object *list)
+HOOKPROTONHNP(LoadProject, ULONG, Object *list)
+//ULONG SAVEDS ASM LoadProject(REG(a2) Object *list)
 {
   Object *project;
 
@@ -166,11 +153,11 @@ SAVEDS ULONG mNewMUIBMain(Class *cl, Object *obj, struct opSet *msg)
   APTR retval = NULL;
   APTR projects, btedit, btdelete, btnew, mnsave, mnsaveas, mnload, mnpalette, mninspector;
   APTR mnaboutmui, mnaboutmuib, mnquit;
-  static const struct Hook DisplayHook = {{NULL, NULL}, (VOID*)DisplayProjects, NULL, NULL};
-  static const struct Hook ProjectEditHook = {{NULL, NULL}, (VOID*)ProjectEdit, NULL, NULL};
-  static const struct Hook AboutMUIHook = {{NULL, NULL}, (VOID*)AboutMUI, NULL, NULL};
-  static const struct Hook AboutMUIBuilderHook = {{NULL, NULL}, (VOID*)AboutMUIBuilder, NULL, NULL};
-  static const struct Hook LoadProjectHook = {{NULL, NULL}, (VOID*)LoadProject, NULL, NULL};
+  MakeStaticHook(DisplayHook, DisplayProjects);
+  MakeStaticHook(ProjectEditHook, ProjectEdit);
+  MakeStaticHook(AboutMUIHook, AboutMUI);
+  MakeStaticHook(AboutMUIBuilderHook, AboutMUIBuilder);
+  MakeStaticHook(LoadProjectHook, LoadProject);
 
   retval = (APTR)DoSuperNew(cl, obj,
                             MUIA_Window_Title, "MUIBuilder",
@@ -303,9 +290,7 @@ SAVEDS ULONG mSaveMUIBMain(Class *cl, Object *obj, Msg msg)
   return(0);
 }
 
-ASM SAVEDS ULONG DispatcherMUIBMain(REG(a0) struct IClass *cl,
-                                     REG(a2) Object *obj,
-                                     REG(a1) Msg msg)
+DISPATCHER(DispatcherMUIBMain)
 {
   APTR retval = NULL;
 

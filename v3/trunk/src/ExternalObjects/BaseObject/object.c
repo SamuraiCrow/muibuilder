@@ -24,34 +24,15 @@
 ***************************************************************************/
 
 #include <dos/dos.h>
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/utility_protos.h>
-#include <clib/muimaster_protos.h>
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/intuition.h>
+#include <proto/utility.h>
+#include <proto/muimaster.h>
 
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/dos_pragmas.h>
-#include <pragmas/intuition_pragmas.h>
-#include <pragmas/utility_pragmas.h>
-#include <pragmas/muimaster_pragmas.h>
-
-#include "/Object.h"
-
-#if defined(_DCC)
-#define REG(x) __ ## x
-#define SAVEDS __geta4
-#define ASM
-#define REGARGS __regargs
-#else
-#if defined(__SASC)
-#define REG(x) register __ ## x
-#define SAVEDS __saveds
-#define ASM __asm
-#define REGARGS __regargs
-#endif
-#endif
+#include "../Object.h"
+#include "SDI_compiler.h"
 
 struct Library *UtilityBase = NULL;
 struct Library *IntuitionBase = NULL;

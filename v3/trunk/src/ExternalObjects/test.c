@@ -24,18 +24,13 @@
 ***************************************************************************/
 
 #include <dos/dos.h>
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/utility_protos.h>
-#include <clib/muimaster_protos.h>
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/intuition.h>
+#include <proto/utility.h>
+#include <proto/muimaster.h>
 
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/dos_pragmas.h>
-#include <pragmas/intuition_pragmas.h>
-#include <pragmas/utility_pragmas.h>
-#include <pragmas/muimaster_pragmas.h>
 #include <exec/memory.h>
 
 #include <stdio.h>

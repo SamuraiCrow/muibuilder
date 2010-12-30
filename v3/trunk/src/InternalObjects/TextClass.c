@@ -23,19 +23,15 @@
 
 ***************************************************************************/
 
-#include <dos/dos.h>
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/utility_protos.h>
-#include <clib/muimaster_protos.h>
+#define MUI_OBSOLETE
 
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/dos_pragmas.h>
-#include <pragmas/intuition_pragmas.h>
-#include <pragmas/utility_pragmas.h>
-#include <pragmas/muimaster_pragmas.h>
+#include <dos/dos.h>
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/intuition.h>
+#include <proto/utility.h>
+#include <proto/muimaster.h>
 
 #include <libraries/mui.h>
 #include <exec/memory.h>
@@ -43,25 +39,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "/object.h"
-#include "/LoadSave/Save.h"
-#include "/Libs/strings.h"
-
-#if defined(_DCC)
-#define REG(x) __ ## x
-#define SAVEDS __geta4
-#define ASM
-#define REGARGS __regargs
-#else
-#if defined(__SASC)
-#define REG(x) register __ ## x
-#define SAVEDS __saveds
-#define ASM __asm
-#define REGARGS __regargs
-#endif
-#endif
-
-#define MUI_OBSOLETE
+#include "../object.h"
+#include "../LoadSave/Save.h"
+#include "../Libs/strings.h"
+#include "SDI_compiler.h"
 
 struct TextData
 {
@@ -339,7 +320,6 @@ SAVEDS ULONG DispatcherText(struct IClass *cl,
 
 void InitTextClass(void)
 {
-  extern ULONG HookEntry();
   extern ULONG InitGUITextClass(void);
 
   if (TextClass = MakeClass("MBTextClass", "MBAreaClass", NULL, sizeof(struct TextData), 0))

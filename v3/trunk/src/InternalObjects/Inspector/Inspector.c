@@ -23,19 +23,15 @@
 
 ***************************************************************************/
 
-#include <dos/dos.h>
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/utility_protos.h>
-#include <clib/muimaster_protos.h>
+#define MUI_OBSOLETE
 
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/dos_pragmas.h>
-#include <pragmas/intuition_pragmas.h>
-#include <pragmas/utility_pragmas.h>
-#include <pragmas/muimaster_pragmas.h>
+#include <dos/dos.h>
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/intuition.h>
+#include <proto/utility.h>
+#include <proto/muimaster.h>
 
 #include <libraries/mui.h>
 #include <exec/memory.h>
@@ -50,22 +46,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "//object.h"
+#include "../../object.h"
 #include "NotifyGroup.h"
-
-#if defined(_DCC)
-#define REG(x) __ ## x
-#define SAVEDS __geta4
-#define ASM
-#define REGARGS __regargs
-#else
-#if defined(__SASC)
-#define REG(x) register __ ## x
-#define SAVEDS __saveds
-#define ASM __asm
-#define REGARGS __regargs
-#endif
-#endif
+#include "SDI_compiler.h"
+#include "SDI_hook.h"
 
 #define SUPERCLASS MUIC_Window
 
@@ -152,7 +136,8 @@ SAVEDS void UpdateAttributes(Class *cl, Object *obj)
   DoMethod(data->attrgrp, MUIM_Group_ExitChange, TAG_DONE);
 }
 
-SAVEDS void UpdateDisplay(Object *obj)
+HOOKPROTONHNP(UpdateDisplay, void, Object *obj)
+//SAVEDS void UpdateDisplay(Object *obj)
 {
   struct InspectorData *data = INST_DATA(InspectorClass->mcc_Class, obj);
   ULONG  cycleval;
@@ -181,7 +166,8 @@ SAVEDS void UpdateDisplay(Object *obj)
 }
 
 /* Apply attributes change on object */
-SAVEDS ASM ULONG ApplyFunction(REG(a2) Object *obj)
+HOOKPROTONHNP(ApplyFunction, ULONG, Object *obj)
+//SAVEDS ASM ULONG ApplyFunction(REG(a2) Object *obj)
 {
   APTR muiobj, muibobj, parent;
   struct InspectorData * data;
@@ -268,8 +254,8 @@ SAVEDS ULONG mNewInspector(Class *cl, Object *obj, struct opSet *msg)
   struct InspectorData *data;
   APTR retval = NULL;
   APTR cycle, grp, attrgrp, helpgrp, btapply, btrevert, strlabel;
-  static const struct Hook ApplyFunctionHook = { { NULL,NULL },(VOID *)ApplyFunction,NULL,NULL };
-  static const struct Hook UpdateDisplayHook = { { NULL,NULL },(VOID *)UpdateDisplay,NULL,NULL };
+  MakeStaticHook(ApplyFunctionHook, ApplyFunction);
+  MakeStaticHook(UpdateDisplayHook, UpdateDisplay);
   static char *GroupNames[] =
     {
       "Attributes",
@@ -325,7 +311,7 @@ SAVEDS ULONG mNewInspector(Class *cl, Object *obj, struct opSet *msg)
       data->current = (APTR)GetTagData(MBA_Inspector_CurrentObject,
                                        NULL,
                                        msg->ops_AttrList);
-      if (data->current) UpdateDisplay(retval);
+      if (data->current) UpdateDisplay(0, retval, 0); // FIXME: hook function call!
     }
 
   return((ULONG)retval);
@@ -336,9 +322,7 @@ ULONG mDisposeInspector(Class *cl, Object *obj, Msg msg)
   return(DoSuperMethodA(cl, obj, msg));
 }
 
-ASM SAVEDS ULONG mSetInspector(REG(a0) Class *cl,
-                               REG(a2) Object *obj,
-                               REG(a1) struct opSet *msg)
+ASM SAVEDS ULONG mSetInspector(Class *cl, Object *obj, struct opSet *msg)
 {
   struct InspectorData *data = INST_DATA(cl, obj);
   struct TagItem *ti, *tstate;
@@ -355,7 +339,7 @@ ASM SAVEDS ULONG mSetInspector(REG(a0) Class *cl,
       if (data->current != (Object*)ti->ti_Data)
         {
           data->current = (Object*)ti->ti_Data;
-          UpdateDisplay(obj);
+          UpdateDisplay(0, obj,0); // FIXME: hook function call
 	  set(obj, MUIA_Window_Open, TRUE);
         }
       retval = 1L;
@@ -369,9 +353,7 @@ ASM SAVEDS ULONG mSetInspector(REG(a0) Class *cl,
   return(retval);
 }
 
-ASM SAVEDS ULONG DispatcherInspector(REG(a0) struct IClass *cl,
-                                     REG(a2) Object *obj,
-                                     REG(a1) Msg msg)
+DISPATCHER(DispatcherInspector)
 {
   APTR retval = NULL;
 

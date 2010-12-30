@@ -23,11 +23,9 @@
 
 ***************************************************************************/
 
-#include <clib/muimaster_protos.h>
-#include <clib/asl_protos.h>
+#include <proto/muimaster.h>
+#include <proto/asl.h>
 #include <libraries/mui.h>
-#include <pragmas/muimaster_pragmas.h>
-#include <pragmas/asl_pragmas.h>
 #include <string.h>
 
 /* 'dir'&'file' parameters memory must be allocated before call */ 

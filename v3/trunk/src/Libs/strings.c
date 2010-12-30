@@ -23,7 +23,7 @@
 
 ***************************************************************************/
 
-#include <clib/exec_protos.h>
+#include <proto/exec.h>
 #include <exec/memory.h>
 #include <stdio.h>
 #include <string.h>

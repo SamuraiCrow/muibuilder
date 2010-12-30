@@ -1,0 +1,119 @@
+CC = i386-aros-gcc
+CFLAGS = -g -Iinclude -D__UTILITY_STDLIBBASE__ -D__INTUITION_STDLIBBASE__
+LDFLAGS = -g -lmui
+EXE = MUIBuilder
+RM = rm -f
+
+OBJS= builder.o InternalObjects/BaseClass.o \
+      InternalObjects/AreaClass.o \
+      InternalObjects/GroupClass.o InternalObjects/GUIGroupClass.o \
+      InternalObjects/ButtonClass.o InternalObjects/GUIButtonClass.o \
+      InternalObjects/WindowClass.o InternalObjects/GUIWindowClass.o \
+      InternalObjects/Palette.o InternalObjects/ProjectMgr.o \
+      InternalObjects/TextClass.o InternalObjects/GUITextClass.o \
+      InternalObjects/GaugeClass.o InternalObjects/GUIGaugeClass.o \
+      InternalObjects/MUIBuilderMain.o \
+      InternalObjects/Inspector/Inspector.o InternalObjects/Inspector/DDGroup.o \
+      InternalObjects/Inspector/HelpGroup.o InternalObjects/Inspector/NotifyGroup.o \
+      InternalObjects/Inspector/DDText.o \
+      LoadSave/Save.o Libs/strings.o
+
+SRCS= builder.c InternalObjects/BaseClass.c \
+      InternalObjects/AreaClass.c \
+      InternalObjects/GroupClass.c InternalObjects/GUIGroupClass.c \
+      InternalObjects/ButtonClass.c InternalObjects/GUIButtonClass.c \
+      InternalObjects/WindowClass.c InternalObjects/GUIWindowClass.c \
+      InternalObjects/Palette.c InternalObjects/ProjectMgr.c \
+      InternalObjects/TextClass.c InternalObjects/GUITextClass.c \
+      InternalObjects/GaugeClass.c InternalObjects/GUIGaugeClass.c \
+      InternalObjects/MUIBuilderMain.c \
+      InternalObjects/Inspector/Inspector.c InternalObjects/Inspector/DDGroup.c \
+      InternalObjects/Inspector/HelpGroup.c InternalObjects/Inspector/NotifyGroup.c \
+      InternalObjects/Inspector/DDText.c \
+      LoadSave/Save.c Libs/strings.c
+
+.PHONY: all
+all: $(EXE)
+
+$(EXE): $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+.PHONY: clean
+clean:
+	$(RM) $(EXE) $(OBJS)
+
+.PHONY: distclean
+distclean:
+	clean
+
+.PHONY: deps
+deps:
+	$(CC) -MM $(CFLAGS) $(SRCS)
+
+BaseClass.o: InternalObjects/BaseClass.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h include/SDI_compiler.h
+AreaClass.o: InternalObjects/AreaClass.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h \
+  InternalObjects/../LoadSave/Save.h include/SDI_compiler.h
+GroupClass.o: InternalObjects/GroupClass.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h \
+  InternalObjects/../LoadSave/Save.h include/SDI_compiler.h
+GUIGroupClass.o: InternalObjects/GUIGroupClass.c \
+  InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h include/SDI_compiler.h
+ButtonClass.o: InternalObjects/ButtonClass.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h \
+  InternalObjects/../LoadSave/Save.h InternalObjects/../Libs/strings.h \
+  include/SDI_compiler.h
+GUIButtonClass.o: InternalObjects/GUIButtonClass.c \
+  InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h include/SDI_compiler.h
+WindowClass.o: InternalObjects/WindowClass.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h \
+  InternalObjects/../LoadSave/Save.h include/SDI_compiler.h
+GUIWindowClass.o: InternalObjects/GUIWindowClass.c \
+  InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h include/SDI_compiler.h
+Palette.o: InternalObjects/Palette.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h include/SDI_compiler.h
+ProjectMgr.o: InternalObjects/ProjectMgr.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h \
+  InternalObjects/../LoadSave/Save.h include/SDI_compiler.h
+TextClass.o: InternalObjects/TextClass.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h \
+  InternalObjects/../LoadSave/Save.h InternalObjects/../Libs/strings.h \
+  include/SDI_compiler.h
+GUITextClass.o: InternalObjects/GUITextClass.c \
+  InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h include/SDI_compiler.h
+GaugeClass.o: InternalObjects/GaugeClass.c InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h include/SDI_compiler.h
+GUIGaugeClass.o: InternalObjects/GUIGaugeClass.c \
+  InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h include/SDI_compiler.h
+MUIBuilderMain.o: InternalObjects/MUIBuilderMain.c \
+  InternalObjects/../object.h \
+  InternalObjects/../LoadSave/AttributeTypes.h \
+  InternalObjects/../LoadSave/Save.h include/SDI_compiler.h
+Inspector.o: InternalObjects/Inspector/Inspector.c \
+  InternalObjects/Inspector/../../object.h \
+  InternalObjects/Inspector/../../LoadSave/AttributeTypes.h \
+  InternalObjects/Inspector/NotifyGroup.h include/SDI_compiler.h
+DDGroup.o: InternalObjects/Inspector/DDGroup.c \
+  InternalObjects/Inspector/../../object.h \
+  InternalObjects/Inspector/../../LoadSave/AttributeTypes.h \
+  include/SDI_compiler.h
+HelpGroup.o: InternalObjects/Inspector/HelpGroup.c \
+  InternalObjects/Inspector/../../object.h \
+  InternalObjects/Inspector/../../LoadSave/AttributeTypes.h \
+  include/SDI_compiler.h
+NotifyGroup.o: InternalObjects/Inspector/NotifyGroup.c \
+  InternalObjects/Inspector/../../object.h \
+  InternalObjects/Inspector/../../LoadSave/AttributeTypes.h \
+  InternalObjects/Inspector/NotifyGroup.h include/SDI_compiler.h
+DDText.o: InternalObjects/Inspector/DDText.c \
+  InternalObjects/Inspector/../../object.h \
+  InternalObjects/Inspector/../../LoadSave/AttributeTypes.h \
+  include/SDI_compiler.h
+Save.o: LoadSave/Save.c LoadSave/AttributeTypes.h
+strings.o: Libs/strings.c
