@@ -1,36 +1,38 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 /* Main-Header File inserted by GenCodeC */
 /* Libraries */
 #include <libraries/mui.h>
 
 /* Prototypes */
-/*
-#include <clib/muimaster_protos.h>
-#include <clib/alib_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/gadtools_protos.h> /* for BARLABEL in MenuItem */
-*/
-
-/*  Pragmas  */
-#ifdef AZTEC_C
-#include <pragmas/muimaster_lib.h>
-#include <pragmas/exec_lib.h>
-#endif /*AZTEC_C*/
-
-#if defined(__SASC)  ||  defined(_DCC)  ||  defined(__MAXON__)
-#include <pragmas/muimaster_pragmas.h>
-#include <pragmas/exec_pragmas.h>
-#endif    /*__SASC||_DCC||__MAXON__*/
-
-#ifdef __GNUC__
 #include <proto/exec/h>
 #include <proto/alib.h>
 #include <proto/muimaster.h>
 #include <proto/dos.h>
 #include <proto/gadtools.h>
-//#include <inline/muimaster.h>
-//#include <inline/exec.h>
-#endif    /*__GNUC__*/
 
 /*  Ansi  */
 #include <stdlib.h>

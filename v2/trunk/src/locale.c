@@ -1,4 +1,29 @@
-#include "Notify.h"
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
+#include "notify.h"
 #include <ctype.h>
 
 #define EOL 10
@@ -11,7 +36,7 @@ char	catprepend[5];
 void InitLocale( void )
 {
   LocaleBase = OpenLibrary("locale.library",38L);
-  
+
   OpenMUIBuilderCatalog(NULL,NULL);
 }
 
@@ -40,7 +65,7 @@ void CreateLocaleString( char* chaine, char car )
   char	*aux;
   char	c;
   BOOL	search = TRUE;
-  
+
   c = tolower(car);
   aux = locale_string;
   if (car == '\0')
@@ -66,7 +91,7 @@ void NotifyCatalog( APTR obj, FILE *fichier )
   int i, id_dest;
   event *evt;
   object *obj_aux, *obj_aux2;
-  
+
   obj_aux = obj;
   for(i=0;i<obj_aux->notify->nb_elements;i++)
     {
@@ -106,9 +131,9 @@ void ObjectCatalog( APTR obj, FILE *fichier )
   popobject *popobj_aux;
   menu	*menu_aux;
   gauge *gauge_aux;
-  
+
   int             i;
-  
+
   NotifyCatalog(obj, fichier);
   obj_aux = obj;
   switch (obj_aux->id)
@@ -409,7 +434,7 @@ void CopyLines(FILE *tmp, FILE *fichier, int nb)
 {
   int  i;
   int aux = 0;
-  
+
   if (!feof(tmp))
     for(i=0;(i<nb)&&(aux != EOF);i++)
     {
@@ -425,7 +450,7 @@ void CopyLines(FILE *tmp, FILE *fichier, int nb)
 void CopyStrings(FILE *tmp, FILE *fichier)
 {
   char string[6];
-  
+
   while(!feof(tmp))
     {
       fgets(string, 6, tmp);
@@ -450,7 +475,7 @@ void CreateCatalog( void )
   int     i;
   BPTR    lock;
   char    command[529];
-  
+
   add_extend(catfile, ".cd");
   if (lock = Lock(catfile, ACCESS_READ))
     {

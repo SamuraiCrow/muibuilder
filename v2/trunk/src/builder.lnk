@@ -1,4 +1,0 @@
-FROM LIB:c.o "argnotify.o"+"asl.o"+"builder.o"+"button.o"+"check.o"+"child.o"+"code.o"+"codenotifydefs.o"+"colorfield.o"+"copy.o"+"cycle.o"+"delete.o"+"dir.o"+"dirlist.o"+"error.o"+"file.o"+"gauge.o"+"group.o"+"GroupArea.o"+"guide.o"+"image.o"+"initnotify.o"+"label.o"+"listview.o"+"load.o"+"locale.o"+"menu.o"+"muibuilder_cat.o"+"notify.o"+"popasl.o"+"popobject.o"+"prop.o"+"queue.o"+"radio.o"+"rectangle.o"+"save.o"+"scale.o"+"slider.o"+"space.o"+"string.o"+"test.o"+"testnotify.o"+"testnotifydefs.o"+"text.o"+"window.o"
-TO "builder"
-LIB LIB:sc.lib LIB:amiga.lib
-

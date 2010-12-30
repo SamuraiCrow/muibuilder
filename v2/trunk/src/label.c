@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -35,11 +60,11 @@ BOOL NewLabel( label *label_aux, BOOL new )
 
 	if (!(GR_GroupArea = CreateGR_AreaGroup(&label_aux->Area, FALSE, FALSE, FALSE, TRUE, FALSE)))
 		return(FALSE);
-	
+
 	RegisterTitles[0] = GetMUIBuilderString(MSG_Attributes);
 	RegisterTitles[1] = GetMUIBuilderString(MSG_Area);
 	RegisterTitles[2] = NULL;
-	
+
 	WI_label = WindowObject,
                 MUIA_Window_Title, GetMUIBuilderString(MSG_LabelChoice),
                 MUIA_Window_ID  , MAKE_ID('L','A','B','E'),

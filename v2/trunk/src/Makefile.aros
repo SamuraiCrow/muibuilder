@@ -1,7 +1,8 @@
 CC 	    = i386-aros-gcc
-CFLAGS  = -g -Wall -Wno-parentheses -Wno-missing-braces
+CFLAGS  = -g -Wall -Wno-parentheses -Wno-missing-braces -Wno-pointer-sign \
+          -DMUI_OBSOLETE
 LDFLAGS = -g -lmui
-EXE     = MUIBuilder
+EXE     = ../MUIBuilder
 RM      = rm -f
 
 OBJS= argnotify.o asl.o builder.o button.o check.o child.o code.o \
@@ -31,3 +32,65 @@ distclean:
 .PHONY: deps
 deps:
 	$(CC) -MM $(CFLAGS) $(SRCS)
+
+argnotify.o: argnotify.c notify.h builder2.h muibuilder_cat.h queue.h \
+  file.h grouparea.h notifyconstants.h
+asl.o: asl.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+builder.o: builder.c builder.h muibuilder_cat.h queue.h file.h \
+  muibuilder_rev.h beta.h
+button.o: button.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+check.o: check.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+child.o: child.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+code.o: code.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h \
+  muib_file.h codenotify.h notifyconstants.h beta.h
+codenotifydefs.o: codenotifydefs.c builder2.h muibuilder_cat.h queue.h \
+  file.h grouparea.h codenotify.h notifyconstants.h muib_file.h
+colorfield.o: colorfield.c builder2.h muibuilder_cat.h queue.h file.h \
+  grouparea.h
+copy.o: copy.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+cycle.o: cycle.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+delete.o: delete.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+dir.o: dir.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+dirlist.o: dirlist.c builder2.h muibuilder_cat.h queue.h file.h \
+  grouparea.h
+error.o: error.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+file.o: file.c
+gauge.o: gauge.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+group.o: group.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+grouparea.o: grouparea.c builder2.h muibuilder_cat.h queue.h file.h \
+  grouparea.h
+guide.o: guide.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+image.o: image.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+initnotify.o: initnotify.c notify.h builder2.h muibuilder_cat.h queue.h \
+  file.h grouparea.h notifyconstants.h
+label.o: label.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+listview.o: listview.c builder2.h muibuilder_cat.h queue.h file.h \
+  grouparea.h
+load.o: load.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+locale.o: locale.c notify.h builder2.h muibuilder_cat.h queue.h file.h \
+  grouparea.h notifyconstants.h
+menu.o: menu.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+muibuilder_cat.o: muibuilder_cat.c muibuilder_cat.h
+notify.o: notify.c notify.h builder2.h muibuilder_cat.h queue.h file.h \
+  grouparea.h notifyconstants.h
+popasl.o: popasl.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+popobject.o: popobject.c builder2.h muibuilder_cat.h queue.h file.h \
+  grouparea.h
+prop.o: prop.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+queue.o: queue.c queue.h
+radio.o: radio.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+rectangle.o: rectangle.c builder2.h muibuilder_cat.h queue.h file.h \
+  grouparea.h
+save.o: save.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+scale.o: scale.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+slider.o: slider.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+space.o: space.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+string.o: string.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+test.o: test.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+testnotify.o: testnotify.c testnotify.h builder2.h muibuilder_cat.h \
+  queue.h file.h grouparea.h notifyconstants.h
+testnotifydefs.o: testnotifydefs.c builder2.h muibuilder_cat.h queue.h \
+  file.h grouparea.h
+text.o: text.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h
+window.o: window.c builder2.h muibuilder_cat.h queue.h file.h grouparea.h \
+  muibuilder_rev.h

@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -44,7 +69,7 @@ APTR LoadCycle(FILE* fichier, APTR father, int version )
 			add( cycle_aux->entries, chaine_aux );
 		}
 	}
-	while( strcmp( chaine_aux, "//END_ENTRIES//" ) != 0 );	
+	while( strcmp( chaine_aux, "//END_ENTRIES//" ) != 0 );
 	FreeVec(chaine_aux);
 	for(i=0;i<cycle_aux->entries->nb_elements;i++)
 	{
@@ -94,7 +119,7 @@ BOOL NewCycle ( cycle *cycle_aux, BOOL new)
 
 	if (!(GR_GroupArea = CreateGR_AreaGroup(&cycle_aux->Area, FALSE, FALSE, FALSE, TRUE, FALSE)))
 		return(FALSE);
-	
+
 	RegisterTitles[0] = GetMUIBuilderString(MSG_Attributes);
 	RegisterTitles[1] = GetMUIBuilderString(MSG_Area);
 	RegisterTitles[2] = NULL;
@@ -165,7 +190,7 @@ BOOL NewCycle ( cycle *cycle_aux, BOOL new)
 	DoMethod( lv_entries, MUIM_Notify, MUIA_Listview_DoubleClick, TRUE, app, 2, MUIM_Application_ReturnID, ID_DBCLICK);
 
 	DoMethod( WI_cycle, MUIM_Window_SetCycleChain, RegGroup, lv_entries,  bt_new, bt_remove,
-		bt_up, bt_down, STR_entry, STR_label, bt_ok, bt_cancel, 
+		bt_up, bt_down, STR_entry, STR_label, bt_ok, bt_cancel,
 		GR_GroupArea->CH_Hide, GR_GroupArea->CH_Disable, GR_GroupArea->CH_InputMode,
 		GR_GroupArea->CH_Phantom, GR_GroupArea->SL_Weight,
 		GR_GroupArea->CY_Background, GR_GroupArea->CY_Frame,

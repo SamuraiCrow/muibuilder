@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -56,10 +81,10 @@ void Modify( APTR obj )
 					End,
 				Child, LV_text = ListviewObject,
 					MUIA_Listview_Input, FALSE,
-                			MUIA_Listview_List, FloattextObject,    
+                			MUIA_Listview_List, FloattextObject,
                         			MUIA_Floattext_Text, STR_LV_text,
-                        			ReadListFrame,              
-                        			End,                         
+                        			ReadListFrame,
+                        			End,
                 			End,
 				Child, BT_edit = MUI_MakeObject(MUIO_Button,  GetMUIBuilderString(MSG_EditNodeText)),
 				Child, GroupObject,
@@ -70,7 +95,7 @@ void Modify( APTR obj )
 					End,
 				End,
 			End;
-	
+
 	DoMethod( BT_ok, MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_OKWIN);
 	DoMethod( BT_cancel, MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_END);
 	DoMethod( BT_edit, MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_NEWGRP);
@@ -538,7 +563,7 @@ void Guide()
 					obj_aux = nth( windows, i );
 					fprintf( ficguide, "\t\t@{\" %s \" link %s }\n", obj_aux->Help.title, obj_aux->label );
 				}
-				fprintf( ficguide, "@ENDNODE\n\n"); 
+				fprintf( ficguide, "@ENDNODE\n\n");
 				for(i=0;i<windows->nb_elements;i++)
 				{
 					GenerateGuide(nth(windows,i));

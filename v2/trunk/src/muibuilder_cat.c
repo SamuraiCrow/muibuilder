@@ -7,7 +7,7 @@
 #include <libraries/locale.h>
 
 #ifndef MUIBuilder_CAT_H
-#include "MUIBuilder_cat.h"
+#include "muibuilder_cat.h"
 #endif	/*  !MUIBuilder_CAT_H		 */
 
 #include <string.h>
@@ -19,39 +19,11 @@
 #include <libraries/iffparse.h>
 #endif	/*  !LIBRARIES_IFFPARSE_H   */
 
-#ifndef CLIB_IFFPARSE_PROTOS_H
-#include <clib/iffparse_protos.h>
-#endif	/*  !CLIB_IFFPARSE_PROTOS_H */
-#ifndef CLIB_LOCALE_PROTOS_H
-#include <clib/locale_protos.h>
-#endif	/*  !CLIB_LOCALE_PROTOS_H   */
-#ifndef CLIB_DOS_PROTOS_H
-#include <clib/dos_protos.h>
-#endif	/*  !DOS_PROTOS_H	    */
-#ifndef CLIB_EXEC_PROTOS_H
-#include <clib/exec_protos.h>
-#endif	/*  !EXEC_PROTOS_H	    */
-#ifndef CLIB_UTILITY_PROTOS_H
-#include <clib/utility_protos.h>
-#endif	/*  !CLIB_UTILITY_PROTOS_H  */
-
-#ifdef AZTEC_C
-#ifndef __PRAGMAS_LOCALE_LIB_H
-#include <pragmas/locale_lib.h>
-#endif	/*  !PRAGMAS_LOCALE_LIB_H   */
-#ifndef __PRAGMAS_IFFPARSE_LIB_H
-#include <pragmas/iffparse_lib.h>
-#endif	/*  !PRAGMAS_IFFPARSE_LIB_H */
-#ifndef __PRAGMAS_DOS_LIB_H
-#include <pragmas/dos_lib.h>
-#endif	/*  !PRAGMAS_DOS_LIB_H	    */
-#ifndef __PRAGMAS_EXEC_LIB_H
-#include <pragmas/exec_lib.h>
-#endif	/*  !PRAGMAS_EXEC_LIB_H     */
-#ifndef __PRAGMAS_UTILITY_LIB_H
-#include <pragmas/utility_lib.h>
-#endif	/*  !PRAGMAS_UTILITY_LIB_H  */
-#endif	/*  AZTEC_C		    */
+#include <proto/iffparse.h>
+#include <proto/locale.h>
+#include <proto/dos.h>
+#include <proto/exec.h>
+#include <proto/utility.h>
 
 static LONG MUIBuilder_Version = 0;
 static const STRPTR MUIBuilder_BuiltInLanguage = (STRPTR) "english";

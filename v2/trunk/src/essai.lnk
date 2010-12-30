@@ -1,4 +1,0 @@
-FROM LIB:c.o "essai.o"+"dir.o"
-TO "essai"
-LIB LIB:sc.lib LIB:amiga.lib
-

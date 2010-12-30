@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -14,7 +39,7 @@ void InitGauge( gauge *gauge_aux )
         gauge_aux->max = 100;
         sprintf(gauge_aux->label,"GA_label_%d",nb_gauge);
 	gauge_aux->infotext[0] = '\0';
-        gauge_aux->height = 10;               
+        gauge_aux->height = 10;
         gauge_aux->width = 15;
         gauge_aux->fixheight = TRUE;
 	gauge_aux->fixwidth = FALSE;
@@ -43,7 +68,7 @@ BOOL NewGauge ( gauge *gauge_aux, BOOL new)
 
 	if (!(GR_GroupArea = CreateGR_AreaGroup(&gauge_aux->Area, FALSE, FALSE, FALSE, FALSE, FALSE)))
 		return(FALSE);
-	
+
 	RegisterTitles[0] = GetMUIBuilderString(MSG_Attributes);
 	RegisterTitles[1] = GetMUIBuilderString(MSG_Area);
 	RegisterTitles[2] = NULL;
@@ -57,7 +82,7 @@ BOOL NewGauge ( gauge *gauge_aux, BOOL new)
 			Child, VGroup,
 				Child, ColGroup(4),GroupFrameT(GetMUIBuilderString(MSG_Choices)),
 					Child, HVSpace,
-					Child, Label1(GetMUIBuilderString(MSG_HorizGauge)),	
+					Child, Label1(GetMUIBuilderString(MSG_HorizGauge)),
 					Child, CM_horiz = CheckMark(gauge_aux->horizontal),
 					Child, HVSpace,
 					Child, HVSpace,
@@ -135,7 +160,7 @@ BOOL NewGauge ( gauge *gauge_aux, BOOL new)
 	if (!gauge_aux->fixwidth) set( STR_width, MUIA_Disabled, TRUE );
 
 	DoMethod( WI_gauge, MUIM_Window_SetCycleChain, RegGroup, CM_horiz, CM_height,
-		  CM_width, STR_max, STR_divide, STR_height, STR_width, STR_InfoText, STR_label, 
+		  CM_width, STR_max, STR_divide, STR_height, STR_width, STR_InfoText, STR_label,
 		  GR_GroupArea->CH_Hide, GR_GroupArea->CH_Disable, GR_GroupArea->CH_InputMode,
 		  GR_GroupArea->CH_Phantom, GR_GroupArea->SL_Weight,
 		  GR_GroupArea->CY_Background, GR_GroupArea->CY_Frame,
@@ -170,7 +195,7 @@ BOOL NewGauge ( gauge *gauge_aux, BOOL new)
 				gauge_aux->width = atoi( aux );
 				strcpy( gauge_aux->infotext, GetStr(STR_InfoText));
 				ValidateArea(GR_GroupArea, &gauge_aux->Area);
-				if (new) 
+				if (new)
                                 {
                                         nb_gauge++;
                                 }

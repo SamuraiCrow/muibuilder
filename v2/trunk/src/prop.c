@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -12,11 +37,11 @@ void InitProp( prop *prop_aux )
 	prop_aux->horizontal = TRUE;
         prop_aux->entries = 100;
         sprintf(prop_aux->label,"PR_label_%d",nb_prop);
-        prop_aux->first = 0;                                  
-        prop_aux->visible = 10;       
+        prop_aux->first = 0;
+        prop_aux->visible = 10;
         prop_aux->fixheight = TRUE;
-        prop_aux->fixwidth = FALSE;  
-        prop_aux->height = 8;   
+        prop_aux->fixwidth = FALSE;
+        prop_aux->height = 8;
         prop_aux->width  = 8;
 	prop_aux->notify = create();
 	prop_aux->notifysource = create();
@@ -44,7 +69,7 @@ BOOL NewProp ( prop *prop_aux, BOOL new)
 
 	if (!(GR_GroupArea = CreateGR_AreaGroup(&prop_aux->Area, TRUE, FALSE, TRUE, TRUE, TRUE)))
 		return(FALSE);
-	
+
 	RegisterTitles[0] = GetMUIBuilderString(MSG_Attributes);
 	RegisterTitles[1] = GetMUIBuilderString(MSG_Area);
 	RegisterTitles[2] = NULL;
@@ -174,7 +199,7 @@ MUIM_Set, MUIA_Disabled, TRUE);
 				aux = GetStr(STR_width);
 				prop_aux->width = atoi( aux );
 				ValidateArea(GR_GroupArea, &prop_aux->Area);
-				if (new) 
+				if (new)
                                 {
                                         nb_prop++;
                                 }

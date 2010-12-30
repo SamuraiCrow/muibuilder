@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -178,7 +203,7 @@ BOOL NewGroup( group *group_aux, int root , BOOL new )
 
 	if (!(GR_GroupArea = CreateGR_AreaGroup(&group_aux->Area, FALSE, TRUE, TRUE, FALSE, TRUE)))
 		return(FALSE);
-	
+
 	RegisterTitles[0] = GetMUIBuilderString(MSG_Attributes);
 	RegisterTitles[1] = GetMUIBuilderString(MSG_Area);
 	RegisterTitles[2] = NULL;
@@ -292,7 +317,7 @@ BOOL NewGroup( group *group_aux, int root , BOOL new )
 								Child,STR_label = StringObject, StringFrame, MUIA_String_Contents, group_aux->label, MUIA_ExportID, 1, End,
 							End,
 						End,
-						Child, GR_register, 
+						Child, GR_register,
 					End,
 				End,
 				Child, GR_GroupArea->GR_AreaGroup,
@@ -306,7 +331,7 @@ BOOL NewGroup( group *group_aux, int root , BOOL new )
 	End;
 
 	WI_current = WI_group;
-	
+
 	DoMethod( bt_okgroup, MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_OKWIN);
 	DoMethod( bt_cancelgroup, MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_END);
 	DoMethod(WI_group, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2, MUIM_Application_ReturnID, ID_OKWIN);
@@ -372,7 +397,7 @@ BOOL NewGroup( group *group_aux, int root , BOOL new )
 	DoMethod( lv_entries, MUIM_Notify, MUIA_Listview_DoubleClick, TRUE, STR_entry, 3, MUIM_Set, MUIA_Disabled, FALSE);
 	DoMethod( lv_entries, MUIM_Notify, MUIA_Listview_DoubleClick, TRUE, WI_group, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_entry);
 	DoMethod( lv_entries, MUIM_Notify, MUIA_Listview_DoubleClick, TRUE, app, 2, MUIM_Application_ReturnID, ID_DBCLICK);
-	 
+
 
 	DoMethod( WI_group, MUIM_Window_SetCycleChain, RegGroup1,
 		  CM_sens, CM_registermode, CM_sameheight, CM_samewidth, CM_samesize,
@@ -425,7 +450,7 @@ BOOL NewGroup( group *group_aux, int root , BOOL new )
 	if ( !group_aux->horizspacing ) set( STR_horizspace, MUIA_Disabled, TRUE);
 	if ( !group_aux->vertspacing ) set( STR_vertspace, MUIA_Disabled, TRUE);
 	if ( group_aux->rows || group_aux->columns ) set ( STR_rownumber, MUIA_Disabled, FALSE );
-	
+
 	if (!new)
 	{
                 for (i=0;i<group_aux->entries->nb_elements;i++)
@@ -472,7 +497,7 @@ BOOL NewGroup( group *group_aux, int root , BOOL new )
 				group_aux->columns = (cy_active == 1);
 				get(CM_horizspacing, MUIA_Selected, &cy_active);
 				group_aux->horizspacing = (cy_active == 1 );
-				get(CM_vertspacing, MUIA_Selected, &cy_active);	
+				get(CM_vertspacing, MUIA_Selected, &cy_active);
 				group_aux->vertspacing = (cy_active == 1 );
 				group_aux->root = ( root == GR_ROOT);
 				if (group_aux->number<1) group_aux->number = 1;

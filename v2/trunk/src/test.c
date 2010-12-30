@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -71,7 +96,7 @@ void TestChain(window *win)
 	chainon *chainon_aux;
 
 	if (!win) return;
-	
+
 	chain = AllocVec(win->chain->nb_elements*4+8, MEMF_PUBLIC|MEMF_CLEAR);
 	if (chain)
 	{
@@ -407,7 +432,7 @@ APTR CreateWindow( APTR objet )
 			}
 			else
 			{
-				result = GroupObject, 
+				result = GroupObject,
 					MUIA_Background, grp->Area.Background,
 					MUIA_ControlChar, grp->Area.key,
 					MUIA_ShowMe, !grp->Area.Hide,
@@ -480,7 +505,7 @@ APTR CreateWindow( APTR objet )
 			MUIA_ControlChar, button->Area.key,
 			MUIA_InputMode  , MUIV_InputMode_RelVerify,
 			MUIA_Background , MUII_ButtonBack,
-			MUIA_Weight, button->Area.Weight,			
+			MUIA_Weight, button->Area.Weight,
 			MUIA_Disabled, button->Area.Disable,
 			MUIA_FramePhantomHoriz, button->Area.Phantom,
 			MUIA_ShowMe, !button->Area.Hide,
@@ -763,7 +788,7 @@ APTR CreateWindow( APTR objet )
 			MUIA_Weight, string_aux->Area.Weight,
 			MUIA_ShowMe, !string_aux->Area.Hide,
 			Child, KeyLabel2(string_aux->title, string_aux->Area.key),
-			Child, aux = StringObject, StringFrame, 
+			Child, aux = StringObject, StringFrame,
 				MUIA_String_Contents, string_aux->content,
 				MUIA_String_Format, string_aux->format,
 				MUIA_String_MaxLen, string_aux->maxlen,
@@ -924,7 +949,7 @@ APTR CreateWindow( APTR objet )
                         }
                 }
 		obj->muiobj = result;
-		break;		
+		break;
 	case TY_CYCLE:
 		cycle_aux = objet;
 		result = CycleObject,
@@ -972,7 +997,7 @@ APTR CreateWindow( APTR objet )
                                 MUIA_Prop_First, prop_aux->first,
                                 MUIA_Prop_Horiz, prop_aux->horizontal,
                                 MUIA_Prop_Visible, prop_aux->visible,
-                                MUIA_FixHeight, prop_aux->height, 
+                                MUIA_FixHeight, prop_aux->height,
 				MUIA_Background, prop_aux->Area.Background,
 				MUIA_ControlChar, prop_aux->Area.key,
 				MUIA_InputMode, prop_aux->Area.InputMode,
@@ -1373,7 +1398,7 @@ APTR CreateWindow( APTR objet )
 		    MUIA_Menuitem_Toggle, menu_aux->Toggle,
 		    End;
 		else
-		  result = MUI_MakeObject(MUIO_Menuitem, NM_BARLABEL, 0, 0, 0); 
+		  result = MUI_MakeObject(MUIO_Menuitem, NM_BARLABEL, 0, 0, 0);
 		obj->muiobj = result;
 		break;
 	}

@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -149,7 +174,7 @@ BOOL NewText( texte *text_aux, BOOL new)
 	DoMethod(STR_content, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime , WI_text, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_label);
 	DoMethod(STR_preparse, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime , WI_text, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_content);
 	DoMethod(STR_label, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime , WI_text, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_preparse);
-	
+
 	DoMethod( WI_text, MUIM_Window_SetCycleChain, RegGroup,
 		 CH_max, CH_min, STR_preparse, STR_content, STR_label,
 		 bt_ok, bt_cancel,

@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #include <dos/dostags.h>
 #include "builder2.h"
 
@@ -44,7 +69,7 @@ void SaveArea( FILE *fichier, area *Area )
 void SaveApplicationList( FILE *fichier, queue *list )
 {
 	int i;
-	
+
 	for(i=0;i<list->nb_elements;i++)
 	{
 		fprintf(fichier, "%s\n", nth(list, i));
@@ -59,7 +84,7 @@ void SaveApplication( BOOL SaveAs )
 	char	file[256];
 	char	*title;
 	struct  DiskObject *icon, *icon2;
-	
+
 	title = GetMUIBuilderString(MSG_FileName);
 
 	if (SaveAs||(strlen(savefile)==0))
@@ -72,7 +97,7 @@ void SaveApplication( BOOL SaveAs )
 		}
 		else return;
 	}
-	
+
 	strncpy(file, savedir, 255);
 	AddPart(file, savefile, 255);
 	if ( fichier = fopen( file , "w+" ) )

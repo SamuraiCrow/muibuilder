@@ -1,10 +1,35 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
 
 #include <dos/dostags.h>
 #include "builder2.h"
-#include "MUIB_file.h"
+#include "muib_file.h"
 #include "codenotify.h"
 #include "beta.h"
 
@@ -47,7 +72,7 @@ void UpdateNodeIdent(queue *list, char *content)
 {
   chainon *chainon_aux;
   int i;
-  
+
   chainon_aux = list->head;
   for(i=0;i<list->nb_elements;i++)
     {
@@ -79,7 +104,7 @@ void CalculeNbIdent(APTR obj)
   check	*check_aux;
   menu	*menu_aux;
   int		i;
-  
+
   obj_aux = obj;
   nb_identificateurs++;
   switch (obj_aux->id)
@@ -152,7 +177,7 @@ void GenerateListLabels(FILE* fichier, queue * list, char type)
 {
   int	i;
   chainon *chainon_aux;
-  
+
   chainon_aux = list->head;
   for(i=0;i<list->nb_elements;i++)
     {
@@ -171,7 +196,7 @@ void GenerateListInits(FILE *fichier, queue * list)
 {
   int	i;
   chainon *chainon_aux;
-  
+
   chainon_aux = list->head;
   for(i=0;i<list->nb_elements;i++)
     {
@@ -189,7 +214,7 @@ void GenerateExternalLabels(FILE *fichier)
   chainon *chainon_aux;
   int i;
   object *obj;
-  
+
   chainon_aux = parameters->head;
   for(i=0;i<parameters->nb_elements;i++)
     {
@@ -211,7 +236,7 @@ void GenerateLabels(APTR obj, FILE *fichier)
   check	*check_aux;
   menu	*menu_aux;
   int		i;
-  
+
   obj_aux = obj;
   if (obj_aux->generated)
     {
@@ -303,7 +328,7 @@ void GenerateLabels(APTR obj, FILE *fichier)
 void GenerateExternalInits(FILE *fichier)
 {
   int i;
-  
+
   for(i=0;i<parameters->nb_elements;i++)
     {
       fprintf(fichier, "%c", 0);
@@ -325,7 +350,7 @@ void GenerateInitLabels(APTR obj, FILE *fichier)
   popobject *popobj_aux;
   menu	*menu_aux;
   int	i;
-  
+
   obj_aux = obj;
   switch (obj_aux->id)
     {
@@ -473,14 +498,14 @@ void VerifyLabels(void)
   chainon *chainon1, *chainon2;
   char    buffer[256];
   group   *group_aux;
-  
+
   extern window* ParentWindow(APTR obj);
   extern menu* ParentMenu(menu*);
-  
+
   STR_TX_label_0 = GetMUIBuilderString(MSG_MultiplyDefinedLabel);
-  
+
   multi = create();
-  
+
   WI_multi = WindowObject,
     MUIA_Window_Title, GetMUIBuilderString(MSG_MultiDefinitions),
     MUIA_Window_ID   , MAKE_ID('M','U','L','T'),
@@ -502,13 +527,13 @@ void VerifyLabels(void)
       Child, bt_quit = MUI_MakeObject(MUIO_Button,  GetMUIBuilderString(MSG_Quit)),
     End,
   End;
-  
+
   DoMethod(bt_quit, MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_END);
   DoMethod(WI_multi, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2, MUIM_Application_ReturnID, ID_END);
   DoMethod(lv_multi, MUIM_Notify, MUIA_Listview_DoubleClick, TRUE, app, 2, MUIM_Application_ReturnID, ID_DBCLICK);
   DoMethod(WI_multi, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2, MUIM_Application_ReturnID, ID_END);
   DoMethod(WI_multi, MUIM_Window_SetCycleChain, lv_multi, bt_quit, NULL);
-  
+
   chainon1 = labels->head;
   for(i=0;i<labels->nb_elements-1;i++)
     {
@@ -543,7 +568,7 @@ void VerifyLabels(void)
       multiple_label = multiple_label||(!bool_aux);
       chainon1 = chainon1->next;
     }
-  
+
   if (multiple_label)
     {
       set(app,MUIA_Application_Sleep, TRUE);
@@ -593,7 +618,7 @@ void CreateLabels(APTR obj_aux, window *win)
   popobject *popobj_aux;
   menu	*menu_aux;
   int 	i;
-  
+
   obj = obj_aux;
   switch(obj->id)
     {
@@ -652,7 +677,7 @@ int NumLabel(APTR obj)
   chaine	*string_aux;
   slider	*slider_aux;
   check	*check_aux;
-  
+
   file_aux = labels;
   chainon_aux = file_aux->head;
   obj1 = chainon_aux->element;
@@ -698,7 +723,7 @@ int NumLabel(APTR obj)
 void NoSpace(char *chaine)
 {
   char *aux1;
-  
+
   strncpy(nospace, chaine, 80);
   while (aux1 = strrchr(nospace, ' '))
     {
@@ -739,7 +764,7 @@ void WriteString(FILE *fichier, char *chaine)
 void WriteLocaleString(FILE *fichier, char *chaine)
 {
   char aux[84];
-  
+
   NoSpace(chaine);
   sprintf(aux, "%s%s", catprepend, nospace);
   fprintf(fichier, "%c%s%c", TC_LOCALESTRING, aux, 0);
@@ -749,7 +774,7 @@ void WriteLocaleString(FILE *fichier, char *chaine)
 void WriteLocaleString2(FILE *fichier, char *chaine)
 {
   char aux[89];
-  
+
   NoSpace(chaine);
   sprintf(aux, "%s%sTitle", catprepend, nospace);
   fprintf(fichier, "%c%s%c", TC_LOCALESTRING, aux, 0);
@@ -758,7 +783,7 @@ void WriteLocaleString2(FILE *fichier, char *chaine)
 void WriteLocaleChar(FILE *fichier, char *chaine)
 {
   char aux[84];
-  
+
   NoSpace(chaine);
   sprintf(aux, "%s%s", catprepend, nospace);
   fprintf(fichier, "%c%s%c", TC_LOCALECHAR, aux, 0);
@@ -767,7 +792,7 @@ void WriteLocaleChar(FILE *fichier, char *chaine)
 void WriteLocaleCharAsString(FILE *fichier, char *chaine)
 {
   char aux[84];
-  
+
   NoSpace(chaine);
   sprintf(aux, "%s%sChar", catprepend, nospace);
   fprintf(fichier, "%c%s%c", TC_LOCALESTRING, aux, 0);
@@ -814,8 +839,8 @@ void WriteObjArg(FILE *fichier, object *obj)
   chaine	*string_aux;
   slider	*slider_aux;
   check	*check_aux;
-  
-  
+
+
   switch(obj->id)
     {
     case TY_STRING:
@@ -889,7 +914,7 @@ void WriteWindowID(FILE *fichier, window * win_aux)
 {
   char	ID[10];
   int	i;
-  
+
   WriteFunction(fichier, MB_MAKE_ID);
   i = 0;
   while ((i<windows->nb_elements)&&(nth(windows,i)!=win_aux))
@@ -912,7 +937,7 @@ void CodeArea(	FILE* fichier, object *obj, area *Area,
 	     )
 {
   int	i;
-  
+
   if ((Hide)&&(Area->Hide))
     {
       WriteAttribut	(fichier, MB_MUIA_ShowMe);
@@ -992,10 +1017,10 @@ void CodeCreate(object *obj, FILE *fichier)
   space      *space_aux;
   char       buffer[256];
   int	     i;
-  
+
   extern void CreateLocaleString(char* , char);
   extern char locale_string[82];
-  
+
 #ifdef MUIB_BETA
   if (obj) set(TextInfo, MUIA_Text_Contents, obj->label);
 #endif
@@ -1061,10 +1086,10 @@ void CodeCreate(object *obj, FILE *fichier)
       break;
     case TY_WINDOW:
       win_aux = (window *) obj;
-      
+
       CodeCreate((object *) &win_aux->root, fichier);
       if (win_aux->menu->childs->nb_elements>0) CodeCreate((object*)win_aux->menu, fichier);
-      
+
       WriteVarAffect(fichier, NumLabel(win_aux));
       WriteCreateObj(fichier, MB_WindowObject);
       WriteAttribut(fichier, MB_MUIA_Window_Title);
@@ -1230,7 +1255,7 @@ void CodeCreate(object *obj, FILE *fichier)
 	  WriteVarAffect(fichier,  NumLabel(group_aux));
 	  WriteCreateObj(fichier, MB_ScrollgroupObject);
 	  if (group_aux->Area.Weight != 100)
-	    { 
+	    {
 	      WriteAttribut(fichier, MB_MUIA_Weight);
 	      WriteInteger (fichier, group_aux->Area.Weight);
 	    }
@@ -1428,8 +1453,8 @@ void CodeCreate(object *obj, FILE *fichier)
 	  if (slider_aux->Area.key!='\0')
 	    WriteObjFunction(fichier, MB_KeyLabel2);
 	  else	WriteObjFunction(fichier, MB_Label2);
-	  if (local)      WriteLocaleString(fichier, slider_aux->label); 
-	  else            WriteString      (fichier, slider_aux->title); 
+	  if (local)      WriteLocaleString(fichier, slider_aux->label);
+	  else            WriteString      (fichier, slider_aux->title);
 	  if (slider_aux->Area.key!='\0')
 	    if (local)	WriteLocaleChar (fichier, slider_aux->label);
 	    else		WriteChar	(fichier, slider_aux->Area.key);
@@ -1693,7 +1718,7 @@ void CodeCreate(object *obj, FILE *fichier)
 	  UpdateNodeIdent (application.Functions, listview_aux->displayhook);
 	}
       WriteEnd	(fichier, MB_End);
-      
+
       WriteVarAffect	(fichier, NumLabel(listview_aux));
       WriteCreateObj	(fichier, MB_ListviewObject);
       if (obj->Help.generated)
@@ -2298,7 +2323,7 @@ void WriteNotify(FILE * fichier, APTR objpar, APTR father)
   event   *evt;
   BOOL    bool_aux;
   char    buffer[120];
-  
+
   obj = objpar;
   id_src = obj->id;
   for(i=0;i<obj->notify->nb_elements;i++)
@@ -2409,7 +2434,7 @@ void WriteNotify(FILE * fichier, APTR objpar, APTR father)
 	  WriteVarArg (fichier, num_label);
 	  WriteInteger(fichier, CActions[id_dest][4*evt->dest_type+0]);
 	  WriteMUIArg (fichier, CActions[id_dest][4*evt->dest_type+1]);
-	  if (CActions[id_dest][4*evt->dest_type+0]>2) 
+	  if (CActions[id_dest][4*evt->dest_type+0]>2)
 	    WriteMUIArg (fichier, CActions[id_dest][4*evt->dest_type+2]);
 	  WriteInteger(fichier, atoi(evt->argstring));
 	  WriteEndNotification(fichier);
@@ -2451,7 +2476,7 @@ void CreateCodeChain(FILE *fichier, window *win_aux)
 {
   int	i;
   object	*obj_aux;
-  
+
   WriteBeginNotification(fichier, NumLabel(win_aux));
   WriteMUIArg (fichier, MB_MUIM_Window_SetCycleChain);
   for(i=0;i<win_aux->chain->nb_elements;i++)
@@ -2471,7 +2496,7 @@ void CodeNotify(FILE * fichier, APTR objpar, object *father)
   popobject *popobj_aux;
   menu	*menu_aux;
   int     i;
-  
+
   obj = objpar;
   switch(obj->id)
     {
@@ -2542,7 +2567,7 @@ void GenerateCodeObject(APTR obj_aux)
   char	buffer[512];
   char	dir[512], file[512];
   char    *title = GetMUIBuilderString(MSG_CodeFileName);
-  
+
   if (!(parameters = create())) return;
   strcpy(dir, genfile);
   extract_catalog(dir);
@@ -2551,7 +2576,7 @@ void GenerateCodeObject(APTR obj_aux)
     {
       strcpy(buffer, dir);
       AddPart(buffer, file, 512);
-      
+
       if (fichier = fopen("T:MUIBuilder1.tmp", "w+"))
 	{
 	  fprintf(fichier, "%s%c", buffer, 0);
@@ -2623,14 +2648,14 @@ void GenerateCode(queue *windows)
 {
   FILE	*fichier;
   char	buffer[512];
-  
+
   if (!(parameters = create())) return;
   if (fichier = fopen("T:MUIBuilder1.tmp" , "w+"))
     {
       /************************************/
       /* Generation du corps du programme */
       /************************************/
-      
+
       fprintf(fichier, "%s%c", genfile, 0);
       NoSpace(application.title);
       if (strlen(real_getstring)==0)
@@ -2676,7 +2701,7 @@ void GenerateCode(queue *windows)
       GenerateListInits(fichier, application.Variables);
       fclose(fichier);
     }
-  
+
   sprintf(buffer, "\"%s",MBDir);
   AddPart(buffer, "Modules/GenCode",512);
   strncat(buffer, config.langage,512);
@@ -2710,22 +2735,22 @@ void Code()
   object	*obj_aux;
   char	*chaine_aux;
   char	*RegisterTitle[3];
-  
+
   RegisterTitle[0] = GetMUIBuilderString(MSG_CodeOption);
   RegisterTitle[1] = GetMUIBuilderString(MSG_Options);
   RegisterTitle[2] = NULL;
-  
+
   NoSpace(application.title);
   if (strlen(real_getstring)==0)
     {
-      if (strlen(get_string)!=0) strcpy(real_getstring,get_string);                    
+      if (strlen(get_string)!=0) strcpy(real_getstring,get_string);
       else sprintf(real_getstring, "Get%sString", nospace);
-    }        
+    }
   if (strlen(genfile)==0)    sprintf(genfile   , "%s", application.title          );
   if (strlen(genfile)==0)    sprintf(genfile   , "ObjectFile"                     );
   if (strlen(catfile)==0)    sprintf(catfile   , "%sStrings.cd", application.title);
   if (strlen(catprepend)==0) strcpy (catprepend, "MSG_"                           );
-  
+
   WI_code = WindowObject,
     MUIA_Window_Title, GetMUIBuilderString(MSG_CodeOption),
     MUIA_Window_ID, MAKE_ID('C','O','D','E'),
@@ -2794,7 +2819,7 @@ void Code()
 	    Child, HVSpace,
 	    Child, Label1(GetMUIBuilderString(MSG_Locale)),
 	    Child, CM_local = CheckMark(local),
-	    Child, HVSpace,  
+	    Child, HVSpace,
 	  End,
 	  Child, HVSpace,
 	  Child, ColGroup(2),
@@ -2826,9 +2851,9 @@ void Code()
       End,
     End,
   End;
-  
-  WI_current = WI_code;       
-  
+
+  WI_current = WI_code;
+
   DoMethod(bt_app,MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_GENERATE);
   DoMethod(bt_object,MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_GENERATEWIN);
   DoMethod(bt_remove,MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_DELETE);
@@ -2840,28 +2865,28 @@ void Code()
   DoMethod(STR_filename, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime, WI_code, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_catalog);
   DoMethod(STR_catalog, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime, WI_code, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_GetString);
   DoMethod(app,OM_ADDMEMBER, WI_code);
-  
+
   DoMethod(WI_code, MUIM_Window_SetCycleChain, RegGroup, lv_labels, lv_genlabels,
 	   bt_app, bt_object, bt_remove, bt_add, bt_catalog, bt_quit, CM_declarations,
 	   CM_env, CM_code,  CM_local, STR_GetString, STR_CatalogPrepend, STR_filename,
 	   STR_catalog, NULL);
-  
+
   set(app,MUIA_Application_Sleep, TRUE);
-  
+
   /**************************************************************/
   /* Generation des listes de variables a partir de             */
   /* l'arborescence de la GUI                                   */
   /**************************************************************/
-  
+
   genlabels = create();
   delete_all(labels);
   CreateLabels(&application, NULL);
-  
-  
+
+
   set(WI_code, MUIA_Window_Open, TRUE);
-  
+
   VerifyLabels();
-  
+
   set(lv_labels, MUIA_List_Quiet, TRUE);
   set(lv_genlabels, MUIA_List_Quiet, TRUE);
   for(i=0;i<labels->nb_elements;i++)
@@ -2877,7 +2902,7 @@ void Code()
     }
   set(lv_labels, MUIA_List_Quiet, FALSE);
   set(lv_genlabels, MUIA_List_Quiet, FALSE);
-  
+
   while (running)
     {
       switch (DoMethod(app,MUIM_Application_Input,&signal))

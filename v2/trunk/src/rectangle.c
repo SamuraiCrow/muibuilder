@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -18,7 +43,7 @@ void InitRectangle( rectangle *rect )
 	rect->notify = create();
 	rect->notifysource = create();
 }
- 
+
 BOOL NewRectangle( rectangle *rect, BOOL new )
 {
 	APTR	WI_rect, RegGroup, CH_fixheight, CH_fixwidth, STR_height;
@@ -43,7 +68,7 @@ BOOL NewRectangle( rectangle *rect, BOOL new )
 
 	if (!(GR_GroupArea = CreateGR_AreaGroup(&rect->Area, TRUE, TRUE, TRUE, TRUE, TRUE)))
 		return(FALSE);
-	
+
 	RegisterTitles[0] = GetMUIBuilderString(MSG_Attributes);
 	RegisterTitles[1] = GetMUIBuilderString(MSG_Area);
 	RegisterTitles[2] = NULL;
@@ -112,7 +137,7 @@ BOOL NewRectangle( rectangle *rect, BOOL new )
 				End,
 			End,
 		End;
-	
+
 	WI_current = WI_rect;
 
 	DoMethod( BT_ok, MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_OKWIN);
@@ -139,7 +164,7 @@ BOOL NewRectangle( rectangle *rect, BOOL new )
 		{
 		case ID_OKWIN:
 			aux = GetStr(STR_label);
-			if ((strlen(aux)>0)) 
+			if ((strlen(aux)>0))
 			{
 				strcpy (rect->label, aux);
 				aux = GetStr(STR_height);
@@ -152,7 +177,7 @@ BOOL NewRectangle( rectangle *rect, BOOL new )
 				rect->fixwidth  = ( active == 1 );
 				get( CY_type, MUIA_Cycle_Active, &rect->type );
 				ValidateArea(GR_GroupArea, &rect->Area);
-				if (new) 
+				if (new)
 				{
 					nb_rectangle++;
 				}

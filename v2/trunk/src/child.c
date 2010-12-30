@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -17,7 +42,7 @@ char ControlChar(char *string)
   if (aux)
     {
       aux++;
-    } 
+    }
   else aux = "";
   car = (char) tolower((int)*aux);
   return(car);
@@ -615,7 +640,7 @@ APTR ImagesWithoutText(char *ImageNames[], BOOL new)
 APTR NewChild( APTR obj , BOOL new)
 {
 	APTR	WI_Objects;
-	
+
 	APTR	result = NULL;
 	BOOL	running = TRUE;
 	ULONG	signal;
@@ -645,7 +670,7 @@ APTR NewChild( APTR obj , BOOL new)
 	nb_images = 0;
 
 	WidthAndHeight();
-	if ((width==0)&&(height==0)) 
+	if ((width==0)&&(height==0))
 	  {
 	    ErrorMessage(GetMUIBuilderString(MSG_CantFindImages));
 	    return(NULL);
@@ -653,13 +678,13 @@ APTR NewChild( APTR obj , BOOL new)
 
 	if (config.labels) WI_Objects = ImagesWithText(ImageNames, new);
 	else               WI_Objects = ImagesWithoutText(ImageNames, new);
-	
+
 	WI_current = WI_Objects;
 
-	
+
         DoMethod(WI_Objects, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2, MUIM_Application_ReturnID, ID_END);
 
-	
+
 
         set(app,MUIA_Application_Sleep, TRUE);
         DoMethod(app,OM_ADDMEMBER, WI_Objects);
@@ -686,7 +711,7 @@ APTR NewChild( APTR obj , BOOL new)
 				result = keybutton_aux;
 				running = FALSE;
 			}
-			else 
+			else
 			{
 				DeleteObject(keybutton_aux);
 				if (config.phantom) set(WI_Objects,MUIA_Window_Open,TRUE);
@@ -792,7 +817,7 @@ APTR NewChild( APTR obj , BOOL new)
                                 if (config.phantom) set(WI_Objects,MUIA_Window_Open,TRUE);
 				WI_current = WI_Objects;
                         }
-                        break;	
+                        break;
 		case ID_CHECK:
 			check_aux= AllocVec(sizeof(check),MEMF_PUBLIC|MEMF_CLEAR);
                         if (check_aux == NULL)
@@ -966,7 +991,7 @@ APTR NewChild( APTR obj , BOOL new)
 			}
 			else
 			{
-				DeleteObject(label_aux); 
+				DeleteObject(label_aux);
 				if (config.phantom) set(WI_Objects,MUIA_Window_Open,TRUE);
 				WI_current = WI_Objects;
 			}
@@ -1140,7 +1165,7 @@ APTR NewChild( APTR obj , BOOL new)
 				result = cycle_aux;
 				running = FALSE;
 			}
-			else 
+			else
 			{
 				DeleteObject(cycle_aux);
 				if (config.phantom) set(WI_Objects,MUIA_Window_Open,TRUE);

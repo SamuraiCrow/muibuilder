@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -47,7 +72,7 @@ BOOL NewPopObject( popobject *popobj_aux, BOOL new )
 
 	if (!(GR_GroupArea = CreateGR_AreaGroup(&popobj_aux->Area, FALSE, TRUE, TRUE, TRUE, FALSE)))
 		return(FALSE);
-	
+
 	RegisterTitles[0] = GetMUIBuilderString(MSG_Attributes);
 	RegisterTitles[1] = GetMUIBuilderString(MSG_Area);
 	RegisterTitles[2] = NULL;
@@ -228,7 +253,7 @@ BOOL NewPopObject( popobject *popobj_aux, BOOL new )
 				get( CH_Volatile, MUIA_Selected, &active );
 				popobj_aux->Volatile = (active == 1);
 				ValidateArea(GR_GroupArea, &popobj_aux->Area);
-				if (new) 
+				if (new)
 				{
 					nb_popobject++;
 				}

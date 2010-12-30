@@ -1,3 +1,28 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$$
+
+***************************************************************************/
+
 #ifdef __MORPHOS__
 #undef USE_INLINE_STDARG
 #endif
@@ -35,7 +60,7 @@ BOOL NewButton( bouton *keybutton, BOOL new )
 
 	if (!(GR_GroupArea = CreateGR_AreaGroup(&keybutton->Area, FALSE, FALSE, FALSE, TRUE, FALSE)))
 		return(FALSE);
-	
+
 	RegisterTitles[0] = GetMUIBuilderString(MSG_Attributes);
 	RegisterTitles[1] = GetMUIBuilderString(MSG_Area);
 	RegisterTitles[2] = NULL;
@@ -51,7 +76,7 @@ BOOL NewButton( bouton *keybutton, BOOL new )
 					Child, Label2(GetMUIBuilderString(MSG_Label)),
 					Child, STR_label = StringObject, StringFrame, MUIA_String_Contents, keybutton->label, MUIA_ExportID,1,End,
 					Child, Label2(GetMUIBuilderString(MSG_Title)),
-					Child, STR_title = StringObject, StringFrame, MUIA_String_Contents, keybutton->title, MUIA_ExportID,2,End, 
+					Child, STR_title = StringObject, StringFrame, MUIA_String_Contents, keybutton->title, MUIA_ExportID,2,End,
 				End,
 				Child, GR_GroupArea->GR_AreaGroup,
 			End,
@@ -69,7 +94,7 @@ BOOL NewButton( bouton *keybutton, BOOL new )
         DoMethod( bt_cancel, MUIM_Notify, MUIA_Pressed, FALSE, app, 2, MUIM_Application_ReturnID, ID_END);
         DoMethod(WI_button, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2, MUIM_Application_ReturnID, ID_OKWIN);
 	DoMethod(STR_label, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime, WI_button, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_title);
-	DoMethod(STR_title, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime, WI_button, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_label); 
+	DoMethod(STR_title, MUIM_Notify, MUIA_String_Acknowledge, MUIV_EveryTime, WI_button, 3, MUIM_Set, MUIA_Window_ActiveObject, STR_label);
 
 	DoMethod( WI_button, MUIM_Window_SetCycleChain, RegGroup, STR_label, STR_title,
 		  GR_GroupArea->CH_Hide, GR_GroupArea->CH_Disable, GR_GroupArea->CH_InputMode,
@@ -87,13 +112,13 @@ BOOL NewButton( bouton *keybutton, BOOL new )
 		{
 		case ID_OKWIN:
 			aux = GetStr(STR_label);
-			if (strlen(aux)>0) 
+			if (strlen(aux)>0)
 			{
 				strcpy (keybutton->label, aux);
 				aux = GetStr(STR_title);
 				strcpy (keybutton->title, aux);
 				ValidateArea(GR_GroupArea, &keybutton->Area);
-				if (new) 
+				if (new)
 				{
 					nb_button++;
 				}
