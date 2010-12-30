@@ -1,0 +1,150 @@
+MUIBUILDER_FILE
+Object MBButton btButton1
+{
+  MUIA_Button_Title = "Button1";
+  MUIA_Background = 2;
+  MUIA_Frame = 1;
+  MUIA_Fonts = 0;
+  MUIA_Disabled = FALSE;
+  MUIA_Show = TRUE;
+  MUIA_HorizDisappear = FALSE;
+  MUIA_VertDisappear = FALSE;
+  MUIA_PhantomHoriz = FALSE;
+  MUIA_FrameTitle = "";
+  MUIA_Selected = FALSE;
+  MUIA_InputMode = 0;
+  MUIA_ShowSelstate = FALSE;
+  MUIA_Draggable = FALSE;
+  MUIA_Droppable = TRUE;
+  MUIA_CycleChain = 1;
+  MUIA_HorizWeight = 100;
+  MUIA_VertWeight = 100;
+  MUIA_ShortHelp = "";
+}
+
+Object MBText btText2
+{
+  MUIA_Text_Contents = "Text2";
+  MUIA_Text_Preparse = "\033c";
+  MUIA_Text_SetMax = 0;
+  MUIA_Text_SetMin = 1;
+  MUIA_Text_SetVMax = 0;
+  MUIA_Background = 4;
+  MUIA_Frame = 3;
+  MUIA_Fonts = 0;
+  MUIA_Disabled = FALSE;
+  MUIA_Show = TRUE;
+  MUIA_HorizDisappear = FALSE;
+  MUIA_VertDisappear = FALSE;
+  MUIA_PhantomHoriz = FALSE;
+  MUIA_FrameTitle = "";
+  MUIA_Selected = FALSE;
+  MUIA_InputMode = 0;
+  MUIA_ShowSelstate = FALSE;
+  MUIA_Draggable = FALSE;
+  MUIA_Droppable = TRUE;
+  MUIA_CycleChain = 1;
+  MUIA_HorizWeight = 100;
+  MUIA_VertWeight = 100;
+  MUIA_ShortHelp = "";
+}
+
+Object MBButton btButton2
+{
+  MUIA_Button_Title = "Button2";
+  MUIA_Background = 2;
+  MUIA_Frame = 4;
+  MUIA_Fonts = 0;
+  MUIA_Disabled = FALSE;
+  MUIA_Show = TRUE;
+  MUIA_HorizDisappear = FALSE;
+  MUIA_VertDisappear = FALSE;
+  MUIA_PhantomHoriz = FALSE;
+  MUIA_FrameTitle = "";
+  MUIA_Selected = FALSE;
+  MUIA_InputMode = 0;
+  MUIA_ShowSelstate = FALSE;
+  MUIA_Draggable = FALSE;
+  MUIA_Droppable = TRUE;
+  MUIA_CycleChain = 1;
+  MUIA_HorizWeight = 100;
+  MUIA_VertWeight = 100;
+  MUIA_ShortHelp = "";
+}
+
+Object MBText btText1
+{
+  MUIA_Text_Contents = "Text1";
+  MUIA_Text_Preparse = "\033c";
+  MUIA_Text_SetMax = 0;
+  MUIA_Text_SetMin = 1;
+  MUIA_Text_SetVMax = 0;
+  MUIA_Background = 4;
+  MUIA_Frame = 3;
+  MUIA_Fonts = 0;
+  MUIA_Disabled = FALSE;
+  MUIA_Show = TRUE;
+  MUIA_HorizDisappear = FALSE;
+  MUIA_VertDisappear = FALSE;
+  MUIA_PhantomHoriz = FALSE;
+  MUIA_FrameTitle = "";
+  MUIA_Selected = FALSE;
+  MUIA_InputMode = 0;
+  MUIA_ShowSelstate = FALSE;
+  MUIA_Draggable = FALSE;
+  MUIA_Droppable = TRUE;
+  MUIA_CycleChain = 1;
+  MUIA_HorizWeight = 100;
+  MUIA_VertWeight = 100;
+  MUIA_ShortHelp = "";
+}
+
+Object MBGroup grGroup2
+{
+  MUIA_Group_Horiz = TRUE;
+  MUIA_Group_ActivePage = 0;
+  MUIA_Group_Columns = 0;
+  MUIA_Group_PageMode = FALSE;
+  MUIA_Group_Rows = 0;
+  MUIA_Group_SameHeight = FALSE;
+  MUIA_Group_SameWidth = FALSE;
+  MUIA_Group_Child = btButton1;
+  MUIA_Group_Child = btText2;
+  MUIA_Group_Child = btButton2;
+  MUIA_Group_Child = btText1;
+  MUIA_Background = 9;
+  MUIA_Frame = 11;
+  MUIA_Fonts = 0;
+  MUIA_Disabled = FALSE;
+  MUIA_Show = TRUE;
+  MUIA_HorizDisappear = FALSE;
+  MUIA_VertDisappear = FALSE;
+  MUIA_PhantomHoriz = FALSE;
+  MUIA_FrameTitle = "";
+  MUIA_Selected = FALSE;
+  MUIA_InputMode = 0;
+  MUIA_ShowSelstate = FALSE;
+  MUIA_Draggable = FALSE;
+  MUIA_Droppable = TRUE;
+  MUIA_CycleChain = 1;
+  MUIA_HorizWeight = 100;
+  MUIA_VertWeight = 100;
+  MUIA_ShortHelp = "";
+}
+
+Object MBWindowClass wiWindow1
+{
+  MUIA_Window_Activate = TRUE;
+  MUIA_Window_AppWindow = FALSE;
+  MUIA_Window_Backdrop = FALSE;
+  MUIA_Window_CloseGadget = TRUE;
+  MUIA_Window_DepthGadget = TRUE;
+  MUIA_Window_DragBar = TRUE;
+  MUIA_Window_NeedsMouseObject = FALSE;
+  MUIA_Window_NoMenus = FALSE;
+  MUIA_Window_SizeGadget = TRUE;
+  MUIA_Window_SizeRight = FALSE;
+  MUIA_Window_Title = "Window1";
+  MUIA_Window_RootObject = grGroup2;
+}
+

@@ -1,0 +1,4 @@
+FROM LIB:c.o "lex.yy.o"
+TO "lex.yy"
+LIB LIB:sc.lib LIB:amiga.lib
+

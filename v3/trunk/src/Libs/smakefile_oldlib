@@ -1,0 +1,23 @@
+.c.o:
+	sc errorrexx $*.c
+
+all: GenCodeC libs:muibuilder.library
+
+GenCodeC: GenCodeC.o
+	sc link GenCodeC.o file.o
+
+libs:muibuilder.library: builder.o
+	slink with <<
+LIBPREFIX _LIB
+LIBFD muibuilder.fd
+to muibuilder.library
+FROM lib:libent.o lib:libinitr.o builder.o 
+lib lib:amiga.lib
+lib lib:sc.lib
+noicons
+libversion 1 librevision 2
+<
+	slink from muibuilder.library to libs:muibuilder.library ND noicons
+
+builder.o: builder.c
+	sc libcode nostackcheck builder.c

@@ -1,0 +1,7 @@
+DESTINATION= Data:Programmation/MUIB30
+
+Object.boopsi: object.o
+	slink LIBPREFIX _MUIB_ LIBFD object.fd to $(DESTINATION)/Classes/Object.boopsi FROM lib:libent.o lib:libinitr.o Object.o lib lib:amiga.lib lib lib:sc.lib lib lib:debug.lib noicons libversion 1 librevision 0 
+
+object.o: object.c
+	sc libcode nostackcheck object.c

@@ -1,0 +1,17 @@
+DESTINATION= Data:Programmation/MUIB30
+
+Area.boopsi: object.o
+        slink with <<
+LIBPREFIX _MUIB_
+LIBFD object.fd
+to Object.boopsi
+FROM lib:libent.o lib:libinitr.o Object.o 
+lib lib:amiga.lib
+lib lib:sc.lib
+noicons
+libversion 1 librevision 0
+<
+        slink from Object.boopsi to $(DESTINATION)/Classes/Area.boopsi ND noicons
+
+object.o: object.c
+        sc libcode nostackcheck object.c
