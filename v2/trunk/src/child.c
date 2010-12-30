@@ -30,6 +30,12 @@
 #include "builder2.h"
 #include <fcntl.h>
 
+#if __AROS__
+    #define MB_BE2WORD(x) AROS_BE2WORD(x)
+#else
+    #define MB_BE2WORD(x) (x)
+#endif
+
 UWORD width, height;
 int nb_images;
 
@@ -78,8 +84,8 @@ void WidthAndHeight(void)
     {
       if (fread(buffer, 1, 26, fh))
 	{
-	  height = *((UWORD*) &buffer[22]);
-	  width  = *((UWORD*) &buffer[20]);
+	  height = MB_BE2WORD(*((UWORD*) &buffer[22]));
+	  width  = MB_BE2WORD(*((UWORD*) &buffer[20]));
 	}
      fclose(fh);
     }
