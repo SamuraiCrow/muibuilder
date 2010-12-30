@@ -560,7 +560,7 @@ BOOL NewWindow( window *win_aux , BOOL new, object* obj2search )
                         MUIA_Window_Title       , GetMUIBuilderString(MSG_WindowAttributes),
 			MUIA_HelpNode		, "Window",
                         MUIA_Window_ID          , MAKE_ID('W','I','N','D'),
-			MUIA_Window_Menu        , Menu,
+			MUIA_Window_Menustrip   , MUI_MakeObject(MUIO_MenustripNM, Menu),
                         WindowContents, VGroup,
 				Child, RegGroup = RegisterGroup( registertitles ),
 				Child, VGroup,

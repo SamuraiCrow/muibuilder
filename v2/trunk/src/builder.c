@@ -905,8 +905,8 @@ int main( int argc, char *argv[] )
 	app = ApplicationObject,
 		MUIA_Application_Title		, "MUIBuilder",
 		MUIA_Application_Version	,"$VER: "VERS" ("DATE")",
-		MUIA_Application_Copyright	,"Copyright ©1994",
-		MUIA_Application_Author		,"Eric Totel",
+		MUIA_Application_Copyright	,"Copyright ©1994-2011",
+		MUIA_Application_Author		,"Eric Totel, MUIBuilder Open Source Team",
 		MUIA_Application_Description	,GetMUIBuilderString(MSG_WrittenBy),
 		MUIA_Application_Base		,"BUILDER",
 		// MUIA_HelpFile			,DocDir,
@@ -917,7 +917,7 @@ int main( int argc, char *argv[] )
 			MUIA_Window_Title	, VERS,
 			MUIA_Window_ID		, MAKE_ID('B','U','I','L'),
 			MUIA_Window_AppWindow	, TRUE,
-			MUIA_Window_Menu	, Menu,
+			MUIA_Window_Menustrip	, MUI_MakeObject(MUIO_MenustripNM, Menu),
 
 			WindowContents, VGroup,
 #ifdef MUIB_BETA
