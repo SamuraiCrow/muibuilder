@@ -46,7 +46,7 @@
 #include <stdio.h>
 
 /* Locale */
-#include "muibuilder_cat.h"
+#include "MUIBuilder_cat.h"
 
 #include <exec/memory.h>
 

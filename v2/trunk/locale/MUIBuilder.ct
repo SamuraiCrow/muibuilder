@@ -2,6 +2,7 @@
 ## language 
 ## codeset 0
 ;
+;
 ; 	MUIBuilder 2.2 translation file
 ;
 ;	Author : Eric Totel
@@ -14,31 +15,31 @@
 ;
 MSG_Application
 
-;Application
+; Application
 ;
 MSG_Base
 
-;Base
+; Base
 ;
 MSG_Author
 
-;Author
+; Author
 ;
 MSG_Title
 
-;Title
+; Title
 ;
 MSG_Version
 
-;Version
+; Version
 ;
 MSG_Copyright
 
-;Copyright
+; Copyright
 ;
 MSG_Description
 
-;Description
+; Description
 ;
 ;
 ;
@@ -47,27 +48,27 @@ MSG_Description
 ;
 MSG_Cancel
 
-;_Cancel
+; _Cancel
 ;
 MSG_Ok
 
-;_OK
+; _OK
 ;
 MSG_ChoseFunction
 
-;Chose a function
+; Chose a function
 ;
 MSG_MergeFile
 
-;Merge File
+; Merge File
 ;
 MSG_ComeBack
 
-;Go back to the main window to load !
+; Go back to the main window to load !
 ;
 MSG_ApplicationLost
 
-;You will lose all your application\n           if you continue.
+; You will lose all your application\n           if you continue.
 ;
 ; Note : If you translate this file, please don't forget to insert your name
 ; in the following string.
@@ -76,155 +77,155 @@ MSG_ApplicationLost
 ;
 MSG_AboutText
 
-;\033c\n%s\nwas written by\n\n\033bEric TOTEL\033n\n\nand released on %s\n\nThis program is Giftware\nAll rights reserved\n
+; \033c\n%s\nwas written by\n\n\033bEric TOTEL\033n\n\nand released on %s\n\nThis program is Giftware\nAll rights reserved\n
 ;
 MSG_Failed
 
-;Failed to create application !
+; Failed to create application !
 ;
 MSG_Arguments
 
-;I keep only the first argument !
+; I keep only the first argument !
 ;
 MSG_NeedWindows
 
-;You need windows in your application !!
+; You need windows in your application !!
 ;
 MSG_NotEnoughMemory
 
-;Not Enough Memory Error !
+; Not Enough Memory Error !
 ;
 MSG_SelectWindow
 
-;You must select a window first !
+; You must select a window first !
 ;
 MSG_Confirm
 
-;Are you sure you want to do that ?
+; Are you sure you want to do that ?
 ;
 MSG_ConfirmExit
 
-;You must be joking !!!\nDo you really want to quit ?
+; You must be joking !!!\nDo you really want to quit ?
 ;
 MSG_SelectObject
 
-;You must select an object first !
+; You must select an object first !
 ;
 MSG_SelectTmpObject
 
-;You need to select an object in tmp !
+; You need to select an object in tmp !
 ;
 MSG_RemoveRootGroup
 
-;You can't remove the group child !
+; You can't remove the group child !
 ;
 MSG_QuitWindowAttributes
 
-;You need a title, a label, and groups !
+; You need a title, a label, and groups !
 ;
 MSG_NoChild
 
-;The Root group must have childs !
+; The Root group must have childs !
 ;
 MSG_NothingToUndelete
 
-;There is nothing to undelete !
+; There is nothing to undelete !
 ;
 MSG_CantMoveRoot
 
-;You can't move root group !
+; You can't move root group !
 ;
 MSG_NeedLabel
 
-;You need a label !
+; You need a label !
 ;
 MSG_NeedLabelTitle
 
-;You need a label and a title
+; You need a label and a title
 ;
 MSG_NeedImageLabel
 
-;You need to select an image and a label !
+; You need to select an image and a label !
 ;
 MSG_NeedBase
 
-;You Need to fill in the application 'BASE' argument !
+; You Need to fill in the application 'BASE' argument !
 ;
 MSG_NotBuilderSaveFile
 
-;It's NOT a MUIBuilder Save File !!!
+; It's NOT a MUIBuilder Save File !!!
 ;
 MSG_WrongVersion
 
-;Unknown MUIBuilder save file : probably wrong version !
+; Unknown MUIBuilder save file : probably wrong version !
 ;
 MSG_SelectEntry
 
-;You must select a list entry !
+; You must select a list entry !
 ;
 MSG_NeedLabelEntries
 
-;You need a label and list entries !
+; You need a label and list entries !
 ;
 MSG_SeletNotifyLink
 
-;Select a notify link !
+; Select a notify link !
 ;
 MSG_NotifyExists
 
-;Notification already exists !
+; Notification already exists !
 ;
 MSG_SelectAction
 
-;Select an action please !
+; Select an action please !
 ;
 MSG_SelectEvent
 
-;Select an event please !
+; Select an event please !
 ;
 MSG_SelectNotifyLink
 
-;Select a notify link !
+; Select a notify link !
 ;
 MSG_CantMovePopObjectChild
 
-;You can't move a PopObject Child !
+; You can't move a PopObject Child !
 ;
 MSG_CantDeletePopObjectChild
 
-;You can't delete a PopObject Child !
+; You can't delete a PopObject Child !
 ;
 MSG_CopyNotImplemented
 
-;Internal Error\nThe copy of this object is not implemented
+; Internal Error\nThe copy of this object is not implemented
 ;
 MSG_ErrorReading
 
-;Error occured while reading Modules directory
+; Error occured while reading Modules directory
 ;
 MSG_GroupError
 
-;Warning !!!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error !!!\n
+; Warning !!!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error !!!\n
 ;
 MSG_SelectMenuTitle
 
-;Select a menu title first !
+; Select a menu title first !
 ;
 MSG_SelectSubMenu
 
-;Select a submenu first !
+; Select a submenu first !
 ;
 MSG_GiveObjectAndLabel
 
-;Give an object and a label first !
+; Give an object and a label first !
 ;
 MSG_AlreadyGenerated
 
-;This Label is already generated in the code !
+; This Label is already generated in the code !
 ;
 MSG_SelectLabel
 
-;You must select a generated label first !
+; You must select a generated label first !
 ;
 ;
 ; Rectangle Window
@@ -232,19 +233,19 @@ MSG_SelectLabel
 ;
 MSG_RectangleChoices
 
-;Rectangle Choices
+; Rectangle Choices
 ;
 MSG_Rectangle
 
-;Rectangle
+; Rectangle
 ;
 MSG_HorizontalBar
 
-;Horizontal Bar
+; Horizontal Bar
 ;
 MSG_VerticalBar
 
-;Vertical Bar
+; Vertical Bar
 ;
 ;
 ; Prefs Window
@@ -252,95 +253,95 @@ MSG_VerticalBar
 ;
 MSG_Configuration
 
-;Preferences
+; Preferences
 ;
 MSG_ConfigChoices
 
-;Config Choices
+; Config Choices
 ;
 MSG_GhostWindows
 
-;Ghost Windows
+; Ghost Windows
 ;
 MSG_Icons
 
-;Icons
+; Icons
 ;
 MSG_Requests
 
-;Requests
+; Requests
 ;
 MSG_Editor
 
-;Editor
+; Editor
 ;
 MSG_Save
 
-;_Save
+; _Save
 ;
 MSG_EditorChoice
 
-;Editor Choice
+; Editor Choice
 ;
 MSG_TestLabel
 
-;Test
+; Test
 ;
 MSG_Depth
 
-;Depth
+; Depth
 ;
 MSG_TreeChar
 
-;Tree Char
+; Tree Char
 ;
 ; Main window strings
 ;
 ;
 MSG_WrittenBy
 
-;Written by Eric Totel
+; Written by Eric Totel
 ;
 MSG_Windows
 
-;Windows
+; Windows
 ;
 MSG_Creation
 
-;Creation Control
+; Creation Control
 ;
 MSG_Appli
 
-;_Application
+; _Application
 ;
 MSG_NewWindow
 
-;New _Window
+; New _Window
 ;
 MSG_EditWindow
 
-;_Edit Window
+; _Edit Window
 ;
 MSG_Delete
 
-;_Delete
+; _Delete
 ;
 MSG_View
 
-;_View
+; _View
 ;
 MSG_Code
 
-;_Code
+; _Code
 ;
 MSG_Guide
 
-;_Guide
+; _Guide
 ;
 ;
 MSG_Quit
 
-;_Quit
+; _Quit
 ;
 ;
 ; 'Window attributes' Window
@@ -348,103 +349,103 @@ MSG_Quit
 ;
 MSG_WindowAttributes
 
-;Window Attributes
+; Window Attributes
 ;
 MSG_WindowIdentification
 
-;Window Identification
+; Window Identification
 ;
 MSG_Label
 
-;Label
+; Label
 ;
 MSG_AddChild
 
-;_Add Child
+; _Add Child
 ;
 MSG_RemoveChild
 
-;_Remove
+; _Remove
 ;
 MSG_Up
 
-;_Up
+; _Up
 ;
 MSG_Down
 
-;_Down
+; _Down
 ;
 MSG_Tmp
 
-;Tmp
+; Tmp
 ;
 MSG_ToTmp
 
-;-_>Move
+; -_>Move
 ;
 MSG_ToChild
 
-;_<-Move
+; _<-Move
 ;
 MSG_RemoveTmp
 
-;Remo_ve
+; Remo_ve
 ;
 MSG_Test
 
-;_Test
+; _Test
 ;
 MSG_EditObject
 
-;_Edit
+; _Edit
 ;
 MSG_Notify
 
-;_Notify
+; _Notify
 ;
 MSG_Menu
 
-;_Menu
+; _Menu
 ;
 MSG_Copy
 
-;->_Copy
+; ->_Copy
 ;
 MSG_CopyTmp
 
-;<-Co_py
+; <-Co_py
 ;
 MSG_OpenAtInit
 
-;Open at Init
+; Open at Init
 ;
 MSG_AppWindow
 
-;AppWindow
+; AppWindow
 ;
 MSG_Backdrop
 
-;BackDrop
+; BackDrop
 ;
 MSG_Borderless
 
-;Borderless
+; Borderless
 ;
 MSG_CloseGadget
 
-;Close Gadget
+; Close Gadget
 ;
 MSG_DepthGadget
 
-;Depth Gadget
+; Depth Gadget
 ;
 MSG_DragBar
 
-;Dragbar
+; Dragbar
 ;
 MSG_SizeGadget
 
-;Size Gadget
+; Size Gadget
 ;
 ;
 ; Group creation window
@@ -452,83 +453,83 @@ MSG_SizeGadget
 ;
 MSG_GroupWindow
 
-;Group Choices
+; Group Choices
 ;
 MSG_GroupAttributes
 
-;Group Attributes
+; Group Attributes
 ;
 MSG_HorizGroup
 
-;Horizontal Group
+; Horizontal Group
 ;
 MSG_PageMode
 
-;Register Mode
+; Register Mode
 ;
 MSG_SameHeight
 
-;Same Height
+; Same Height
 ;
 MSG_SameWidth
 
-;Same Width
+; Same Width
 ;
 MSG_SameSize
 
-;Same Size
+; Same Size
 ;
 MSG_VirtualGroup
 
-;Virtual Group
+; Virtual Group
 ;
 MSG_Columns
 
-;Columns
+; Columns
 ;
 MSG_Rows
 
-;Rows
+; Rows
 ;
 MSG_HorizSpacing
 
-;Horizontal Spacing
+; Horizontal Spacing
 ;
 MSG_VertSpacing
 
-;Vertical Spacing
+; Vertical Spacing
 ;
 MSG_Register
 
-;Register
+; Register
 ;
 MSG_RegisterEntries
 
-;Register Entries
+; Register Entries
 ;
 MSG_RowsColumns
 
-;Rows/Columns
+; Rows/Columns
 ;
 MSG_Number
 
-;Number
+; Number
 ;
 MSG_Spacing
 
-;Spacing
+; Spacing
 ;
 MSG_Horizontal
 
-;Horizontal
+; Horizontal
 ;
 MSG_Vertical
 
-;Vertical
+; Vertical
 ;
 MSG_GroupIdent
 
-;Group Identification
+; Group Identification
 ;
 ;
 ; Child window
@@ -536,149 +537,149 @@ MSG_GroupIdent
 ;
 MSG_ObjectChoice
 
-;Object Choice
+; Object Choice
 ;
 MSG_Group
 
-;_Group
+; _Group
 ;
 MSG_KeyButton
 
-;_KeyButton
+; _KeyButton
 ;
 MSG_ListView
 
-;ListVie_w
+; ListVie_w
 ;
 MSG_DirList
 
-;_DirList
+; _DirList
 ;
 MSG_String
 
-;_String
+; _String
 ;
 MSG_LabelObj
 
-;Lab_el
+; Lab_el
 ;
 MSG_Cycle
 
-;C_ycle
+; C_ycle
 ;
 MSG_Radio
 
-;Radi_o
+; Radi_o
 ;
 MSG_Image
 
-;I_mage
+; I_mage
 ;
 MSG_Space
 
-;Sp_ace
+; Sp_ace
 ;
 MSG_CheckMark
 
-;C_heckMark
+; C_heckMark
 ;
 MSG_Slider
 
-;Sl_ider
+; Sl_ider
 ;
 MSG_Gauge
 
-;Ga_uge
+; Ga_uge
 ;
 MSG_Scale
 
-;Sca_le
+; Sca_le
 ;
 MSG_Text
 
-;_Text
+; _Text
 ;
 MSG_Prop
 
-;P_rop
+; P_rop
 ;
 MSG_Bar
 
-;Recta_ngle
+; Recta_ngle
 ;
 MSG_Colorfield
 
-;Color_field
+; Color_field
 ;
 MSG_PopAsl
 
-;_PopAsl
+; _PopAsl
 ;
 MSG_PopObject
 
-;PopOb_ject
+; PopOb_ject
 ;
 ; Label Window
 ;
 ;
 MSG_LabelIdent
 
-;Label Identification
+; Label Identification
 ;
 MSG_LabelChoice
 
-;Label Choice
+; Label Choice
 ;
 ;
 ; String window
 ;
 MSG_Left
 
-;Left
+; Left
 ;
 MSG_Right
 
-;Right
+; Right
 ;
 MSG_Center
 
-;Center
+; Center
 ;
 MSG_StringChoice
 
-;String Choice
+; String Choice
 ;
 MSG_UseTitle
 
-;Use a title
+; Use a title
 ;
 MSG_SecretString
 
-;Secret String
+; Secret String
 ;
 MSG_IntegerString
 
-;Integer String
+; Integer String
 ;
 MSG_StringIdent
 
-;String Identification
+; String Identification
 ;
 MSG_Content
 
-;Content
+; Content
 ;
 MSG_Accept
 
-;Accept
+; Accept
 ;
 MSG_Reject
 
-;Reject
+; Reject
 ;
 MSG_MaxLen
 
-;MaxLength
+; MaxLength
 ;
 ;
 ; Buttons window
@@ -686,15 +687,15 @@ MSG_MaxLen
 ;
 MSG_ButtonChoices
 
-;Button Choices
+; Button Choices
 ;
 MSG_ButtonIdent
 
-;Button Identification
+; Button Identification
 ;
 MSG_ShortKey
 
-;Hot Key
+; Hot Key
 ;
 ;
 ; CheckMark Window
@@ -702,38 +703,38 @@ MSG_ShortKey
 ;
 MSG_CheckMarkChoice
 
-;CheckMark Choice
+; CheckMark Choice
 ;
 MSG_CheckMarkIdent
 
-;CheckMark Identification
+; CheckMark Identification
 ;
 MSG_InitialState
 
-;Initial State
+; Initial State
 ;
 ; Cycle Window
 ;
 ;
 MSG_CycleChoice
 
-;Cycle Choices
+; Cycle Choices
 ;
 MSG_CycleEntries
 
-;Cycle Entries
+; Cycle Entries
 ;
 MSG_New
 
-;_New
+; _New
 ;
 MSG_Remove
 
-;_Remove
+; _Remove
 ;
 MSG_Entry
 
-;Entry
+; Entry
 ;
 ;
 ;
@@ -742,11 +743,11 @@ MSG_Entry
 ;
 MSG_RadioChoices
 
-;Radio Choices
+; Radio Choices
 ;
 MSG_RadioEntries
 
-;Radio Entries
+; Radio Entries
 ;
 ;
 ; DirList Window
@@ -754,71 +755,71 @@ MSG_RadioEntries
 ;
 MSG_SortbyName
 
-;Sort by Name
+; Sort by Name
 ;
 MSG_SortbyDate
 
-;Sort by Date
+; Sort by Date
 ;
 MSG_SortbySize
 
-;Sort by Size
+; Sort by Size
 ;
 MSG_ListDirChoices
 
-;ListDir Choices
+; ListDir Choices
 ;
 MSG_Attributes
 
-;Attributes
+; Attributes
 ;
 MSG_DrawersOnly
 
-;Drawers Only
+; Drawers Only
 ;
 MSG_FilesOnly
 
-;Files Only
+; Files Only
 ;
 MSG_FilterDrawers
 
-;Filter Drawers
+; Filter Drawers
 ;
 MSG_MultiSelection
 
-;Multi Selection
+; Multi Selection
 ;
 MSG_RejectIcons
 
-;Reject Icons
+; Reject Icons
 ;
 MSG_SortHighLow
 
-;Sort High-Low
+; Sort High-Low
 ;
 MSG_SortType
 
-;Sort Type
+; Sort Type
 ;
 MSG_Dir
 
-;Dir
+; Dir
 ;
 MSG_SortDirs
 
-;Sort Dirs
+; Sort Dirs
 ;
 MSG_DirsFirst
 
-;Dirs First
+; Dirs First
 ;
 MSG_DirsLast
 
-;Dirs Last
+; Dirs Last
 ;
 MSG_DirsMixed
 
-;Dirs Mixed
+; Dirs Mixed
 ;
 ;
 ; Gauge Window
@@ -826,43 +827,43 @@ MSG_DirsMixed
 ;
 MSG_GaugeChoices
 
-;Gauge Choices
+; Gauge Choices
 ;
 MSG_Choices
 
-;Choices
+; Choices
 ;
 MSG_HorizGauge
 
-;Horizontal Gauge
+; Horizontal Gauge
 ;
 MSG_FixHeight
 
-;Fix Height
+; Fix Height
 ;
 MSG_FixWidth
 
-;Fix Width
+; Fix Width
 ;
 MSG_Divide
 
-;Divide
+; Divide
 ;
 MSG_Maximum
 
-;Maximum
+; Maximum
 ;
 MSG_Height
 
-;Height
+; Height
 ;
 MSG_Width
 
-;Width
+; Width
 ;
 MSG_Infotext
 
-;Info Text
+; Info Text
 ;
 ;
 ; Code Generation part
@@ -870,75 +871,75 @@ MSG_Infotext
 ;
 MSG_MultiplyDefinedLabel
 
-;\033c\0338BEWARE\nThe following Labels are\nmultiply defined
+; \033c\0338BEWARE\nThe following Labels are\nmultiply defined
 ;
 MSG_MultiDefinitions
 
-;MultiDefinitions
+; MultiDefinitions
 ;
 MSG_CodeFileName
 
-;Code File Name
+; Code File Name
 ;
 MSG_ObjectsLabels
 
-;Objects Labels
+; Objects Labels
 ;
 MSG_GeneratedLabels
 
-;Generated Labels
+; Generated Labels
 ;
 MSG_AppCode
 
-;App _Code
+; App _Code
 ;
 MSG_ObjectCode
 
-;_Object Code
+; _Object Code
 ;
 MSG_RemoveLabel
 
-;_Remove Label
+; _Remove Label
 ;
 MSG_AddLabel
 
-;_Add Label
+; _Add Label
 ;
 MSG_Options
 
-;Options
+; Options
 ;
 MSG_Declarations
 
-;Declarations
+; Declarations
 ;
 MSG_Environment
 
-;Environment
+; Environment
 ;
 MSG_CodeOption
 
-;Code
+; Code
 ;
 MSG_NotificationsOption
 
-;Notifications
+; Notifications
 ;
 MSG_CatalogButton
 
-;Catalo_g
+; Catalo_g
 ;
 MSG_Catalog
 
-;Catalog
+; Catalog
 ;
 MSG_Locale
 
-;Locale
+; Locale
 ;
 MSG_GetString
 
-;GetString
+; GetString
 ;
 ;
 ; 
@@ -946,75 +947,75 @@ MSG_GetString
 ;
 MSG_TextLength
 
-;\0338 Actually Text Length
+; \0338 Actually Text Length
 ;
 MSG_NodeTitle
 
-;Node Title
+; Node Title
 ;
 MSG_EditNodeText
 
-;_Edit Node Text
+; _Edit Node Text
 ;
 MSG_CantOpen
 
-;Can't Open temporary file !
+; Can't Open temporary file !
 ;
 MSG_AmigaGuide
 
-;AmigaGuide
+; AmigaGuide
 ;
 MSG_Objects
 
-;Objects
+; Objects
 ;
 MSG_Edit
 
-;_Edit
+; _Edit
 ;
 MSG_Edit2
 
-;E_dit
+; E_dit
 ;
 MSG_Operations
 
-;Operations
+; Operations
 ;
 MSG_AppNode
 
-;_App Node
+; _App Node
 ;
 MSG_WindowNode
 
-;Wind_ow Node
+; Wind_ow Node
 ;
 MSG_ObjectNode
 
-;O_bject Node
+; O_bject Node
 ;
 MSG_GenerateWholeDoc
 
-;Generate _Whole Doc
+; Generate _Whole Doc
 ;
 MSG_GenerateWinDoc
 
-;Generate W_in Doc
+; Generate W_in Doc
 ;
 MSG_GenerateObjDoc
 
-;Generate Ob_j Doc
+; Generate Ob_j Doc
 ;
 MSG_ViewDoc
 
-;_View Doc
+; _View Doc
 ;
 MSG_AmigaguideDocName
 
-;AmigaGuide Doc Name
+; AmigaGuide Doc Name
 ;
 MSG_CantOpenAmigaGuide
 
-;Can't Open AmigaGuide File !
+; Can't Open AmigaGuide File !
 ;
 ; 
 ; Image window
@@ -1022,35 +1023,35 @@ MSG_CantOpenAmigaGuide
 ;
 MSG_ImageChoice
 
-;Image Choice
+; Image Choice
 ;
 MSG_FreeVertical
 
-;Free Vertical
+; Free Vertical
 ;
 MSG_FreeHorizontal
 
-;Free Horizontal
+; Free Horizontal
 ;
 MSG_InputMode
 
-;Input Mode
+; Input Mode
 ;
 MSG_Frame
 
-;Frame
+; Frame
 ;
 MSG_Size
 
-;Size
+; Size
 ;
 MSG_ImageIdent
 
-;Image Identification
+; Image Identification
 ;
 MSG_Images
 
-;Images
+; Images
 ;
 ;
 ;
@@ -1059,91 +1060,91 @@ MSG_Images
 ;    
 MSG_ListChoice
 
-;List Choice
+; List Choice
 ;
 MSG_ListType
 
-;List Type
+; List Type
 ;
 MSG_ListIdent
 
-;List Identification
+; List Identification
 ;
 MSG_StandardList
 
-;Standard List
+; Standard List
 ;
 MSG_FloattextList
 
-;Floattext List
+; Floattext List
 ;
 MSG_VolumeList
 
-;Volume List
+; Volume List
 ;
 MSG_NoEntry
 
-;No Entry
+; No Entry
 ;
 MSG_FirstEntry
 
-;First Entry
+; First Entry
 ;
 MSG_LastEntry
 
-;Last Entry
+; Last Entry
 ; 
 MSG_Strings
 
-;Strings
+; Strings
 ;
 MSG_AdjustHeight
 
-;Adjust Height
+; Adjust Height
 ;
 MSG_AdjustWidth
 
-;Adjust Width
+; Adjust Width
 ;
 MSG_Activate
 
-;Activate
+; Activate
 ;
 MSG_DisplayHook
 
-;Display Hook
+; Display Hook
 ;
 MSG_ConstructHook
 
-;Construct Hook
+; Construct Hook
 ;
 MSG_DestructHook
 
-;Destruct Hook
+; Destruct Hook
 ;
 MSG_CompareHook
 
-;Compare Hook
+; Compare Hook
 ;
 MSG_MultiTestHook
 
-;Multitest Hook
+; Multitest Hook
 ;
 MSG_Format
 
-;Format
+; Format
 ;
 MSG_FloatText
 
-;Float Text
+; Float Text
 ;
 MSG_FileName
 
-;File Name
+; File Name
 ;
 MSG_DoubleClick
 
-;Double Click
+; Double Click
 ;
 ;
 ; Prop Window
@@ -1151,34 +1152,34 @@ MSG_DoubleClick
 ;
 MSG_PropChoices
 
-;Prop Choices
+; Prop Choices
 ;
 MSG_HorizontalProp
 
-;Horizontal Prop
+; Horizontal Prop
 ;
 MSG_EntriesNumber
 
-;Entries Number
+; Entries Number
 ;
 MSG_FirstNumber
 
-;First Number
+; First Number
 ;
 MSG_VisibleNumber
 
-;Visible Number
+; Visible Number
 ;
 ; Scale Window
 ;
 ;
 MSG_ScaleTitle
 
-;Scale
+; Scale
 ;
 MSG_Orientation
 
-;Orientation
+; Orientation
 ;
 ;
 ; Slider Window
@@ -1186,31 +1187,31 @@ MSG_Orientation
 ;
 MSG_SliderChoice
 
-;Slider Choice
+; Slider Choice
 ;
 MSG_Reverse
 
-;Reverse
+; Reverse
 ;
 MSG_SliderQuiet
 
-;Slider Quiet
+; Slider Quiet
 ;
 MSG_UseTitleSlider
 
-;Use a title for slider
+; Use a title for slider
 ;
 MSG_Minimum
 
-;Minimum
+; Minimum
 ;
 MSG_Init
 
-;Initialisation
+; Initialisation
 ;
 MSG_SliderIdent
 
-;Slider Identification
+; Slider Identification
 ;
 ;
 ; Text window
@@ -1218,50 +1219,50 @@ MSG_SliderIdent
 ;
 MSG_TextAttributes
 
-;Text Attributes
+; Text Attributes
 ;
 MSG_TextSetMax
 
-;Text SetMax
+; Text SetMax
 ;
 MSG_TextSetMin
 
-;Text SetMin
+; Text SetMin
 ;
 MSG_Backgrounds
 
-;Backgrounds
+; Backgrounds
 ;
 MSG_TextContent
 
-;Text Content
+; Text Content
 ;
 MSG_Preparse
 
-;Preparse
+; Preparse
 ;
 ;
 ; Test Window
 ;
 MSG_TestWindow
 
-;Test Window
+; Test Window
 ;
 MSG_TestClick
 
-;_Click Here
+; _Click Here
 ;
 MSG_FirstLine
 
-;First Line
+; First Line
 ;
 MSG_SecondLine
 
-;Second Line
+; Second Line
 ;
 MSG_ThirdLine
 
-;Third Line
+; Third Line
 ;
 ;
 ; Notify Window
@@ -1269,39 +1270,39 @@ MSG_ThirdLine
 ;
 MSG_NotifyTitle
 
-;Notify
+; Notify
 ;
 MSG_InternalError
 
-;Internal Error
+; Internal Error
 ;
 MSG_ChoseIdent
 
-;Chose an indentifier
+; Chose an indentifier
 ;
 MSG_ChoseVariable
 
-;Chose a variable
+; Chose a variable
 ;
 MSG_Editing
 
-;\033cEditing : 
+; \033cEditing : 
 ;
 MSG_Events
 
-;Events
+; Events
 ;
 MSG_Actions
 
-;Actions
+; Actions
 ;
 MSG_AddNotify
 
-;_Add Notify
+; _Add Notify
 ;
 MSG_RemoveNotify
 
-;_Remove Notify
+; _Remove Notify
 ;
 ;
 ; Get MUI argument window
@@ -1309,19 +1310,19 @@ MSG_RemoveNotify
 ;
 MSG_AddToList
 
-;Add
+; Add
 ;
 MSG_RemoveFromList
 
-;_Remove
+; _Remove
 ;
 MSG_SelectIdentifier
 
-;Select an identifier first !
+; Select an identifier first !
 ;
 MSG_IdentifierExists
 
-;Identifier already exists !
+; Identifier already exists !
 ;
 ;
 ; Get Constant value window
@@ -1329,23 +1330,23 @@ MSG_IdentifierExists
 ;
 MSG_GetConstant
 
-;Get Constant Value
+; Get Constant Value
 ;
 MSG_IntegerConstant
 
-;Integer
+; Integer
 ;
 MSG_BooleanConstant
 
-;Boolean
+; Boolean
 ;
 MSG_StringConstant
 
-;String
+; String
 ;
 MSG_CharConstant
 
-;Char
+; Char
 ;
 ;
 ; Area Strings
@@ -1353,82 +1354,82 @@ MSG_CharConstant
 ; Area Name
 MSG_Area
 
-;Area
+; Area
 ;
 MSG_Hide
 
-;Hide
+; Hide
 ;
 MSG_Disable
 
-;Disable
+; Disable
 ;
 MSG_PhantomFrame
 
-;Phantom Frame
+; Phantom Frame
 ;
 MSG_Weight
 
-;Weight
+; Weight
 ;
 MSG_Background
 
-;Background
+; Background
 ;
 MSG_ControlChar
 
-;Control Char
+; Control Char
 ;
 MSG_TitleFrame
 
-;Title Frame
+; Title Frame
 ;
 ;
 ; PopAsl Window
 ;
 MSG_PopUpImage
 
-;PopUp Image
+; PopUp Image
 ;
 MSG_PopFileImage
 
-;PopFile Image
+; PopFile Image
 ;
 MSG_PopDrawerImage
 
-;PopDrawer Image
+; PopDrawer Image
 ;
 MSG_FileRequester
 
-;File Requester
+; File Requester
 ;
 MSG_FontRequester
 
-;Font Requester
+; Font Requester
 ;
 MSG_ScreenModeRequester
 
-;Screen Mode Requester
+; Screen Mode Requester
 ;
 MSG_PopAslChoices
 
-;PopAsl Choices
+; PopAsl Choices
 ;
 MSG_RequesterType
 
-;Requester Type
+; Requester Type
 ;
 MSG_CallHook
 
-;Call Hooks
+; Call Hooks
 ;
 MSG_StartHook
 
-;Start Hook
+; Start Hook
 ;
 MSG_StopHook
 
-;Stop Hook
+; Stop Hook
 ;
 ;
 ; PopObject Window
@@ -1436,31 +1437,31 @@ MSG_StopHook
 ;
 MSG_PopObjectChoices
 
-;PopObject Choices
+; PopObject Choices
 ;
 MSG_Follow
 
-;Follow
+; Follow
 ;
 MSG_Light
 
-;Light
+; Light
 ;
 MSG_Volatile
 
-;Volatile
+; Volatile
 ;
 MSG_Object
 
-;Object
+; Object
 ;
 MSG_OpenHook
 
-;Open Hook
+; Open Hook
 ;
 MSG_CloseHook
 
-;Close Hook
+; Close Hook
 ;
 ;
 ; ColorField Window
@@ -1468,113 +1469,113 @@ MSG_CloseHook
 ;
 MSG_ColorfieldChoices
 
-;Colorfield Choices
+; Colorfield Choices
 ;
 MSG_Indentification
 
-;Identification
+; Identification
 ;
 ;
 ; Menu Creation
 ;
 MSG_MenuCreation
 
-;Menu Creation
+; Menu Creation
 ;
 MSG_EnableCheck
 
-;Enable Check
+; Enable Check
 ;
 MSG_CheckState
 
-;Check State
+; Check State
 ;
 MSG_Toggle
 
-;Toggle
+; Toggle
 ;
 MSG_ShortCut
 
-;Short Cut
+; Short Cut
 ;
 MSG_Enable
 
-;Enable
+; Enable
 ;
 MSG_NewTitle
 
-;New _Title
+; New _Title
 ;
 MSG_SubMenu
 
-;_SubMenu
+; _SubMenu
 ;
 MSG_MenuItem
 
-;Menu_Item
+; Menu_Item
 ;
 MSG_DeleteMenu
 
-;_Delete
+; _Delete
 ;
 ;
 ; Menus
 ;
 MSG_Project
 
-;Project
+; Project
 ;
 MSG_Merge
 
-;M\00Merge
+; M\00Merge
 ;
 MSG_SaveMenu
 
-;S\00Save
+; S\00Save
 ;
 MSG_QuitMenu
 
-;Q\00Quit
+; Q\00Quit
 ;
 MSG_Fold
 
-;F\00Fold
+; F\00Fold
 ;
 MSG_Unfold
 
-;D\00Unfold
+; D\00Unfold
 ;
 MSG_About
 
-;?\00About
+; ?\00About
 ;
 MSG_Config
 
-;P\00Prefs
+; P\00Prefs
 ;
 MSG_Undo
 
-;U\00Undelete
+; U\00Undelete
 ;
 MSG_Load
 
-;O\00Open
+; O\00Open
 ;
 MSG_NewMenu
 
-;N\00New
+; N\00New
 ;
 MSG_SaveAs
 
-;A\00SaveAs
+; A\00SaveAs
 ;
 MSG_EditMenu
 
-;Edit
+; Edit
 ;
 MSG_Tree
 
-;Tree
+; Tree
 ;
 ;
 ; 25.08.94
@@ -1582,11 +1583,11 @@ MSG_Tree
 ;
 MSG_CatalogPrepend
 
-;Prepend
+; Prepend
 ;
 MSG_HelpGenerated
 
-;Generated
+; Generated
 ;
 ;
 ; Notifications
@@ -1594,321 +1595,321 @@ MSG_HelpGenerated
 ;
 MSG_NotifyHide
 
-;Hide
+; Hide
 ;
 MSG_NotifyShow
 
-;Show
+; Show
 ;
 MSG_NotifyDisable
 
-;Disable
+; Disable
 ;
 MSG_NotifyEnable
 
-;Enable
+; Enable
 ;
 MSG_NotifyActivate
 
-;Activate
+; Activate
 ;
 MSG_ReturnID
 
-;Return ID
+; Return ID
 ;
 MSG_ReturnQuit
 
-;Return Quit
+; Return Quit
 ;
 MSG_ApplicationSleep
 
-;Application Sleep
+; Application Sleep
 ;
 MSG_ApplicationWake
 
-;Application Wake
+; Application Wake
 ;
 MSG_CallFunction
 
-;Call function
+; Call function
 ;
 MSG_Iconify
 
-;Iconify
+; Iconify
 ;
 MSG_UnIconify
 
-;Uniconify
+; Uniconify
 ;
 MSG_Unactivate
 
-;Unactivate
+; Unactivate
 ;
 MSG_OpenWindow
 
-;Open Window
+; Open Window
 ;
 MSG_CloseWindow
 
-;Close Window
+; Close Window
 ;
 MSG_Active
 
-;Active
+; Active
 ;
 MSG_CloseRequest
 
-;Close Request
+; Close Request
 ;
 MSG_Deactivate
 
-;Deactivate
+; Deactivate
 ;
 MSG_PutTriggerValue
 
-;Put Trigger Value
+; Put Trigger Value
 ;
 MSG_PutConstantValue
 
-;Put Constant Value
+; Put Constant Value
 ;
 MSG_PutVariableValue
 
-;Put Variable Value
+; Put Variable Value
 ;
 MSG_PressButton
 
-;Press Button
+; Press Button
 ;
 MSG_ReleaseButton
 
-;Release Button
+; Release Button
 ;
 MSG_NotifyDisabled
 
-;Disabled
+; Disabled
 ;
 MSG_NotifyEnabled
 
-;Enabled
+; Enabled
 ;
 MSG_TimerAction
 
-;Timer Action
+; Timer Action
 ;
 MSG_ChangePage
 
-;Change Page
+; Change Page
 ;
 MSG_Acknowlede
 
-;Acknowledge
+; Acknowledge
 ;
 MSG_ChangePosition
 
-;Change Position
+; Change Position
 ;
 MSG_ChangeContent
 
-;Change Content
+; Change Content
 ;
 MSG_ClearList
 
-;Clear List
+; Clear List
 ;
 MSG_JumpToPosition
 
-;JumpToPosition
+; JumpToPosition
 ;
 MSG_RedrawAll
 
-;Redraw All
+; Redraw All
 ;
 MSG_RedrawActive
 
-;Redraw Active
+; Redraw Active
 ;
 MSG_RemoveActive
 
-;Remove Active
+; Remove Active
 ;
 MSG_SortList
 
-;Sort List
+; Sort List
 ;
 MSG_NotifyDoubleClick
 
-;Double Click
+; Double Click
 ;
 MSG_ChangeActive
 
-;Change Active
+; Change Active
 ;
 MSG_ChangeValue
 
-;Change Value
+; Change Value
 ;
 MSG_ActiveModified
 
-;Active Modified
+; Active Modified
 ;
 MSG_Select
 
-;Select
+; Select
 ;
 MSG_Unselect
 
-;Unselect
+; Unselect
 ;
 MSG_SelectOn
 
-;Select ON
+; Select ON
 ;
 MSG_SelectOff
 
-;Select OFF
+; Select OFF
 ;
 MSG_SelectChange
 
-;Select Change
+; Select Change
 ;
 MSG_PressImage
 
-;Press Image
+; Press Image
 ;
 MSG_ReleaseImage
 
-;Release Image
+; Release Image
 ;
 MSG_ChangedPosition
 
-;Changed Position
+; Changed Position
 ;
 MSG_NotifyReverse
 
-;Reverse
+; Reverse
 ;
 MSG_ChangedText
 
-;Changed Text
+; Changed Text
 ;
 MSG_ChangedEntriesNumber
 
-;Changed Entries Number
+; Changed Entries Number
 ;
 MSG_ChangedVisibleEntries
 
-;Changed Visible Entries
+; Changed Visible Entries
 ;
 MSG_PutTriggerRed
 
-;Put Red Value (Trigger Value)
+; Put Red Value (Trigger Value)
 ;
 MSG_PutTriggerBlue
 
-;Put Blue Value (Trigger Value)
+; Put Blue Value (Trigger Value)
 ;
 MSG_PutTriggerGreen
 
-;Put Green Value (Trigger Value)
+; Put Green Value (Trigger Value)
 ;
 MSG_PutConstantRed
 
-;Put Red Value (Constant Value)
+; Put Red Value (Constant Value)
 ;
 MSG_PutConstantGreen
 
-;Put Green Value (Constant Value)
+; Put Green Value (Constant Value)
 ;
 MSG_PutConstantBlue
 
-;Put Blue Value (Constant Value)
+; Put Blue Value (Constant Value)
 ;
 MSG_PutVariableRed
 
-;Put Red Value (Variable Value)
+; Put Red Value (Variable Value)
 ;
 MSG_PutVariableGreen
 
-;Put Green Value (Variable Value)
+; Put Green Value (Variable Value)
 ;
 MSG_PutVariableBlue
 
-;Put Blue Value (Variable Value)
+; Put Blue Value (Variable Value)
 ;
 MSG_ChangedRed
 
-;Changed Red Value
+; Changed Red Value
 ;
 MSG_ChangedGreen
 
-;Changed Green Value
+; Changed Green Value
 ;
 MSG_ChangedBlue
 
-;Changed Blue Value
+; Changed Blue Value
 ;
 MSG_ChangeTitleTrigger
 
-;Change Title (Trigger Value)
+; Change Title (Trigger Value)
 ;
 MSG_ChangeTitleVariable
 
-;Change Title (Variable Value)
+; Change Title (Variable Value)
 ;
 MSG_ChangeTitleConstant
 
-;Change Title (Constant Value)
+; Change Title (Constant Value)
 ;
 MSG_CheckMenuON
 
-;Check ON
+; Check ON
 ;
 MSG_CheckMenuOFF
 
-;Check OFF
+; Check OFF
 ;
 MSG_CheckableON
 
-;Checkable ON
+; Checkable ON
 ;
 MSG_CheckableOFF
 
-;Checkable OFF
+; Checkable OFF
 ;
 MSG_ChangeShortTrigger
 
-;Change Shortcut (Trigger Value)
+; Change Shortcut (Trigger Value)
 ;
 MSG_ChangeShortVariable
 
-;Change Shortcut (Variable Value)
+; Change Shortcut (Variable Value)
 ;
 MSG_ChangeShortConstant
 
-;Change Shortcut (Constant Value)
+; Change Shortcut (Constant Value)
 ;
 MSG_ToggleFlagON
 
-;Toggle Flag ON
+; Toggle Flag ON
 ;
 MSG_ToggleFlagOFF
 
-;Toggle Flag OFF
+; Toggle Flag OFF
 ;
 MSG_MenuTriggered
 
-;Menu Triggered
+; Menu Triggered
 ;
 ; Space Window
 ;
 MSG_SpaceChoice
 
-;Space Choices
+; Space Choices
 ;
 MSG_HorizontalVertical
 
-;Horizontal and Vertical
+; Horizontal and Vertical
 ;
 ;
 ; MUIBuilder 2.1 additionnal strings
@@ -1916,43 +1917,51 @@ MSG_HorizontalVertical
 ;
 MSG_ActiveNoObj
 
-;Activate No Object
+; Activate No Object
 ;
 MSG_ActiveNextObj
 
-;Activate Next Object
+; Activate Next Object
 ;
 MSG_ActivePrevObj
 
-;Activate Previous Object
+; Activate Previous Object
 ;
 MSG_CantFindImages
 
-;Unable to find Images !
+; Unable to find Images !
 ;
 MSG_GenerateSource
 
-;Generating Source
+; Generating Source
 ;
 MSG_CodeGeneration
 
-;Generating Temporary files
+; Generating Temporary files
 ;
 ; MUIBuilder 2.2
 ; Updated on June, 7th, 1995
 ;
 MSG_Misc
 
-;Misc
+; Misc
 ;
 MSG_ImageDrawer
 
-;Image Drawer
+; Image Drawer
 ; Code page generation' new option
 MSG_GenerateAllIDs
 
-;Generate All IDs
+; Generate All IDs
 ; Window 'NoMenu' option
 MSG_NoMenu
 
-;No Menu
+; No Menu
+;
+; ID was missing, Dez, 30th, 2010
+;
+MSG_NeedMouse
+
+; Needs Mouse
+;
+; ***NEW***

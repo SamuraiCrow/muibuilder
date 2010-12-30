@@ -37,7 +37,7 @@ void InitLocale( void )
 {
   LocaleBase = OpenLibrary("locale.library",38L);
 
-  OpenMUIBuilderCatalog(NULL,NULL);
+  OpenMUIBuilderCatalog(NULL);
 }
 
 void CloseLocale( void )

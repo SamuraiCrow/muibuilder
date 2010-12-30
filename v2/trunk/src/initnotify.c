@@ -24,7 +24,7 @@
 ***************************************************************************/
 
 #include "notify.h"
-#include "muibuilder_cat.h"
+#include "MUIBuilder_cat.h"
 
 /********************* Application ********************/
 char *ACTAppli[6];

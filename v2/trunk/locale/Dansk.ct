@@ -1,44 +1,46 @@
-## version 
+## version $VER: MUIBuilder.catalog 2.0 (30.12.2010)
 ## language dansk
 ## codeset 0
 ;
-;       MUIBuilder 2.1 translation file
+; FIXME: catalog needs updating
 ;
-;       Author : Eric Totel
-;                26 route de Montsuzain
-;                10150 Voué
-;                E-Mail : Eric.Totel@ramses.fdn.org
-;                on 1st december 1994
+; 	MUIBuilder 2.2 translation file
+;
+;	Author : Eric Totel
+;		 26 route de Montsuzain
+;		 10150 Voué
+;		 E-Mail : Eric.Totel@ramses.fdn.org
+;		 on June, 7th, 1995
 ;
 ; Strings for the 'Application Window'
 ;
 MSG_Application
 Brugerflade
-;Application
+; Application
 ;
 MSG_Base
 Base
-;Base
+; Base
 ;
 MSG_Author
 Forfatter
-;Author
+; Author
 ;
 MSG_Title
 Titel
-;Title
+; Title
 ;
 MSG_Version
 Version
-;Version
+; Version
 ;
 MSG_Copyright
 Copyright
-;Copyright
+; Copyright
 ;
 MSG_Description
 Beskrivelse
-;Description
+; Description
 ;
 ;
 ;
@@ -47,28 +49,28 @@ Beskrivelse
 ;
 MSG_Cancel
 _Afbryd
-;_Cancel
+; _Cancel
 ;
 MSG_Ok
 _Ok
-;_OK
+; _OK
 ;
 MSG_ChoseFunction
 Vælg en funktion
-;Chose a function
+; Chose a function
 ;
 MSG_MergeFile
 Sammenfletnings fil
-;Merge File
+; Merge File
 ;
 MSG_ComeBack
 Gå til hovedvindue for at hente en fil ind !
-;Go back to the main window to load !
+; Go back to the main window to load !
 ;
 MSG_ApplicationLost
 Din brugerflade vil forsvinde\n\
     hvis du fortsætter.
-;You will lose all your application\n           if you continue.
+; You will lose all your application\n           if you continue.
 ;
 ; Note : If you translate this file, please don't forget to insert your name
 ; in the following string.
@@ -83,155 +85,155 @@ og var frigivet den %s\n\n\
 Alle retigheder forbeholdes\n\n\
 Dansk oversættelse af:\n\
 \033bSøren Berg Glasius\033n\n
-;\033c\n%s\nwas written by\n\n\033bEric TOTEL\033n\n\nand released on %s\n\nThis program is Giftware\nAll rights reserved\n
+; \033c\n%s\nwas written by\n\n\033bEric TOTEL\033n\n\nand released on %s\n\nThis program is Giftware\nAll rights reserved\n
 ;
 MSG_Failed
 Kunne ikke lave brugerflade !
-;Failed to create application !
+; Failed to create application !
 ;
 MSG_Arguments
 Jeg beholder kun første argument !
-;I keep only the first argument !
+; I keep only the first argument !
 ;
 MSG_NeedWindows
 Du skal have vinduer i din brugerflade !!
-;You need windows in your application !!
+; You need windows in your application !!
 ;
 MSG_NotEnoughMemory
 Fejl: Ikke hukommelse nok !
-;Not Enough Memory Error !
+; Not Enough Memory Error !
 ;
 MSG_SelectWindow
 Du skal vælge et vindue først !
-;You must select a window first !
+; You must select a window first !
 ;
 MSG_Confirm
 Er du sikker på du vil det ?
-;Are you sure you want to do that ?
+; Are you sure you want to do that ?
 ;
 MSG_ConfirmExit
 Du har ikke gemt dit arbejde !!!\nVil du virkelig afslutte ?
-;You must be joking !!!\nDo you really want to quit ?
+; You must be joking !!!\nDo you really want to quit ?
 ;
 MSG_SelectObject
 Du skal vælge et objekt først !
-;You must select an object first !
+; You must select an object first !
 ;
 MSG_SelectTmpObject
 Du skal vælge et objekt i tmp !
-;You need to select an object in tmp !
+; You need to select an object in tmp !
 ;
 MSG_RemoveRootGroup
 Du kan ikke fjerne gruppens barn !
-;You can't remove the group child !
+; You can't remove the group child !
 ;
 MSG_QuitWindowAttributes
 Du skal bruge en titel, en etiket og grupper !
-;You need a title, a label, and groups !
+; You need a title, a label, and groups !
 ;
 MSG_NoChild
 Rodgruppen skal have et barn !
-;The Root group must have childs !
+; The Root group must have childs !
 ;
 MSG_NothingToUndelete
 Der er ikke noget at genoprette !
-;There is nothing to undelete !
+; There is nothing to undelete !
 ;
 MSG_CantMoveRoot
 Du kan ikke fjerne rod-gruppen !
-;You can't move root group !
+; You can't move root group !
 ;
 MSG_NeedLabel
 Du skal bruge en etiket !
-;You need a label !
+; You need a label !
 ;
 MSG_NeedLabelTitle
 Du skal bruge en etiket og en titel
-;You need a label and a title
+; You need a label and a title
 ;
 MSG_NeedImageLabel
 Du skal vælge et billed og en etiket !
-;You need to select an image and a label !
+; You need to select an image and a label !
 ;
 MSG_NeedBase
 Du skal udfylde aplikationens 'BASE' felt !
-;You Need to fill in the application 'BASE' argument !
+; You Need to fill in the application 'BASE' argument !
 ;
 MSG_NotBuilderSaveFile
 Dette er IKKE en fil gemt af MUIBuilder !!!
-;It's NOT a MUIBuilder Save File !!!
+; It's NOT a MUIBuilder Save File !!!
 ;
 MSG_WrongVersion
 Ukendt MUIBuilder fil: sikkert en forkert version !
-;Unknown MUIBuilder save file : probably wrong version !
+; Unknown MUIBuilder save file : probably wrong version !
 ;
 MSG_SelectEntry
 Du skal vælge et listeelement !
-;You must select a list entry !
+; You must select a list entry !
 ;
 MSG_NeedLabelEntries
 Du mangler en etiket og listeelementer !
-;You need a label and list entries !
+; You need a label and list entries !
 ;
 MSG_SeletNotifyLink
 Vælg et beskedforbindelse !
-;Select a notify link !
+; Select a notify link !
 ;
 MSG_NotifyExists
 Beskedforbindelse findes allerede !
-;Notification already exists !
+; Notification already exists !
 ;
 MSG_SelectAction
 Vælg venligst en handling !
-;Select an action please !
+; Select an action please !
 ;
 MSG_SelectEvent
 Vælg venligst en begivenhed !
-;Select an event please !
+; Select an event please !
 ;
 MSG_SelectNotifyLink
 Vælg en beskedforbindelse !
-;Select a notify link !
+; Select a notify link !
 ;
 MSG_CantMovePopObjectChild
 Du kan ikke flytte et PopObjekt's barn !
-;You can't move a PopObject Child !
+; You can't move a PopObject Child !
 ;
 MSG_CantDeletePopObjectChild
 Du kan ikke slette et PopObjekt's barn !
-;You can't delete a PopObject Child !
+; You can't delete a PopObject Child !
 ;
 MSG_CopyNotImplemented
 Intern fejl\nKopiering af denne type objekt er ikke implementeret
-;Internal Error\nThe copy of this object is not implemented
+; Internal Error\nThe copy of this object is not implemented
 ;
 MSG_ErrorReading
 Fejl under læsning af Modules biblioteket
-;Error occured while reading Modules directory
+; Error occured while reading Modules directory
 ;
 MSG_GroupError
 Advarsel !!!\nGruppen %s\nskulle have %d børn\nmen har %d.\nHusk at få rettet denne fejl !!!
-;Warning !!!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error !!!\n
+; Warning !!!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error !!!\n
 ;
 MSG_SelectMenuTitle
 Vælg først en menutitel !
-;Select a menu title first !
+; Select a menu title first !
 ;
 MSG_SelectSubMenu
 Vælg først en undermenutitel !
-;Select a submenu first !
+; Select a submenu first !
 ;
 MSG_GiveObjectAndLabel
 Udpeg først et objekt og en etiket !
-;Give an object and a label first !
+; Give an object and a label first !
 ;
 MSG_AlreadyGenerated
 Denne etiket findes allerede i koden !
-;This Label is already generated in the code !
+; This Label is already generated in the code !
 ;
 MSG_SelectLabel
 Du skal først vælge en genereret etiket !
-;You must select a generated label first !
+; You must select a generated label first !
 ;
 ;
 ; Rectangle Window
@@ -239,19 +241,19 @@ Du skal først vælge en genereret etiket !
 ;
 MSG_RectangleChoices
 Firkant muligheder
-;Rectangle Choices
+; Rectangle Choices
 ;
 MSG_Rectangle
 Firkant
-;Rectangle
+; Rectangle
 ;
 MSG_HorizontalBar
 Horisontal bjælke
-;Horizontal Bar
+; Horizontal Bar
 ;
 MSG_VerticalBar
 Vertikal bjælke
-;Vertical Bar
+; Vertical Bar
 ;
 ;
 ; Prefs Window
@@ -259,95 +261,95 @@ Vertikal bjælke
 ;
 MSG_Configuration
 Præferencer
-;Preferences
+; Preferences
 ;
 MSG_ConfigChoices
 Globale muligheder
-;Config Choices
+; Config Choices
 ;
 MSG_GhostWindows
 Skygge vinduer
-;Ghost Windows
+; Ghost Windows
 ;
 MSG_Icons
 Ikoner
-;Icons
+; Icons
 ;
 MSG_Requests
 Dialogboks
-;Requests
+; Requests
 ;
 MSG_Editor
 Editor
-;Editor
+; Editor
 ;
 MSG_Save
 _Gem
-;_Save
+; _Save
 ;
 MSG_EditorChoice
 Editor muligheder
-;Editor Choice
+; Editor Choice
 ;
 MSG_TestLabel
 Test
-;Test
+; Test
 ;
 MSG_Depth
 Dybde
-;Depth
+; Depth
 ;
 MSG_TreeChar
 Træ-tegn
-;Tree Char
+; Tree Char
 ;
 ; Main window strings
 ;
 ;
 MSG_WrittenBy
 Skrevet af Eric Totel
-;Written by Eric Totel
+; Written by Eric Totel
 ;
 MSG_Windows
 Vinduer
-;Windows
+; Windows
 ;
 MSG_Creation
 Oprettelses kontrol
-;Creation Control
+; Creation Control
 ;
 MSG_Appli
 _Aplikation
-;_Application
+; _Application
 ;
 MSG_NewWindow
 Nyt _Vindue
-;New _Window
+; New _Window
 ;
 MSG_EditWindow
 _Editer Vindue
-;_Edit Window
+; _Edit Window
 ;
 MSG_Delete
 _Slet
-;_Delete
+; _Delete
 ;
 MSG_View
 V_is
-;_View
+; _View
 ;
 MSG_Code
 _Kode
-;_Code
+; _Code
 ;
 MSG_Guide
 _Guide
-;_Guide
+; _Guide
 ;
 ;
 MSG_Quit
 _Afslut
-;_Quit
+; _Quit
 ;
 ;
 ; 'Window attributes' Window
@@ -355,103 +357,103 @@ _Afslut
 ;
 MSG_WindowAttributes
 Vinduesegenskaber
-;Window Attributes
+; Window Attributes
 ;
 MSG_WindowIdentification
 Vinduesidentifikation
-;Window Identification
+; Window Identification
 ;
 MSG_Label
 Etiket
-;Label
+; Label
 ;
 MSG_AddChild
 _Nyt barn
-;_Add Child
+; _Add Child
 ;
 MSG_RemoveChild
 _Fjern
-;_Remove
+; _Remove
 ;
 MSG_Up
 _Op
-;_Up
+; _Up
 ;
 MSG_Down
 N_ed
-;_Down
+; _Down
 ;
 MSG_Tmp
 Tmp
-;Tmp
+; Tmp
 ;
 MSG_ToTmp
 -_>Flyt
-;-_>Move
+; -_>Move
 ;
 MSG_ToChild
 _<-Flyt
-;_<-Move
+; _<-Move
 ;
 MSG_RemoveTmp
 Fje_rn
-;Remo_ve
+; Remo_ve
 ;
 MSG_Test
 _Test
-;_Test
+; _Test
 ;
 MSG_EditObject
 _Editér
-;_Edit
+; _Edit
 ;
 MSG_Notify
 _Beskedforbindelse
-;_Notify
+; _Notify
 ;
 MSG_Menu
 _Menuer
-;_Menu
+; _Menu
 ;
 MSG_Copy
 ->_Kopier
-;->_Copy
+; ->_Copy
 ;
 MSG_CopyTmp
 <-Ko_pier
-;<-Co_py
+; <-Co_py
 ;
 MSG_OpenAtInit
 Åben ved start
-;Open at Init
+; Open at Init
 ;
 MSG_AppWindow
 AppVindue
-;AppWindow
+; AppWindow
 ;
 MSG_Backdrop
 BackDrop
-;BackDrop
+; BackDrop
 ;
 MSG_Borderless
 Uden rammer
-;Borderless
+; Borderless
 ;
 MSG_CloseGadget
 Lukke knap
-;Close Gadget
+; Close Gadget
 ;
 MSG_DepthGadget
 Dybde knap
-;Depth Gadget
+; Depth Gadget
 ;
 MSG_DragBar
 Dragbar
-;Dragbar
+; Dragbar
 ;
 MSG_SizeGadget
 Størrelse knap
-;Size Gadget
+; Size Gadget
 ;
 ;
 ; Group creation window
@@ -459,83 +461,83 @@ Størrelse knap
 ;
 MSG_GroupWindow
 Gruppe muligheder
-;Group Choices
+; Group Choices
 ;
 MSG_GroupAttributes
 Gruppeegenskaber
-;Group Attributes
+; Group Attributes
 ;
 MSG_HorizGroup
 Horisontal gruppe
-;Horizontal Group
+; Horizontal Group
 ;
 MSG_PageMode
 Side type
-;Register Mode
+; Register Mode
 ;
 MSG_SameHeight
 Samme højde
-;Same Height
+; Same Height
 ;
 MSG_SameWidth
 Samme bredde
-;Same Width
+; Same Width
 ;
 MSG_SameSize
 Samme størrelse
-;Same Size
+; Same Size
 ;
 MSG_VirtualGroup
 Virtuel gruppe
-;Virtual Group
+; Virtual Group
 ;
 MSG_Columns
 Kolonner
-;Columns
+; Columns
 ;
 MSG_Rows
 Rækker
-;Rows
+; Rows
 ;
 MSG_HorizSpacing
 Horisontal mellemrum
-;Horizontal Spacing
+; Horizontal Spacing
 ;
 MSG_VertSpacing
 Vertikal mellemrum
-;Vertical Spacing
+; Vertical Spacing
 ;
 MSG_Register
 Faneblade
-;Register
+; Register
 ;
 MSG_RegisterEntries
 Faneblade sider
-;Register Entries
+; Register Entries
 ;
 MSG_RowsColumns
 Række/Kolonne
-;Rows/Columns
+; Rows/Columns
 ;
 MSG_Number
 Nummer
-;Number
+; Number
 ;
 MSG_Spacing
 Mellemrum
-;Spacing
+; Spacing
 ;
 MSG_Horizontal
 Horisontal
-;Horizontal
+; Horizontal
 ;
 MSG_Vertical
 Vertikal
-;Vertical
+; Vertical
 ;
 MSG_GroupIdent
 Gruppe identifikation
-;Group Identification
+; Group Identification
 ;
 ;
 ; Child window
@@ -543,149 +545,149 @@ Gruppe identifikation
 ;
 MSG_ObjectChoice
 Objekt muligheder
-;Object Choice
+; Object Choice
 ;
 MSG_Group
 _Gruppe
-;_Group
+; _Group
 ;
 MSG_KeyButton
 _TasteKnap
-;_KeyButton
+; _KeyButton
 ;
 MSG_ListView
 ListeV_iser
-;ListVie_w
+; ListVie_w
 ;
 MSG_DirList
 Dir_Liste
-;_DirList
+; _DirList
 ;
 MSG_String
 _Streng
-;_String
+; _String
 ;
 MSG_LabelObj
 _Etiket
-;Lab_el
+; Lab_el
 ;
 MSG_Cycle
 _Cycle
-;C_ycle
+; C_ycle
 ;
 MSG_Radio
 Radi_o
-;Radi_o
+; Radi_o
 ;
 MSG_Image
 _Billed
-;I_mage
+; I_mage
 ;
 MSG_Space
 _Mellemrum
-;Sp_ace
+; Sp_ace
 ;
 MSG_CheckMark
 _Flueben
-;C_heckMark
+; C_heckMark
 ;
 MSG_Slider
 Gli_der
-;Sl_ider
+; Sl_ider
 ;
 MSG_Gauge
 M_åler
-;Ga_uge
+; Ga_uge
 ;
 MSG_Scale
 Sk_ala
-;Sca_le
+; Sca_le
 ;
 MSG_Text
 Te_kst
-;_Text
+; _Text
 ;
 MSG_Prop
 P_rop
-;P_rop
+; P_rop
 ;
 MSG_Bar
 Firka_nt
-;Recta_ngle
+; Recta_ngle
 ;
 MSG_Colorfield
 Farve_vælger
-;Color_field
+; Color_field
 ;
 MSG_PopAsl
 _PopAsl
-;_PopAsl
+; _PopAsl
 ;
 MSG_PopObject
 PopOb_jekt
-;PopOb_ject
+; PopOb_ject
 ;
 ; Label Window
 ;
 ;
 MSG_LabelIdent
 Etikette identifikation
-;Label Identification
+; Label Identification
 ;
 MSG_LabelChoice
 Etikette muligheder
-;Label Choice
+; Label Choice
 ;
 ;
 ; String window
 ;
 MSG_Left
 Venstre
-;Left
+; Left
 ;
 MSG_Right
 Højre
-;Right
+; Right
 ;
 MSG_Center
 Centreret
-;Center
+; Center
 ;
 MSG_StringChoice
 Streng muligheder
-;String Choice
+; String Choice
 ;
 MSG_UseTitle
 Brug en titel
-;Use a title
+; Use a title
 ;
 MSG_SecretString
 Hemmelig streng
-;Secret String
+; Secret String
 ;
 MSG_IntegerString
 Tal streng
-;Integer String
+; Integer String
 ;
 MSG_StringIdent
 Streng identifikation
-;String Identification
+; String Identification
 ;
 MSG_Content
 Indhold
-;Content
+; Content
 ;
 MSG_Accept
 Acceptér
-;Accept
+; Accept
 ;
 MSG_Reject
 Afvis
-;Reject
+; Reject
 ;
 MSG_MaxLen
 MaxLængde
-;MaxLength
+; MaxLength
 ;
 ;
 ; Buttons window
@@ -693,15 +695,15 @@ MaxLængde
 ;
 MSG_ButtonChoices
 Knap muligheder
-;Button Choices
+; Button Choices
 ;
 MSG_ButtonIdent
 Knap identifikation
-;Button Identification
+; Button Identification
 ;
 MSG_ShortKey
 Hot Key
-;Hot Key
+; Hot Key
 ;
 ;
 ; CheckMark Window
@@ -709,38 +711,38 @@ Hot Key
 ;
 MSG_CheckMarkChoice
 Flueben muligheder
-;CheckMark Choice
+; CheckMark Choice
 ;
 MSG_CheckMarkIdent
 Flueben identifikation
-;CheckMark Identification
+; CheckMark Identification
 ;
 MSG_InitialState
 Start tilstand
-;Initial State
+; Initial State
 ;
 ; Cycle Window
 ;
 ;
 MSG_CycleChoice
 Cycle muligheder
-;Cycle Choices
+; Cycle Choices
 ;
 MSG_CycleEntries
 Cycle indgange
-;Cycle Entries
+; Cycle Entries
 ;
 MSG_New
 _Ny
-;_New
+; _New
 ;
 MSG_Remove
 _Fjern
-;_Remove
+; _Remove
 ;
 MSG_Entry
 Indgang
-;Entry
+; Entry
 ;
 ;
 ;
@@ -749,11 +751,11 @@ Indgang
 ;
 MSG_RadioChoices
 Radio muligheder
-;Radio Choices
+; Radio Choices
 ;
 MSG_RadioEntries
 Radio indgange
-;Radio Entries
+; Radio Entries
 ;
 ;
 ; DirList Window
@@ -761,71 +763,71 @@ Radio indgange
 ;
 MSG_SortbyName
 Sortér efter navn
-;Sort by Name
+; Sort by Name
 ;
 MSG_SortbyDate
 Sortér efter dato
-;Sort by Date
+; Sort by Date
 ;
 MSG_SortbySize
 Sortér efter størrelse
-;Sort by Size
+; Sort by Size
 ;
 MSG_ListDirChoices
 ListBibliotek muligheder
-;ListDir Choices
+; ListDir Choices
 ;
 MSG_Attributes
 Egenskaber
-;Attributes
+; Attributes
 ;
 MSG_DrawersOnly
 Kun skuffer
-;Drawers Only
+; Drawers Only
 ;
 MSG_FilesOnly
 Kun filer
-;Files Only
+; Files Only
 ;
 MSG_FilterDrawers
 Fravælg skuffer
-;Filter Drawers
+; Filter Drawers
 ;
 MSG_MultiSelection
 Vælg flere
-;Multi Selection
+; Multi Selection
 ;
 MSG_RejectIcons
 Fravælg ikoner
-;Reject Icons
+; Reject Icons
 ;
 MSG_SortHighLow
 Sortér høj-lav
-;Sort High-Low
+; Sort High-Low
 ;
 MSG_SortType
 Sortér type
-;Sort Type
+; Sort Type
 ;
 MSG_Dir
 Bibliotek
-;Dir
+; Dir
 ;
 MSG_SortDirs
 Sortér biblioteker
-;Sort Dirs
+; Sort Dirs
 ;
 MSG_DirsFirst
 Skuffer først
-;Dirs First
+; Dirs First
 ;
 MSG_DirsLast
 Skuffer sidst
-;Dirs Last
+; Dirs Last
 ;
 MSG_DirsMixed
 Skuffer blandet
-;Dirs Mixed
+; Dirs Mixed
 ;
 ;
 ; Gauge Window
@@ -833,43 +835,43 @@ Skuffer blandet
 ;
 MSG_GaugeChoices
 Måler muligheder
-;Gauge Choices
+; Gauge Choices
 ;
 MSG_Choices
 Muligheder
-;Choices
+; Choices
 ;
 MSG_HorizGauge
 Horisontal måler
-;Horizontal Gauge
+; Horizontal Gauge
 ;
 MSG_FixHeight
 Fast højde
-;Fix Height
+; Fix Height
 ;
 MSG_FixWidth
 Fast bredde
-;Fix Width
+; Fix Width
 ;
 MSG_Divide
 Division
-;Divide
+; Divide
 ;
 MSG_Maximum
 Maksimum
-;Maximum
+; Maximum
 ;
 MSG_Height
 Højde
-;Height
+; Height
 ;
 MSG_Width
 Bredde
-;Width
+; Width
 ;
 MSG_Infotext
 Informations tekst
-;Info Text
+; Info Text
 ;
 ;
 ; Code Generation part
@@ -877,75 +879,75 @@ Informations tekst
 ;
 MSG_MultiplyDefinedLabel
 \033c\0338BEMÆRK\nFølgende etiketter er\ndefineret flere gange
-;\033c\0338BEWARE\nThe following Labels are\nmultiply defined
+; \033c\0338BEWARE\nThe following Labels are\nmultiply defined
 ;
 MSG_MultiDefinitions
 MultiDefinitioner
-;MultiDefinitions
+; MultiDefinitions
 ;
 MSG_CodeFileName
 Kode fil navn
-;Code File Name
+; Code File Name
 ;
 MSG_ObjectsLabels
 Objekt etiketter
-;Objects Labels
+; Objects Labels
 ;
 MSG_GeneratedLabels
 Generede emner
-;Generated Labels
+; Generated Labels
 ;
 MSG_AppCode
 App _Kode
-;App _Code
+; App _Code
 ;
 MSG_ObjectCode
 _Objekt Kode
-;_Object Code
+; _Object Code
 ;
 MSG_RemoveLabel
 _Fjern emne
-;_Remove Label
+; _Remove Label
 ;
 MSG_AddLabel
 _Tilføj emne
-;_Add Label
+; _Add Label
 ;
 MSG_Options
 Valgmuligheder
-;Options
+; Options
 ;
 MSG_Declarations
 Deklarationer
-;Declarations
+; Declarations
 ;
 MSG_Environment
 Omgivelser
-;Environment
+; Environment
 ;
 MSG_CodeOption
 Kode
-;Code
+; Code
 ;
 MSG_NotificationsOption
 Notifikationer
-;Notifications
+; Notifications
 ;
 MSG_CatalogButton
 Katalo_g
-;Catalo_g
+; Catalo_g
 ;
 MSG_Catalog
 Katalog
-;Catalog
+; Catalog
 ;
 MSG_Locale
 Oversættelse
-;Locale
+; Locale
 ;
 MSG_GetString
 HentStreng
-;GetString
+; GetString
 ;
 ;
 ; 
@@ -953,75 +955,75 @@ HentStreng
 ;
 MSG_TextLength
 \0338 Faktiske tekst længde
-;\0338 Actually Text Length
+; \0338 Actually Text Length
 ;
 MSG_NodeTitle
 Knude navn
-;Node Title
+; Node Title
 ;
 MSG_EditNodeText
 _Ret knude tekst
-;_Edit Node Text
+; _Edit Node Text
 ;
 MSG_CantOpen
 Kan ikke åbne midlertidig fil!
-;Can't Open temporary file !
+; Can't Open temporary file !
 ;
 MSG_AmigaGuide
 AmigaGuide
-;AmigaGuide
+; AmigaGuide
 ;
 MSG_Objects
 Objekter
-;Objects
+; Objects
 ;
 MSG_Edit
 _Ret
-;_Edit
+; _Edit
 ;
 MSG_Edit2
 R_et
-;E_dit
+; E_dit
 ;
 MSG_Operations
 Operationer
-;Operations
+; Operations
 ;
 MSG_AppNode
 _App knude
-;_App Node
+; _App Node
 ;
 MSG_WindowNode
 Vindue_s knude
-;Wind_ow Node
+; Wind_ow Node
 ;
 MSG_ObjectNode
 _Objekt knude
-;O_bject Node
+; O_bject Node
 ;
 MSG_GenerateWholeDoc
 Lav _hele dokument
-;Generate _Whole Doc
+; Generate _Whole Doc
 ;
 MSG_GenerateWinDoc
 Lav _vinduets dokument
-;Generate W_in Doc
+; Generate W_in Doc
 ;
 MSG_GenerateObjDoc
 Lav ob_j dokument
-;Generate Ob_j Doc
+; Generate Ob_j Doc
 ;
 MSG_ViewDoc
 _Vis dokument
-;_View Doc
+; _View Doc
 ;
 MSG_AmigaguideDocName
 AmigaGuide dokument navn
-;AmigaGuide Doc Name
+; AmigaGuide Doc Name
 ;
 MSG_CantOpenAmigaGuide
 Kan ikke åbne AmigaGuide fil!
-;Can't Open AmigaGuide File !
+; Can't Open AmigaGuide File !
 ;
 ; 
 ; Image window
@@ -1029,35 +1031,35 @@ Kan ikke åbne AmigaGuide fil!
 ;
 MSG_ImageChoice
 Billed valg
-;Image Choice
+; Image Choice
 ;
 MSG_FreeVertical
 Fri vertikal
-;Free Vertical
+; Free Vertical
 ;
 MSG_FreeHorizontal
 Fri horizontal
-;Free Horisontal
+; Free Horizontal
 ;
 MSG_InputMode
 Input type
-;Input Mode
+; Input Mode
 ;
 MSG_Frame
 Ramme
-;Frame
+; Frame
 ;
 MSG_Size
 Størrelse
-;Size
+; Size
 ;
 MSG_ImageIdent
 Billed identifikation
-;Image Identification
+; Image Identification
 ;
 MSG_Images
 Billeder
-;Images
+; Images
 ;
 ;
 ;
@@ -1066,92 +1068,91 @@ Billeder
 ;    
 MSG_ListChoice
 Liste muligheder
-;List Choice
+; List Choice
 ;
 MSG_ListType
 Liste type
-;List Type
+; List Type
 ;
 MSG_ListIdent
 Liste identifikation
-;List Identification
+; List Identification
 ;
 MSG_StandardList
 Standard liste
-;Standard List
+; Standard List
 ;
 MSG_FloattextList
 Flydende-tekst liste
-;Floattext List
+; Floattext List
 ;
 MSG_VolumeList
 Volumer list
-;Not a very good translation **********
-;Volume List
+; Volume List
 ;
 MSG_NoEntry
 Ingen indgang
-;No Entry
+; No Entry
 ;
 MSG_FirstEntry
 Første indgang
-;First Entry
+; First Entry
 ;
 MSG_LastEntry
 Sidste indgang
-;Last Entry
+; Last Entry
 ; 
 MSG_Strings
 Strenge
-;Strings
+; Strings
 ;
 MSG_AdjustHeight
 Justér højde
-;Adjust Height
+; Adjust Height
 ;
 MSG_AdjustWidth
 Justér bredde
-;Adjust Width
+; Adjust Width
 ;
 MSG_Activate
 Aktiver
-;Activate
+; Activate
 ;
 MSG_DisplayHook
 Fremvisnings Krog
-;Display Hook
+; Display Hook
 ;
 MSG_ConstructHook
 Oprettelses Krog
-;Construct Hook
+; Construct Hook
 ;
 MSG_DestructHook
 Nedbrydnings Krog
-;Destruct Hook
+; Destruct Hook
 ;
 MSG_CompareHook
 Sammenlignings Krog
-;Compare Hook
+; Compare Hook
 ;
 MSG_MultiTestHook
 Multitest Krog
-;Multitest Hook
+; Multitest Hook
 ;
 MSG_Format
 Formater
-;Format
+; Format
 ;
 MSG_FloatText
 Flydende tekst
-;Float Text
+; Float Text
 ;
 MSG_FileName
 Filnavn
-;File Name
+; File Name
 ;
 MSG_DoubleClick
 Dobbelt klik
-;Double Click
+; Double Click
 ;
 ;
 ; Prop Window
@@ -1159,34 +1160,34 @@ Dobbelt klik
 ;
 MSG_PropChoices
 Prop muligheder
-;Prop Choices
+; Prop Choices
 ;
 MSG_HorizontalProp
 Horisontal prop
-;Horizontal Prop
+; Horizontal Prop
 ;
 MSG_EntriesNumber
 Indgangsnumre
-;Entries Number
+; Entries Number
 ;
 MSG_FirstNumber
 Første nummer
-;First Number
+; First Number
 ;
 MSG_VisibleNumber
 Synligt nummer
-;Visible Number
+; Visible Number
 ;
 ; Scale Window
 ;
 ;
 MSG_ScaleTitle
 Skala
-;Scale
+; Scale
 ;
 MSG_Orientation
 Retning
-;Orientation
+; Orientation
 ;
 ;
 ; Slider Window
@@ -1194,31 +1195,31 @@ Retning
 ;
 MSG_SliderChoice
 Slider muligheder
-;Slider Choice
+; Slider Choice
 ;
 MSG_Reverse
 Spejlvendt
-;Reverse
+; Reverse
 ;
 MSG_SliderQuiet
 Stille slider
-;Slider Quiet
+; Slider Quiet
 ;
 MSG_UseTitleSlider
 Brug titel for slider
-;Use a title for slider
+; Use a title for slider
 ;
 MSG_Minimum
 Minimum
-;Minimum
+; Minimum
 ;
 MSG_Init
 Initialisering
-;Initialisation
+; Initialisation
 ;
 MSG_SliderIdent
 Slider identifikation
-;Slider Identification
+; Slider Identification
 ;
 ;
 ; Text window
@@ -1226,50 +1227,50 @@ Slider identifikation
 ;
 MSG_TextAttributes
 Tekst egenskaber
-;Text Attributes
+; Text Attributes
 ;
 MSG_TextSetMax
 Tekst SetMaks
-;Text SetMax
+; Text SetMax
 ;
 MSG_TextSetMin
 Tekst SetMin
-;Text SetMin
+; Text SetMin
 ;
 MSG_Backgrounds
 Baggrunde
-;Backgrounds
+; Backgrounds
 ;
 MSG_TextContent
 Tekst indhold
-;Text Content
+; Text Content
 ;
 MSG_Preparse
 Forformatér
-;Preparse
+; Preparse
 ;
 ;
 ; Test Window
 ;
 MSG_TestWindow
 Test vinduet
-;Test Window
+; Test Window
 ;
 MSG_TestClick
 _Klik Her
-;_Click Here
+; _Click Here
 ;
 MSG_FirstLine
 Første linie
-;First Line
+; First Line
 ;
 MSG_SecondLine
 Anden linie
-;Second Line
+; Second Line
 ;
 MSG_ThirdLine
 Tredje linie
-;Third Line
+; Third Line
 ;
 ;
 ; Notify Window
@@ -1277,39 +1278,39 @@ Tredje linie
 ;
 MSG_NotifyTitle
 Besked
-;Notify
+; Notify
 ;
 MSG_InternalError
 Intern fejl
-;Internal Error
+; Internal Error
 ;
 MSG_ChoseIdent
 Vælg et ID-nummer
-;Chose an indentifier
+; Chose an indentifier
 ;
 MSG_ChoseVariable
 Vælg en variabel
-;Chose a variable
+; Chose a variable
 ;
 MSG_Editing
 \033cRetter :
-;\033cEditing : 
+; \033cEditing : 
 ;
 MSG_Events
 Handlinger
-;Events
+; Events
 ;
 MSG_Actions
 Reaktioner
-;Actions
+; Actions
 ;
 MSG_AddNotify
 _Tilføj besked
-;_Add Notify
+; _Add Notify
 ;
 MSG_RemoveNotify
 _Fjern besked
-;_Remove Notify
+; _Remove Notify
 ;
 ;
 ; Get MUI argument window
@@ -1317,19 +1318,19 @@ _Fjern besked
 ;
 MSG_AddToList
 Tilføj
-;Add
+; Add
 ;
 MSG_RemoveFromList
 _Fjern
-;_Remove
+; _Remove
 ;
 MSG_SelectIdentifier
 Vælg først et ID nummer !
-;Select an identifier first !
+; Select an identifier first !
 ;
 MSG_IdentifierExists
 ID findes allerede!
-;Identifier already exists !
+; Identifier already exists !
 ;
 ;
 ; Get Constant value window
@@ -1337,23 +1338,23 @@ ID findes allerede!
 ;
 MSG_GetConstant
 Vælg en konstant værdi
-;Get Constant Value
+; Get Constant Value
 ;
 MSG_IntegerConstant
 Tal
-;Integer
+; Integer
 ;
 MSG_BooleanConstant
 Boolsk
-;Boolean
+; Boolean
 ;
 MSG_StringConstant
 Streng
-;String
+; String
 ;
 MSG_CharConstant
 Karakter
-;Char
+; Char
 ;
 ;
 ; Area Strings
@@ -1361,82 +1362,82 @@ Karakter
 ; Area Name
 MSG_Area
 Område
-;Area
+; Area
 ;
 MSG_Hide
 Gem
-;Hide
+; Hide
 ;
 MSG_Disable
 Afbryd
-;Disable
+; Disable
 ;
 MSG_PhantomFrame
 Fantom ramme
-;Phantom Frame
+; Phantom Frame
 ;
 MSG_Weight
 Højde
-;Weight
+; Weight
 ;
 MSG_Background
 Baggrund
-;Background
+; Background
 ;
 MSG_ControlChar
 Kontrol karakter
-;Control Char
+; Control Char
 ;
 MSG_TitleFrame
 Ramme titel
-;Title Frame
+; Title Frame
 ;
 ;
 ; PopAsl Window
 ;
 MSG_PopUpImage
 PopUp billed
-;PopUp Image
+; PopUp Image
 ;
 MSG_PopFileImage
 PopFil billed
-;PopFile Image
+; PopFile Image
 ;
 MSG_PopDrawerImage
 PopDrawer billed
-;PopDrawer Image
+; PopDrawer Image
 ;
 MSG_FileRequester
 Fil dialogboks
-;File Requester
+; File Requester
 ;
 MSG_FontRequester
 Tegnsnit dialogboks
-;Font Requester
+; Font Requester
 ;
 MSG_ScreenModeRequester
 Skærm modus dialogboks
-;Screen Mode Requester
+; Screen Mode Requester
 ;
 MSG_PopAslChoices
 PopAsl muligheder
-;PopAsl Choices
+; PopAsl Choices
 ;
 MSG_RequesterType
 Dialog type
-;Requester Type
+; Requester Type
 ;
 MSG_CallHook
 Krog til kald
-;Call Hooks
+; Call Hooks
 ;
 MSG_StartHook
 Krog til start
-;Start Hook
+; Start Hook
 ;
 MSG_StopHook
 Krog til stop
-;Stop Hook
+; Stop Hook
 ;
 ;
 ; PopObject Window
@@ -1444,31 +1445,31 @@ Krog til stop
 ;
 MSG_PopObjectChoices
 PopObject muligheder
-;PopObject Choices
+; PopObject Choices
 ;
 MSG_Follow
 Følg
-;Follow
+; Follow
 ;
 MSG_Light
 Let
-;Light
+; Light
 ;
 MSG_Volatile
 Lætbevægelig
-;Volatile
+; Volatile
 ;
 MSG_Object
 Objekt
-;Object
+; Object
 ;
 MSG_OpenHook
 Åbne Krog
-;Open Hook
+; Open Hook
 ;
 MSG_CloseHook
 Lukke Krog
-;Close Hook
+; Close Hook
 ;
 ;
 ; ColorField Window
@@ -1476,113 +1477,113 @@ Lukke Krog
 ;
 MSG_ColorfieldChoices
 Farveområde muligheder
-;Colorfield Choices
+; Colorfield Choices
 ;
 MSG_Indentification
 Identifikation
-;Identification
+; Identification
 ;
 ;
 ; Menu Creation
 ;
 MSG_MenuCreation
 Menu oprettelse
-;Menu Creation
+; Menu Creation
 ;
 MSG_EnableCheck
 Flueben tændt
-;Enable Check
+; Enable Check
 ;
 MSG_CheckState
 Flueben status
-;Check State
+; Check State
 ;
 MSG_Toggle
 Byt om
-;Toggle
+; Toggle
 ;
 MSG_ShortCut
 Genvej
-;Short Cut
+; Short Cut
 ;
 MSG_Enable
 Tænd
-;Enable
+; Enable
 ;
 MSG_NewTitle
 Ny _Titel
-;New _Title
+; New _Title
 ;
 MSG_SubMenu
 _Undermenu
-;_SubMenu
+; _SubMenu
 ;
 MSG_MenuItem
 Menu_emne
-;Menu_Item
+; Menu_Item
 ;
 MSG_DeleteMenu
 _Slet
-;_Delete
+; _Delete
 ;
 ;
 ; Menus
 ;
 MSG_Project
 Projekt
-;Project
+; Project
 ;
 MSG_Merge
 S\00Sammenføj
-;M\00Merge
+; M\00Merge
 ;
 MSG_SaveMenu
 G\00Gem
-;S\00Save
+; S\00Save
 ;
 MSG_QuitMenu
 A\00Afslut
-;Q\00Quit
+; Q\00Quit
 ;
 MSG_Fold
 F\00Fold sammen
-;F\00Fold
+; F\00Fold
 ;
 MSG_Unfold
 U\00Fold ud
-;D\00Unfold
+; D\00Unfold
 ;
 MSG_About
 ?\00Om...
-;?\00About
+; ?\00About
 ;
 MSG_Config
 K\00Konfiguration
-;P\00Prefs
+; P\00Prefs
 ;
 MSG_Undo
 O\00Fortryd
-;U\00Undelete
+; U\00Undelete
 ;
 MSG_Load
 Å\00Åben...
-;O\00Open
+; O\00Open
 ;
 MSG_NewMenu
 N\00Ny
-;N\00New
+; N\00New
 ;
 MSG_SaveAs
 S\00Gem Som...
-;A\00SaveAs
+; A\00SaveAs
 ;
 MSG_EditMenu
 R\00Ret
-;Edit
+; Edit
 ;
 MSG_Tree
 Træ
-;Tree
+; Tree
 ;
 ;
 ; 25.08.94
@@ -1590,11 +1591,11 @@ Træ
 ;
 MSG_CatalogPrepend
 Tilføj
-;Prepend
+; Prepend
 ;
 MSG_HelpGenerated
 Genereret
-;Generated
+; Generated
 ;
 ;
 ; Notifications
@@ -1602,321 +1603,321 @@ Genereret
 ;
 MSG_NotifyHide
 Gem
-;Hide
+; Hide
 ;
 MSG_NotifyShow
 Vis
-;Show
+; Show
 ;
 MSG_NotifyDisable
 Afbrudt
-;Disable
+; Disable
 ;
 MSG_NotifyEnable
 Tilsluttet
-;Enable
+; Enable
 ;
 MSG_NotifyActivate
 Aktiv
-;Activate
+; Activate
 ;
 MSG_ReturnID
 Retur ID
-;Return ID
+; Return ID
 ;
 MSG_ReturnQuit
 Returnér Afslut
-;Return Quit
+; Return Quit
 ;
 MSG_ApplicationSleep
 Applikation sov!
-;Application Sleep
+; Application Sleep
 ;
 MSG_ApplicationWake
 Applikation Vågn!
-;Application Wake
+; Application Wake
 ;
 MSG_CallFunction
 Kald funktion
-;Call function
+; Call function
 ;
 MSG_Iconify
 Til ikon
-;Iconify
+; Iconify
 ;
 MSG_UnIconify
 Fra ikon
-;Uniconify
+; Uniconify
 ;
 MSG_Unactivate
 Ved aktivering
-;Unactivate
+; Unactivate
 ;
 MSG_OpenWindow
 Åben Vindue
-;Open Window
+; Open Window
 ;
 MSG_CloseWindow
 Luk Vindue
-;Close Window
+; Close Window
 ;
 MSG_Active
 Aktiv
-;Active
+; Active
 ;
 MSG_CloseRequest
 Luk forespørgsel
-;Close Request
+; Close Request
 ;
 MSG_Deactivate
 Ved de-aktivering
-;Deactivate
+; Deactivate
 ;
 MSG_PutTriggerValue
 Sæt udløsers værdi
-;Put Trigger Value
+; Put Trigger Value
 ;
 MSG_PutConstantValue
 Sæt konstant værdi
-;Put Constant Value
+; Put Constant Value
 ;
 MSG_PutVariableValue
 Sæt variabel værdi
-;Put Variable Value
+; Put Variable Value
 ;
 MSG_PressButton
 Knap nedtrykket
-;Press Button
+; Press Button
 ;
 MSG_ReleaseButton
 Knap sluppet
-;Release Button
+; Release Button
 ;
 MSG_NotifyDisabled
 Afbrudt
-;Disabled
+; Disabled
 ;
 MSG_NotifyEnabled
 Tændt
-;Enabled
+; Enabled
 ;
 MSG_TimerAction
 Tag tid
-;Timer Action
+; Timer Action
 ;
 MSG_ChangePage
 Skift side
-;Change Page
+; Change Page
 ;
 MSG_Acknowlede
 Bekræftet
-;Acknowledge
+; Acknowledge
 ;
 MSG_ChangePosition
 Position ændret
-;Change Position
+; Change Position
 ;
 MSG_ChangeContent
 Indhold ændret
-;Change Content
+; Change Content
 ;
 MSG_ClearList
 Slet liste
-;Clear List
+; Clear List
 ;
 MSG_JumpToPosition
 Hop til position
-;JumpToPosition
+; JumpToPosition
 ;
 MSG_RedrawAll
 Gentegn alt
-;Redraw All
+; Redraw All
 ;
 MSG_RedrawActive
 Gentegn aktive
-;Redraw Active
+; Redraw Active
 ;
 MSG_RemoveActive
 Fjern aktive
-;Remove Active
+; Remove Active
 ;
 MSG_SortList
 Sortér liste
-;Sort List
+; Sort List
 ;
 MSG_NotifyDoubleClick
 Dobbelt klik
-;Double Click
+; Double Click
 ;
 MSG_ChangeActive
 Skift aktive
-;Change Active
+; Change Active
 ;
 MSG_ChangeValue
 Skift værdi
-;Change Value
+; Change Value
 ;
 MSG_ActiveModified
 Aktive ændret
-;Active Modified
+; Active Modified
 ;
 MSG_Select
 Vælg
-;Select
+; Select
 ;
 MSG_Unselect
 Fravælg
-;Unselect
+; Unselect
 ;
 MSG_SelectOn
 Vælg tændt
-;Select ON
+; Select ON
 ;
 MSG_SelectOff
 Vælg slukket
-;Select OFF
+; Select OFF
 ;
 MSG_SelectChange
 Vælg ændring
-;Select Change
+; Select Change
 ;
 MSG_PressImage
 Tryk ned på billedknap
-;Press Image
+; Press Image
 ;
 MSG_ReleaseImage
 Slip af billedknap
-;Release Image
+; Release Image
 ;
 MSG_ChangedPosition
 Ændret position
-;Changed Position
+; Changed Position
 ;
 MSG_NotifyReverse
 Baglæns
-;Reverse
+; Reverse
 ;
 MSG_ChangedText
 Ændret tekst
-;Changed Text
+; Changed Text
 ;
 MSG_ChangedEntriesNumber
 Ændrede element numre
-;Changed Entries Number
+; Changed Entries Number
 ;
 MSG_ChangedVisibleEntries
 Ændrede synlige elementer
-;Changed Visible Entries
+; Changed Visible Entries
 ;
 MSG_PutTriggerRed
 Sæt rød værdi (udløsers værdi)
-;Put Red Value (Trigger Value)
+; Put Red Value (Trigger Value)
 ;
 MSG_PutTriggerBlue
 Sæt blå værdi (udløsers værdi)
-;Put Blue Value (Trigger Value)
+; Put Blue Value (Trigger Value)
 ;
 MSG_PutTriggerGreen
 Sæt grøn værdi (udløsers værdi)
-;Put Green Value (Trigger Value)
+; Put Green Value (Trigger Value)
 ;
 MSG_PutConstantRed
 Sæt rød værdi (Konstant værdi)
-;Put Red Value (Constant Value)
+; Put Red Value (Constant Value)
 ;
 MSG_PutConstantGreen
 Sæt grøn værdi (Konstant værdi)
-;Put Green Value (Constant Value)
+; Put Green Value (Constant Value)
 ;
 MSG_PutConstantBlue
 Sæt blå værdi (Konstant værdi)
-;Put Blue Value (Constant Value)
+; Put Blue Value (Constant Value)
 ;
 MSG_PutVariableRed
 Sæt rød værdi (Variabel værdi)
-;Put Red Value (Variable Value)
+; Put Red Value (Variable Value)
 ;
 MSG_PutVariableGreen
 Sæt grøn værdi (Variabel værdi)
-;Put Green Value (Variable Value)
+; Put Green Value (Variable Value)
 ;
 MSG_PutVariableBlue
 Sæt blå værdi (Variabel værdi)
-;Put Blue Value (Variable Value)
+; Put Blue Value (Variable Value)
 ;
 MSG_ChangedRed
 Ændret rød værdi
-;Changed Red Value
+; Changed Red Value
 ;
 MSG_ChangedGreen
 Ændret grøn værdi
-;Changed Green Value
+; Changed Green Value
 ;
 MSG_ChangedBlue
 Ændret blå værdi
-;Changed Blue Value
+; Changed Blue Value
 ;
 MSG_ChangeTitleTrigger
 Ret titel (udløsers værdi)
-;Change Title (Trigger Value)
+; Change Title (Trigger Value)
 ;
 MSG_ChangeTitleVariable
 Ret titel (variabel værdi)
-;Change Title (Variable Value)
+; Change Title (Variable Value)
 ;
 MSG_ChangeTitleConstant
 Ret titel (konstant værdi)
-;Change Title (Constant Value)
+; Change Title (Constant Value)
 ;
 MSG_CheckMenuON
 Check tændt
-;Check ON
+; Check ON
 ;
 MSG_CheckMenuOFF
 Check slukket
-;Check OFF
+; Check OFF
 ;
 MSG_CheckableON
 Check mulig
-;Checkable ON
+; Checkable ON
 ;
 MSG_CheckableOFF
 Check ikke mulig
-;Checkable OFF
+; Checkable OFF
 ;
 MSG_ChangeShortTrigger
 Ændre genvej (udløsers værdi)
-;Change Shortcut (Trigger Value)
+; Change Shortcut (Trigger Value)
 ;
 MSG_ChangeShortVariable
 Ændre genvej (variabel værdi)
-;Change Shortcut (Variable Value)
+; Change Shortcut (Variable Value)
 ;
 MSG_ChangeShortConstant
 Ændre genvej (konstant værdi)
-;Change Shortcut (Constant Value)
+; Change Shortcut (Constant Value)
 ;
 MSG_ToggleFlagON
 Bytte-om flag tændt
-;Toggle Flag ON
+; Toggle Flag ON
 ;
 MSG_ToggleFlagOFF
 Bytte-om flag slukket
-;Toggle Flag OFF
+; Toggle Flag OFF
 ;
 MSG_MenuTriggered
 Menu aktiveret
-;Menu Triggered
+; Menu Triggered
 ;
 ; Space Window
 ;
 MSG_SpaceChoice
 Mellemrum valg
-;Space Choices
+; Space Choices
 ;
 MSG_HorizontalVertical
 Horisontal og vertikal
-;Horizontal and Vertical
+; Horizontal and Vertical
 ;
 ;
 ; MUIBuilder 2.1 additionnal strings
@@ -1924,24 +1925,59 @@ Horisontal og vertikal
 ;
 MSG_ActiveNoObj
 Aktiver ikke noget objekt
-;Activate No Object
+; Activate No Object
 ;
 MSG_ActiveNextObj
 Aktiver næste objekt
-;Activate Next Object
+; Activate Next Object
 ;
 MSG_ActivePrevObj
 Aktiver forrige objekt
-;Activate Previous Object
+; Activate Previous Object
 ;
 MSG_CantFindImages
 Kan ikke finde billeder !
-;Unable to find Images !
+; Unable to find Images !
 ;
 MSG_GenerateSource
 Generér koden
-;Generating Source
+; Generating Source
 ;
 MSG_CodeGeneration
 Generér midlertidige filer
-;Generating Temporary files
+; Generating Temporary files
+;
+; MUIBuilder 2.2
+; Updated on June, 7th, 1995
+;
+MSG_Misc
+
+; Misc
+;
+; ***NEW***
+;
+MSG_ImageDrawer
+
+; Image Drawer
+;
+; ***NEW***
+; Code page generation' new option
+MSG_GenerateAllIDs
+
+; Generate All IDs
+;
+; ***NEW***
+; Window 'NoMenu' option
+MSG_NoMenu
+
+; No Menu
+;
+; ***NEW***
+;
+; ID was missing, Dez, 30th, 2010
+;
+MSG_NeedMouse
+
+; Needs Mouse
+;
+; ***NEW***

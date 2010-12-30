@@ -1504,3 +1504,8 @@ Generate All IDs
 ; Window 'NoMenu' option
 MSG_NoMenu(//)
 No Menu
+;
+; ID was missing, Dez, 30th, 2010
+;
+MSG_NeedMouse(//)
+Needs Mouse

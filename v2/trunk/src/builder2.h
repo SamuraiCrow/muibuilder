@@ -43,7 +43,7 @@
 #include <ctype.h>
 
 /* locale */
-#include "muibuilder_cat.h"
+#include "MUIBuilder_cat.h"
 
 /* memory */
 #include <exec/memory.h>
