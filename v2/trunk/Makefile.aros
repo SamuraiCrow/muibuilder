@@ -1,0 +1,13 @@
+CC=i386-aros-gcc
+
+.PHONY : all
+all:
+	$(MAKE) -f Makefile.aros -C src
+
+.PHONY : clean
+clean:
+	$(MAKE) -f Makefile.aros clean -C src
+
+.PHONY : distclean
+distclean:
+	$(MAKE) -f Makefile.aros distclean -C src

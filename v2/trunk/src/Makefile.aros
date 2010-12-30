@@ -27,7 +27,7 @@ clean:
 
 .PHONY: distclean
 distclean:
-	clean
+	$(RM) $(EXE) $(OBJS)
 
 .PHONY: deps
 deps:
