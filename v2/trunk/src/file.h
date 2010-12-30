@@ -23,8 +23,13 @@
 
 ***************************************************************************/
 
+#ifndef FILE_H
+#define FILE_H
+
 extern void extract_catalog( char * );
 extern void extract_file( char* ,char* );
 extern void add_extend( char *, char * );
 extern void remove_extend( char * );
 extern void change_extend( char *, char * );
+
+#endif

@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef QUEUE_H
+#define QUEUE_H
+
 #include <exec/types.h>
 
 typedef struct chainon1
@@ -45,3 +48,5 @@ extern queue * create( void );
 extern void exchange( queue *, int, int);
 extern void up( queue*, int );
 extern void down( queue* , int );
+
+#endif

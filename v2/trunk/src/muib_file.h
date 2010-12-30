@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef MUIB_FILE_H
+#define MUIB_FILE_H
+
 #define MB_LIBRARIES_MUI_H 0
 #define MB_MUIMASTER_NAME 1
 #define MB_MUIMASTER_VMIN 2
@@ -813,3 +816,5 @@
 #define MB_MUIV_Listview_ScrollerPos_Left 787
 #define MB_MUIV_Listview_ScrollerPos_Right 788
 #define MB_MUIA_Popobject_WindowHook 789
+
+#endif

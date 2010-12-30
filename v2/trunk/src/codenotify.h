@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef CODENOTIFY_H
+#define CODENOTIFY_H
+
 #include "notifyconstants.h"
 
 /* constantes */
@@ -41,3 +44,5 @@ extern int *TYActions[];
 extern int *ArgEVT[];
 extern int *CActions[];
 extern int *CEvenements[];
+
+#endif

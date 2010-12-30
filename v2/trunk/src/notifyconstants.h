@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef NOTIFYCONSTANTS_H
+#define NOTIFYCONSTANTS_H
+
 #define TY_NOTHING      0 /* No extra argument to consider */
 #define TY_WINOBJ       1 /* notification on an element of a window (so window is needed) */
 			  /* used only with "Activate" because we need to know the window */
@@ -36,3 +39,5 @@
 #define TY_CONS_BOOL    8 /* argument is a constant Boolean */
 
 #define Current_Max	24
+
+#endif

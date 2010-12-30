@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef GROUPAREA_H
+#define GROUPAREA_H
+
 //typedef struct ObjGR_AreaGroup
 struct ObjGR_AreaGroup
 {
@@ -40,6 +43,4 @@ struct ObjGR_AreaGroup
 	char*	STR_CY_Frame[15];
 };
 
-
-
-
+#endif

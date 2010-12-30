@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef TESTNOTIFY_H
+#define TESTNOTIFY_H
+
 #include "builder2.h"
 #include "notifyconstants.h"
 
@@ -34,3 +37,5 @@
 extern int *TYActions[];
 extern int *NEvenements[];
 extern int *NActions[];
+
+#endif

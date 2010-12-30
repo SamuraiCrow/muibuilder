@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef BUILDER2_H
+#define BUILDER2_H
+
 /* MUI */
 #include <libraries/mui.h>
 
@@ -824,3 +827,5 @@ extern void SaveMenu	( FILE*, menu* );
 extern	conf	config;
 extern 	appli	application;
 extern	window	*current_window;
+
+#endif

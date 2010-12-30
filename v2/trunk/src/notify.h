@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef NOTIFY_H
+#define NOTIFY_H
+
 #include "builder2.h"
 #include "notifyconstants.h"
 
@@ -154,3 +157,5 @@ extern char *EVTMenuItem[];
 extern char **Evenements[];
 extern char **Actions[];
 extern int *TYActions[];
+
+#endif

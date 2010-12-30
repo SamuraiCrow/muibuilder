@@ -23,6 +23,9 @@
 
 ***************************************************************************/
 
+#ifndef BUILDER_H
+#define BUILDER_H
+
 /*************************************************************/
 /* Includes and other common stuff for the MUI demo programs */
 /*************************************************************/
@@ -288,3 +291,5 @@ extern BOOL Requester( char*, char*, char* );
 
 extern guidenamefile[256];
 extern guidenamedir[128];
+
+#endif
