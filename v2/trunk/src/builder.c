@@ -137,7 +137,7 @@ void DeleteApplication(void)
 {
 	int i;
 	int n;
-	extern int nb_modules;
+	// extern int nb_modules;
 	extern void DeleteObjNotify( object *obj );
 	extern void DeleteSourceNotify( object* obj );
 
@@ -773,7 +773,7 @@ void Merge(APTR lv_window)
 
 int main( int argc, char *argv[] )
 {
-	static APTR	WI_info;
+	// static APTR	WI_info;
 	static APTR	bt_new, bt_delete, bt_view,bt_code;
 	static APTR	bt_appli;
 	static APTR	bt_edit;
@@ -1260,4 +1260,5 @@ int main( int argc, char *argv[] )
 		}
 		if (signal) Wait(signal);
 	}
+	return 0;
 }

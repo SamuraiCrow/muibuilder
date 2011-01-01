@@ -108,7 +108,7 @@ void TestChain(window *win)
 			chain[1+i] = (ULONG) obj_aux->muiobj;
 			chainon_aux = chainon_aux->next;
 		}
-		chain[1+i] = NULL;
+		chain[1+i] = 0;
 		win->muichain = chain;
 		DoMethodA(win->muiobj, (Msg) chain);
 		FreeVec(chain);

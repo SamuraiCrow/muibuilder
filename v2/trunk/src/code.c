@@ -426,8 +426,8 @@ void GenerateInitLabels(APTR obj, FILE *fichier)
       fprintf(fichier, "%c",0);
       if ((list_aux->type == 1)&&(strlen(list_aux->content)>0))
 	{
-	  if (!local) fprintf(fichier, "%s%c", list_aux->content);
-	  else fprintf(fichier, "%s%sContent%c",catprepend, list_aux->label);
+	  if (!local) fprintf(fichier, "%s%c", list_aux->content); // FIXME: too few arguments
+	  else fprintf(fichier, "%s%sContent%c",catprepend, list_aux->label); // FIXME: too few arguments
 	}
       break;
     case TY_POPASL:

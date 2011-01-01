@@ -28,12 +28,12 @@
 /********************* Application ********************/
 int NACTAppli[] =
         {
-                2, MUIM_Application_ReturnID, NULL, NULL,
-		2, MUIM_Application_ReturnID, MUIV_Application_ReturnID_Quit, NULL,
+                2, MUIM_Application_ReturnID, 0, 0,
+		2, MUIM_Application_ReturnID, MUIV_Application_ReturnID_Quit, 0,
 		3, MUIM_Set, MUIA_Application_Sleep, TRUE,
 		3, MUIM_Set, MUIA_Application_Sleep, FALSE,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTAppli[] =
         {
@@ -41,7 +41,7 @@ int NEVTAppli[] =
 		MUIA_Application_Iconified, FALSE,
 		MUIA_Application_Active, TRUE,
 		MUIA_Application_Active, FALSE,
-                NULL, NULL,
+                0, 0,
         };
 
 /*********************** Window ***********************/
@@ -50,18 +50,18 @@ int NACTWindow[] =
 		3, MUIM_Set, MUIA_Window_Open, TRUE,
 		3, MUIM_Set, MUIA_Window_Open, FALSE,
 		3, MUIM_Set, MUIA_Window_Activate, TRUE,
-		2, MUIM_CallHook, NULL, NULL,
+		2, MUIM_CallHook, 0, 0,
 		3, MUIM_Set, MUIA_Window_ActiveObject, MUIV_Window_ActiveObject_None,
 		3, MUIM_Set, MUIA_Window_ActiveObject, MUIV_Window_ActiveObject_Next,
 		3, MUIM_Set, MUIA_Window_ActiveObject, MUIV_Window_ActiveObject_Prev,
-		NULL, NULL, NULL, NULL
+		0, 0, 0, 0
 	};
 int NEVTWindow[] =
 	{
 		MUIA_Window_CloseRequest, TRUE,
 		MUIA_Window_Activate, TRUE,
 		MUIA_Window_Activate, FALSE,
-		NULL, NULL
+		0, 0
 	};
 
 /*********************** Button ***********************/
@@ -71,12 +71,12 @@ int NACTButton[] =
 		3, MUIM_Set, MUIA_ShowMe		, TRUE,
 		3, MUIM_Set, MUIA_Disabled		, TRUE,
 		3, MUIM_Set, MUIA_Disabled		, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject	, NULL,
+		3, MUIM_Set, MUIA_Window_ActiveObject	, 0,
 		3, MUIM_Set, MUIA_Text_Contents		, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Text_Contents		, NULL,
-		3, MUIM_Set, MUIA_Text_Contents		, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-		NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Text_Contents		, 0,
+		3, MUIM_Set, MUIA_Text_Contents		, 0,
+		2, MUIM_CallHook, 0, 0,
+		0, 0, 0, 0
 	};
 int NEVTButton[] =
 	{
@@ -87,7 +87,7 @@ int NEVTButton[] =
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
 		MUIA_Timer, MUIV_EveryTime,
-		NULL, NULL
+		0, 0
 	};
 
 /******************* Group *************************/
@@ -97,10 +97,10 @@ int NACTGroup[] =
 		3, MUIM_Set, MUIA_ShowMe, TRUE,
 		3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
 		3, MUIM_Set, MUIA_Group_ActivePage, MUIV_TriggerValue,
-		2, MUIM_CallHook, NULL, NULL,
-		NULL, NULL, NULL, NULL
+		2, MUIM_CallHook, 0, 0,
+		0, 0, 0, 0
 	};
 int NEVTGroup[] =
 	{
@@ -109,7 +109,7 @@ int NEVTGroup[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-		NULL, NULL
+		0, 0
 	};
 
 /******************* String ************************/
@@ -119,12 +119,12 @@ int NACTString[] =
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
 		3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
 		3, MUIM_Set, MUIA_String_Contents, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_String_Contents, NULL,
-		3, MUIM_Set, MUIA_String_Contents, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_String_Contents, 0,
+		3, MUIM_Set, MUIA_String_Contents, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTString[] =
         {
@@ -135,7 +135,7 @@ int NEVTString[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /****************** Listview ***********************/
@@ -145,15 +145,15 @@ int NACTListview[] =
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
-		1, MUIM_List_Clear, NULL, NULL,
-		2, MUIM_List_Jump, NULL, NULL,
-		2, MUIM_List_Redraw, MUIV_List_Redraw_All, NULL,
-		2, MUIM_List_Redraw, MUIV_List_Redraw_Active, NULL,
-		2, MUIM_List_Remove, MUIV_List_Remove_Active, NULL,
-		1, MUIM_List_Sort, NULL, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
+		1, MUIM_List_Clear, 0, 0,
+		2, MUIM_List_Jump, 0, 0,
+		2, MUIM_List_Redraw, MUIV_List_Redraw_All, 0,
+		2, MUIM_List_Redraw, MUIV_List_Redraw_Active, 0,
+		2, MUIM_List_Remove, MUIV_List_Remove_Active, 0,
+		1, MUIM_List_Sort, 0, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTListview[] =
         {
@@ -163,7 +163,7 @@ int NEVTListview[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Gauge *************************/
@@ -174,10 +174,10 @@ int NACTGauge[] =
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
 		3, MUIM_Set, MUIA_Gauge_Current, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Gauge_Current, NULL,
-		3, MUIM_Set, MUIA_Gauge_Current, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Gauge_Current, 0,
+		3, MUIM_Set, MUIA_Gauge_Current, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTGauge[] =
         {
@@ -186,7 +186,7 @@ int NEVTGauge[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Cycle *************************/
@@ -196,12 +196,12 @@ int NACTCycle[] =
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
 		3, MUIM_Set, MUIA_Cycle_Active, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Cycle_Active, NULL,
-		3, MUIM_Set, MUIA_Cycle_Active, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Cycle_Active, 0,
+		3, MUIM_Set, MUIA_Cycle_Active, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTCycle[] =
         {
@@ -210,7 +210,7 @@ int NEVTCycle[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Radio *************************/
@@ -220,12 +220,12 @@ int NACTRadio[] =
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
 		3, MUIM_Set, MUIA_Radio_Active, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Radio_Active, NULL,
-		3, MUIM_Set, MUIA_Radio_Active, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Radio_Active, 0,
+		3, MUIM_Set, MUIA_Radio_Active, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTRadio[] =
         {
@@ -234,7 +234,7 @@ int NEVTRadio[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Label *************************/
@@ -245,10 +245,10 @@ int NACTLabel[] =
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
 		3, MUIM_Set, MUIA_Text_Contents, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Text_Contents, NULL,
-		3, MUIM_Set, MUIA_Text_Contents, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Text_Contents, 0,
+		3, MUIM_Set, MUIA_Text_Contents, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTLabel[] =
         {
@@ -256,7 +256,7 @@ int NEVTLabel[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Space *************************/
@@ -264,14 +264,14 @@ int NACTSpace[] =
         {
                 3, MUIM_Set, MUIA_ShowMe, FALSE,
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTSpace[] =
         {
 		MUIA_ShowMe, FALSE,
 		MUIA_ShowMe, TRUE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Check *************************/
@@ -280,14 +280,14 @@ int NACTCheck[] =
 		3, MUIM_Set, MUIA_Selected, TRUE,
 		3, MUIM_Set, MUIA_Selected, FALSE,
 		3, MUIM_Set, MUIA_Selected, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Selected, NULL,
+		3, MUIM_Set, MUIA_Selected, 0,
                 3, MUIM_Set, MUIA_ShowMe, FALSE,
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTCheck[] =
         {
@@ -298,7 +298,7 @@ int NEVTCheck[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Scale *************************/
@@ -306,14 +306,14 @@ int NACTScale[] =
         {
                 3, MUIM_Set, MUIA_ShowMe, FALSE,
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTScale[] =
         {
 		MUIA_ShowMe, FALSE,
 		MUIA_ShowMe, TRUE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Image *************************/
@@ -323,9 +323,9 @@ int NACTImage[] =
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTImage[] =
         {
@@ -335,22 +335,22 @@ int NEVTImage[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-		NULL, NULL
+		0, 0
         };
 
 /******************* Slider ************************/
 int NACTSlider[] =
         {
 		3, MUIM_Set, MUIA_Slider_Level, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Slider_Level, NULL,
-		3, NULL, NULL, NULL, /* not tested */
+		3, MUIM_Set, MUIA_Slider_Level, 0,
+		3, 0, 0, 0, /* not tested */
                 3, MUIM_Set, MUIA_ShowMe, FALSE,
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTSlider[] =
         {
@@ -360,21 +360,21 @@ int NEVTSlider[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Text *************************/
 int NACTText[] =
         {
 		3, MUIM_Set, MUIA_Text_Contents, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Text_Contents, NULL,
-		3, MUIM_Set, MUIA_Text_Contents, NULL,
+		3, MUIM_Set, MUIA_Text_Contents, 0,
+		3, MUIM_Set, MUIA_Text_Contents, 0,
                 3, MUIM_Set, MUIA_ShowMe, FALSE,
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTText[] =
         {
@@ -383,22 +383,22 @@ int NEVTText[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* Prop *************************/
 int NACTProp[] =
         {
 		3, MUIM_Set, MUIA_Prop_First, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Prop_First, NULL,
-		3, MUIM_Set, MUIA_Prop_First, NULL,
+		3, MUIM_Set, MUIA_Prop_First, 0,
+		3, MUIM_Set, MUIA_Prop_First, 0,
                 3, MUIM_Set, MUIA_ShowMe, FALSE,
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTProp[] =
         {
@@ -409,28 +409,28 @@ int NEVTProp[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* ColorField *************************/
 int NACTColorField[] =
         {
 		3, MUIM_Set, MUIA_Colorfield_Red, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Colorfield_Red, NULL,
-		3, MUIM_Set, MUIA_Colorfield_Red, NULL,
+		3, MUIM_Set, MUIA_Colorfield_Red, 0,
+		3, MUIM_Set, MUIA_Colorfield_Red, 0,
 		3, MUIM_Set, MUIA_Colorfield_Blue, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Colorfield_Blue, NULL,
-		3, MUIM_Set, MUIA_Colorfield_Blue, NULL,
+		3, MUIM_Set, MUIA_Colorfield_Blue, 0,
+		3, MUIM_Set, MUIA_Colorfield_Blue, 0,
 		3, MUIM_Set, MUIA_Colorfield_Green, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Colorfield_Green, NULL,
-		3, MUIM_Set, MUIA_Colorfield_Green, NULL,
+		3, MUIM_Set, MUIA_Colorfield_Green, 0,
+		3, MUIM_Set, MUIA_Colorfield_Green, 0,
                 3, MUIM_Set, MUIA_ShowMe, FALSE,
                 3, MUIM_Set, MUIA_ShowMe, TRUE,
                 3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-                NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
+		2, MUIM_CallHook, 0, 0,
+                0, 0, 0, 0
         };
 int NEVTColorField[] =
         {
@@ -441,7 +441,7 @@ int NEVTColorField[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-                NULL, NULL
+                0, 0
         };
 
 /******************* PopAsl *************************/
@@ -451,9 +451,9 @@ int NACTPopAsl[] =
 		3, MUIM_Set, MUIA_ShowMe, TRUE,
 		3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		1, MUIM_Popstring_Open, NULL, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-		NULL, NULL, NULL, NULL
+		1, MUIM_Popstring_Open, 0, 0,
+		2, MUIM_CallHook, 0, 0,
+		0, 0, 0, 0
 	};
 int NEVTPopAsl[] =
 	{
@@ -461,7 +461,7 @@ int NEVTPopAsl[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-		NULL, NULL
+		0, 0
 	};
 
 /******************* PopObject *************************/
@@ -471,9 +471,9 @@ int NACTPopObject[] =
 		3, MUIM_Set, MUIA_ShowMe, TRUE,
 		3, MUIM_Set, MUIA_Disabled, TRUE,
                 3, MUIM_Set, MUIA_Disabled, FALSE,
-		3, MUIM_Set, MUIA_Window_ActiveObject, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-		NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Window_ActiveObject, 0,
+		2, MUIM_CallHook, 0, 0,
+		0, 0, 0, 0
 	};
 int NEVTPopObject[] =
 	{
@@ -481,7 +481,7 @@ int NEVTPopObject[] =
 		MUIA_ShowMe, TRUE,
 		MUIA_Disabled, TRUE,
 		MUIA_Disabled, FALSE,
-		NULL, NULL
+		0, 0
 	};
 
 /***************** MenuStrip ***********************************/
@@ -489,15 +489,15 @@ int NACTMenuStrip[] =
 	{
 		3, MUIM_Set, MUIA_Menustrip_Enabled, TRUE,
 		3, MUIM_Set, MUIA_Menustrip_Enabled, FALSE,
-		2, MUIM_CallHook, NULL, NULL,
-		NULL, NULL, NULL, NULL
+		2, MUIM_CallHook, 0, 0,
+		0, 0, 0, 0
 	};
 
 int NEVTMenuStrip[] =
 	{
 		MUIA_Menustrip_Enabled, TRUE,
 		MUIA_Menustrip_Enabled, FALSE,
-		NULL, NULL,
+		0, 0,
 	};
 
 /***************** Menu ***********************************/
@@ -505,18 +505,18 @@ int NACTMenu[] =
 	{
 		3, MUIM_Set, MUIA_Menu_Enabled, TRUE,
 		3, MUIM_Set, MUIA_Menu_Enabled, FALSE,
-		3, MUIM_Set, MUIA_Menu_Title, NULL,
-		3, MUIM_Set, MUIA_Menu_Title, NULL,
-		3, MUIM_Set, MUIA_Menu_Title, NULL,
-		2, MUIM_CallHook, NULL, NULL,
-		NULL, NULL, NULL, NULL
+		3, MUIM_Set, MUIA_Menu_Title, 0,
+		3, MUIM_Set, MUIA_Menu_Title, 0,
+		3, MUIM_Set, MUIA_Menu_Title, 0,
+		2, MUIM_CallHook, 0, 0,
+		0, 0, 0, 0
 	};
 
 int NEVTMenu[] =
 	{
 		MUIA_Menu_Enabled, TRUE,
 		MUIA_Menu_Enabled, FALSE,
-		NULL, NULL,
+		0, 0,
 	};
 
 /***************** MenuItem ***********************************/
@@ -529,15 +529,15 @@ int NACTMenuItem[] =
 		3, MUIM_Set, MUIA_Menuitem_Checkit, TRUE,
 		3, MUIM_Set, MUIA_Menuitem_Checkit, FALSE,
 		3, MUIM_Set, MUIA_Menuitem_Title, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Menuitem_Title, NULL,
-		3, MUIM_Set, MUIA_Menuitem_Title, NULL,
+		3, MUIM_Set, MUIA_Menuitem_Title, 0,
+		3, MUIM_Set, MUIA_Menuitem_Title, 0,
 		3, MUIM_Set, MUIA_Menuitem_Shortcut, MUIV_TriggerValue,
-		3, MUIM_Set, MUIA_Menuitem_Shortcut, NULL,
-		3, MUIM_Set, MUIA_Menuitem_Shortcut, NULL,
+		3, MUIM_Set, MUIA_Menuitem_Shortcut, 0,
+		3, MUIM_Set, MUIA_Menuitem_Shortcut, 0,
 		3, MUIM_Set, MUIA_Menuitem_Toggle, TRUE,
 		3, MUIM_Set, MUIA_Menuitem_Toggle, FALSE,
-		2, MUIM_CallHook, NULL, NULL,
-		NULL, NULL, NULL, NULL
+		2, MUIM_CallHook, 0, 0,
+		0, 0, 0, 0
 	};
 
 int NEVTMenuItem[] =
@@ -549,7 +549,7 @@ int NEVTMenuItem[] =
 		MUIA_Menuitem_Checked, FALSE,
 		MUIA_Menuitem_Checkit, TRUE,
 		MUIA_Menuitem_Checkit, FALSE,
-		NULL, NULL,
+		0, 0,
 	};
 
 /*************************** la totale *************************/

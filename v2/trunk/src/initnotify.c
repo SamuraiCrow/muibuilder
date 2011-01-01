@@ -266,7 +266,7 @@ TYWindow[0] =		TY_NOTHING;
 TYWindow[1] =		TY_NOTHING;
 TYWindow[2] =		TY_NOTHING;
 TYWindow[3] =		TY_FUNCTION;
-TYWindow[4] =		NULL;
+TYWindow[4] =		0;
 
 EVTWindow[0] =		GetMUIBuilderString(MSG_CloseRequest);
 EVTWindow[1] =		GetMUIBuilderString(MSG_NotifyActivate);
@@ -294,7 +294,7 @@ TYButton[5] =		TY_NOTHING;
 TYButton[6] =		TY_CONS_STRING;
 TYButton[7] =		TY_VARIABLE;
 TYButton[8] =		TY_FUNCTION;
-TYButton[9] =		NULL;
+TYButton[9] =		0;
 
 EVTButton[0] =		GetMUIBuilderString(MSG_PressButton);
 EVTButton[1] =		GetMUIBuilderString(MSG_ReleaseButton);
@@ -322,7 +322,7 @@ TYGroup[3] =		TY_NOTHING;
 TYGroup[4] =		TY_WINOBJ;
 TYGroup[5] =		TY_NOTHING;
 TYGroup[6] =		TY_FUNCTION;
-TYGroup[7] =		NULL;
+TYGroup[7] =		0;
 
 EVTGroup[0] =		GetMUIBuilderString(MSG_ChangePage);
 EVTGroup[1] =		GetMUIBuilderString(MSG_NotifyHide);
@@ -352,7 +352,7 @@ TYString[5] =		TY_NOTHING;
 TYString[6] =		TY_CONS_STRING;
 TYString[7] =		TY_VARIABLE;
 TYString[8] =		TY_FUNCTION;
-TYString[9] =		NULL;
+TYString[9] =		0;
 
 EVTString[0] =		GetMUIBuilderString(MSG_Acknowlede);
 EVTString[1] =		GetMUIBuilderString(MSG_ChangePosition);
@@ -390,7 +390,7 @@ TYListview[8] =		TY_NOTHING;
 TYListview[9] =		TY_NOTHING;
 TYListview[10] =	TY_NOTHING;
 TYListview[11] =	TY_FUNCTION;
-TYListview[12] =        NULL;
+TYListview[12] =        0;
 
 EVTListview[0] =	GetMUIBuilderString(MSG_NotifyDoubleClick);
 EVTListview[1] =	GetMUIBuilderString(MSG_ChangeActive);
@@ -419,7 +419,7 @@ TYGauge[4] =            TY_NOTHING;
 TYGauge[5] =		TY_CONS_INT;
 TYGauge[6] =		TY_VARIABLE;
 TYGauge[7] =		TY_FUNCTION;
-TYGauge[8] =            NULL;
+TYGauge[8] =            0;
 
 EVTGauge[0] =		GetMUIBuilderString(MSG_ChangeValue);
 EVTGauge[1] =		GetMUIBuilderString(MSG_NotifyHide);
@@ -449,7 +449,7 @@ TYCycle[5] =		TY_NOTHING;
 TYCycle[6] =		TY_CONS_INT;
 TYCycle[7] =		TY_VARIABLE;
 TYCycle[8] =		TY_FUNCTION;
-TYCycle[9] =            NULL;
+TYCycle[9] =            0;
 
 EVTCycle[0] =		GetMUIBuilderString(MSG_ActiveModified);
 EVTCycle[1] =		GetMUIBuilderString(MSG_NotifyHide);
@@ -479,7 +479,7 @@ TYRadio[5] =            TY_NOTHING;
 TYRadio[6] =		TY_CONS_INT;
 TYRadio[7] =		TY_VARIABLE;
 TYRadio[8] =		TY_FUNCTION;
-TYRadio[9] =            NULL;
+TYRadio[9] =            0;
 
 EVTRadio[0] =		GetMUIBuilderString(MSG_ActiveModified);
 EVTRadio[1] =		GetMUIBuilderString(MSG_NotifyHide);
@@ -507,7 +507,7 @@ TYLabel[4] =		TY_NOTHING;
 TYLabel[5] =		TY_CONS_STRING;
 TYLabel[6] =		TY_VARIABLE;
 TYLabel[7] =		TY_FUNCTION;
-TYLabel[8] =            NULL;
+TYLabel[8] =            0;
 
 EVTLabel[0] =		GetMUIBuilderString(MSG_NotifyHide);
 EVTLabel[1] =		GetMUIBuilderString(MSG_NotifyShow);
@@ -524,7 +524,7 @@ ACTSpace[3] =           NULL;
 TYSpace[0] =            TY_NOTHING;
 TYSpace[1] =            TY_NOTHING;
 TYSpace[2] =		TY_FUNCTION;
-TYSpace[3] =            NULL;
+TYSpace[3] =            0;
 
 EVTSpace[0] =		GetMUIBuilderString(MSG_NotifyHide);
 EVTSpace[1] =		GetMUIBuilderString(MSG_NotifyShow);
@@ -553,7 +553,7 @@ TYCheck[6] =            TY_NOTHING;
 TYCheck[7] =            TY_NOTHING;
 TYCheck[8] =		TY_WINOBJ;
 TYCheck[9] =		TY_FUNCTION;
-TYCheck[10] =           NULL;
+TYCheck[10] =           0;
 
 EVTCheck[0] =		GetMUIBuilderString(MSG_SelectOn);
 EVTCheck[1] =		GetMUIBuilderString(MSG_SelectOff);
@@ -573,7 +573,7 @@ ACTScale[3] =           NULL;
 TYScale[0] =            TY_NOTHING;
 TYScale[1] =            TY_NOTHING;
 TYScale[2] =		TY_FUNCTION;
-TYScale[3] =            NULL;
+TYScale[3] =            0;
 
 EVTScale[0] =           GetMUIBuilderString(MSG_NotifyHide);
 EVTScale[1] =           GetMUIBuilderString(MSG_NotifyShow);
@@ -594,9 +594,9 @@ TYImage[2] =            TY_NOTHING;
 TYImage[3] =            TY_NOTHING;
 TYImage[4] =		TY_WINOBJ;
 TYImage[5] =		TY_FUNCTION;
-TYImage[6] =            NULL;
+TYImage[6] =            0;
 
-EVTImage[0] =            GetMUIBuilderString(MSG_PressImage);
+EVTImage[0] =           GetMUIBuilderString(MSG_PressImage);
 EVTImage[1] =		GetMUIBuilderString(MSG_ReleaseImage);
 EVTImage[2] =		GetMUIBuilderString(MSG_NotifyHide);
 EVTImage[3] =		GetMUIBuilderString(MSG_NotifyShow);
@@ -625,7 +625,7 @@ TYSlider[5] =           TY_NOTHING;
 TYSlider[6] =           TY_NOTHING;
 TYSlider[7] =		TY_WINOBJ;
 TYSlider[8] =		TY_FUNCTION;
-TYSlider[9] =           NULL;
+TYSlider[9] =           0;
 
 EVTSlider[0] =		GetMUIBuilderString(MSG_ChangedPosition);
 EVTSlider[1] =		GetMUIBuilderString(MSG_Reverse);
@@ -654,7 +654,7 @@ TYText[4] =             TY_NOTHING;
 TYText[5] =             TY_NOTHING;
 TYText[6] =             TY_NOTHING;
 TYText[7] =		TY_FUNCTION;
-TYText[8] =             NULL;
+TYText[8] =             0;
 
 EVTText[0] =		GetMUIBuilderString(MSG_ChangedText);
 EVTText[1] =		GetMUIBuilderString(MSG_NotifyHide);
@@ -684,7 +684,7 @@ TYProp[5] =             TY_NOTHING;
 TYProp[6] =             TY_NOTHING;
 TYProp[7] =		TY_WINOBJ;
 TYProp[8] =		TY_FUNCTION;
-TYProp[9] =             NULL;
+TYProp[9] =             0;
 
 EVTProp[0] =		GetMUIBuilderString(MSG_ChangedPosition);
 EVTProp[1] =		GetMUIBuilderString(MSG_ChangedEntriesNumber);
@@ -728,7 +728,7 @@ TYColorField[11] =      TY_NOTHING;
 TYColorField[12] =      TY_NOTHING;
 TYColorField[13] =	TY_WINOBJ;
 TYColorField[14] =	TY_FUNCTION;
-TYColorField[15] =      NULL;
+TYColorField[15] =      0;
 
 EVTColorField[0] =	GetMUIBuilderString(MSG_ChangedRed);
 EVTColorField[1] =	GetMUIBuilderString(MSG_ChangedGreen);
@@ -754,7 +754,7 @@ TYPopAsl[2] =		TY_NOTHING;
 TYPopAsl[3] =		TY_NOTHING;
 TYPopAsl[4] =		TY_NOTHING;
 TYPopAsl[5] =		TY_FUNCTION;
-TYPopAsl[6] =		NULL;
+TYPopAsl[6] =		0;
 
 EVTPopAsl[0] =		GetMUIBuilderString(MSG_NotifyHide);
 EVTPopAsl[1] =		GetMUIBuilderString(MSG_NotifyShow);
@@ -777,7 +777,7 @@ TYPopObject[2] =	TY_NOTHING;
 TYPopObject[3] =	TY_NOTHING;
 TYPopObject[4] =	TY_WINOBJ;
 TYPopObject[5] =	TY_FUNCTION;
-TYPopObject[6] =	NULL;
+TYPopObject[6] =	0;
 
 EVTPopObject[0] =	GetMUIBuilderString(MSG_NotifyHide);
 EVTPopObject[1] =	GetMUIBuilderString(MSG_NotifyShow);
@@ -794,7 +794,7 @@ ACTMenuStrip[3]	=	NULL;
 TYMenuStrip[0]	=	TY_NOTHING;
 TYMenuStrip[1]	=	TY_NOTHING;
 TYMenuStrip[2]  =	TY_FUNCTION;
-TYMenuStrip[3]	=	NULL;
+TYMenuStrip[3]	=	0;
 
 EVTMenuStrip[0]	=	GetMUIBuilderString(MSG_NotifyEnable);
 EVTMenuStrip[1]	=	GetMUIBuilderString(MSG_NotifyDisable);
@@ -815,7 +815,7 @@ TYMenu[2]	=	TY_NOTHING;
 TYMenu[3]	=	TY_VARIABLE;
 TYMenu[4]	=	TY_CONS_STRING;
 TYMenu[5]	=	TY_FUNCTION;
-TYMenu[6]	=	NULL;
+TYMenu[6]	=	0;
 
 EVTMenu[0]	=	GetMUIBuilderString(MSG_NotifyEnable);
 EVTMenu[1]	=	GetMUIBuilderString(MSG_NotifyDisable);
@@ -854,7 +854,7 @@ TYMenuItem[11]	=	TY_CONS_STRING;
 TYMenuItem[12]	=	TY_NOTHING;
 TYMenuItem[13]	=	TY_NOTHING;
 TYMenuItem[14]  =	TY_FUNCTION;
-TYMenuItem[15]	=	NULL;
+TYMenuItem[15]	=	0;
 
 EVTMenuItem[0]	=	GetMUIBuilderString(MSG_MenuTriggered);
 EVTMenuItem[1]	=	GetMUIBuilderString(MSG_NotifyEnable);

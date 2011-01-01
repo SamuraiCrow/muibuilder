@@ -289,7 +289,7 @@ extern void CloseLocale( void );
 extern void NextLine( FILE* );
 extern BOOL Requester( char*, char*, char* );
 
-extern guidenamefile[256];
-extern guidenamedir[128];
+extern char guidenamefile[256];
+extern char guidenamedir[128];
 
 #endif
