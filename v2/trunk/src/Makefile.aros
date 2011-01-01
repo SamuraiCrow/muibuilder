@@ -47,12 +47,12 @@ argnotify.o: argnotify.c notify.h builder2.h MUIBuilder_cat.h queue.h \
   file.h grouparea.h notifyconstants.h
 asl.o: asl.c builder2.h MUIBuilder_cat.h queue.h file.h grouparea.h
 builder.o: builder.c builder.h MUIBuilder_cat.h queue.h file.h \
-  muibuilder_rev.h beta.h
+  muibuilder_rev.h
 button.o: button.c builder2.h MUIBuilder_cat.h queue.h file.h grouparea.h
 check.o: check.c builder2.h MUIBuilder_cat.h queue.h file.h grouparea.h
 child.o: child.c builder2.h MUIBuilder_cat.h queue.h file.h grouparea.h
 code.o: code.c builder2.h MUIBuilder_cat.h queue.h file.h grouparea.h \
-  muib_file.h codenotify.h notifyconstants.h beta.h
+  muib_file.h codenotify.h notifyconstants.h
 codenotifydefs.o: codenotifydefs.c builder2.h MUIBuilder_cat.h queue.h \
   file.h grouparea.h codenotify.h notifyconstants.h muib_file.h
 colorfield.o: colorfield.c builder2.h MUIBuilder_cat.h queue.h file.h \

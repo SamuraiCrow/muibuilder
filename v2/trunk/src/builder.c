@@ -31,7 +31,6 @@
 #include <libraries/mui.h>
 #include "builder.h"
 #include "muibuilder_rev.h"
-#include "beta.h"
 
 extern	APTR LitChaine( FILE* );
 
@@ -917,12 +916,6 @@ int main( int argc, char *argv[] )
 			MUIA_Window_Menustrip	, MUI_MakeObject(MUIO_MenustripNM, Menu),
 
 			WindowContents, VGroup,
-#ifdef MUIB_BETA
-			Child, TextObject,
-				MUIA_Text_Contents, "\033c\0338Beta version",
-				GroupFrameT(NULL),
-			End,
-#endif
 			Child, HGroup,
 				Child, ColGroup(2),GroupFrameT(GetMUIBuilderString(MSG_Windows)),
 				MUIA_Weight, 300,

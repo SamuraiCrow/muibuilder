@@ -31,7 +31,6 @@
 #include "builder2.h"
 #include "muib_file.h"
 #include "codenotify.h"
-#include "beta.h"
 
 char	genfile[256];
 char	nospace[80];
@@ -1021,9 +1020,6 @@ void CodeCreate(object *obj, FILE *fichier)
   extern void CreateLocaleString(char* , char);
   extern char locale_string[82];
 
-#ifdef MUIB_BETA
-  if (obj) set(TextInfo, MUIA_Text_Contents, obj->label);
-#endif
   switch (obj->id)
     {
     case TY_APPLI:
