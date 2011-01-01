@@ -33,7 +33,7 @@ BOOL RecordFileInfoBlock(struct FileInfoBlock *fib)
 {
 	char *aux;
 
-	if (fib->fib_FileName == strstr( fib->fib_FileName, "GenCode" ) )
+	if (strncmp(fib->fib_FileName, "GenCode", 7) == 0)
 	{
 		aux = AllocVec(strlen(fib->fib_FileName)+1, MEMF_PUBLIC|MEMF_CLEAR);
 		if (aux)
