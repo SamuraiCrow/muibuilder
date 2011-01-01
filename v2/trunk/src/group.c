@@ -185,9 +185,9 @@ BOOL NewGroup( group *group_aux, int root , BOOL new )
 	char	*label_aux;
 	LONG	cy_active;
 	BOOL	dbclick;
-	char	*titles[3];
+	CONST_STRPTR	titles[3];
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 	queue	*undo;
 
 	titles[0] = GetMUIBuilderString(MSG_Attributes);

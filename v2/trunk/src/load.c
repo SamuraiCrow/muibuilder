@@ -197,7 +197,7 @@ int ReadInt( FILE *fichier )
 void LoadApplication()
 {
         char    file[256];
-        char    *title;
+        CONST_STRPTR title;
 
 	title = GetMUIBuilderString(MSG_FileName);
 
@@ -365,7 +365,7 @@ void MergeFile( void )
 	static	char	file[512];
 	static	char	dir_aux[256];
 	static	char	file_aux[256];
-	char	*title;
+	CONST_STRPTR title;
 	int     i, n;
 	window	*win_aux;
 	object	*obj_aux;

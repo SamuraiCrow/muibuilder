@@ -107,7 +107,7 @@ BOOL NewCycle ( cycle *cycle_aux, BOOL new)
         char    *aux;
 	int	i, n;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 	queue   *undo;
 
         if (new)

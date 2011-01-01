@@ -56,7 +56,7 @@ BOOL NewColorField( colorfield *field_aux, BOOL new )
 	ULONG	active;
 	char	*aux;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 
 	if ( new )
 	{

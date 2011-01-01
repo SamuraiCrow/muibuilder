@@ -69,10 +69,8 @@ struct Library *MUIMasterBase;
 /* Init & Fail Functions */
 /*************************/
 
-static VOID fail(APTR app,char *str)
+static VOID fail(APTR app,CONST_STRPTR str)
 {
-	extern VOID ErrorMessageEasy( char* );
-
 	if (MUIMasterBase)
 	{
 		MUI_DisposeObject(app);
@@ -464,7 +462,7 @@ void Config( void )
 	int	active;
 	char	dir[526];
 	char	filename[256];
-	char    *registertitle[4];
+	CONST_STRPTR registertitle[4];
 
 	static const struct Hook StrObjHook = { { NULL,NULL },(HOOKFUNC)HookEntry, (VOID *)StrObjFunc, NULL };
 	static const struct Hook ObjStrHook = { { NULL,NULL },(HOOKFUNC)HookEntry, (VOID *)ObjStrFunc, NULL };
@@ -791,7 +789,6 @@ int main( int argc, char *argv[] )
 	char 	buffer[512];
 	struct 	WBStartup *WBMsg;
 	BPTR	lock;
-	extern BOOL RequestMessage( char* );
 	extern void ScanAvailableModules(void);
 	extern unsigned char* GetMenuChar( int );
 	extern unsigned char* GetMenuString( int );

@@ -53,8 +53,8 @@ BOOL NewRectangle( rectangle *rect, BOOL new )
 	ULONG	signal, active;
 	char	*aux;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
-	char	*STR_CY_type[4];
+	CONST_STRPTR RegisterTitles[3];
+	CONST_STRPTR STR_CY_type[4];
 
 	STR_CY_type[0] = GetMUIBuilderString(MSG_Rectangle);
 	STR_CY_type[1] = GetMUIBuilderString(MSG_HorizontalBar);

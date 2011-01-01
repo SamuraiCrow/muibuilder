@@ -27,122 +27,122 @@
 #include "MUIBuilder_cat.h"
 
 /********************* Application ********************/
-char *ACTAppli[6];
+CONST_STRPTR ACTAppli[6];
 int  TYAppli[6];
-char *EVTAppli[5];
+CONST_STRPTR EVTAppli[5];
 
 /*********************** Window ***********************/
-char *ACTWindow[8];
+CONST_STRPTR ACTWindow[8];
 int  TYWindow[8];
-char *EVTWindow[4];
+CONST_STRPTR EVTWindow[4];
 
 /*********************** Button ***********************/
-char *ACTButton[10];
+CONST_STRPTR ACTButton[10];
 int  TYButton[10];
-char *EVTButton[8];
+CONST_STRPTR EVTButton[8];
 
 /******************* Group *************************/
-char *ACTGroup[8];
+CONST_STRPTR ACTGroup[8];
 int  TYGroup[8];
-char *EVTGroup[6];
+CONST_STRPTR EVTGroup[6];
 
 /******************* String ************************/
-char *ACTString[10];
+CONST_STRPTR ACTString[10];
 int  TYString[10];
-char *EVTString[8];
+CONST_STRPTR EVTString[8];
 
 /****************** ListView ***********************/
-char *ACTListview[13];
+CONST_STRPTR ACTListview[13];
 int  TYListview[13];
-char *EVTListview[7];
+CONST_STRPTR EVTListview[7];
 
 /******************* Gauge *************************/
-char *ACTGauge[9];
+CONST_STRPTR ACTGauge[9];
 int  TYGauge[9];
-char *EVTGauge[6];
+CONST_STRPTR EVTGauge[6];
 
 /******************* Cycle *************************/
-char *ACTCycle[10];
+CONST_STRPTR ACTCycle[10];
 int  TYCycle[10];
-char *EVTCycle[6];
+CONST_STRPTR EVTCycle[6];
 
 /******************* Radio *************************/
-char *ACTRadio[10];
+CONST_STRPTR ACTRadio[10];
 int  TYRadio[10];
-char *EVTRadio[6];
+CONST_STRPTR EVTRadio[6];
 
 /******************* Label *************************/
-char *ACTLabel[9];
+CONST_STRPTR ACTLabel[9];
 int  TYLabel[9];
-char *EVTLabel[5];
+CONST_STRPTR EVTLabel[5];
 
 /******************* Space *************************/
-char *ACTSpace[4];
+CONST_STRPTR ACTSpace[4];
 int  TYSpace[4];
-char *EVTSpace[3];
+CONST_STRPTR EVTSpace[3];
 
 /******************* Check *************************/
-char *ACTCheck[11];
+CONST_STRPTR ACTCheck[11];
 int  TYCheck[11];
-char *EVTCheck[8];
+CONST_STRPTR EVTCheck[8];
 
 /******************* Scale *************************/
-char *ACTScale[4];
+CONST_STRPTR ACTScale[4];
 int  TYScale[4];
-char *EVTScale[3];
+CONST_STRPTR EVTScale[3];
 
 /******************* Image *************************/
-char *ACTImage[7];
+CONST_STRPTR ACTImage[7];
 int  TYImage[7];
-char *EVTImage[7];
+CONST_STRPTR EVTImage[7];
 
 /******************* Slider ************************/
-char *ACTSlider[10];
+CONST_STRPTR ACTSlider[10];
 int  TYSlider[10];
-char *EVTSlider[7];
+CONST_STRPTR EVTSlider[7];
 
 /******************* Text *************************/
-char *ACTText[9];
+CONST_STRPTR ACTText[9];
 int  TYText[9];
-char *EVTText[6];
+CONST_STRPTR EVTText[6];
 
 /******************* Prop *************************/
-char *ACTProp[10];
+CONST_STRPTR ACTProp[10];
 int  TYProp[10];
-char *EVTProp[8];
+CONST_STRPTR EVTProp[8];
 
 /******************* ColorField *************************/
-char *ACTColorField[16];
+CONST_STRPTR ACTColorField[16];
 int  TYColorField[16];
-char *EVTColorField[8];
+CONST_STRPTR EVTColorField[8];
 
 /******************* PopAsl *************************/
-char *ACTPopAsl[7];
+CONST_STRPTR ACTPopAsl[7];
 int  TYPopAsl[7];
-char *EVTPopAsl[5];
+CONST_STRPTR EVTPopAsl[5];
 
 /******************* PopObject *************************/
-char *ACTPopObject[7];
+CONST_STRPTR ACTPopObject[7];
 int  TYPopObject[7];
-char *EVTPopObject[5];
+CONST_STRPTR EVTPopObject[5];
 
 /******************* MenuStrip *****************************/
-char *ACTMenuStrip[4];
+CONST_STRPTR ACTMenuStrip[4];
 int  TYMenuStrip[4];
-char *EVTMenuStrip[3];
+CONST_STRPTR EVTMenuStrip[3];
 
 /******************* Menu *****************************/
-char *ACTMenu[7];
+CONST_STRPTR ACTMenu[7];
 int  TYMenu[7];
-char *EVTMenu[3];
+CONST_STRPTR EVTMenu[3];
 
 /******************* MenuItem *************************/
-char *ACTMenuItem[16];
+CONST_STRPTR ACTMenuItem[16];
 int  TYMenuItem[16];
-char *EVTMenuItem[8];
+CONST_STRPTR EVTMenuItem[8];
 
 /*************************** la totale *************************/
-char **Evenements[] =
+CONST_STRPTR *Evenements[] =
 	{
 		EVTAppli,
 		EVTWindow,
@@ -171,7 +171,7 @@ char **Evenements[] =
 		EVTMenuItem
 	};
 
-char **Actions[] =
+CONST_STRPTR *Actions[] =
 	{
 		ACTAppli,
 		ACTWindow,
@@ -244,7 +244,7 @@ TYAppli[1] =		TY_NOTHING;
 TYAppli[2] =		TY_NOTHING;
 TYAppli[3] =		TY_NOTHING;
 TYAppli[4] =		TY_FUNCTION;
-TYAppli[5] =		NULL;
+TYAppli[5] =		0;
 
 EVTAppli[0] =		GetMUIBuilderString(MSG_Iconify);
 EVTAppli[1] =		GetMUIBuilderString(MSG_UnIconify);

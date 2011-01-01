@@ -100,7 +100,7 @@ BOOL NewImage( image *image_aux, BOOL new )
 	ULONG	active;
 	char	*aux;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 
 	if ( new )
 	{

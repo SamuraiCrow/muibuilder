@@ -141,7 +141,7 @@ APTR FindArgument(char *chaine)
 }
 
 /* get an argument : could be a function, a constant ID, depending on the given list */
-BOOL GetMUIarg( object *obj_aux, APTR *stringptr, char *stringname, queue *list, BOOL old, char *title )
+BOOL GetMUIarg( object *obj_aux, APTR *stringptr, char *stringname, queue *list, BOOL old, CONST_STRPTR title )
 {
 	ULONG	signal, active;
 	BOOL	running = TRUE;

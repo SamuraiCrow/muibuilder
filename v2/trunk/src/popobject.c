@@ -54,12 +54,12 @@ BOOL NewPopObject( popobject *popobj_aux, BOOL new )
 	BOOL	running = TRUE;
 	BOOL	result = FALSE;
 	ULONG	signal, active;
-	char	*aux;
+	CONST_STRPTR aux;
 	object  *child_aux;
 	int	i;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
-	char	*STR_images[3];
+	CONST_STRPTR RegisterTitles[3];
+	CONST_STRPTR STR_images[3];
 
 	STR_images[0] =	GetMUIBuilderString(MSG_PopUpImage);
 	STR_images[1] =	GetMUIBuilderString(MSG_PopFileImage);

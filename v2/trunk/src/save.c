@@ -82,7 +82,7 @@ void SaveApplication( BOOL SaveAs )
 	int 	i;
 	FILE	*fichier;
 	char	file[256];
-	char	*title;
+	CONST_STRPTR title;
 	struct  DiskObject *icon, *icon2;
 
 	title = GetMUIBuilderString(MSG_FileName);

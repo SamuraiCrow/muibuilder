@@ -42,7 +42,7 @@ void Modify( APTR obj )
 	char	*aux;
 	BOOL	running = TRUE;
 	APTR	WI_modify, STR_title, TX_length, BT_edit, BT_ok, BT_cancel;
-	char	*STR_TX_length;
+	CONST_STRPTR	STR_TX_length;
 	char	buffer[128];
 	extern	void EditNode( APTR );
 	APTR	LV_text, CH_generated;

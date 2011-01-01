@@ -26,7 +26,7 @@
 #include "builder2.h"
 #include <stdarg.h>
 
-BOOL RequestMessage( char *message )
+BOOL RequestMessage( CONST_STRPTR message )
 {
 	ULONG	req;
 	BOOL	result;
@@ -75,7 +75,7 @@ BOOL RequestMessageEasy( char *body , ...)
         return( result );
 }
 
-void ErrorMessage( char *message )
+void ErrorMessage( CONST_STRPTR message )
 {
         char    inside[256];
 
@@ -83,8 +83,9 @@ void ErrorMessage( char *message )
         MUI_Request( app, WI_current, 0, NULL, inside, message, NULL );
 }
 
-void ErrorMessageEasy(char *body, ...)
+void ErrorMessageEasy(CONST_STRPTR body, ...)
 {
+	// FIXME: variadic function
         struct EasyStruct es;
         va_list args;
 

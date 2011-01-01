@@ -51,7 +51,7 @@ BOOL NewButton( bouton *keybutton, BOOL new )
 	ULONG	signal;
 	char	*aux;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 
 	if (new)
 	{

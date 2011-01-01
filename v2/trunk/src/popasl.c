@@ -78,15 +78,15 @@ BOOL NewPopAsl( popaslobj *popasl, BOOL new )
 	BOOL	running = TRUE;
 	BOOL	result = FALSE;
 	ULONG	signal;
-	char	*aux;
+	CONST_STRPTR aux;
 	APTR	WI_PopAsl, RegGroup, RA_type, STR_starthook, STR_stophook;
 	APTR	IM_starthook, IM_stophook, STR_label, BT_ok;
 	APTR	BT_cancel, LV_images;
-	char	*STR_RA_type[4];
+	CONST_STRPTR STR_RA_type[4];
 	int	i;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
-	char	*STR_images[3];
+	CONST_STRPTR RegisterTitles[3];
+	CONST_STRPTR STR_images[3];
 
 	STR_images[0] =	GetMUIBuilderString(MSG_PopUpImage);
 	STR_images[1] =	GetMUIBuilderString(MSG_PopFileImage);

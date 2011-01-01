@@ -47,7 +47,7 @@ BOOL NewSpace( space *space_aux, BOOL new )
 	BOOL	running = TRUE;
 	BOOL	result = FALSE;
 	char    *aux;
-	char    *STR_RA_type[4];
+	CONST_STRPTR STR_RA_type[4];
 
 	STR_RA_type[0] = GetMUIBuilderString(MSG_Horizontal);
 	STR_RA_type[1] = GetMUIBuilderString(MSG_Vertical);

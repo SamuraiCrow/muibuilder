@@ -61,9 +61,9 @@ BOOL NewString( chaine *chaine_aux, BOOL new )
         ULONG   signal;
         char    *aux;
 	int	active;
-	char	*STR_CY_format[4];
+	CONST_STRPTR STR_CY_format[4];
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 
 	STR_CY_format[0] = GetMUIBuilderString(MSG_Left);
 	STR_CY_format[1] = GetMUIBuilderString(MSG_Center);

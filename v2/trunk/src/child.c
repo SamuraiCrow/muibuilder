@@ -39,7 +39,7 @@
 UWORD width, height;
 int nb_images;
 
-char ControlChar(char *string)
+char ControlChar(CONST_STRPTR string)
 {
   char *aux;
   char car;

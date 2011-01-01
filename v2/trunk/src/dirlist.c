@@ -113,10 +113,10 @@ BOOL NewDirList( dirlist *dirlist_aux, BOOL new )
 	APTR	bt_ok, bt_cancel, WI_listdir, RegGroup;
 	APTR	STR_label, STR_accept, STR_reject;
 	char*	aux;
-	char*	STR_RA_sorttype [4];
-	char*	STR_RA_sortdirs [4];
+	CONST_STRPTR	STR_RA_sorttype [4];
+	CONST_STRPTR	STR_RA_sortdirs [4];
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 
 	STR_RA_sorttype [0] = GetMUIBuilderString(MSG_SortbyName),
 	STR_RA_sorttype [1] = GetMUIBuilderString(MSG_SortbyDate),

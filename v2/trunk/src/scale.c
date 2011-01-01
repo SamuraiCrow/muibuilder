@@ -50,7 +50,7 @@ BOOL NewScale( scale *scale_aux, BOOL new )
 	BOOL	result = FALSE;
 	int	active;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 	char *aux;
 
 	if (new)

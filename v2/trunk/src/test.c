@@ -319,7 +319,7 @@ APTR CreateWindow( APTR objet )
 	char	*chaine, *chaine2, *chaine3;
 	chainon *chainon_aux;
 
-	char	*TestList[4];
+	CONST_STRPTR TestList[4];
 
 	TestList[0] =	GetMUIBuilderString(MSG_FirstLine);
 	TestList[1] =	GetMUIBuilderString(MSG_SecondLine);

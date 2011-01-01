@@ -296,7 +296,7 @@ void UpdateLabels( APTR obj, APTR list, ULONG pos )
 	}
 }
 
-void WriteInList( APTR list, char * chaines[] )
+void WriteInList( APTR list, CONST_STRPTR chaines[] )
 {
 	int i;
 

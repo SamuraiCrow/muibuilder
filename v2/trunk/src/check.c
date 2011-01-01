@@ -54,7 +54,7 @@ BOOL NewCheckMark( check *check_aux, BOOL new )
 	char	*aux;
 	int	active;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 
 	if ( new )
 	{

@@ -53,7 +53,6 @@ static void ScanDir(BPTR DirLock)
 	BOOL Ok = TRUE;
 	BPTR OldDir;
 	char Name[32], errbuf[80];
-	extern void ErrorMessageEasy(char *);
 
 	if (!(fib = AllocMem(sizeof(struct FileInfoBlock), MEMF_PUBLIC|MEMF_CLEAR)))
 		return;

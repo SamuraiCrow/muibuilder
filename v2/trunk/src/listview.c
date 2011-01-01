@@ -136,10 +136,10 @@ BOOL NewListView( listview *list, BOOL new )
         ULONG   signal;
 	char	*aux;
 	int	active;
-	char	*lv_type [4];
-	char	*lv_select[4];
+	CONST_STRPTR lv_type [4];
+	CONST_STRPTR lv_select[4];
 	struct  ObjGR_AreaGroup *GR_GroupArea;
-	char    *RegisterTitles[4];
+	CONST_STRPTR RegisterTitles[4];
 
 	lv_type [0] = GetMUIBuilderString(MSG_StandardList);
 	lv_type [1] = GetMUIBuilderString(MSG_FloattextList);

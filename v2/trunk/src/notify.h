@@ -38,124 +38,124 @@ extern	BOOL	GetConstant( event *, int, BOOL );
 #define ID_action
 
 /********************* Application ********************/
-extern char *ACTAppli[];
+extern CONST_STRPTR ACTAppli[];
 extern int  TYAppli[];
-extern char *EVTAppli[];
+extern CONST_STRPTR EVTAppli[];
 
 /*********************** Window ***********************/
-extern char *ACTWindow[];
+extern CONST_STRPTR ACTWindow[];
 extern int  TYWindow[];
-extern char *EVTWindow[];
+extern CONST_STRPTR EVTWindow[];
 
 /*********************** Button ***********************/
-extern char *ACTButton[];
+extern CONST_STRPTR ACTButton[];
 extern int  TYButton[];
-extern char *EVTButton[];
+extern CONST_STRPTR EVTButton[];
 
 /******************* Group *************************/
-extern char *ACTGroup[];
+extern CONST_STRPTR ACTGroup[];
 extern int  TYGroup[];
-extern char *EVTGroup[];
+extern CONST_STRPTR EVTGroup[];
 
 /******************* String ************************/
-extern char *ACTString[];
+extern CONST_STRPTR ACTString[];
 extern int  TYString[];
-extern char *EVTString[];
+extern CONST_STRPTR EVTString[];
 
 /****************** ListView ***********************/
-extern char *ACTListview[];
+extern CONST_STRPTR ACTListview[];
 extern int  TYListview[];
-extern char *EVTListview[];
+extern CONST_STRPTR EVTListview[];
 
 /******************* Gauge *************************/
-extern char *ACTGauge[];
+extern CONST_STRPTR ACTGauge[];
 extern int  TYGauge[];
-extern char *EVTGauge[];
+extern CONST_STRPTR EVTGauge[];
 
 /******************* Cycle *************************/
-extern char *ACTCycle[];
+extern CONST_STRPTR ACTCycle[];
 extern int  TYCycle[];
-extern char *EVTCycle[];
+extern CONST_STRPTR EVTCycle[];
 
 /******************* Radio *************************/
-extern char *ACTRadio[];
+extern CONST_STRPTR ACTRadio[];
 extern int  TYRadio[];
-extern char *EVTRadio[];
+extern CONST_STRPTR EVTRadio[];
 
 /******************* Label *************************/
-extern char *ACTLabel[];
+extern CONST_STRPTR ACTLabel[];
 extern int  TYLabel[];
-extern char *EVTLabel[];
+extern CONST_STRPTR EVTLabel[];
 
 /******************* Space *************************/
-extern char *ACTSpace[];
+extern CONST_STRPTR ACTSpace[];
 extern int  TYSpace[];
-extern char *EVTSpace[];
+extern CONST_STRPTR EVTSpace[];
 
 /******************* Check *************************/
-extern char *ACTCheck[];
+extern CONST_STRPTR ACTCheck[];
 extern int  TYCheck[];
-extern char *EVTCheck[];
+extern CONST_STRPTR EVTCheck[];
 
 /******************* Scale *************************/
-extern char *ACTScale[];
+extern CONST_STRPTR ACTScale[];
 extern int  TYScale[];
-extern char *EVTScale[];
+extern CONST_STRPTR EVTScale[];
 
 /******************* Image *************************/
-extern char *ACTImage[];
+extern CONST_STRPTR ACTImage[];
 extern int  TYImage[];
-extern char *EVTImage[];
+extern CONST_STRPTR EVTImage[];
 
 /******************* Slider ************************/
-extern char *ACTSlider[];
+extern CONST_STRPTR ACTSlider[];
 extern int  TYSlider[];
-extern char *EVTSlider[];
+extern CONST_STRPTR EVTSlider[];
 
 /******************* Text *************************/
-extern char *ACTText[];
+extern CONST_STRPTR ACTText[];
 extern int  TYText[];
-extern char *EVTText[];
+extern CONST_STRPTR EVTText[];
 
 /******************* Prop *************************/
-extern char *ACTProp[];
+extern CONST_STRPTR ACTProp[];
 extern int  TYProp[];
-extern char *EVTProp[];
+extern CONST_STRPTR EVTProp[];
 
 /******************* ColorField *************************/
-extern char *ACTColorField[];
+extern CONST_STRPTR ACTColorField[];
 extern int  TYColorField[];
-extern char *EVTColorField[];
+extern CONST_STRPTR EVTColorField[];
 
 /******************* PopAsl *************************/
-extern char *ACTPopAsl[];
+extern CONST_STRPTR ACTPopAsl[];
 extern int  TYPopAsl[];
-extern char *EVTPopAsl[];
+extern CONST_STRPTR EVTPopAsl[];
 
 /******************* PopObject *************************/
-extern char *ACTPopObject[];
+extern CONST_STRPTR ACTPopObject[];
 extern int  TYPopObject[];
-extern char *EVTPopObject[];
+extern CONST_STRPTR EVTPopObject[];
 
 /******************* MenuStrip *****************************/
-extern char *ACTMenuStrip[];
+extern CONST_STRPTR ACTMenuStrip[];
 extern int  TYMenuStrip[];
-extern char *EVTMenuStrip[];
+extern CONST_STRPTR EVTMenuStrip[];
 
 /******************* Menu *****************************/
-extern char *ACTMenu[];
+extern CONST_STRPTR ACTMenu[];
 extern int  TYMenu[];
-extern char *EVTMenu[];
+extern CONST_STRPTR EVTMenu[];
 
 /******************* MenuItem *************************/
-extern char *ACTMenuItem[];
+extern CONST_STRPTR ACTMenuItem[];
 extern int  TYMenuItem[];
-extern char *EVTMenuItem[];
+extern CONST_STRPTR EVTMenuItem[];
 
 /*************************** la totale *************************/
 
-extern char **Evenements[];
-extern char **Actions[];
+extern CONST_STRPTR *Evenements[];
+extern CONST_STRPTR *Actions[];
 extern int *TYActions[];
 
 #endif

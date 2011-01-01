@@ -89,7 +89,7 @@ BOOL NewText( texte *text_aux, BOOL new)
 	APTR	STR_content, STR_label, STR_preparse, bt_ok, bt_cancel;
 	char	*aux;
 	struct	ObjGR_AreaGroup	*GR_GroupArea;
-	char	*RegisterTitles[3];
+	CONST_STRPTR RegisterTitles[3];
 
 	if (new)
 	{

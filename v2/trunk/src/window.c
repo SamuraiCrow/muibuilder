@@ -500,7 +500,7 @@ BOOL NewWindow( window *win_aux , BOOL new, object* obj2search )
 	BOOL	running = TRUE;
 	BOOL	result = FALSE;
 	BOOL	bool_aux;
-	char	*registertitles[3];
+	CONST_STRPTR registertitles[3];
 
 	static struct Hook DisplayHook =
 		{

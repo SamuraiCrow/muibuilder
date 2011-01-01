@@ -492,7 +492,7 @@ void VerifyLabels(void)
   BOOL	running = TRUE;
   ULONG	signal;
   char*	chaine_aux;
-  char*	STR_TX_label_0;
+  CONST_STRPTR	STR_TX_label_0;
   queue*	multi;
   object* obj_aux;
   chainon *chainon1, *chainon2;
@@ -2566,7 +2566,7 @@ void GenerateCodeObject(APTR obj_aux)
   FILE    *fichier;
   char	buffer[512];
   char	dir[512], file[512];
-  char    *title = GetMUIBuilderString(MSG_CodeFileName);
+  CONST_STRPTR title = GetMUIBuilderString(MSG_CodeFileName);
 
   if (!(parameters = create())) return;
   strcpy(dir, genfile);
@@ -2734,7 +2734,7 @@ void Code()
   int	i;
   object	*obj_aux;
   char	*chaine_aux;
-  char	*RegisterTitle[3];
+  CONST_STRPTR	RegisterTitle[3];
 
   RegisterTitle[0] = GetMUIBuilderString(MSG_CodeOption);
   RegisterTitle[1] = GetMUIBuilderString(MSG_Options);

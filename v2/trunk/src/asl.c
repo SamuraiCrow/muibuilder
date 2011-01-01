@@ -25,7 +25,7 @@
 
 #include "builder2.h"
 
-BOOL Requester( char * title, char * dir, char * file )
+BOOL Requester( CONST_STRPTR title, char * dir, char * file )
 {
 	struct	FileRequester *req;
 	struct	Window*	win = NULL;
@@ -52,7 +52,7 @@ BOOL Requester( char * title, char * dir, char * file )
 	return (result);
 }
 
-BOOL SaveRequester( char * title, char * dir, char * file )
+BOOL SaveRequester( CONST_STRPTR title, char * dir, char * file )
 {
 	struct	FileRequester *req;
 	struct	Window*	win = NULL;
