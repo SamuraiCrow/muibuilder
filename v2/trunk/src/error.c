@@ -24,7 +24,6 @@
 ***************************************************************************/
 
 #include "builder2.h"
-#include <stdarg.h>
 
 BOOL RequestMessage( CONST_STRPTR message )
 {
@@ -39,12 +38,11 @@ BOOL RequestMessage( CONST_STRPTR message )
 }
 
 
-BOOL RequestMessageEasy( char *body , ...)
+BOOL RequestMessageEasy( char *body )
 {
 	ULONG	req;
         BOOL    result;
         struct EasyStruct es;
-        va_list args;
 	char	inside[256];
 
 	sprintf(inside,"%s|%s", GetMUIBuilderString(MSG_Ok), GetMUIBuilderString(MSG_Cancel) );
@@ -55,9 +53,6 @@ BOOL RequestMessageEasy( char *body , ...)
                 return(FALSE);
         }
 
-        /* setup the argument array */
-        va_start( args, body );
-
         /* initialise the structure */
         es.es_StructSize = sizeof(struct EasyStruct);
         es.es_Flags = 0L;
@@ -66,10 +61,7 @@ BOOL RequestMessageEasy( char *body , ...)
         es.es_GadgetFormat = inside;
 
         /* display the requester */
-        req = EasyRequestArgs( NULL, &es, NULL, args);
-
-        /* free the arguments */
-        va_end( args );
+        req = EasyRequestArgs( NULL, &es, NULL, NULL);
 
         result = ( req == 1 );
         return( result );
@@ -83,20 +75,15 @@ void ErrorMessage( CONST_STRPTR message )
         MUI_Request( app, WI_current, 0, NULL, inside, (char *)message, NULL );
 }
 
-void ErrorMessageEasy(CONST_STRPTR body, ...)
+void ErrorMessageEasy(CONST_STRPTR body)
 {
-	// FIXME: variadic function
         struct EasyStruct es;
-        va_list args;
 
         if (!IntuitionBase)
         {
                 Write(Output(), "Need AmigaDos 2.0+\n", -1);
                 return;
         }
-
-        /* setup the argument array */
-        va_start( args, body );
 
         /* initialise the structure */
         es.es_StructSize = sizeof(struct EasyStruct);
@@ -106,9 +93,6 @@ void ErrorMessageEasy(CONST_STRPTR body, ...)
         es.es_GadgetFormat = "Ok";
 
         /* display the requester */
-        EasyRequestArgs( NULL, &es, NULL, args);
-
-        /* free the arguments */
-        va_end( args );
+        EasyRequestArgs( NULL, &es, NULL, NULL);
 }
 

@@ -823,7 +823,7 @@ extern APTR LoadImage	( FILE*, APTR, int );
 extern void SaveImage	( FILE*, image*);
 extern APTR LoadMenu	( FILE*, APTR, int, int );
 extern void SaveMenu	( FILE*, menu* );
-extern void ErrorMessageEasy(CONST_STRPTR, ...);
+extern void ErrorMessageEasy(CONST_STRPTR);
 
 extern	conf	config;
 extern 	appli	application;
