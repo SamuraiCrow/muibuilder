@@ -51,7 +51,7 @@ BOOL NewCheckMark( check *check_aux, BOOL new )
         BOOL    running = TRUE;
         BOOL    result = FALSE;
         ULONG   signal;
-	char	*aux;
+	CONST_STRPTR aux;
 	int	active;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];

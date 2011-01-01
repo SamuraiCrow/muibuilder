@@ -112,7 +112,7 @@ BOOL NewDirList( dirlist *dirlist_aux, BOOL new )
 	APTR	RA_sorttype, RA_sortdirs, STR_directory;
 	APTR	bt_ok, bt_cancel, WI_listdir, RegGroup;
 	APTR	STR_label, STR_accept, STR_reject;
-	char*	aux;
+	CONST_STRPTR aux;
 	CONST_STRPTR	STR_RA_sorttype [4];
 	CONST_STRPTR	STR_RA_sortdirs [4];
 	struct  ObjGR_AreaGroup *GR_GroupArea;

@@ -56,7 +56,7 @@ BOOL NewGauge ( gauge *gauge_aux, BOOL new)
 	BOOL	result = FALSE;
 	APTR	STR_max, STR_height, STR_width, STR_label, STR_divide, STR_InfoText;
 	APTR	CM_horiz, CM_height, CM_width;
-	char 	*aux;
+	CONST_STRPTR aux;
 	ULONG	active;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];

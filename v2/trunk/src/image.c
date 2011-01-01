@@ -98,7 +98,7 @@ BOOL NewImage( image *image_aux, BOOL new )
         BOOL    result = FALSE;
         ULONG   signal;
 	ULONG	active;
-	char	*aux;
+	CONST_STRPTR aux;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];
 

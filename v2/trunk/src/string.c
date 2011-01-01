@@ -59,7 +59,7 @@ BOOL NewString( chaine *chaine_aux, BOOL new )
         BOOL    running = TRUE;
         BOOL    result = FALSE;
         ULONG   signal;
-        char    *aux;
+        CONST_STRPTR aux;
 	int	active;
 	CONST_STRPTR STR_CY_format[4];
 	struct  ObjGR_AreaGroup *GR_GroupArea;

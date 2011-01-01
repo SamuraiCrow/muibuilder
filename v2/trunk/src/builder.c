@@ -96,9 +96,9 @@ static VOID init(VOID)
     }
 }
 
-APTR GetStr( APTR obj )
+CONST_STRPTR GetStr( APTR obj )
 {
-	APTR aux;
+	CONST_STRPTR aux;
 
 	get( obj, MUIA_String_Contents, &aux);
 	return(aux);
@@ -234,7 +234,7 @@ void NewAppli( void )
 	APTR	bt_ok, bt_cancel, bt_notify, bt_menu;
 	ULONG	signal;
 	BOOL	running = TRUE;
-	char	*aux;
+	CONST_STRPTR aux;
 	extern BOOL NewMenu( menu*, BOOL );
 	extern BOOL CreateNotify( object *, window * );
 
@@ -458,7 +458,7 @@ void Config( void )
 	APTR	STR_code, STR_TreeChar, PA_imagedir, CH_Labels;
 	ULONG	signal;
 	BOOL	running = TRUE;
-	char	*aux;
+	CONST_STRPTR aux;
 	int	active;
 	char	dir[526];
 	char	filename[256];
@@ -1025,7 +1025,7 @@ int main( int argc, char *argv[] )
 	/***************************************************************/
 
 	DoMethod( WI_build, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2, MUIM_Application_ReturnID, ID_END);
-#warning unactivated code in the morphos port
+// FIXME: warning unactivated code in the morphos port
 #if 0
 	DoMethod(WI_info, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, WI_info ,3 ,MUIM_Set, MUIA_Window_Open, FALSE);
 #endif

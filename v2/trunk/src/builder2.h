@@ -712,7 +712,7 @@ typedef struct popobject1
 		BOOL Volatile;
 	} popobject;
 
-extern APTR GetStr( APTR );
+extern CONST_STRPTR GetStr( APTR );
 extern BOOL NewGroup ( group *, int, BOOL );
 extern BOOL NewWindow( window *, BOOL, object* );
 extern APTR NewChild ( APTR , BOOL );
@@ -788,8 +788,8 @@ extern void CreateChain(object*, window*);
 extern BOOL GetMUIarg( object*, APTR *, char *, queue *, BOOL, CONST_STRPTR );
 extern BOOL EditChild( object* );
 extern void Config( void );
-extern unsigned char* GetMenuChar( int );
-extern unsigned char* GetMenuString( int );
+extern CONST_STRPTR GetMenuChar( int );
+extern CONST_STRPTR GetMenuString( int );
 void InitArea( area * );
 void ValidateArea( struct ObjGR_AreaGroup *, area *);
 extern struct ObjGR_AreaGroup * CreateGR_AreaGroup(area *, BOOL, BOOL, BOOL, BOOL, BOOL);

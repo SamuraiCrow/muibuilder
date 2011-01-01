@@ -49,7 +49,7 @@ BOOL NewButton( bouton *keybutton, BOOL new )
 	BOOL	running = TRUE;
 	BOOL	result = FALSE;
 	ULONG	signal;
-	char	*aux;
+	CONST_STRPTR aux;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];
 

@@ -49,12 +49,12 @@ void CloseLocale( void )
     }
 }
 
-unsigned char* GetMenuString( int MSG_Id )
+CONST_STRPTR GetMenuString( int MSG_Id )
 {
   return(&GetMUIBuilderString( MSG_Id )[2]);
 }
 
-unsigned char* GetMenuChar( int MSG_Id )
+CONST_STRPTR GetMenuChar( int MSG_Id )
 {
   return(GetMUIBuilderString( MSG_Id ));
 }
@@ -158,7 +158,7 @@ void ObjectCatalog( APTR obj, FILE *fichier )
 	  if (group_aux->entries->nb_elements != 0)
 	    for(i=0;i<group_aux->entries->nb_elements;i++)
 	      {
-		fprintf( fichier, ";MUIB Register Entry\n%s%s%d (//)\n%s\n", catprepend, group_aux->label, i, nth( group_aux->entries, i ) );
+		fprintf( fichier, ";MUIB Register Entry\n%s%s%d (//)\n%s\n", catprepend, group_aux->label, i, (char *)nth( group_aux->entries, i ) );
 	      }
 	  else fprintf( fichier, ";MUIB Register Entry\n%s%s0 (//)\nError\n", catprepend, group_aux->label );
 	}
@@ -218,7 +218,7 @@ void ObjectCatalog( APTR obj, FILE *fichier )
       for (i=0;i<cycle_aux->entries->nb_elements;i++)
 	{
 	  fprintf( fichier, ";MUIB Cycle Entry number %d\n",i);
-	  fprintf( fichier, "%s%s%d (//)\n%s\n", catprepend, cycle_aux->label, i, nth( cycle_aux->entries, i ) );
+	  fprintf( fichier, "%s%s%d (//)\n%s\n", catprepend, cycle_aux->label, i, (char *)nth( cycle_aux->entries, i ) );
 	}
       break;
     case TY_RADIO:
@@ -235,7 +235,7 @@ void ObjectCatalog( APTR obj, FILE *fichier )
       for(i=0;i<radio_aux->entries->nb_elements;i++)
 	{
 	  fprintf( fichier, ";MUIB Radio Entry number %d\n", i);
-	  fprintf( fichier, "%s%s%d (//)\n%s\n", catprepend, radio_aux->label, i, nth( radio_aux->entries, i ) );
+	  fprintf( fichier, "%s%s%d (//)\n%s\n", catprepend, radio_aux->label, i, (char *)nth( radio_aux->entries, i ) );
 	}
       break;
     case TY_CHECK:

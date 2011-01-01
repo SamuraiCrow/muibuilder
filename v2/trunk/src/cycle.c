@@ -63,7 +63,7 @@ APTR LoadCycle(FILE* fichier, APTR father, int version )
 	do
 	{
 		chaine_aux = AllocVec(80, MEMF_PUBLIC|MEMF_CLEAR);
-		sprintf( chaine_aux,"%s", LitChaine( fichier ));
+		sprintf( chaine_aux,"%s", (char *)LitChaine( fichier ));
 		if ( strcmp( chaine_aux, "//END_ENTRIES//" ) != 0 )
 		{
 			add( cycle_aux->entries, chaine_aux );
@@ -86,7 +86,7 @@ void SaveCycle( FILE *fichier, cycle* cycle_aux )
 	SaveArea( fichier, &cycle_aux->Area );
 	for(i=0;i<cycle_aux->entries->nb_elements;i++)
 	{
-		fprintf( fichier, "%s\n", nth(cycle_aux->entries,i) );
+		fprintf( fichier, "%s\n", (char *)nth(cycle_aux->entries,i) );
 	}
 	fprintf( fichier , "%s\n", "//END_ENTRIES//" );
 }
@@ -104,7 +104,7 @@ BOOL NewCycle ( cycle *cycle_aux, BOOL new)
         BOOL    running = TRUE;
         BOOL    result = FALSE;
 	BOOL	dbclick = FALSE;
-        char    *aux;
+        CONST_STRPTR aux;
 	int	i, n;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];

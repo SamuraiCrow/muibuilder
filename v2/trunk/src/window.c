@@ -484,7 +484,7 @@ BOOL NewWindow( window *win_aux , BOOL new, object* obj2search )
 	APTR	bt_copytmp, bt_menu;
 	APTR	lv_group, lv_tmp;
 	APTR    STR_label, STR_title;
-	APTR	aux;
+	CONST_STRPTR aux;
 	APTR	CH_appwindow, CH_backdrop, CH_borderless, CH_closegadget;
 	APTR	CH_depthgadget, CH_dragbar, CH_sizegadget, CH_initopen, CH_nomenu;
 	APTR    CH_needmouse;

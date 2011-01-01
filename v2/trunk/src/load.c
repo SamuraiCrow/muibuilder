@@ -155,7 +155,7 @@ void ReadFunctionHook( FILE* fichier, char **name )
 	}*/
 	if(chaine_aux = AllocVec(80, MEMF_PUBLIC|MEMF_CLEAR))
 	  {
-	    sprintf(chaine_aux, "%s", LitChaine(fichier));
+	    sprintf(chaine_aux, "%s", (char *)LitChaine(fichier));
 	    *name = PointerOnString(chaine_aux, application.Functions);
 	    FreeVec(chaine_aux);
 	  }

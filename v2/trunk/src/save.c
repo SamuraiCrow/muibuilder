@@ -72,7 +72,7 @@ void SaveApplicationList( FILE *fichier, queue *list )
 
 	for(i=0;i<list->nb_elements;i++)
 	{
-		fprintf(fichier, "%s\n", nth(list, i));
+		fprintf(fichier, "%s\n", (char *)nth(list, i));
 	}
 	fprintf( fichier, "//END_ENTRIES//\n" );
 }

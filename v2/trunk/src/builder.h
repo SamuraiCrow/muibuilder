@@ -263,7 +263,7 @@ typedef struct window1
 		BOOL needmouse;
         } window;
 
-extern APTR GetStr( APTR );
+extern CONST_STRPTR GetStr( APTR );
 extern BOOL NewGroup ( group *, int, BOOL );
 extern BOOL NewWindow( window *, BOOL, object* );
 extern APTR NewChild ( APTR , BOOL );

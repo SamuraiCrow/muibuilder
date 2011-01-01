@@ -57,7 +57,7 @@ BOOL NewProp ( prop *prop_aux, BOOL new)
 	APTR	STR_entries, STR_first, STR_visible, STR_label;
 	APTR	STR_height, STR_width;
 	APTR	CM_horiz, CM_width, CM_height;
-	char 	*aux;
+	CONST_STRPTR aux;
 	ULONG	active;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];

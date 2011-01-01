@@ -87,7 +87,7 @@ BOOL NewText( texte *text_aux, BOOL new)
 	BOOL	result = FALSE;
 	APTR	WI_text, CH_max, CH_min, RegGroup;
 	APTR	STR_content, STR_label, STR_preparse, bt_ok, bt_cancel;
-	char	*aux;
+	CONST_STRPTR aux;
 	struct	ObjGR_AreaGroup	*GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];
 

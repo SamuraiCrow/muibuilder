@@ -39,7 +39,7 @@ void Modify( APTR obj )
 {
 	ULONG	signal;
 	object	*obj_aux;
-	char	*aux;
+	CONST_STRPTR aux;
 	BOOL	running = TRUE;
 	APTR	WI_modify, STR_title, TX_length, BT_edit, BT_ok, BT_cancel;
 	CONST_STRPTR	STR_TX_length;

@@ -134,7 +134,7 @@ BOOL NewListView( listview *list, BOOL new )
         BOOL    running = TRUE;
         BOOL    result = FALSE;
         ULONG   signal;
-	char	*aux;
+	CONST_STRPTR aux;
 	int	active;
 	CONST_STRPTR lv_type [4];
 	CONST_STRPTR lv_select[4];

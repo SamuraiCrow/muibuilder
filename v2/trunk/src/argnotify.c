@@ -31,7 +31,7 @@
 #include "notifyconstants.h"
 
 /* does a string already exist in a list ? */
-BOOL ExistInList( char *chaine, queue *list )
+BOOL ExistInList( CONST_STRPTR chaine, queue *list )
 {
 	BOOL	result = FALSE;
 	int	i;
@@ -147,7 +147,8 @@ BOOL GetMUIarg( object *obj_aux, APTR *stringptr, char *stringname, queue *list,
 	BOOL	running = TRUE;
 	APTR	WI_MUIarg, LV_labels, BT_ok, BT_cancel;
 	APTR	BT_remove, STR_add, TX_Text;
-	char	*chaine_aux, *label_aux;
+	CONST_STRPTR chaine_aux;
+	char 	*label_aux;
 	BOOL	result = TRUE;
 	int	i;
 

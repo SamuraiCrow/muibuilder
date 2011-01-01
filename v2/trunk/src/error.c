@@ -33,7 +33,7 @@ BOOL RequestMessage( CONST_STRPTR message )
 	char	inside[256];
 
 	sprintf( inside, "*%s|%s", GetMUIBuilderString(MSG_Ok), GetMUIBuilderString(MSG_Cancel) );
-	req = MUI_Request( app, WI_current, 0, NULL, inside, message, NULL );
+	req = MUI_Request( app, WI_current, 0, NULL, inside, (char *)message, NULL );
 	result = ( req == 1 );
 	return( result );
 }
@@ -80,7 +80,7 @@ void ErrorMessage( CONST_STRPTR message )
         char    inside[256];
 
         sprintf( inside, "*%s", GetMUIBuilderString(MSG_Ok) );
-        MUI_Request( app, WI_current, 0, NULL, inside, message, NULL );
+        MUI_Request( app, WI_current, 0, NULL, inside, (char *)message, NULL );
 }
 
 void ErrorMessageEasy(CONST_STRPTR body, ...)

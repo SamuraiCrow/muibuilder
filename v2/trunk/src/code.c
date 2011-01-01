@@ -184,7 +184,7 @@ void GenerateListLabels(FILE* fichier, queue * list, char type)
       if (chainon_aux->ident)
 	{
 	  fprintf(fichier,"%c%s%c",type,
-		  chainon_aux->element,
+		  (char *)chainon_aux->element,
 		  0
 		 );
 	}
@@ -378,7 +378,7 @@ void GenerateInitLabels(APTR obj, FILE *fichier)
 	    {
 	      for (i=0;i<group_aux->entries->nb_elements;i++)
 		{
-		  if (!local) fprintf(fichier, "%s%c", nth(group_aux->entries, i),0);
+		  if (!local) fprintf(fichier, "%s%c", (char *)nth(group_aux->entries, i),0);
 		  else        fprintf(fichier, "%s%s%d%c", catprepend, group_aux->label,i,0);
 		}
 	      fprintf(fichier, "%c",0);
@@ -400,7 +400,7 @@ void GenerateInitLabels(APTR obj, FILE *fichier)
       fprintf(fichier, "%c",0);
       for (i=0;i<cycle_aux->entries->nb_elements;i++)
 	{
-	  if (!local) fprintf(fichier, "%s%c", nth(cycle_aux->entries, i),0);
+	  if (!local) fprintf(fichier, "%s%c", (char *)nth(cycle_aux->entries, i),0);
 	  else        fprintf(fichier, "%s%s%d%c",catprepend, cycle_aux->label,i,0);
 	}
       fprintf(fichier, "%c",0);
@@ -416,7 +416,7 @@ void GenerateInitLabels(APTR obj, FILE *fichier)
       fprintf(fichier, "%c",0);
       for (i=0;i<radio_aux->entries->nb_elements;i++)
 	{
-	  if (!local) fprintf(fichier, "%s%c", nth(radio_aux->entries, i),0);
+	  if (!local) fprintf(fichier, "%s%c", (char *)nth(radio_aux->entries, i),0);
 	  else        fprintf(fichier, "%s%s%d%c",catprepend, radio_aux->label,i,0);
 	}
       fprintf(fichier, "%c",0);

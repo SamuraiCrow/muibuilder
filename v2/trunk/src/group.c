@@ -103,7 +103,7 @@ APTR LoadGroup( FILE* fichier, APTR father, int version)
 		do
                	{
                        	chaine_aux = AllocVec(80, MEMF_PUBLIC|MEMF_CLEAR);
-                       	sprintf( chaine_aux,"%s", LitChaine( fichier ));
+                       	sprintf( chaine_aux,"%s", (char *)LitChaine( fichier ));
                        	if ( strcmp( chaine_aux, "//END_ENTRIES//" ) != 0 )
                        	{
                        		add( group_aux->entries, chaine_aux );
@@ -158,7 +158,7 @@ void SaveGroup( FILE* fichier, group* group_aux)
 	fprintf( fichier, "%d\n", group_aux->vertspace);
 	for(i=0;i<group_aux->entries->nb_elements;i++)
         {
-        	fprintf( fichier, "%s\n", nth(group_aux->entries,i) );
+        	fprintf( fichier, "%s\n", (char *)nth(group_aux->entries,i) );
         }
 	fprintf( fichier , "%s\n", "//END_ENTRIES//" );
 	for(i=0;i<group_aux->child->nb_elements;i++)
@@ -181,7 +181,7 @@ BOOL NewGroup( group *group_aux, int root , BOOL new )
 	BOOL	result = FALSE;
 	ULONG 	signal, active;
 	int	i, n;
-	char	*aux;
+	CONST_STRPTR aux;
 	char	*label_aux;
 	LONG	cy_active;
 	BOOL	dbclick;

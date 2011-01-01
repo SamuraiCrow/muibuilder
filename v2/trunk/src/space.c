@@ -46,7 +46,7 @@ BOOL NewSpace( space *space_aux, BOOL new )
 	ULONG	signal;
 	BOOL	running = TRUE;
 	BOOL	result = FALSE;
-	char    *aux;
+	CONST_STRPTR aux;
 	CONST_STRPTR STR_RA_type[4];
 
 	STR_RA_type[0] = GetMUIBuilderString(MSG_Horizontal);

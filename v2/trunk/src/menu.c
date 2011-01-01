@@ -295,7 +295,7 @@ BOOL NewMenu( menu *menu_aux, BOOL new )
 	BOOL	result = FALSE;
 	BOOL	running = TRUE;
 	ULONG	signal, active;
-	char	*aux;
+	CONST_STRPTR aux;
 	menu	*tmp_menu, *father, *tmp_menu2;
 	int	action = 0;
 	int	i, j, n;

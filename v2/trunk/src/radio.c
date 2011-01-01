@@ -85,7 +85,7 @@ APTR LoadRadio( FILE* fichier, APTR father, int version )
 	do
 	{
 		chaine_aux = AllocVec(80, MEMF_PUBLIC|MEMF_CLEAR);
-		sprintf( chaine_aux,"%s", LitChaine( fichier ));
+		sprintf( chaine_aux,"%s", (char *)LitChaine( fichier ));
 		if ( strcmp( chaine_aux, "//END_ENTRIES//" ) != 0 )
 		{
 			add( radio_aux->entries, chaine_aux );
@@ -108,7 +108,7 @@ void SaveRadio(FILE *fichier, radio *radio_aux)
 	SaveArea( fichier, &radio_aux->Area );
 	for(i=0;i<radio_aux->entries->nb_elements;i++)
 	{
-		fprintf( fichier, "%s\n", nth(radio_aux->entries,i) );
+		fprintf( fichier, "%s\n", (char *)nth(radio_aux->entries,i) );
 	}
 	fprintf( fichier , "%s\n", "//END_ENTRIES//" );
 }
@@ -125,7 +125,7 @@ BOOL NewRadio ( radio *radio_aux, BOOL new)
         BOOL    running = TRUE ;
         BOOL    result  = FALSE;
 	BOOL	dbclick = FALSE;
-        char    *aux;
+        CONST_STRPTR aux;
 	int	i, n;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];

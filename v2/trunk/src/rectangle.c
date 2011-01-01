@@ -51,7 +51,7 @@ BOOL NewRectangle( rectangle *rect, BOOL new )
 	BOOL	running = TRUE;
 	BOOL	result = FALSE;
 	ULONG	signal, active;
-	char	*aux;
+	CONST_STRPTR aux;
 	struct  ObjGR_AreaGroup *GR_GroupArea;
 	CONST_STRPTR RegisterTitles[3];
 	CONST_STRPTR STR_CY_type[4];
