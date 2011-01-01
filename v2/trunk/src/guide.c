@@ -527,7 +527,7 @@ void Guide()
 			break;
 		case ID_INFO:
 			strcpy( name, FilePart( application.helpfile ) );
-			if ( Requester( GetMUIBuilderString(MSG_AmigaguideDocName), guidenamedir, name ) )
+			if ( LoadRequester( GetMUIBuilderString(MSG_AmigaguideDocName), guidenamedir, name ) )
                         {
 				strncpy(filename, guidenamedir, 255);
 				AddPart(filename, name, 255);
@@ -544,7 +544,7 @@ void Guide()
 			break;
 		case ID_GENERATE:
 			strcpy( name, FilePart( application.helpfile ) );
-			if ( Requester( GetMUIBuilderString(MSG_AmigaguideDocName), guidenamedir, name ) )
+			if ( LoadRequester( GetMUIBuilderString(MSG_AmigaguideDocName), guidenamedir, name ) )
         		{
 			strncpy(application.helpfile, guidenamedir, 255);
 			AddPart(application.helpfile, name, 255);
@@ -578,7 +578,7 @@ void Guide()
 			if (active!=MUIV_List_Active_Off)
 			{
 			strcpy( name, FilePart( application.helpfile ) );
-                        if ( Requester( GetMUIBuilderString(MSG_AmigaguideDocName), guidenamedir, name ) )
+                        if ( LoadRequester( GetMUIBuilderString(MSG_AmigaguideDocName), guidenamedir, name ) )
                         {
 			strncpy(application.helpfile, guidenamedir, 255);
 			AddPart(application.helpfile, name, 255);
@@ -599,7 +599,7 @@ void Guide()
 			if (active!=MUIV_List_Active_Off)
 			{
 			strcpy( name, FilePart( application.helpfile ) );
-                        if ( Requester( GetMUIBuilderString(MSG_AmigaguideDocName), guidenamedir, name ) )
+                        if ( LoadRequester( GetMUIBuilderString(MSG_AmigaguideDocName), guidenamedir, name ) )
                         {
 			strncpy(application.helpfile, guidenamedir, 255);
 			AddPart(application.helpfile, name, 255);

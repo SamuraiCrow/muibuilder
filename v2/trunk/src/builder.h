@@ -287,7 +287,7 @@ extern void Guide( void );
 extern void InitLocale( void );
 extern void CloseLocale( void );
 extern void NextLine( FILE* );
-extern BOOL Requester( CONST_STRPTR, char*, char* );
+extern BOOL LoadRequester( CONST_STRPTR, char*, char* );
 extern void ErrorMessageEasy( CONST_STRPTR );
 
 extern char guidenamefile[256];

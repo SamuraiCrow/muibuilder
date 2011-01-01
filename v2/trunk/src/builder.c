@@ -630,7 +630,7 @@ void Config( void )
 		case ID_EDIT:
 			strcpy( dir, "SYS:Utilities" );
 			filename[0] = '\0';
-			if (Requester(GetMUIBuilderString(MSG_EditorChoice), dir, filename ) )
+			if (LoadRequester(GetMUIBuilderString(MSG_EditorChoice), dir, filename ) )
         		{
 				AddPart( dir, filename, 128 );
 				set(STR_editor, MUIA_String_Contents, dir);
@@ -640,7 +640,7 @@ void Config( void )
 			strcpy( dir, MBDir );
 			AddPart( dir, "modules", 512 );
                         filename[0] = '\0';
-                        if (Requester(GetMUIBuilderString(MSG_FileName), dir, filename ) )
+                        if (LoadRequester(GetMUIBuilderString(MSG_FileName), dir, filename ) )
                         {
                                 strncpy( config.langage, dir, 128 );
                                 AddPart( config.langage, filename, 128 );

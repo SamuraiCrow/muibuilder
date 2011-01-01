@@ -756,7 +756,7 @@ extern void GenerateLabels( APTR, FILE* );
 extern void Guide( void );
 extern char GetMUIBuilderChar( int );
 extern void CreateCatalog( void );
-extern BOOL Requester( CONST_STRPTR, char*, char* );
+extern BOOL LoadRequester( CONST_STRPTR, char*, char* );
 extern BOOL SaveRequester( CONST_STRPTR, char*, char* );
 extern void InitGroup( group* );
 extern void InitListview( listview * );

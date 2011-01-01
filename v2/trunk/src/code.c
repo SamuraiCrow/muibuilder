@@ -2568,7 +2568,7 @@ void GenerateCodeObject(APTR obj_aux)
   strcpy(dir, genfile);
   extract_catalog(dir);
   extract_file(genfile, file);
-  if (Requester(title, dir, file))
+  if (LoadRequester(title, dir, file))
     {
       strcpy(buffer, dir);
       AddPart(buffer, file, 512);

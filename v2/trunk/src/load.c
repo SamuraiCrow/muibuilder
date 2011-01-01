@@ -201,7 +201,7 @@ void LoadApplication()
 
 	title = GetMUIBuilderString(MSG_FileName);
 
-        if ( Requester( title, savedir, savefile ) )
+        if ( LoadRequester( title, savedir, savefile ) )
         {
 		strncpy(file, savedir, 255);
 		AddPart(file, savefile, 255);
@@ -376,7 +376,7 @@ void MergeFile( void )
 
 	strncpy(dir_aux, savedir, 255);
 	strncpy(file_aux, file_aux, 255);
-	if ( Requester( title, dir_aux, file_aux ) )
+	if ( LoadRequester( title, dir_aux, file_aux ) )
 	{
 	strncpy(file, dir_aux, 255);
 	AddPart(file, file_aux, 255);
