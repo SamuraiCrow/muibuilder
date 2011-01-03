@@ -1,9 +1,0 @@
-##base _MUIBBase
-##bias 30
-MB_Open()
-MB_Close()
-MB_GetA(TagList)(a1)
-MB_GetVarInfoA(varnb,TagList)(d0/a1)
-MB_GetNextCode(type,code)(a0/a1)
-MB_GetNextNotify(type,code)(a0/a1)
-##end
