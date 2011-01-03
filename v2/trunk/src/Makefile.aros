@@ -30,6 +30,7 @@ clean:
 .PHONY: distclean
 distclean:
 	$(RM) $(EXE) $(OBJS)
+	$(RM) MUIBuilder_cat.c MUIBuilder_cat.h
 
 .PHONY: deps
 deps: MUIBuilder_cat.o
