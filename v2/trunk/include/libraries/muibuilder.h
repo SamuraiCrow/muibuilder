@@ -835,3 +835,5 @@ char  *MUIStrings[] =
 		"MUI_MakeObject",
 		"NM_BARLABEL"
 	};
+
+#endif

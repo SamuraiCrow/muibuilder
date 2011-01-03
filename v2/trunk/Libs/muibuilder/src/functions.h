@@ -1,19 +1,42 @@
+/***************************************************************************
+
+  muibuilder.library - Support library for MUIBuilder's code generators
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$
+
+***************************************************************************/
+
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
+
 /* Prototypes */
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/dos_protos.h>
-#include <clib/utility_protos.h>
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/utility.h>
 #include <exec/memory.h>
 
 /* ANSI */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
-/* Pragmas */
-#include <pragmas/dos_pragmas.h>
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/utility_pragmas.h>
 
 struct Library *DOSBase = NULL;
 struct Library *UtilityBase = NULL;
@@ -70,3 +93,5 @@ struct Library *UtilityBase = NULL;
 #define TC_END_NOTIFICATION	21
 #define TC_EXTERNAL_VARIABLE    22
 #define TC_MUIARG_OBJFUNCTION	23
+
+#endif

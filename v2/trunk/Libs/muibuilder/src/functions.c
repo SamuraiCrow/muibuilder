@@ -1,8 +1,32 @@
-#include "builder.h"
+/***************************************************************************
 
-char *Version = "$VER:muibuilder.library 1.1 (07.12.94)";
+  muibuilder.library - Support library for MUIBuilder's code generators
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
 
-typedef struct Var
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$
+
+***************************************************************************/
+
+#include "functions.h"
+#include "lib.h"
+
+struct Var
 {
   char *Type;
   char *Name;
@@ -32,14 +56,14 @@ char	*NotifyCodeEnd	= NULL;
 struct Var *Vars        = NULL;
 int	varnum		= 0;
 
-/* droit d'utiliser les fonctions */
+/* TRUE if MB_Open was successful */
 BOOL	rights	= FALSE;
 
-__asm __saveds BOOL LIBMB_Open( void )
+LIBFUNC BOOL MB_Open(void)
 {
 	BPTR	TMPfile;
 	BOOL	success = TRUE;
-	__aligned struct  FileInfoBlock   Info;
+	/*__aligned */ struct  FileInfoBlock   Info; // FIXME: __aligned
 	char 	*adr_file;
 
 	char    *ptrvar, *ptrinit, *InitPtr;
@@ -57,8 +81,8 @@ __asm __saveds BOOL LIBMB_Open( void )
 	adr_declarations = NULL;
 	File		 = NULL;
 
-	/* fichier concernant les options */
-	if (TMPfile = Open( "T:MUIBuilder1.tmp", MODE_OLDFILE ))
+	/* File with options */
+	if ((TMPfile = Open( "T:MUIBuilder1.tmp", MODE_OLDFILE )) != NULL)
 	{
 		ExamineFH( TMPfile, &Info );
 		length = Info.fib_Size;
@@ -84,8 +108,8 @@ __asm __saveds BOOL LIBMB_Open( void )
 	}	
 	else	success = FALSE;
 
-	/* fichier concernant les declarations de variables */
-	if (TMPfile = Open( "T:MUIBuilder2.tmp", MODE_OLDFILE ))
+	/* File with declarations of variables */
+	if ((TMPfile = Open( "T:MUIBuilder2.tmp", MODE_OLDFILE )) != NULL)
         {
                 ExamineFH( TMPfile, &Info );
                 length 		 = Info.fib_Size;
@@ -104,8 +128,8 @@ __asm __saveds BOOL LIBMB_Open( void )
         }
 	else	success = FALSE;
 
-	/* fichier concernant les initialisations des variables */
-	if (TMPfile = Open( "T:MUIBuilder3.tmp", MODE_OLDFILE ))
+	/* File with initializations of variables */
+	if ((TMPfile = Open( "T:MUIBuilder3.tmp", MODE_OLDFILE )) != NULL)
         {
                 ExamineFH( TMPfile, &Info );
                 length           = Info.fib_Size;
@@ -150,8 +174,8 @@ __asm __saveds BOOL LIBMB_Open( void )
 	      }
 	  }
 
-	/* fichier concernant le 'code MUI' */
-	if (TMPfile = Open( "T:MUIBuilder4.tmp", MODE_OLDFILE ))
+	/* File with MUI code */
+	if ((TMPfile = Open( "T:MUIBuilder4.tmp", MODE_OLDFILE )) != NULL)
         {
                 ExamineFH( TMPfile, &Info );
                 length           = Info.fib_Size;
@@ -167,8 +191,8 @@ __asm __saveds BOOL LIBMB_Open( void )
         }
         else    success = FALSE;
 
-	/* fichier concernant les Notifications */
-	if (TMPfile = Open( "T:MUIBuilder5.tmp", MODE_OLDFILE ))
+	/* File with notifications */
+	if ((TMPfile = Open( "T:MUIBuilder5.tmp", MODE_OLDFILE )) != NULL)
         {
                 ExamineFH( TMPfile, &Info );
                 length = Info.fib_Size;
@@ -201,7 +225,7 @@ __asm __saveds BOOL LIBMB_Open( void )
 	return (success);
 }
 
-__asm __saveds void LIBMB_Close( void )
+LIBFUNC void MB_Close(void)
 {
   if (rights)
     {
@@ -215,7 +239,7 @@ __asm __saveds void LIBMB_Close( void )
   if (UtilityBase)	CloseLibrary( UtilityBase );
 }
 
-__asm __saveds void LIBMB_GetA( register __a1 struct TagItem *TagList )
+LIBFUNC void MB_GetA(REG(a1, struct TagItem *TagList))
 {
 	BOOL	*TagBool;
 	char	**TagString;
@@ -223,66 +247,59 @@ __asm __saveds void LIBMB_GetA( register __a1 struct TagItem *TagList )
 
 	if (!rights) return;
 
-
-	/* On regarde si les tags sont presents */
-	TagBool = (BOOL *) GetTagData(MUIB_Code, NULL, TagList );
+	TagBool = (BOOL *) GetTagData(MUIB_Code, 0, TagList );
 	if (TagBool) *TagBool = Code;
 
-	TagBool = (BOOL *) GetTagData(MUIB_Environment, NULL, TagList );
+	TagBool = (BOOL *) GetTagData(MUIB_Environment, 0, TagList );
 	if (TagBool) *TagBool = Env;
 
-	TagBool = (BOOL *) GetTagData(MUIB_Locale, NULL, TagList );
+	TagBool = (BOOL *) GetTagData(MUIB_Locale, 0, TagList );
 	if (TagBool) *TagBool = Locale;
 
-	TagBool = (BOOL *) GetTagData(MUIB_Declarations, NULL, TagList );
+	TagBool = (BOOL *) GetTagData(MUIB_Declarations, 0, TagList );
 	if (TagBool) *TagBool = Declarations;
 
-	TagBool = (BOOL *) GetTagData(MUIB_Notifications, NULL, TagList );
+	TagBool = (BOOL *) GetTagData(MUIB_Notifications, 0, TagList );
 	if (TagBool) *TagBool = Notifications;
 
-	TagBool = (BOOL *) GetTagData(MUIB_Application, NULL, TagList );
+	TagBool = (BOOL *) GetTagData(MUIB_Application, 0, TagList );
 	if (TagBool) *TagBool = GenerateAppli;
 
-	TagString = (char **) GetTagData(MUIB_FileName, NULL, TagList );
+	TagString = (char **) GetTagData(MUIB_FileName, 0, TagList );
 	if (TagString) *TagString = File;
 
-	TagString = (char **) GetTagData(MUIB_CatalogName, NULL, TagList );
+	TagString = (char **) GetTagData(MUIB_CatalogName, 0, TagList );
 	if (TagString) *TagString = Catalog;
 
-	TagString = (char **) GetTagData(MUIB_GetStringName, NULL, TagList );
+	TagString = (char **) GetTagData(MUIB_GetStringName, 0, TagList );
 	if (TagString) *TagString = GetString;
 
-	TagInt = (ULONG *) GetTagData(MUIB_VarNumber, NULL, TagList );
+	TagInt = (ULONG *) GetTagData(MUIB_VarNumber, 0, TagList );
 	if (TagInt) *TagInt = varnum;
 
 }
 
-__asm __saveds void LIBMB_GetVarInfoA(	register __d0 ULONG  varnb,
-					register __a1 struct TagItem *TagList )
+LIBFUNC void MB_GetVarInfoA(REG(d0, ULONG  varnb), REG(a1, struct TagItem *TagList))
 {
 	char    **TagString;
         ULONG   *TagInt;
 
 	if (!rights) return;
 
-	/* on regarde les tags demandes */
-	TagInt = (ULONG *) GetTagData(MUIB_VarType, NULL, TagList );
+	TagInt = (ULONG *) GetTagData(MUIB_VarType, 0, TagList );
         if (TagInt) *TagInt = (ULONG) *(Vars[varnb].Type);
 
-	TagString = (char **) GetTagData(MUIB_VarName, NULL, TagList );
+	TagString = (char **) GetTagData(MUIB_VarName, 0, TagList );
         if (TagString) *TagString = Vars[varnb].Name;
 
-	TagInt = (ULONG *) GetTagData(MUIB_VarSize, NULL, TagList );  
+	TagInt = (ULONG *) GetTagData(MUIB_VarSize, 0, TagList );  
         if (TagInt) *TagInt = Vars[varnb].Size;
 
-	TagInt = (ULONG *) GetTagData(MUIB_VarInitPtr, NULL, TagList );
+	TagInt = (ULONG *) GetTagData(MUIB_VarInitPtr, 0, TagList );
         if (TagInt) *TagInt = (ULONG) Vars[varnb].Init;
-
-
 }
 
-__asm __saveds void LIBMB_GetNextCode( register __a0 ULONG *type,
-				       register __a1 char **code )
+LIBFUNC void MB_GetNextCode(REG(a0, ULONG *type), REG(a1, char **code))
 {
 	char	*typecode;
 
@@ -303,8 +320,7 @@ __asm __saveds void LIBMB_GetNextCode( register __a0 ULONG *type,
 	}
 }
 
-__asm __saveds void LIBMB_GetNextNotify( register __a0 ULONG *type,
-				         register __a1 char **code )
+LIBFUNC void MB_GetNextNotify(REG(a0, ULONG *type), REG(a1, char **code))
 {
 	char	*typecode;
 
