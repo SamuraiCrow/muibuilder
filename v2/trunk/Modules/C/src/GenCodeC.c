@@ -176,22 +176,22 @@ void WriteInitialisations(int vartype)
 			case TYPEVAR_TABSTRING:
 				for(j=0;j<size;j++)
 				{
-					if (!Locale) fprintf(file, "\tObject->%s[%d] = \"%s\";\n", name, j, inits);
-					else	    fprintf(file, "\tObject->%s[%d] = %s(%s);\n", name, j, GetMBString, inits);
+					if (!Locale) fprintf(file, "\tobject->%s[%d] = \"%s\";\n", name, j, inits);
+					else	    fprintf(file, "\tobject->%s[%d] = %s(%s);\n", name, j, GetMBString, inits);
 					inits = inits + strlen(inits) + 1;
 				}
-				fprintf(file, "\tObject->%s[%d] = NULL;\n", name, j);
+				fprintf(file, "\tobject->%s[%d] = NULL;\n", name, j);
 				break;
 			case TYPEVAR_STRING:
 			 	if (*inits != 0)
 				{
-					if (!Locale) fprintf(file, "\tObject->%s = \"%s\";\n", name, inits);
-					else	   fprintf(file, "\tObject->%s = %s(%s);\n", name, GetMBString, inits);
+					if (!Locale) fprintf(file, "\tobject->%s = \"%s\";\n", name, inits);
+					else	   fprintf(file, "\tobject->%s = %s(%s);\n", name, GetMBString, inits);
 				}
-				else fprintf(file, "\tObject->%s = NULL;\n", name);
+				else fprintf(file, "\tobject->%s = NULL;\n", name);
 				break;
 			case TYPEVAR_HOOK:
-				fprintf(file, "\tstatic const struct Hook %sHook = { { NULL,NULL },(VOID *)%s,NULL,NULL };\n", name, name);
+				fprintf(file, "\tstatic const struct Hook %sHook = { { NULL,NULL }, HookEntry, (HOOKFUNC)%s, NULL };\n", name, name);
 				break;
 			default:
 				break;
@@ -336,7 +336,7 @@ void WriteCode(void)
 			name = atoi(code);
 			MB_GetVarInfo(name, MUIB_VarName, (IPTR)&code, MUIB_VarType, (IPTR)&type, TAG_END);
 			if (type == TYPEVAR_LOCAL_PTR) fprintf( file, "\t%s = ", code);
-			else fprintf(file, "\tObject->%s = ", code); 
+			else fprintf(file, "\tobject->%s = ", code); 
 			IndentFunction = FALSE;
 			MB_GetNextCode(&type, &code);
 			break;
@@ -345,7 +345,7 @@ void WriteCode(void)
 			name = atoi(code);
 			MB_GetVarInfo(name, MUIB_VarName, (IPTR)&code, MUIB_VarType, (IPTR)&type, TAG_END);
 			if (type == TYPEVAR_LOCAL_PTR) fprintf(file, "%s", code);
-			else			       fprintf(file, "Object->%s", code);
+			else			       fprintf(file, "object->%s", code);
 			MB_GetNextCode(&type, &code);
 			if ((InFunction)&&(type != TC_END_FUNCTION)) fprintf(file, ", ");
 			if (!InFunction)
@@ -483,7 +483,7 @@ void WriteNotify(void)
 			name = atoi(code);
 			MB_GetVarInfo(name, MUIB_VarName, (IPTR)&code, MUIB_VarType, (IPTR)&type, TAG_END);
 			if (type == TYPEVAR_LOCAL_PTR) fprintf(file, "\tDoMethod(%s,\n", code);
-			else                           fprintf(file, "\tDoMethod(Object->%s,\n", code);
+			else                           fprintf(file, "\tDoMethod(object->%s,\n", code);
 			MB_GetNextNotify(&type, &code);
 			break;
 		case TC_FUNCTION:
@@ -526,7 +526,7 @@ void WriteNotify(void)
 			name = atoi(code);
 			MB_GetVarInfo(name, MUIB_VarName, (IPTR)&code, MUIB_VarType, (IPTR)&type, TAG_END);
 			if ((type==TYPEVAR_LOCAL_PTR)||(type==TYPEVAR_EXTERNAL_PTR)) fprintf(file, "%s", code);
-			else                           fprintf(file, "Object->%s", code);
+			else                           fprintf(file, "object->%s", code);
 			MB_GetNextNotify(&type, &code);
 			if ((type != TC_END_NOTIFICATION)&&(type != TC_END_FUNCTION)) fprintf(file, ",\n");
 			else fprintf(file, "\n");
@@ -691,20 +691,20 @@ void WriteGUIFile(void)
 		    fprintf(file, "\nstatic char *%s(int ref)\n{\n", GetMBString);
 		    fprintf(file, "\tchar *aux;\n\n");
 		    fprintf(file, "\taux = %s(ref);\n", GetString);
-		    fprintf(file, "\tif (aux[1] == '\\0') return(&aux[2]);\n");
-		    fprintf(file, "\telse                return(aux);\n}\n");
+		    fprintf(file, "\tif (aux[1] == '\\0') return &aux[2];\n");
+		    fprintf(file, "\telse                return aux;\n}\n");
 		  }
 		fprintf(file, "\nstruct Obj%s * Create%s(", name, name);
 		WriteParameters();
 		fprintf(file, ")\n");
-		fprintf(file, "{\n\tstruct Obj%s * Object;\n\n", name);
+		fprintf(file, "{\n\tstruct Obj%s * object;\n\n", name);
 	      }
 	    if (Declarations)
 	      {
 		WriteDeclarations   (TYPEVAR_LOCAL_PTR);
 		WriteInitialisations(TYPEVAR_HOOK    );
 	      }
-	    if (Env) fprintf(file, "\n\tif (!(Object = AllocVec(sizeof(struct Obj%s), MEMF_PUBLIC|MEMF_CLEAR)))\n\t\treturn(NULL);\n", name);
+	    if (Env) fprintf(file, "\n\tif (!(object = AllocVec(sizeof(struct Obj%s), MEMF_PUBLIC|MEMF_CLEAR)))\n\t\treturn NULL;\n", name);
 	    if (Declarations)
 	      {
 		WriteInitialisations(TYPEVAR_PTR      );
@@ -716,8 +716,8 @@ void WriteGUIFile(void)
 	    if (Code) WriteCode();
 	    if (Env)
 	      {
-		fprintf(file, "\n\tif (!Object->%s)\n\t{\n\t\tFreeVec(Object);", name);
-		fprintf(file, "\n\t\treturn(NULL);\n\t}\n");
+		fprintf(file, "\n\tif (!object->%s)\n\t{\n\t\tFreeVec(object);", name);
+		fprintf(file, "\n\t\treturn NULL;\n\t}\n");
 	      }
 	    if (Notifications)
 	      {
@@ -725,10 +725,10 @@ void WriteGUIFile(void)
 	      }
 	    if (Env)
 	      {
-		fprintf(file, "\n\treturn(Object);\n}\n");
-		fprintf(file, "\nvoid Dispose%s(struct Obj%s * Object)\n{\n", name, name);
-		fprintf(file, "\tMUI_DisposeObject(Object->%s);\n", name);
-		fprintf(file, "\tFreeVec(Object);\n}\n");
+		fprintf(file, "\n\treturn object;\n}\n");
+		fprintf(file, "\nvoid Dispose%s(struct Obj%s * object)\n{\n", name, name);
+		fprintf(file, "\tMUI_DisposeObject(object->%s);\n", name);
+		fprintf(file, "\tFreeVec(object);\n}\n");
 	      }
 	    fclose(file);
 	  }

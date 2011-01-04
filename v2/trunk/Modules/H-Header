@@ -1,6 +1,9 @@
-#include <libraries/mui.h>
-#include <proto/muimaster.h>
-#include <clib/exec_protos.h>
-#include <exec/memory.h>
+#define MUI_OBSOLETE
+
 #include <clib/alib_protos.h>
+#include <libraries/mui.h>
+
+#include <proto/muimaster.h>
+#include <proto/exec.h>
+#include <proto/intuition.h>
 
