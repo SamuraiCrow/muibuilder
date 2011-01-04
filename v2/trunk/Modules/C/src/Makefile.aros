@@ -26,7 +26,7 @@ distclean:
 deps: $(SRCS)
 	$(CC) -MM $(CFLAGS) $^
 
-GenCodeC.o: GenCodeC.c GenCodeC.h ../../../include/proto/muibuilder.h \
+GenCodeC.o: GenCodeC.c ../../../include/proto/muibuilder.h \
   ../../../include/defines/muibuilder.h \
   ../../../include/libraries/muibuilder.h file.h \
   ../../../include/SDI_compiler.h
