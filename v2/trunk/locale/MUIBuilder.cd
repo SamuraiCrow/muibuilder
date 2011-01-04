@@ -1,11 +1,6 @@
 ;
-; 	MUIBuilder 2.2 translation file
+; 	MUIBuilder 2.3 translation file
 ;
-;	Author : Eric Totel
-;		 26 route de Montsuzain
-;		 10150 Voué
-;		 E-Mail : Eric.Totel@ramses.fdn.org
-;		 on June, 7th, 1995
 ;
 ; Strings for the 'Application Window'
 ;
@@ -42,13 +37,13 @@ MSG_Ok(//)
 _OK
 ;
 MSG_ChoseFunction(//)
-Chose a function
+Choose a function
 ;
 MSG_MergeFile(//)
 Merge File
 ;
 MSG_ComeBack(//)
-Go back to the main window to load !
+Go back to the main window to load!
 ;
 MSG_ApplicationLost(//)
 You will lose all your application\n           if you continue.
@@ -62,91 +57,91 @@ MSG_AboutText(//)
 \033c\n%s\nwas written by\n\n\033bEric TOTEL\033n\n\nand released on %s\n\nThis program is Giftware\nAll rights reserved\n
 ;
 MSG_Failed(//)
-Failed to create application !
+Failed to create application!
 ;
 MSG_Arguments(//)
-I keep only the first argument !
+I keep only the first argument!
 ;
 MSG_NeedWindows(//)
-You need windows in your application !!
+You need windows in your application!
 ;
 MSG_NotEnoughMemory(//)
-Not Enough Memory Error !
+Not Enough Memory Error!
 ;
 MSG_SelectWindow(//)
-You must select a window first !
+You must select a window first!
 ;
 MSG_Confirm(//)
 Are you sure you want to do that ?
 ;
 MSG_ConfirmExit(//)
-You must be joking !!!\nDo you really want to quit ?
+Do you really want to quit?
 ;
 MSG_SelectObject(//)
-You must select an object first !
+You must select an object first!
 ;
 MSG_SelectTmpObject(//)
-You need to select an object in tmp !
+You need to select an object in tmp!
 ;
 MSG_RemoveRootGroup(//)
-You can't remove the group child !
+You can't remove the group child!
 ;
 MSG_QuitWindowAttributes(//)
-You need a title, a label, and groups !
+You need a title, a label and groups!
 ;
 MSG_NoChild(//)
-The Root group must have childs !
+The Root group must have childs!
 ;
 MSG_NothingToUndelete(//)
-There is nothing to undelete !
+There is nothing to undelete!
 ;
 MSG_CantMoveRoot(//)
-You can't move root group !
+You can't move root group!
 ;
 MSG_NeedLabel(//)
-You need a label !
+You need a label!
 ;
 MSG_NeedLabelTitle(//)
-You need a label and a title
+You need a label and a title!
 ;
 MSG_NeedImageLabel(//)
-You need to select an image and a label !
+You need to select an image and a label!
 ;
 MSG_NeedBase(//)
-You Need to fill in the application 'BASE' argument !
+You need to fill in the application 'BASE' argument!
 ;
 MSG_NotBuilderSaveFile(//)
-It's NOT a MUIBuilder Save File !!!
+It's not a MUIBuilder save file!
 ;
 MSG_WrongVersion(//)
-Unknown MUIBuilder save file : probably wrong version !
+Unknown MUIBuilder save file : probably wrong version!
 ;
 MSG_SelectEntry(//)
-You must select a list entry !
+You must select a list entry!
 ;
 MSG_NeedLabelEntries(//)
-You need a label and list entries !
+You need a label and list entries!
 ;
 MSG_SeletNotifyLink(//)
-Select a notify link !
+Select a notify link!
 ;
 MSG_NotifyExists(//)
-Notification already exists !
+Notification already exists!
 ;
 MSG_SelectAction(//)
-Select an action please !
+Select an action please!
 ;
 MSG_SelectEvent(//)
-Select an event please !
+Select an event please!
 ;
 MSG_SelectNotifyLink(//)
-Select a notify link !
+Select a notify link!
 ;
 MSG_CantMovePopObjectChild(//)
-You can't move a PopObject Child !
+You can't move a PopObject child!
 ;
 MSG_CantDeletePopObjectChild(//)
-You can't delete a PopObject Child !
+You can't delete a PopObject child!
 ;
 MSG_CopyNotImplemented(//)
 Internal Error\nThe copy of this object is not implemented
@@ -155,22 +150,22 @@ MSG_ErrorReading(//)
 Error occured while reading Modules directory
 ;
 MSG_GroupError(//)
-Warning !!!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error !!!\n
+Warning!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error!\n
 ;
 MSG_SelectMenuTitle(//)
-Select a menu title first !
+Select a menu title first!
 ;
 MSG_SelectSubMenu(//)
-Select a submenu first !
+Select a submenu first!
 ;
 MSG_GiveObjectAndLabel(//)
-Give an object and a label first !
+Give an object and a label first!
 ;
 MSG_AlreadyGenerated(//)
-This Label is already generated in the code !
+This label is already generated in the code!
 ;
 MSG_SelectLabel(//)
-You must select a generated label first !
+You must select a generated label first!
 ;
 ;
 ; Rectangle Window
@@ -736,7 +731,7 @@ MSG_EditNodeText(//)
 _Edit Node Text
 ;
 MSG_CantOpen(//)
-Can't Open temporary file !
+Can't open temporary file!
 ;
 MSG_AmigaGuide(//)
 AmigaGuide
@@ -778,7 +773,7 @@ MSG_AmigaguideDocName(//)
 AmigaGuide Doc Name
 ;
 MSG_CantOpenAmigaGuide(//)
-Can't Open AmigaGuide File !
+Can't open AmigaGuide file!
 ;
 ; 
 ; Image window
@@ -983,10 +978,10 @@ MSG_InternalError(//)
 Internal Error
 ;
 MSG_ChoseIdent(//)
-Chose an indentifier
+Choose an indentifier
 ;
 MSG_ChoseVariable(//)
-Chose a variable
+Choose a variable
 ;
 MSG_Editing(//)
 \033cEditing : 
@@ -1014,10 +1009,10 @@ MSG_RemoveFromList(//)
 _Remove
 ;
 MSG_SelectIdentifier(//)
-Select an identifier first !
+Select an identifier first!
 ;
 MSG_IdentifierExists(//)
-Identifier already exists !
+Identifier already exists!
 ;
 ;
 ; Get Constant value window
@@ -1482,7 +1477,7 @@ MSG_ActivePrevObj(//)
 Activate Previous Object
 ;
 MSG_CantFindImages(//)
-Unable to find Images !
+Unable to find images!
 ;
 MSG_GenerateSource(//)
 Generating Source
@@ -1498,10 +1493,10 @@ Misc
 ;
 MSG_ImageDrawer(//)
 Image Drawer
-; Code page generation' new option
+;
 MSG_GenerateAllIDs(//)
 Generate All IDs
-; Window 'NoMenu' option
+;
 MSG_NoMenu(//)
 No Menu
 ;

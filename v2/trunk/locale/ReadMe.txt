@@ -1,13 +1,13 @@
 
 	How to translate the MUIBuilder catalog into your
-	prefered language ?
+	preferred language ?
 
 	Very easy !!!
 
 	Just rename 'MUIBuilder.ct' to 'XXXXXX.ct' ( XXXXXX is your
 	language name ).
 
-	Then translate the english sentences to the new ones.
+	Then translate the English sentences to the new ones.
 
 	You just have to know, how the hotkeys are coded :
 
@@ -35,6 +35,8 @@
 	in a window ...
 
 	If you want to make a translation in your language, and succeed in this
-	task .... PLEASE .... Send it to me !!! ... Thanks ...
+	task .... PLEASE .... Send it to marust@users.sourceforge.net !!!
+    ... Thanks ...
 
-	Eric.
+    As MUIBuilder is now Open Source it would be nice to get the
+    *.ct files.
