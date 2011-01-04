@@ -5,17 +5,11 @@
 @Width 76
 
 
-This is the AmigaGuide® file MUIBuilder_Deutsch.guide, produced by Makeinfo-1.55 from 
-the input file MUIBuilder_Deutsch.texi.
-
-
 @Node Main "MUIBuilder_Deutsch.guide"
 @Next "Introduction"
 
-   @{b}MUIBuilder Anleitung von Eric Totel
+   @{b}MUIBuilder Anleitung
 @{ub}
-
-   ... ins Deutsche übertragen von Christian Brandel
 
    Diese Anleitung beschreibt, was man wissen sollte, um MUIBuilder
 bestmöglich anwenden zu können.
@@ -23,7 +17,6 @@ bestmöglich anwenden zu können.
 
  @{" Einführung " Link "Introduction"}             
  @{" Grundlegende Prinzipien " Link "Principles"}              Welche Vereinbarungen benutzt das Programm ?
- @{" Distribution " Link "Distribution"}                         Lesen Sie dies zuerst !
  @{" Garantie " Link "Disclaimer"}                             Keine Garantie !!
 
  @{" Tutorium " Link "Tutorial"}                             Ein Beispiel für Anfänger.
@@ -109,7 +102,7 @@ von MUI-Builder gefunden haben:
 @EndNode
 
 @Node "Principles" "MUIBuilder_Deutsch.guide/Principles"
-@Next "Distribution"
+@Next "Disclaimer"
 @Prev "Introduction"
 @Toc "Main"
 
@@ -153,83 +146,22 @@ können.
 
 @EndNode
 
-@Node "Distribution" "MUIBuilder_Deutsch.guide/Distribution"
-@Next "Disclaimer"
-@Prev "Principles"
-@Toc "Main"
-
-Distribution
-************
-
-   Diese Veröffentlichung besteht aus einem gepackten Archiv im LhA
-Format. Dieses darf unter keinen Umständen verändert werden. Dieses
-Programm darf auf keinen Fall in einer anderen Form ohne die schriftliche
-Erlaubnis des Autors verteilt werden.  Desweiteren darf dieses Programm
-frei verteilt und weitergegeben werden, solange nicht mehr als eine
-realistische Kopiergebühr dafür verlangt wird (soll heißen nicht mehr
-als 4US-$, 12FF, 4 DM). In jedem Fall darf mit dem Vertrieb von MUIBuilder
-kein Profit erzielt werden.
-
-   MUIBuilder ist @{i}Giftware@{ui}.
-
-   Das bedeutet, daß Sie auch wenn Sie dieses Programm weiterhin benutzen,
-in keiner Weise verpflichtet sind, mir Geld zu schicken.  Wenn Sie dieses
-Programm allerdings wirklich gut finden, dann können Sie mir an folgende
-Adresse 15$ oder 50FF senden:
-
-                     Eric Totel
-                     26 route de Montsuzain
-                     10150 Voue
-                     France
-                     E-Mail  : Eric.Totel@ramses.fdn.org
-                     Fidonet : 2:320/104.56
-
-   Sollte Sie MUIBuilder nicht dermaßen überzeugt haben, daß Sie sich
-genötigt fühlen, mir Geld zu senden (oder wenn Sie z.B. ein abgebrannter
-Stundent sind :-)), dann schicken Sie mir doch bitte eine Postkarte, einen
-Brief oder eine EMail um mich aufzumuntern, mir Ihre Meinung zum Programm
-mitzuteilen, Ideen zu geben ... etc ...  Einige Leute haben mir Programme
-geschickt, die sie selbst geschrieben haben : Diese Idee finde ich absolut
-klasse und möchte Sie dazu weiterhin ermuntern. Außerdem wäre es schön,
-wenn Sie in Ihrer Dokumentation erwähnen könnten, daß MUIBuilder bei der
-Erstellung der Oberfläche zum Einsatz kam.
-
-   Aber bitte senden Sie keine großen Dateien an di EMail Adresse.
-Schicken Sie mir einfach eine kleine Nachricht, daß Sie dies tun möchten
-und ich werden Ihnen mitteilen, wohin Sie dese schicken können.
-
-
-@EndNode
-
 @Node "Disclaimer" "MUIBuilder_Deutsch.guide/Disclaimer"
 @Next "Tutorial"
-@Prev "Distribution"
+@Prev "Principles"
 @Toc "Main"
 
 Garantie
 ********
 
-   Dieses Programm wird ohne jegliche Garantiezusage zur Verfügung
-gestellt.  Dieses Prgramm wird, sofern nicht anderweitig schriftlich
-versichert, vom Copyrightinhaber und/oder Dritten "so wie es ist" und ohne
-jegliche Garantie, direkt oder indirekt, zur Verfügung gestellt. Dies
-betrifft auch, aber nicht nur, die Garantie der Eignung für einen
-bestimmten Zweck. Das gesamte Risiko bezüglich Qualität und Leistung des
-Programms liegt bei Ihnen.  Sollte es sich herausstellen, daß das Programm
-fehlerhaft ist, so bleiben die Kosten jeglichen nötigen Services,
-Reparatur oder Verbesserung bei Ihnen.
+   MUIBuilder - MUI Interface Builder
 
-   Keinesfalls, außer es wird von gültigem Recht verlangt, wird der
-Copyright Inhaber oder dritte, die das Programm unter obengenannten
-Bedingungen vertreiben, gegenüber Ihnen für Beschädigungen, inklusive
-alle allgemeinen, besonderen, zufälligen oder nachfolgenden
-Beschädigungen, die sich aus der Benutzung oder der nicht möglichen
-Benutzung des Programms ergeben (betreffend auch, aber nicht nur,
-Datenverlust, Verstümmelung von Daten oder Verluste von Ihnen oder dritten
-oder Versagen des Programmes im Zusammenhang mit Programmen von
-Drittanbietern) Verantwortlich sein, auch wenn er auf die Möglichkeit
-solcher Beschädigungen hingewiesen wurde.
+   Copyright (C) 1990-2009 Eric Totel
+   Copyright (C) 2010-2011 MUIBuilder Open Source Team
 
+   Für dieses Programm besteht KEINERLEI GARANTIE.
+   Dies ist freie Software, die Sie unter bestimmten Bedingungen
+   weitergeben dürfen; siehe Datei 'COPYING' für Details. 
 
 @EndNode
 
@@ -1955,7 +1887,6 @@ Index
  @{" Applikation Speichern " Link "Save"}                Save
  @{" AppWindow " Link "Save"}                            Save
  @{" Area Objekt " Link "Area"}                          Area
- @{" Autor " Link "Distribution"}                                Distribution
  @{" Besondere Zeichen " Link "Special Chars"}                    Special Chars
  @{" Bezeichner " Link "Label"}                           Label
  @{" Bild " Link "Image"}                                 Image

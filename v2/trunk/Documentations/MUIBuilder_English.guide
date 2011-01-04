@@ -5,14 +5,10 @@
 @Width 72
 
 
-This is the AmigaGuide® file MUIBuilder_English.guide, produced by Makeinfo-1.55 from 
-the input file MUIBuilder_English.texi.
-
-
 @Node Main "MUIBuilder_English.guide"
 @Next "Introduction"
 
-   @{b}MUIBuilder documentation by Eric Totel
+   @{b}MUIBuilder documentation
 @{ub}
 
    This document describes what it is necessary to know to use
@@ -21,7 +17,6 @@ MUIBuilder in the best conditions.
 
  @{" Introduction " Link "Introduction"}             
  @{" Principles " Link "Principles"}                   What notions does this program use ?
- @{" Distribution " Link "Distribution"}                 Read this first !
  @{" Disclaimer " Link "Disclaimer"}                   No Warranty !!
 
  @{" Tutorial " Link "Tutorial"}                     An example for beginners.
@@ -110,7 +105,7 @@ MUI-Builder follow:
 @EndNode
 
 @Node "Principles" "MUIBuilder_English.guide/Principles"
-@Next "Distribution"
+@Next "Disclaimer"
 @Prev "Introduction"
 @Toc "Main"
 
@@ -149,85 +144,22 @@ a simple user-friendly graphic interface (at least, I hope so).
 
 @EndNode
 
-@Node "Distribution" "MUIBuilder_English.guide/Distribution"
-@Next "Disclaimer"
-@Prev "Principles"
-@Toc "Main"
-
-Distribution
-************
-
-   This distribution consists in a lharc archive. This archive must not
-be modified in any case. This program must not and can't in any way be
-distributed on another form, without the written permission of the
-author.
-
-   Moreover, this program may be freely distributed, as long as no
-charges more than reasonable copying and handling fees are collected.
-(must not be more than 4$-US, 15FF, 4.DM). For any other type of
-distribution, you must have the permission of the author.  This program
-may be included in freeware collections, providing that the previous
-conditions are respected.
-
-   	MUIBuilder is @{i}Giftware@{ui}.
-
-   This means you are absolutely NOT forced to send me money to go on
-using this program.  But, if you really like this software or find it
-really useful, then you are may send about 15 $US or 50FF to the
-following address:
-
-                     Eric Totel
-                     26 route de Montsuzain
-                     10150 Voue
-                     France
-                     E-Mail  : Eric.Totel@ramses.fdn.org
-                     Fidonet : 2:320/104.56
-
-   If you didn't enjoy MUI-Builder enough to send me some money, please
-send me a postcard, a letter, an email to encourage me, give me some
-ideas or remarks ... and so on ...  Some people sent me some programs
-they made : what an excellent idea !! It seems to me it is one of the
-best gifts you can send to me ! If you use MUIBuilder, i would be
-happpy if you write it in your documentation ...
-
-   Don't hesitate at all to write me : I absolutely want to know if
-further developments of MUI-Builder will be really useful and
-appreciated.
-
-   Please don't send files at this e-mail address. Just write a
-message, and i will tell you where you can send files to me !! Thanks
-in advance !
-
-
-@EndNode
-
 @Node "Disclaimer" "MUIBuilder_English.guide/Disclaimer"
 @Next "Tutorial"
-@Prev "Distribution"
+@Prev "Principles"
 @Toc "Main"
 
 Disclaimer
 **********
 
-   THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
-APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
-HOLDER AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
-OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
-THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE
-PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE
-COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+   MUIBuilder - MUI Interface Builder
 
-   IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
-WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY REDISTRIBUTE THE
-PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
-GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
-USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS
-OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR
-THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
-PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGES.
+   Copyright (C) 1990-2009 Eric Totel
+   Copyright (C) 2010-2011 MUIBuilder Open Source Team
 
+   This program comes with ABSOLUTELY NO WARRANTY.
+   This is free software, and you are welcome to redistribute it
+   under certain conditions; see file 'COPYING' for details.
 
 @EndNode
 
@@ -1867,7 +1799,6 @@ Index
 
  @{" Application Object " Link "Application"}                   Application
  @{" AppWindow " Link "Save"}                            Save
- @{" Author " Link "Distribution"}                               Distribution
  @{" Button Object " Link "Button"}                        Button
  @{" Catalog " Link "Catalog"}                              Catalog
  @{" Catalog " Link "Locale"}                              Locale
