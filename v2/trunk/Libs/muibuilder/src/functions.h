@@ -26,21 +26,6 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-/* Prototypes */
-#include <proto/alib.h>
-#include <proto/exec.h>
-#include <proto/dos.h>
-#include <proto/utility.h>
-#include <exec/memory.h>
-
-/* ANSI */
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-struct Library *DOSBase = NULL;
-struct Library *UtilityBase = NULL;
-
 /* MB_GetA Tags */
 #define MUIB_FileName 		(TAG_USER + 200)
 #define MUIB_CatalogName 	(TAG_USER + 201)

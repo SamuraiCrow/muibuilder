@@ -23,6 +23,17 @@
 
 ***************************************************************************/
 
+/* Prototypes */
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/utility.h>
+
+/* ANSI */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 #include "functions.h"
 #include "lib.h"
 
@@ -59,6 +70,29 @@ int	varnum		= 0;
 /* TRUE if MB_Open was successful */
 BOOL	rights	= FALSE;
 
+struct Library *DOSBase;
+struct Library *UtilityBase;
+
+ULONG initBase(struct LibraryHeader* lib)
+{
+	BOOL retval = FALSE;
+	DOSBase = OpenLibrary("dos.library", 0);
+	UtilityBase = OpenLibrary("utility.library", 0);
+	if (DOSBase && UtilityBase)
+	{
+		retval = TRUE;
+	}
+	return retval;
+}
+
+ULONG freeBase(struct LibraryHeader* lib)
+{
+	CloseLibrary(DOSBase);
+	CloseLibrary(UtilityBase);
+	return TRUE;
+}
+
+
 LIBFUNC BOOL MB_Open(void)
 {
 	BPTR	TMPfile;
@@ -69,12 +103,6 @@ LIBFUNC BOOL MB_Open(void)
 	char    *ptrvar, *ptrinit, *InitPtr;
 	ULONG   size;
 	int     i;
-
-	DOSBase     = OpenLibrary ( "dos.library",0 );
-	UtilityBase = OpenLibrary ( "utility.library", 0 );
-
-	if ((!DOSBase)||(!UtilityBase)) return(FALSE);
-
 
 	Notifycode       = NULL;
 	MUIcode          = NULL;
@@ -236,7 +264,6 @@ LIBFUNC void MB_Close(void)
       if (NotifycodeBegin)	FreeVec( NotifycodeBegin );
       if (Vars)                 FreeVec( Vars );
     }
-  if (UtilityBase)	CloseLibrary( UtilityBase );
 }
 
 LIBFUNC void MB_GetA(REG(a1, struct TagItem *TagList))

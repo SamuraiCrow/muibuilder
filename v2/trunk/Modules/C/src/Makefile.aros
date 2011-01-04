@@ -1,5 +1,5 @@
 CC = i386-aros-gcc
-CFLAGS = -Wall -Wno-pointer-sign -I../../../include \
+CFLAGS = -g -Wall -Wno-pointer-sign -I../../../include \
 	-D__DOS_STDLIBBASE__
 LDFLAGS = -g
 EXE = ../../GenCodeC

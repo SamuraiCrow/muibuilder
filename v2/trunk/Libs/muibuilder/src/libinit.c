@@ -538,7 +538,7 @@ static struct LibraryHeader * LIBFUNC LibInit(REG(d0, struct LibraryHeader *base
     // If we are not running on AmigaOS4 (no stackswap required) we go and
     // do an explicit StackSwap() in case the user wants to make sure we
     // have enough stack for his user functions
-    //success = callLibFunction(initBase, base);
+    success = callLibFunction(initBase, base);
     success = TRUE;
 
     // unprotect initBase()
@@ -557,7 +557,7 @@ static struct LibraryHeader * LIBFUNC LibInit(REG(d0, struct LibraryHeader *base
     }
     else
     {
-      //callLibFunction(freeBase, base);
+      callLibFunction(freeBase, base);
       MUIBBase = NULL;
     }
 
@@ -627,7 +627,7 @@ static BPTR LIBFUNC LibExpunge(REG(a6, struct LibraryHeader *base))
     ObtainSemaphore(&base->libSem);
 
     // make sure we have enough stack here
-    //callLibFunction(freeBase, base);
+    callLibFunction(freeBase, base);
 
     // unprotect
     ReleaseSemaphore(&base->libSem);
