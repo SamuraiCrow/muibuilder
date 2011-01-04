@@ -78,8 +78,7 @@ LIBPROTOVA(MB_GetVarInfo, void, REG(d0, ULONG varnb), REG(a1, Tag tag1), ...);
 LIBPROTO(MB_GetNextCode, void, REG(a0, ULONG * type), REG(a1, char ** code));
 LIBPROTO(MB_GetNextNotify, void, REG(a0, ULONG * type), REG(a1, char ** code));
 
-#define libvector LibNull                       \
-                  LFUNC_FA_(MB_Open)            \
+#define libvector LFUNC_FAS(MB_Open)            \
                   LFUNC_FA_(MB_Close)           \
                   LFUNC_FA_(MB_GetA)            \
                   LFUNC_VA_(MB_Get)             \
@@ -507,7 +506,7 @@ static struct LibraryHeader * LIBFUNC LibInit(REG(d0, struct LibraryHeader *base
 
     #if defined(DEBUG)
     // this must be called ahead of any debug output, otherwise we get stuck
-    InitDebug();
+    //InitDebug();
     #endif
     //D(DBF_STARTUP, "LibInit()");
 
