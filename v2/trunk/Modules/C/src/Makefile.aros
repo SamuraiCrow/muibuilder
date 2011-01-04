@@ -2,7 +2,7 @@ CC = i386-aros-gcc
 CFLAGS = -Wall -Wno-pointer-sign -I../../../include \
 	-D__DOS_STDLIBBASE__
 LDFLAGS = -g
-EXE = ../GenCodeC
+EXE = ../../GenCodeC
 OBJS = GenCodeC.o file.o
 RM = rm -f
 
