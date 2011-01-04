@@ -1070,7 +1070,7 @@ void CodeCreate(object *obj, FILE *fichier)
 	}
       if (strlen(application.helpfile)>0)
 	{
-	  WriteAttribut	(fichier, MB_MUIA_HelpFile);
+	  WriteAttribut	(fichier, MB_MUIA_Application_HelpFile);
 	  WriteString	(fichier, FilePart(application.helpfile));
 	}
       for(i=0;i<windows->nb_elements;i++)

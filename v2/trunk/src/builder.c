@@ -905,7 +905,7 @@ int main( int argc, char *argv[] )
 		MUIA_Application_Author		,"Eric Totel, MUIBuilder Open Source Team",
 		MUIA_Application_Description	,GetMUIBuilderString(MSG_WrittenBy),
 		MUIA_Application_Base		,"BUILDER",
-		// MUIA_HelpFile			,DocDir,
+		MUIA_Application_HelpFile	,DocDir,
 		MUIA_Application_DiskObject	, dobj = GetDiskObject(Icon),
 		MUIA_Application_Menustrip      , AppMenu = MenustripObject, End,
 
