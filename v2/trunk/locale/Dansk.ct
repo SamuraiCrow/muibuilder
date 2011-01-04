@@ -1,16 +1,11 @@
-## version $VER: MUIBuilder.catalog 2.0 (30.12.2010)
+## version $VER: MUIBuilder.catalog 2.1 (04.01.2011)
 ## language dansk
 ## codeset 0
 ;
-; FIXME: catalog needs updating
 ;
-; 	MUIBuilder 2.2 translation file
+; 	MUIBuilder 2.3 translation file
 ;
-;	Author : Eric Totel
-;		 26 route de Montsuzain
-;		 10150 Voué
-;		 E-Mail : Eric.Totel@ramses.fdn.org
-;		 on June, 7th, 1995
+; This file needs updating
 ;
 ; Strings for the 'Application Window'
 ;
@@ -57,7 +52,7 @@ _Ok
 ;
 MSG_ChoseFunction
 Vælg en funktion
-; Chose a function
+; Choose a function
 ;
 MSG_MergeFile
 Sammenfletnings fil
@@ -65,7 +60,7 @@ Sammenfletnings fil
 ;
 MSG_ComeBack
 Gå til hovedvindue for at hente en fil ind !
-; Go back to the main window to load !
+; Go back to the main window to load!
 ;
 MSG_ApplicationLost
 Din brugerflade vil forsvinde\n\
@@ -85,27 +80,32 @@ og var frigivet den %s\n\n\
 Alle retigheder forbeholdes\n\n\
 Dansk oversættelse af:\n\
 \033bSøren Berg Glasius\033n\n
-; \033c\n%s\nwas written by\n\n\033bEric TOTEL\033n\n\nand released on %s\n\nThis program is Giftware\nAll rights reserved\n
+; \n%s - MUI Interface Builder\n\n\
+; Copyright (C) 1990-2009 Eric Totel\n\
+; Copyright (C) 2010-2011 MUIBuilder Open Source Team\n\n\
+; This program comes with ABSOLUTELY NO WARRANTY.\n\
+; This is free software, and you are welcome to redistribute it\n\
+; under certain conditions, see the file 'COPYING' for details.\n
 ;
 MSG_Failed
 Kunne ikke lave brugerflade !
-; Failed to create application !
+; Failed to create application!
 ;
 MSG_Arguments
 Jeg beholder kun første argument !
-; I keep only the first argument !
+; I keep only the first argument!
 ;
 MSG_NeedWindows
 Du skal have vinduer i din brugerflade !!
-; You need windows in your application !!
+; You need windows in your application!
 ;
 MSG_NotEnoughMemory
 Fejl: Ikke hukommelse nok !
-; Not Enough Memory Error !
+; Not Enough Memory Error!
 ;
 MSG_SelectWindow
 Du skal vælge et vindue først !
-; You must select a window first !
+; You must select a window first!
 ;
 MSG_Confirm
 Er du sikker på du vil det ?
@@ -113,95 +113,95 @@ Er du sikker på du vil det ?
 ;
 MSG_ConfirmExit
 Du har ikke gemt dit arbejde !!!\nVil du virkelig afslutte ?
-; You must be joking !!!\nDo you really want to quit ?
+; Do you really want to quit?
 ;
 MSG_SelectObject
 Du skal vælge et objekt først !
-; You must select an object first !
+; You must select an object first!
 ;
 MSG_SelectTmpObject
 Du skal vælge et objekt i tmp !
-; You need to select an object in tmp !
+; You need to select an object in tmp!
 ;
 MSG_RemoveRootGroup
 Du kan ikke fjerne gruppens barn !
-; You can't remove the group child !
+; You can't remove the group child!
 ;
 MSG_QuitWindowAttributes
 Du skal bruge en titel, en etiket og grupper !
-; You need a title, a label, and groups !
+; You need a title, a label and groups!
 ;
 MSG_NoChild
 Rodgruppen skal have et barn !
-; The Root group must have childs !
+; The Root group must have childs!
 ;
 MSG_NothingToUndelete
 Der er ikke noget at genoprette !
-; There is nothing to undelete !
+; There is nothing to undelete!
 ;
 MSG_CantMoveRoot
 Du kan ikke fjerne rod-gruppen !
-; You can't move root group !
+; You can't move root group!
 ;
 MSG_NeedLabel
 Du skal bruge en etiket !
-; You need a label !
+; You need a label!
 ;
 MSG_NeedLabelTitle
 Du skal bruge en etiket og en titel
-; You need a label and a title
+; You need a label and a title!
 ;
 MSG_NeedImageLabel
 Du skal vælge et billed og en etiket !
-; You need to select an image and a label !
+; You need to select an image and a label!
 ;
 MSG_NeedBase
 Du skal udfylde aplikationens 'BASE' felt !
-; You Need to fill in the application 'BASE' argument !
+; You need to fill in the application 'BASE' argument!
 ;
 MSG_NotBuilderSaveFile
 Dette er IKKE en fil gemt af MUIBuilder !!!
-; It's NOT a MUIBuilder Save File !!!
+; It's not a MUIBuilder save file!
 ;
 MSG_WrongVersion
 Ukendt MUIBuilder fil: sikkert en forkert version !
-; Unknown MUIBuilder save file : probably wrong version !
+; Unknown MUIBuilder save file : probably wrong version!
 ;
 MSG_SelectEntry
 Du skal vælge et listeelement !
-; You must select a list entry !
+; You must select a list entry!
 ;
 MSG_NeedLabelEntries
 Du mangler en etiket og listeelementer !
-; You need a label and list entries !
+; You need a label and list entries!
 ;
 MSG_SeletNotifyLink
 Vælg et beskedforbindelse !
-; Select a notify link !
+; Select a notify link!
 ;
 MSG_NotifyExists
 Beskedforbindelse findes allerede !
-; Notification already exists !
+; Notification already exists!
 ;
 MSG_SelectAction
 Vælg venligst en handling !
-; Select an action please !
+; Select an action please!
 ;
 MSG_SelectEvent
 Vælg venligst en begivenhed !
-; Select an event please !
+; Select an event please!
 ;
 MSG_SelectNotifyLink
 Vælg en beskedforbindelse !
-; Select a notify link !
+; Select a notify link!
 ;
 MSG_CantMovePopObjectChild
 Du kan ikke flytte et PopObjekt's barn !
-; You can't move a PopObject Child !
+; You can't move a PopObject child!
 ;
 MSG_CantDeletePopObjectChild
 Du kan ikke slette et PopObjekt's barn !
-; You can't delete a PopObject Child !
+; You can't delete a PopObject child!
 ;
 MSG_CopyNotImplemented
 Intern fejl\nKopiering af denne type objekt er ikke implementeret
@@ -213,27 +213,27 @@ Fejl under læsning af Modules biblioteket
 ;
 MSG_GroupError
 Advarsel !!!\nGruppen %s\nskulle have %d børn\nmen har %d.\nHusk at få rettet denne fejl !!!
-; Warning !!!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error !!!\n
+; Warning!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error!\n
 ;
 MSG_SelectMenuTitle
 Vælg først en menutitel !
-; Select a menu title first !
+; Select a menu title first!
 ;
 MSG_SelectSubMenu
 Vælg først en undermenutitel !
-; Select a submenu first !
+; Select a submenu first!
 ;
 MSG_GiveObjectAndLabel
 Udpeg først et objekt og en etiket !
-; Give an object and a label first !
+; Give an object and a label first!
 ;
 MSG_AlreadyGenerated
 Denne etiket findes allerede i koden !
-; This Label is already generated in the code !
+; This label is already generated in the code!
 ;
 MSG_SelectLabel
 Du skal først vælge en genereret etiket !
-; You must select a generated label first !
+; You must select a generated label first!
 ;
 ;
 ; Rectangle Window
@@ -967,7 +967,7 @@ _Ret knude tekst
 ;
 MSG_CantOpen
 Kan ikke åbne midlertidig fil!
-; Can't Open temporary file !
+; Can't open temporary file!
 ;
 MSG_AmigaGuide
 AmigaGuide
@@ -1023,7 +1023,7 @@ AmigaGuide dokument navn
 ;
 MSG_CantOpenAmigaGuide
 Kan ikke åbne AmigaGuide fil!
-; Can't Open AmigaGuide File !
+; Can't open AmigaGuide file!
 ;
 ; 
 ; Image window
@@ -1286,15 +1286,15 @@ Intern fejl
 ;
 MSG_ChoseIdent
 Vælg et ID-nummer
-; Chose an indentifier
+; Choose an indentifier
 ;
 MSG_ChoseVariable
 Vælg en variabel
-; Chose a variable
+; Choose a variable
 ;
 MSG_Editing
 \033cRetter :
-; \033cEditing : 
+; \033cEditing :
 ;
 MSG_Events
 Handlinger
@@ -1326,11 +1326,11 @@ _Fjern
 ;
 MSG_SelectIdentifier
 Vælg først et ID nummer !
-; Select an identifier first !
+; Select an identifier first!
 ;
 MSG_IdentifierExists
 ID findes allerede!
-; Identifier already exists !
+; Identifier already exists!
 ;
 ;
 ; Get Constant value window
@@ -1937,7 +1937,7 @@ Aktiver forrige objekt
 ;
 MSG_CantFindImages
 Kan ikke finde billeder !
-; Unable to find Images !
+; Unable to find images!
 ;
 MSG_GenerateSource
 Generér koden
@@ -1954,30 +1954,20 @@ MSG_Misc
 
 ; Misc
 ;
-; ***NEW***
-;
 MSG_ImageDrawer
 
 ; Image Drawer
 ;
-; ***NEW***
-; Code page generation' new option
 MSG_GenerateAllIDs
 
 ; Generate All IDs
 ;
-; ***NEW***
-; Window 'NoMenu' option
 MSG_NoMenu
 
 ; No Menu
-;
-; ***NEW***
 ;
 ; ID was missing, Dez, 30th, 2010
 ;
 MSG_NeedMouse
 
 ; Needs Mouse
-;
-; ***NEW***

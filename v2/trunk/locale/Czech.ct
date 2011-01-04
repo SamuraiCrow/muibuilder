@@ -1,16 +1,11 @@
-## version $VER: MUIBuilder.catalog 2.0 (30.12.2010)
+## version $VER: MUIBuilder.catalog 2.1 (04.01.2011)
 ## language czech
 ## codeset 0
 ;
-; FIXME: catalog needs updating
 ;
-; 	MUIBuilder 2.2 translation file
+; 	MUIBuilder 2.3 translation file
 ;
-;	Author : Eric Totel
-;		 26 route de Montsuzain
-;		 10150 VouÈ
-;		 E-Mail : Eric.Totel@ramses.fdn.org
-;		 on June, 7th, 1995
+; This file needs updating
 ;
 ; Strings for the 'Application Window'
 ;
@@ -57,7 +52,7 @@ _OK
 ;
 MSG_ChoseFunction
 Vyberte funkci
-; Chose a function
+; Choose a function
 ;
 MSG_MergeFile
 P“idat soubor
@@ -65,7 +60,7 @@ P“idat soubor
 ;
 MSG_ComeBack
 Pro nahr¡v¡n… se vra‘te do hlavn…ho okna !
-; Go back to the main window to load !
+; Go back to the main window to load!
 ;
 MSG_ApplicationLost
 Budete-li pokra√ovat,\n  p“ijdete o svoji aplikaci.
@@ -78,27 +73,32 @@ Budete-li pokra√ovat,\n  p“ijdete o svoji aplikaci.
 ;
 MSG_AboutText
 \033c\n%s\nautor:\n\n\033bEric TOTEL\033n\n\ndatum: %s\n\nTento program je Giftware\nV”echna pr¡va vyhrazena\n
-; \033c\n%s\nwas written by\n\n\033bEric TOTEL\033n\n\nand released on %s\n\nThis program is Giftware\nAll rights reserved\n
+; \n%s - MUI Interface Builder\n\n\
+; Copyright (C) 1990-2009 Eric Totel\n\
+; Copyright (C) 2010-2011 MUIBuilder Open Source Team\n\n\
+; This program comes with ABSOLUTELY NO WARRANTY.\n\
+; This is free software, and you are welcome to redistribute it\n\
+; under certain conditions, see the file 'COPYING' for details.\n
 ;
 MSG_Failed
 Nemohu vytvo“it aplikaci !
-; Failed to create application !
+; Failed to create application!
 ;
 MSG_Arguments
 Ponech¡v¡m jen prvn… argument !
-; I keep only the first argument !
+; I keep only the first argument!
 ;
 MSG_NeedWindows
 Ve va”… aplikaci mus… bŸt alespoŒ jedno okno !
-; You need windows in your application !!
+; You need windows in your application!
 ;
 MSG_NotEnoughMemory
 Nedostatek pam≈ti !
-; Not Enough Memory Error !
+; Not Enough Memory Error!
 ;
 MSG_SelectWindow
 Nejd“…ve mus…te zvolit okno !
-; You must select a window first !
+; You must select a window first!
 ;
 MSG_Confirm
 Jste si jistŸ ⁄e chcete pokra√ovat ?
@@ -106,95 +106,95 @@ Jste si jistŸ ⁄e chcete pokra√ovat ?
 ;
 MSG_ConfirmExit
 ˙ertujete !\n\Opravdu chcete opustit tento program ?
-; You must be joking !!!\nDo you really want to quit ?
+; Do you really want to quit?
 ;
 MSG_SelectObject
 Nejd“…ve mus…te zvolit objekt !
-; You must select an object first !
+; You must select an object first!
 ;
 MSG_SelectTmpObject
 Nejd“…ve mus…te zvolit objekt z okna Do√asn◊ !
-; You need to select an object in tmp !
+; You need to select an object in tmp!
 ;
 MSG_RemoveRootGroup
 Nem ⁄ete odstranit skupinu kter¡ je potomkem okna !
-; You can't remove the group child !
+; You can't remove the group child!
 ;
 MSG_QuitWindowAttributes
 Mus…te zadat titulek, jm◊no a skupiny !
-; You need a title, a label, and groups !
+; You need a title, a label and groups!
 ;
 MSG_NoChild
 Skupina, kter¡ je potomkem okna, mus… m…t potomky !
-; The Root group must have childs !
+; The Root group must have childs!
 ;
 MSG_NothingToUndelete
 Nen… nic k vr¡cen… !
-; There is nothing to undelete !
+; There is nothing to undelete!
 ;
 MSG_CantMoveRoot
 Nem ⁄ete p“esunout skupinu kter¡ je potomkem okna !
-; You can't move root group !
+; You can't move root group!
 ;
 MSG_NeedLabel
 Mus…te zadat jm◊no !
-; You need a label !
+; You need a label!
 ;
 MSG_NeedLabelTitle
 Mus…te zadat jm◊no a titulek !
-; You need a label and a title
+; You need a label and a title!
 ;
 MSG_NeedImageLabel
 Mus…te zadat obr¡zek a jm◊no !
-; You need to select an image and a label !
+; You need to select an image and a label!
 ;
 MSG_NeedBase
 Mus…te vyplnit pole 'B¡ze' pro aplilkaci !
-; You Need to fill in the application 'BASE' argument !
+; You need to fill in the application 'BASE' argument!
 ;
 MSG_NotBuilderSaveFile
 Toto nen… soubor MUIBuilderu !
-; It's NOT a MUIBuilder Save File !!!
+; It's not a MUIBuilder save file!
 ;
 MSG_WrongVersion
 Nezn¡m¡ verze MUIBulder souboru !
-; Unknown MUIBuilder save file : probably wrong version !
+; Unknown MUIBuilder save file : probably wrong version!
 ;
 MSG_SelectEntry
 Mus…te vybrat polo⁄ku seznamu !
-; You must select a list entry !
+; You must select a list entry!
 ;
 MSG_NeedLabelEntries
 Mus…te zadat n¡zev a polo⁄ky seznamu !
-; You need a label and list entries !
+; You need a label and list entries!
 ;
 MSG_SeletNotifyLink
 Vyberte notify spojen… !
-; Select a notify link !
+; Select a notify link!
 ;
 MSG_NotifyExists
 Notifikace ji⁄ existuje !
-; Notification already exists !
+; Notification already exists!
 ;
 MSG_SelectAction
 Vyberte si √innost !
-; Select an action please !
+; Select an action please!
 ;
 MSG_SelectEvent
 Vyberte si ud¡lost !
-; Select an event please !
+; Select an event please!
 ;
 MSG_SelectNotifyLink
 Vyberte si notify spojen… !
-; Select a notify link !
+; Select a notify link!
 ;
 MSG_CantMovePopObjectChild
 Nem ⁄ete p“esouvat potomka PopObjectu !
-; You can't move a PopObject Child !
+; You can't move a PopObject child!
 ;
 MSG_CantDeletePopObjectChild
 Nem ⁄ete smazat potomka PopObjectu !
-; You can't delete a PopObject Child !
+; You can't delete a PopObject child!
 ;
 MSG_CopyNotImplemented
 Intern… chyba\nKopie tohoto objektu nen… implementov¡na
@@ -206,27 +206,27 @@ Chyba p“i √ten… adres¡“e Modules
 ;
 MSG_GroupError
 Pozor !\nSkupina %s\nm¡ m…t %d potomk \na m¡ jich %d.\nNezapomeŒte opravit tuto chybu !\n
-; Warning !!!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error !!!\n
+; Warning!\nThe group called\n%s\nshould have %d children\nand has %d.\nDon't forget to correct this error!\n
 ;
 MSG_SelectMenuTitle
 Nejd“…ve si vyberte tutulek menu !
-; Select a menu title first !
+; Select a menu title first!
 ;
 MSG_SelectSubMenu
 Nejd“…ve si vyberte submenu !
-; Select a submenu first !
+; Select a submenu first!
 ;
 MSG_GiveObjectAndLabel
 Nejd“…ve nastavte objekt a jm◊no !
-; Give an object and a label first !
+; Give an object and a label first!
 ;
 MSG_AlreadyGenerated
 Toto jm◊no je u⁄ vygenerov¡no v kœdu !
-; This Label is already generated in the code !
+; This label is already generated in the code!
 ;
 MSG_SelectLabel
 Nejd“…ve vyberte generovan◊ jm◊no !
-; You must select a generated label first !
+; You must select a generated label first!
 ;
 ;
 ; Rectangle Window
@@ -960,7 +960,7 @@ MSG_EditNodeText
 ;
 MSG_CantOpen
 Nemohu otev“…t do√asnŸ soubor !
-; Can't Open temporary file !
+; Can't open temporary file!
 ;
 MSG_AmigaGuide
 AmigaGuide
@@ -1016,7 +1016,7 @@ Jm◊no vŸstupn…ho souboru
 ;
 MSG_CantOpenAmigaGuide
 Nemohu otev“…t vŸstupn… soubor !
-; Can't Open AmigaGuide File !
+; Can't open AmigaGuide file!
 ;
 ; 
 ; Image window
@@ -1279,15 +1279,15 @@ Intern… chyba
 ;
 MSG_ChoseIdent
 Zvolte identifik¡tor
-; Chose an indentifier
+; Choose an indentifier
 ;
 MSG_ChoseVariable
 Zvolte prom≈nnou
-; Chose a variable
+; Choose a variable
 ;
 MSG_Editing
 \033cEditace : 
-; \033cEditing : 
+; \033cEditing :
 ;
 MSG_Events
 Ud¡losti
@@ -1319,11 +1319,11 @@ Odst_ranit
 ;
 MSG_SelectIdentifier
 Nejd“…ve zvolte identifik¡tor !
-; Select an identifier first !
+; Select an identifier first!
 ;
 MSG_IdentifierExists
 Identifik¡tor ji⁄ existuje !
-; Identifier already exists !
+; Identifier already exists!
 ;
 ;
 ; Get Constant value window
@@ -1920,37 +1920,25 @@ MSG_ActiveNoObj
 
 ; Activate No Object
 ;
-; ***NEW***
-;
 MSG_ActiveNextObj
 
 ; Activate Next Object
-;
-; ***NEW***
 ;
 MSG_ActivePrevObj
 
 ; Activate Previous Object
 ;
-; ***NEW***
-;
 MSG_CantFindImages
 
-; Unable to find Images !
-;
-; ***NEW***
+; Unable to find images!
 ;
 MSG_GenerateSource
 
 ; Generating Source
 ;
-; ***NEW***
-;
 MSG_CodeGeneration
 
 ; Generating Temporary files
-;
-; ***NEW***
 ;
 ; MUIBuilder 2.2
 ; Updated on June, 7th, 1995
@@ -1959,30 +1947,20 @@ MSG_Misc
 
 ; Misc
 ;
-; ***NEW***
-;
 MSG_ImageDrawer
 
 ; Image Drawer
 ;
-; ***NEW***
-; Code page generation' new option
 MSG_GenerateAllIDs
 
 ; Generate All IDs
 ;
-; ***NEW***
-; Window 'NoMenu' option
 MSG_NoMenu
 
 ; No Menu
-;
-; ***NEW***
 ;
 ; ID was missing, Dez, 30th, 2010
 ;
 MSG_NeedMouse
 
 ; Needs Mouse
-;
-; ***NEW***

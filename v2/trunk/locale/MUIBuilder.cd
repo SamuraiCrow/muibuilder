@@ -54,7 +54,12 @@ You will lose all your application\n           if you continue.
 ;     \nThe French Translation was written by\n\033bEric Totel\033n\n
 ;
 MSG_AboutText(//)
-\033c\n%s\nwas written by\n\n\033bEric TOTEL\033n\n\nand released on %s\n\nThis program is Giftware\nAll rights reserved\n
+\n%s - MUI Interface Builder\n\n\
+Copyright (C) 1990-2009 Eric Totel\n\
+Copyright (C) 2010-2011 MUIBuilder Open Source Team\n\n\
+This program comes with ABSOLUTELY NO WARRANTY.\n\
+This is free software, and you are welcome to redistribute it\n\
+under certain conditions, see the file 'COPYING' for details.\n
 ;
 MSG_Failed(//)
 Failed to create application!
@@ -984,7 +989,7 @@ MSG_ChoseVariable(//)
 Choose a variable
 ;
 MSG_Editing(//)
-\033cEditing : 
+\033cEditing :
 ;
 MSG_Events(//)
 Events
