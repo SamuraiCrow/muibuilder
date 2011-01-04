@@ -1,8 +1,34 @@
-#include "gencodec.h"
+/***************************************************************************
 
-char *version = "$VER: GenCodeC 2.2 (03.03.95)";
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$
+
+***************************************************************************/
+
+#include "GenCodeC.h"
+
+char *version = "$VER: GenCodeC 2.3 (04.01.2011)";
 
 struct Library * MUIBBase = NULL;
+struct Library * DOSBase = NULL;
 
 /* Global variables */
 ULONG	varnb;			/* number of variables */
@@ -57,9 +83,9 @@ void WriteParameters(void)
     for(i=0;i<varnb;i++)
       {
 	MB_GetVarInfo (i,
-		       MUIB_VarType, &type,
-		       MUIB_VarName, &varname,
-		       MUIB_VarSize, &size,
+		       MUIB_VarType, (IPTR)&type,
+		       MUIB_VarName, (IPTR)&varname,
+		       MUIB_VarSize, (IPTR)&size,
 		       TAG_END
 		       );
 	if (type == TYPEVAR_EXTERNAL_PTR)
@@ -86,9 +112,9 @@ void WriteDeclarations(int vartype)
 	for(i=0;i<varnb;i++)
 	{
 		MB_GetVarInfo (i,
-			   	MUIB_VarType, &type,
-			   	MUIB_VarName, &varname,
-			   	MUIB_VarSize, &size,
+			   	MUIB_VarType, (IPTR)&type,
+			   	MUIB_VarName, (IPTR)&varname,
+			   	MUIB_VarSize, (IPTR)&size,
 				TAG_END
 			     );
 		if (type == vartype)
@@ -136,10 +162,10 @@ void WriteInitialisations(int vartype)
 	for(i=0;i<varnb;i++)
 	{
 		MB_GetVarInfo(i,
-			       MUIB_VarType	, &type,
-			       MUIB_VarName	, &name,
-			       MUIB_VarSize	, &size,
-			       MUIB_VarInitPtr	, &inits,
+			       MUIB_VarType	, (IPTR)&type,
+			       MUIB_VarName	, (IPTR)&name,
+			       MUIB_VarSize	, (IPTR)&size,
+			       MUIB_VarInitPtr	, (IPTR)&inits,
 			       TAG_END
 			     );
 		if (type == vartype)
@@ -308,7 +334,7 @@ void WriteCode(void)
                         break;	
 		case TC_VAR_AFFECT:
 			name = atoi(code);
-			MB_GetVarInfo(name, MUIB_VarName, &code, MUIB_VarType, &type, TAG_END);
+			MB_GetVarInfo(name, MUIB_VarName, (IPTR)&code, MUIB_VarType, (IPTR)&type, TAG_END);
 			if (type == TYPEVAR_LOCAL_PTR) fprintf( file, "\t%s = ", code);
 			else fprintf(file, "\tObject->%s = ", code); 
 			IndentFunction = FALSE;
@@ -317,7 +343,7 @@ void WriteCode(void)
 		case TC_OBJ_ARG:
 		case TC_VAR_ARG:
 			name = atoi(code);
-			MB_GetVarInfo(name, MUIB_VarName, &code, MUIB_VarType, &type, TAG_END);
+			MB_GetVarInfo(name, MUIB_VarName, (IPTR)&code, MUIB_VarType, (IPTR)&type, TAG_END);
 			if (type == TYPEVAR_LOCAL_PTR) fprintf(file, "%s", code);
 			else			       fprintf(file, "Object->%s", code);
 			MB_GetNextCode(&type, &code);
@@ -455,7 +481,7 @@ void WriteNotify(void)
 			break;
 		case TC_BEGIN_NOTIFICATION:
 			name = atoi(code);
-			MB_GetVarInfo(name, MUIB_VarName, &code, MUIB_VarType, &type, TAG_END);
+			MB_GetVarInfo(name, MUIB_VarName, (IPTR)&code, MUIB_VarType, (IPTR)&type, TAG_END);
 			if (type == TYPEVAR_LOCAL_PTR) fprintf(file, "\tDoMethod(%s,\n", code);
 			else                           fprintf(file, "\tDoMethod(Object->%s,\n", code);
 			MB_GetNextNotify(&type, &code);
@@ -498,7 +524,7 @@ void WriteNotify(void)
                         break;	
 		case TC_VAR_ARG:
 			name = atoi(code);
-			MB_GetVarInfo(name, MUIB_VarName, &code, MUIB_VarType, &type, TAG_END);
+			MB_GetVarInfo(name, MUIB_VarName, (IPTR)&code, MUIB_VarType, (IPTR)&type, TAG_END);
 			if ((type==TYPEVAR_LOCAL_PTR)||(type==TYPEVAR_EXTERNAL_PTR)) fprintf(file, "%s", code);
 			else                           fprintf(file, "Object->%s", code);
 			MB_GetNextNotify(&type, &code);
@@ -561,15 +587,15 @@ void Init(void)
 
 	/* Get all needed variables */
 	MB_Get	(
-		MUIB_VarNumber		, &varnb,
-		MUIB_Code		, &Code,
-		MUIB_Environment	, &Env,
-		MUIB_Locale		, &Locale,
-		MUIB_Notifications	, &Notifications,
-		MUIB_Declarations	, &Declarations,
-		MUIB_FileName		, &FileName,
-		MUIB_CatalogName	, &CatalogName,
-		MUIB_GetStringName	, &GetString,
+		MUIB_VarNumber		, (IPTR)&varnb,
+		MUIB_Code		, (IPTR)&Code,
+		MUIB_Environment	, (IPTR)&Env,
+		MUIB_Locale		, (IPTR)&Locale,
+		MUIB_Notifications	, (IPTR)&Notifications,
+		MUIB_Declarations	, (IPTR)&Declarations,
+		MUIB_FileName		, (IPTR)&FileName,
+		MUIB_CatalogName	, (IPTR)&CatalogName,
+		MUIB_GetStringName	, (IPTR)&GetString,
 		TAG_END
 		);
 
@@ -614,7 +640,7 @@ void WriteHeaderFile(void)
 	file = fopen(HeaderFile, "a+");
 	if (file)
 	{
-		MB_GetVarInfo(0, MUIB_VarName, &name, TAG_END);
+		MB_GetVarInfo(0, MUIB_VarName, (IPTR)&name, TAG_END);
 		fprintf(file, "struct Obj%s\n{\n", name);
 		WriteDeclarations(TYPEVAR_PTR 	   );
 		WriteDeclarations(TYPEVAR_BOOL	   );
@@ -650,11 +676,11 @@ void WriteGUIFile(void)
 		Execute(buffer2,0,0);
 	}
 	else DeleteFile(GUIFile);
-	if (file = fopen(GUIFile, "a+"))
+	if ((file = fopen(GUIFile, "a+")) != NULL)
 	  {
 	    if (Env)
 	      {
-		MB_GetVarInfo(0, MUIB_VarName, &name, TAG_END);
+		MB_GetVarInfo(0, MUIB_VarName, (IPTR)&name, TAG_END);
 		fprintf(file, "\n#include \"%s\"\n", FilePart(HeaderFile));
 		if (ExternalExist) fprintf(file, "#include \"%s\"\n\n", FilePart(Externals));
 		if (Locale)
@@ -716,13 +742,13 @@ BOOL WriteExternalFile( void )
 	ULONG	length, type;
 	BPTR	TMPfile;
 	char	*adr_file = NULL;
-	__aligned struct  FileInfoBlock   Info;
+	/* __aligned */ struct  FileInfoBlock   Info; // FIXME: aligned
 	BOOL	bool_aux = FALSE;
 	char    *varname;
 	BOOL	result = FALSE;
 
 	/* If the file already exists, we load it in memory */
-	if (TMPfile = Open(Externals, MODE_OLDFILE))
+	if ((TMPfile = Open(Externals, MODE_OLDFILE)) != NULL)
 	{
 		ExamineFH(TMPfile, &Info);
 		length = Info.fib_Size;
@@ -731,13 +757,13 @@ BOOL WriteExternalFile( void )
 		adr_file[length] = '\0';
 		Close(TMPfile);
 	}
-	if (file = fopen(Externals, "a+"))
+	if ((file = fopen(Externals, "a+")) != NULL)
 	{
 		for(i=0;i<varnb;i++)
 		{
 			MB_GetVarInfo (i,
-			   		MUIB_VarType, &type,
-			   		MUIB_VarName, &varname,
+			   		MUIB_VarType, (IPTR)&type,
+			   		MUIB_VarName, (IPTR)&varname,
 					TAG_END
 			     	);
 			switch(type)	/* if the declaration doesn't exist, we generate it */
@@ -755,7 +781,7 @@ BOOL WriteExternalFile( void )
 		fclose(file);
 	}
 	if (adr_file) FreeVec(adr_file);
-	if (TMPfile = Open(Externals, MODE_OLDFILE))	/* if the file is 0 bytes long : we remove it */
+	if ((TMPfile = Open(Externals, MODE_OLDFILE)) != NULL)	/* if the file is 0 bytes long : we remove it */
 	{
 		ExamineFH(TMPfile, &Info);
 		Close(TMPfile);

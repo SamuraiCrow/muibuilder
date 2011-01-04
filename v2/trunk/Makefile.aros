@@ -4,13 +4,16 @@ CC=i386-aros-gcc
 all:
 	$(MAKE) -f Makefile.aros -C src
 	$(MAKE) -f Makefile.aros -C Libs/muibuilder/src
+	$(MAKE) -f Makefile.aros -C Modules/C/src
 
 .PHONY : clean
 clean:
 	$(MAKE) -f Makefile.aros clean -C src
 	$(MAKE) -f Makefile.aros clean -C Libs/muibuilder/src
+	$(MAKE) -f Makefile.aros clean -C Modules/C/src
 
 .PHONY : distclean
 distclean:
 	$(MAKE) -f Makefile.aros distclean -C src
 	$(MAKE) -f Makefile.aros distclean -C Libs/muibuilder/src
+	$(MAKE) -f Makefile.aros distclean -C Modules/C/src

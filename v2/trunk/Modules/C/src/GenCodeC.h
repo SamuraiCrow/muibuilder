@@ -1,23 +1,48 @@
+/***************************************************************************
+
+  MUIBuilder - MUI interface builder
+  Copyright (C) 1990-2009 by Eric Totel
+  Copyright (C) 2010-2011 by MUIBuilder Open Source Team
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+  MUIBuilder Support Site: http://sourceforge.net/projects/muibuilder/
+
+  $Id$
+
+***************************************************************************/
+
+#ifndef GENCODEC_H
+#define GENCODEC_H
+
 /* Prototypes */
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/dos_protos.h>
-#include <exec/memory.h>
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/muibuilder.h>
+
+#include <libraries/muibuilder.h>
 
 /* ANSI */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-/* Pragmas */
-#include <pragmas/dos_pragmas.h>
-
-/* MUIBuilder library */
-#include "MB.h"
-#include "MB_pragmas.h"
-#include "MB_protos.h"
-
-/* File name Utilities */
+/* File name utilities */
 #include "file.h"
 
-struct Library * DOSBase = NULL;
+/* Compatibility macros */
+#include "SDI_compiler.h"
+
+#endif
