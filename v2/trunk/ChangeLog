@@ -1,0 +1,15 @@
+----------------------
+MUIBuilder - ChangeLog
+----------------------
+
+$Id$
+
+2011-01-04 Matthias Rustler <mrustler@gmx.de>
+
+  * start as Open Source project on Sourceforge.
+  * source cleanup
+  * AROS port
+
+#### v2.2 RELEASE #############################################################
+
+  * see file "History" about details for former releases.
