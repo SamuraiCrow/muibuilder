@@ -90,7 +90,6 @@ APTR FindArgument(char *chaine)
     popaslobj *popasl;
     popobject *popobj;
     APTR result = NULL;
-    extern void CreateLabels(APTR, APTR);
     chainon *chainon_aux;
 
     chainon_aux = labels->head;

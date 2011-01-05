@@ -28,11 +28,6 @@
 
 char savefile[256];
 char savedir[256];
-extern char genfile[512];
-extern char catfile[512];
-extern char real_getstring[80];
-extern char catprepend[5];
-extern BOOL code, env, declarations, local, notifications, generate_all;
 
 #define SAVE_VERSION "BUILDER_SAVE_FILE1.26\n"
 

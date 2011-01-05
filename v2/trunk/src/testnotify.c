@@ -37,8 +37,6 @@ int GetAction(int ACT[], int id)
 
 BOOL IsApplicationMenu(menu * menu_aux)
 {
-    extern BOOL IsMenuParent(menu *, menu *);
-
     if (menu_aux == application.appmenu)
         return (TRUE);
     if ((menu_aux->id == TY_MENU) ||

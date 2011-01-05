@@ -27,8 +27,6 @@
 
 BOOL createwin;
 
-extern window *ParentWindow(APTR obj);
-
 /* effectue la copie de la partie commune a tous les objets */
 BOOL CopyObject(object * objsrc, object * objdest, int taille, APTR father)
 {

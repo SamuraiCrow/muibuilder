@@ -29,8 +29,6 @@
 
 #include "notify.h"
 
-extern LONG PopObjectDepth(popobject *);
-
 char description[256];
 
 APTR SearchLabel(char *objlabel, int depart)
@@ -56,7 +54,6 @@ void LinkNotify(int depart)
     object *obj_aux, *obj_aux2;
     event *evt;
     char *string_aux;
-    extern window *ParentWindow(APTR obj);
 
     for (i = depart; i < labels->nb_elements; i++)
     {

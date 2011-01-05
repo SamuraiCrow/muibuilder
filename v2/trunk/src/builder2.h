@@ -846,9 +846,35 @@ extern void SaveImage(FILE *, image *);
 extern APTR LoadMenu(FILE *, APTR, int, int);
 extern void SaveMenu(FILE *, menu *);
 extern void ErrorMessageEasy(CONST_STRPTR);
+extern void CreateLabels(APTR, window *);
+extern APTR PointerOnString(char *, queue *);
+extern void LinkNotify(int);
+extern void DeleteApplication(void);
+extern window *ParentWindow(APTR obj);
+extern BOOL IsMenuParent(menu *, menu *);
+extern BOOL MakeTest;
+extern void TestChain(window *);
+extern BOOL CopyObject(object *, object *, int, APTR);
+extern BOOL IsParent(object * obj, group * parent);
+extern void ShowObject(APTR);
+extern void EditNode(APTR);
+extern menu *ParentMenu(menu *);
+extern void CreateLocaleString(char *, char);
+extern void TestNotify(object *);
+extern char *PopModules[50];
 
 extern conf config;
 extern appli application;
 extern window *current_window;
+extern char genfile[512];
+extern char catfile[512];
+extern BOOL code, env, declarations, local, notifications, generate_all;
+extern char real_getstring[100];
+extern char catprepend[5];
+extern char ImageDir[256];
+extern char MBDir[512];
+extern char locale_string[82];
+extern char nospace[80];
+extern APTR AppMenu;
 
 #endif

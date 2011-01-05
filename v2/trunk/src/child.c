@@ -57,7 +57,6 @@ char ControlChar(CONST_STRPTR string)
 
 char *BuildName(char *ImageNames[], int *nb_images, char *Name)
 {
-    extern char ImageDir[256];
     int size;
 
     size = strlen(ImageDir) + strlen(Name) + 4;
@@ -73,7 +72,6 @@ char *BuildName(char *ImageNames[], int *nb_images, char *Name)
 void WidthAndHeight(void)
 {
     FILE *fh;
-    extern char ImageDir[256];
     char ImageName[300];
     char buffer[30];
 

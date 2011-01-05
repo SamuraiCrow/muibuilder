@@ -32,10 +32,6 @@
 #include <utility/hooks.h>
 
 APTR testwin = NULL;
-extern BOOL MakeTest;
-
-extern window *ParentWindow(APTR obj);
-extern void TestChain(window *);
 
 void Toggle(object * obj, APTR list, int position);
 int AfficheObjet(APTR list, object * obj, int position);
@@ -91,7 +87,6 @@ APTR LoadWindow(FILE * fichier, int version)
     window *win_aux;
     group *group_aux;
     int i;
-    extern BOOL CopyObject(object *, object *, int, APTR);
 
     win_aux = AllocVec(sizeof(window), MEMF_PUBLIC | MEMF_CLEAR);
     InitWindow(win_aux);
@@ -212,9 +207,6 @@ void AddToGroup(group * group_aux, APTR list, int position, object * obj)
 {
     int pos = position + 1;
     object *obj_aux;
-    extern BOOL IsParent(object * obj, group * parent);
-    extern void Toggle(object * obj, APTR list, int position);
-    extern int AfficheObjet(APTR list, object * obj, int position);
 
     if (!group_aux->deplie)
     {
@@ -391,7 +383,6 @@ void EditObject(APTR WI_window, APTR lv_group, window * win_aux)
 {
     BOOL bool_aux;
     object *child_aux;
-    extern void ShowObject(APTR);
 
     DoMethod(lv_group, MUIM_List_GetEntry, MUIV_List_GetEntry_Active,
              &child_aux);

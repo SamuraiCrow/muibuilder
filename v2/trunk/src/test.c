@@ -132,9 +132,6 @@ void TestWindow(window * win)
     APTR WI_SaveCurrent;
     menu *CurrentMenu;
 
-    extern APTR AppMenu;
-    extern void TestNotify(object *);
-
     set(app, MUIA_Application_Sleep, TRUE);
 
     if (win)

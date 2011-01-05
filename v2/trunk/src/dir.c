@@ -27,7 +27,6 @@
 #include <exec/memory.h>
 
 int nb_modules = 0;
-extern char *PopModules[50];
 
 BOOL RecordFileInfoBlock(struct FileInfoBlock *fib)
 {

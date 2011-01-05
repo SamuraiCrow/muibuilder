@@ -312,8 +312,6 @@ BOOL NewMenu(menu * menu_aux, BOOL new)
     menu *tmp_menu, *father, *tmp_menu2;
     int action = 0;
     int i, j, n;
-    extern char nospace[80];
-    extern void NoSpace(char *);
 
     static struct Hook MenuDisplayHook = {
         {NULL, NULL},

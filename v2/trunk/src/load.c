@@ -28,14 +28,6 @@
 window *current_window;
 char aux[256];
 int version = 0;
-extern char genfile[512];
-extern char catfile[512];
-extern char real_getstring[80];
-extern void CreateLabels(APTR, window *);
-extern char catprepend[5];
-extern BOOL code, env, declarations, local, notifications, generate_all;
-
-extern APTR PointerOnString(char *, queue *);
 
 int SearchVersion(char *text)
 {
@@ -91,8 +83,6 @@ void ReadHelp(FILE * fichier, APTR obj)
     int i;
     object *obj_aux;
     char *car;
-    extern APTR LitChaine(FILE *);
-    extern void NextLine(FILE *);
 
     obj_aux = obj;
     strcpy(obj_aux->Help.title, LitChaine(fichier));
@@ -167,7 +157,6 @@ void ReadApplicationList(FILE * fichier, queue * list)
 void ReadFunctionHook(FILE * fichier, char **name)
 {
     char *chaine_aux;
-    extern void AddInList(char *chaine, queue * list);
 
     /* if (chaine_aux = AllocVec(80, MEMF_PUBLIC|MEMF_CLEAR))
        {
@@ -242,9 +231,6 @@ void LoadFile(char *file)
     int i;
     int n;
     char *title;
-    extern void DeleteApplication(void);
-
-    extern void LinkNotify(int);
 
     if (strlen(file) > 0)
     {
@@ -406,8 +392,6 @@ void MergeFile(void)
     int i, n;
     window *win_aux;
     object *obj_aux;
-
-    extern void LinkNotify(int);
 
     title = GetMUIBuilderString(MSG_MergeFile);
 

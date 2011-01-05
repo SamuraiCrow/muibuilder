@@ -32,7 +32,7 @@
 #include "muib_file.h"
 #include "codenotify.h"
 
-char genfile[256];
+char genfile[512];
 char nospace[80];
 queue *genlabels;
 char get_string[80];
@@ -46,10 +46,6 @@ BOOL local = FALSE;
 BOOL notifications = TRUE;
 BOOL generate_all = FALSE;
 int numfirstlabel;
-extern char catprepend[5];
-extern char catfile[512];
-extern char MBDir[512];
-extern void CreateLabels(APTR, window *);
 APTR TextInfo;
 queue *parameters;
 
@@ -543,9 +539,6 @@ void VerifyLabels(void)
     chainon *chainon1, *chainon2;
     char buffer[256];
     group *group_aux;
-
-    extern window *ParentWindow(APTR obj);
-    extern menu *ParentMenu(menu *);
 
     STR_TX_label_0 = GetMUIBuilderString(MSG_MultiplyDefinedLabel);
 
@@ -1095,9 +1088,6 @@ void CodeCreate(object * obj, FILE * fichier)
     space *space_aux;
     char buffer[256];
     int i;
-
-    extern void CreateLocaleString(char *, char);
-    extern char locale_string[82];
 
     switch (obj->id)
     {

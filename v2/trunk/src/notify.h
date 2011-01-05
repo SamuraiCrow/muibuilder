@@ -29,7 +29,6 @@
 #include "builder2.h"
 #include "notifyconstants.h"
 
-extern void CreateLabels(APTR, APTR);
 extern BOOL GetConstant(event *, int, BOOL);
 
 /* constantes */

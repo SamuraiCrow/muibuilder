@@ -44,7 +44,6 @@ void Modify(APTR obj)
     APTR WI_modify, STR_title, TX_length, BT_edit, BT_ok, BT_cancel;
     CONST_STRPTR STR_TX_length;
     char buffer[128];
-    extern void EditNode(APTR);
     APTR LV_text, CH_generated;
     char *STR_LV_text = NULL;
     int i;
