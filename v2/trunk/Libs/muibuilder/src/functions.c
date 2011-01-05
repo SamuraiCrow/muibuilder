@@ -47,34 +47,34 @@ struct Var
 };
 
 /* renseignements sur le fichier en memoire */
-int     length;
-char    *adr_declarations;
+int length;
+char *adr_declarations;
 
 /* donnees dans le fichiers */
-char *File      = NULL;
-char *Catalog   = NULL;
+char *File = NULL;
+char *Catalog = NULL;
 char *GetString = NULL;
-BOOL Code,Env,Locale,Declarations, Notifications, GenerateAppli;
+BOOL Code, Env, Locale, Declarations, Notifications, GenerateAppli;
 
 /* localisation dans le fichier */
-char    *variables      = NULL;
-char    *inits          = NULL;
-char    *MUIcode        = NULL;
-char    *MUIcodeBegin   = NULL;
-char    *Notifycode     = NULL;
-char    *NotifycodeBegin= NULL;
-char    *CodeEnd        = NULL;
-char    *NotifyCodeEnd  = NULL;
-struct Var *Vars        = NULL;
-int     varnum          = 0;
+char *variables = NULL;
+char *inits = NULL;
+char *MUIcode = NULL;
+char *MUIcodeBegin = NULL;
+char *Notifycode = NULL;
+char *NotifycodeBegin = NULL;
+char *CodeEnd = NULL;
+char *NotifyCodeEnd = NULL;
+struct Var *Vars = NULL;
+int varnum = 0;
 
 /* TRUE if MB_Open was successful */
-BOOL    rights  = FALSE;
+BOOL rights = FALSE;
 
 struct Library *DOSBase;
 struct Library *UtilityBase;
 
-ULONG initBase(struct LibraryHeader* lib)
+ULONG initBase(struct LibraryHeader *lib)
 {
     BOOL retval = FALSE;
     DOSBase = OpenLibrary("dos.library", 0);
@@ -86,7 +86,7 @@ ULONG initBase(struct LibraryHeader* lib)
     return retval;
 }
 
-ULONG freeBase(struct LibraryHeader* lib)
+ULONG freeBase(struct LibraryHeader * lib)
 {
     CloseLibrary(DOSBase);
     CloseLibrary(UtilityBase);
@@ -96,93 +96,90 @@ ULONG freeBase(struct LibraryHeader* lib)
 
 LIBFUNC BOOL MB_Open(void)
 {
-    BPTR        TMPfile;
-    BOOL        success = TRUE;
-    /*__aligned */ struct  FileInfoBlock   Info; // FIXME: __aligned
-    char        *adr_file;
+    BPTR TMPfile;
+    BOOL success = TRUE;
+    struct FileInfoBlock Info; // FIXME: __aligned
+    char *adr_file;
 
-    char        *ptrvar, *ptrinit, *InitPtr;
-    ULONG       size;
-    int         i;
+    char *ptrvar, *ptrinit, *InitPtr;
+    ULONG size;
+    int i;
 
-    Notifycode          = NULL;
-    MUIcode             = NULL;
-    adr_declarations    = NULL;
-    File                = NULL;
+    Notifycode = NULL;
+    MUIcode = NULL;
+    adr_declarations = NULL;
+    File = NULL;
 
     /* File with options */
-    if ((TMPfile = Open( "T:MUIBuilder1.tmp", MODE_OLDFILE )) != NULL)
+    if ((TMPfile = Open("T:MUIBuilder1.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH( TMPfile, &Info );
+        ExamineFH(TMPfile, &Info);
         length = Info.fib_Size;
-        adr_file = AllocVec(length, MEMF_PUBLIC|MEMF_CLEAR);
+        adr_file = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (adr_file)
-            Read( TMPfile, adr_file, length);
-        Close( TMPfile );
+            Read(TMPfile, adr_file, length);
+        Close(TMPfile);
 
         /* Initialisations */
         if (adr_file)
         {
             File = adr_file;
-            GetString = File + strlen( File ) + 1;
-            Catalog = GetString + strlen( GetString ) + 1;
-            adr_file = Catalog + strlen( Catalog ) + 1;
-            Env                 = ( '1' == *adr_file++ );
-            Declarations        = ( '1' == *adr_file++ );
-            Code                = ( '1' == *adr_file++ );
-            Locale              = ( '1' == *adr_file++ );
-            Notifications       = ( '1' == *adr_file++ );
-            GenerateAppli       = ( '1' == *adr_file++ );
-        }
-        else
+            GetString = File + strlen(File) + 1;
+            Catalog = GetString + strlen(GetString) + 1;
+            adr_file = Catalog + strlen(Catalog) + 1;
+            Env = ('1' == *adr_file++);
+            Declarations = ('1' == *adr_file++);
+            Code = ('1' == *adr_file++);
+            Locale = ('1' == *adr_file++);
+            Notifications = ('1' == *adr_file++);
+            GenerateAppli = ('1' == *adr_file++);
+        } else
             success = FALSE;
-    }
-    else
+    } else
         success = FALSE;
 
     /* File with declarations of variables */
-    if ((TMPfile = Open( "T:MUIBuilder2.tmp", MODE_OLDFILE )) != NULL)
+    if ((TMPfile = Open("T:MUIBuilder2.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH( TMPfile, &Info );
+        ExamineFH(TMPfile, &Info);
         length = Info.fib_Size;
-        adr_declarations = AllocVec(length,MEMF_PUBLIC|MEMF_CLEAR);
+        adr_declarations = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (adr_declarations)
-            Read( TMPfile, adr_declarations, length);
-        Close( TMPfile );
+            Read(TMPfile, adr_declarations, length);
+        Close(TMPfile);
 
         /* Initialisations */
         if (adr_declarations)
         {
-            adr_file    = adr_declarations;
-            varnum      = atoi( adr_file );
-            variables   = adr_file + strlen( adr_file ) + 1;
-        }
-        else
+            adr_file = adr_declarations;
+            varnum = atoi(adr_file);
+            variables = adr_file + strlen(adr_file) + 1;
+        } else
             success = FALSE;
-    }
-    else
+    } else
         success = FALSE;
 
     /* File with initializations of variables */
-    if ((TMPfile = Open( "T:MUIBuilder3.tmp", MODE_OLDFILE )) != NULL)
+    if ((TMPfile = Open("T:MUIBuilder3.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH( TMPfile, &Info );
+        ExamineFH(TMPfile, &Info);
         length = Info.fib_Size;
-        inits = AllocVec(length,MEMF_PUBLIC|MEMF_CLEAR);
+        inits = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (inits)
-            Read( TMPfile, inits, length);
-        Close( TMPfile );
+            Read(TMPfile, inits, length);
+        Close(TMPfile);
         success = (inits != NULL);
-    }
-    else
+    } else
         success = FALSE;
 
     if (success)
     {
-        Vars = AllocVec(varnum * sizeof(struct Var), MEMF_PUBLIC | MEMF_CLEAR);
-        ptrvar  = variables;
+        Vars =
+            AllocVec(varnum * sizeof(struct Var),
+                     MEMF_PUBLIC | MEMF_CLEAR);
+        ptrvar = variables;
         ptrinit = inits;
-        for(i = 0; i < varnum; i++)
+        for (i = 0; i < varnum; i++)
         {
             size = 0;
             InitPtr = ptrinit;
@@ -194,7 +191,7 @@ LIBFUNC BOOL MB_Open(void)
                         size++;
                         ptrinit = ptrinit + strlen(ptrinit) + 1;
                     }
-                    while(strlen(ptrinit) != 0);
+                    while (strlen(ptrinit) != 0);
                     ptrinit++;
                     break;
                 case TYPEVAR_STRING:
@@ -203,7 +200,7 @@ LIBFUNC BOOL MB_Open(void)
                     ptrinit = ptrinit + strlen(ptrinit) + 1;
                     break;
             }
-            Vars[i].Name = ptrvar+1;
+            Vars[i].Name = ptrvar + 1;
             Vars[i].Size = size;
             Vars[i].Type = ptrvar++;
             Vars[i].Init = InitPtr;
@@ -212,40 +209,37 @@ LIBFUNC BOOL MB_Open(void)
     }
 
     /* File with MUI code */
-    if ((TMPfile = Open( "T:MUIBuilder4.tmp", MODE_OLDFILE )) != NULL)
+    if ((TMPfile = Open("T:MUIBuilder4.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH( TMPfile, &Info );
+        ExamineFH(TMPfile, &Info);
         length = Info.fib_Size;
         MUIcode = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (MUIcode)
-            Read( TMPfile, MUIcode, length);
-        Close( TMPfile );
+            Read(TMPfile, MUIcode, length);
+        Close(TMPfile);
         if (MUIcode)
         {
-            CodeEnd = (char*) MUIcode + length;
+            CodeEnd = (char *) MUIcode + length;
             MUIcodeBegin = MUIcode;
-        }
-        else
+        } else
             success = FALSE;
-    }
-    else
+    } else
         success = FALSE;
 
     /* File with notifications */
-    if ((TMPfile = Open( "T:MUIBuilder5.tmp", MODE_OLDFILE )) != NULL)
+    if ((TMPfile = Open("T:MUIBuilder5.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH( TMPfile, &Info );
+        ExamineFH(TMPfile, &Info);
         length = Info.fib_Size;
         Notifycode = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (Notifycode)
-            Read( TMPfile, Notifycode, length);
-        Close( TMPfile );
+            Read(TMPfile, Notifycode, length);
+        Close(TMPfile);
         if (Notifycode)
         {
             NotifycodeBegin = Notifycode;
-            NotifyCodeEnd = (char*) Notifycode + length;
-        }
-        else
+            NotifyCodeEnd = (char *) Notifycode + length;
+        } else
         {
             Notifycode = 0;
             NotifyCodeEnd = 0;
@@ -277,7 +271,7 @@ LIBFUNC void MB_Close(void)
         if (File)
             FreeVec(File);
         if (adr_declarations)
-            FreeVec(adr_declarations );
+            FreeVec(adr_declarations);
         if (inits)
             FreeVec(inits);
         if (MUIcodeBegin)
@@ -291,79 +285,81 @@ LIBFUNC void MB_Close(void)
 
 LIBFUNC void MB_GetA(REG(a1, struct TagItem *TagList))
 {
-    BOOL        *TagBool;
-    char        **TagString;
-    ULONG       *TagInt;
+    BOOL *TagBool;
+    char **TagString;
+    ULONG *TagInt;
 
     if (!rights)
         return;
 
-    TagBool = (BOOL *) GetTagData(MUIB_Code, 0, TagList );
+    TagBool = (BOOL *) GetTagData(MUIB_Code, 0, TagList);
     if (TagBool)
         *TagBool = Code;
 
-    TagBool = (BOOL *) GetTagData(MUIB_Environment, 0, TagList );
+    TagBool = (BOOL *) GetTagData(MUIB_Environment, 0, TagList);
     if (TagBool)
         *TagBool = Env;
 
-    TagBool = (BOOL *) GetTagData(MUIB_Locale, 0, TagList );
+    TagBool = (BOOL *) GetTagData(MUIB_Locale, 0, TagList);
     if (TagBool)
         *TagBool = Locale;
 
-    TagBool = (BOOL *) GetTagData(MUIB_Declarations, 0, TagList );
+    TagBool = (BOOL *) GetTagData(MUIB_Declarations, 0, TagList);
     if (TagBool)
         *TagBool = Declarations;
 
-    TagBool = (BOOL *) GetTagData(MUIB_Notifications, 0, TagList );
+    TagBool = (BOOL *) GetTagData(MUIB_Notifications, 0, TagList);
     if (TagBool)
         *TagBool = Notifications;
 
-    TagBool = (BOOL *) GetTagData(MUIB_Application, 0, TagList );
-    if (TagBool) *TagBool = GenerateAppli;
+    TagBool = (BOOL *) GetTagData(MUIB_Application, 0, TagList);
+    if (TagBool)
+        *TagBool = GenerateAppli;
 
-    TagString = (char **) GetTagData(MUIB_FileName, 0, TagList );
+    TagString = (char **) GetTagData(MUIB_FileName, 0, TagList);
     if (TagString)
         *TagString = File;
 
-    TagString = (char **) GetTagData(MUIB_CatalogName, 0, TagList );
+    TagString = (char **) GetTagData(MUIB_CatalogName, 0, TagList);
     if (TagString)
         *TagString = Catalog;
 
-    TagString = (char **) GetTagData(MUIB_GetStringName, 0, TagList );
+    TagString = (char **) GetTagData(MUIB_GetStringName, 0, TagList);
     if (TagString)
         *TagString = GetString;
 
-    TagInt = (ULONG *) GetTagData(MUIB_VarNumber, 0, TagList );
+    TagInt = (ULONG *) GetTagData(MUIB_VarNumber, 0, TagList);
     if (TagInt)
         *TagInt = varnum;
 }
 
-LIBFUNC void MB_GetVarInfoA(REG(d0, ULONG  varnb), REG(a1, struct TagItem *TagList))
+LIBFUNC void MB_GetVarInfoA(REG(d0, ULONG varnb),
+                            REG(a1, struct TagItem *TagList))
 {
-    char    **TagString;
-    ULONG   *TagInt;
+    char **TagString;
+    ULONG *TagInt;
 
     if (!rights)
         return;
 
-    TagInt = (ULONG *) GetTagData(MUIB_VarType, 0, TagList );
+    TagInt = (ULONG *) GetTagData(MUIB_VarType, 0, TagList);
     if (TagInt)
-        *TagInt = (ULONG) *(Vars[varnb].Type);
+        *TagInt = (ULONG) * (Vars[varnb].Type);
 
-    TagString = (char **) GetTagData(MUIB_VarName, 0, TagList );
+    TagString = (char **) GetTagData(MUIB_VarName, 0, TagList);
     if (TagString)
         *TagString = Vars[varnb].Name;
 
-    TagInt = (ULONG *) GetTagData(MUIB_VarSize, 0, TagList );
+    TagInt = (ULONG *) GetTagData(MUIB_VarSize, 0, TagList);
     if (TagInt)
         *TagInt = Vars[varnb].Size;
 
-    TagInt = (ULONG *) GetTagData(MUIB_VarInitPtr, 0, TagList );
+    TagInt = (ULONG *) GetTagData(MUIB_VarInitPtr, 0, TagList);
     if (TagInt)
         *TagInt = (ULONG) Vars[varnb].Init;
 }
 
-LIBFUNC void MB_GetNextCode(REG(a0, ULONG *type), REG(a1, char **code))
+LIBFUNC void MB_GetNextCode(REG(a0, ULONG * type), REG(a1, char **code))
 {
     char *typecode;
 
@@ -374,35 +370,33 @@ LIBFUNC void MB_GetNextCode(REG(a0, ULONG *type), REG(a1, char **code))
     {
         *type = -1;
         *code = NULL;
-    }
-    else
+    } else
     {
         typecode = MUIcode;
-        MUIcode  = (char*) MUIcode + 1;
-        *type = (ULONG) *typecode;
+        MUIcode = (char *) MUIcode + 1;
+        *type = (ULONG) * typecode;
         *code = MUIcode;
-        MUIcode = (char*) MUIcode + strlen( (char*) MUIcode ) + 1;
+        MUIcode = (char *) MUIcode + strlen((char *) MUIcode) + 1;
     }
 }
 
-LIBFUNC void MB_GetNextNotify(REG(a0, ULONG *type), REG(a1, char **code))
+LIBFUNC void MB_GetNextNotify(REG(a0, ULONG * type), REG(a1, char **code))
 {
     char *typecode;
 
     if (!rights)
         return;
 
-    if (Notifycode>=NotifyCodeEnd)
+    if (Notifycode >= NotifyCodeEnd)
     {
         *type = -1;
         *code = NULL;
-    }
-    else
+    } else
     {
         typecode = Notifycode;
-        Notifycode  = (char*) Notifycode + 1;
+        Notifycode = (char *) Notifycode + 1;
         *type = *typecode;
         *code = Notifycode;
-        Notifycode = (char*) Notifycode + strlen( (char*) Notifycode ) + 1;
+        Notifycode = (char *) Notifycode + strlen((char *) Notifycode) + 1;
     }
 }
