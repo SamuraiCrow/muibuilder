@@ -34,11 +34,11 @@
 #define ID_action
 
 /* Type of the argument of the notification */
-#define ARG_BOOL	0
-#define ARG_INT		1
-#define ARG_OBJ		2
-#define ARG_STRING	3
-#define ARG_MUI		4
+#define ARG_BOOL        0
+#define ARG_INT         1
+#define ARG_OBJ         2
+#define ARG_STRING      3
+#define ARG_MUI         4
 
 extern int *TYActions[];
 extern int *ArgEVT[];

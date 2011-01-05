@@ -25,74 +25,77 @@
 
 #include "builder2.h"
 
-BOOL RequestMessage( CONST_STRPTR message )
+BOOL RequestMessage(CONST_STRPTR message)
 {
-	ULONG	req;
-	BOOL	result;
-	char	inside[256];
+    ULONG req;
+    BOOL result;
+    char inside[256];
 
-	sprintf( inside, "*%s|%s", GetMUIBuilderString(MSG_Ok), GetMUIBuilderString(MSG_Cancel) );
-	req = MUI_Request( app, WI_current, 0, NULL, inside, (char *)message, NULL );
-	result = ( req == 1 );
-	return( result );
+    sprintf(inside, "*%s|%s", GetMUIBuilderString(MSG_Ok),
+            GetMUIBuilderString(MSG_Cancel));
+    req =
+        MUI_Request(app, WI_current, 0, NULL, inside, (char *) message,
+                    NULL);
+    result = (req == 1);
+    return (result);
 }
 
 
-BOOL RequestMessageEasy( char *body )
+BOOL RequestMessageEasy(char *body)
 {
-	ULONG	req;
-        BOOL    result;
-        struct EasyStruct es;
-	char	inside[256];
+    ULONG req;
+    BOOL result;
+    struct EasyStruct es;
+    char inside[256];
 
-	sprintf(inside,"%s|%s", GetMUIBuilderString(MSG_Ok), GetMUIBuilderString(MSG_Cancel) );
+    sprintf(inside, "%s|%s", GetMUIBuilderString(MSG_Ok),
+            GetMUIBuilderString(MSG_Cancel));
 
-        if (!IntuitionBase)
-        {
-                Write(Output(), "Need AmigaDos 2.0+\n", -1);
-                return(FALSE);
-        }
+    if (!IntuitionBase)
+    {
+        Write(Output(), "Need AmigaDos 2.0+\n", -1);
+        return (FALSE);
+    }
 
-        /* initialise the structure */
-        es.es_StructSize = sizeof(struct EasyStruct);
-        es.es_Flags = 0L;
-        es.es_Title = "MUIBuilder";
-        es.es_TextFormat = body;
-        es.es_GadgetFormat = inside;
+    /* initialise the structure */
+    es.es_StructSize = sizeof(struct EasyStruct);
+    es.es_Flags = 0L;
+    es.es_Title = "MUIBuilder";
+    es.es_TextFormat = body;
+    es.es_GadgetFormat = inside;
 
-        /* display the requester */
-        req = EasyRequestArgs( NULL, &es, NULL, NULL);
+    /* display the requester */
+    req = EasyRequestArgs(NULL, &es, NULL, NULL);
 
-        result = ( req == 1 );
-        return( result );
+    result = (req == 1);
+    return (result);
 }
 
-void ErrorMessage( CONST_STRPTR message )
+void ErrorMessage(CONST_STRPTR message)
 {
-        char    inside[256];
+    char inside[256];
 
-        sprintf( inside, "*%s", GetMUIBuilderString(MSG_Ok) );
-        MUI_Request( app, WI_current, 0, NULL, inside, (char *)message, NULL );
+    sprintf(inside, "*%s", GetMUIBuilderString(MSG_Ok));
+    MUI_Request(app, WI_current, 0, NULL, inside, (char *) message, NULL);
 }
 
 void ErrorMessageEasy(CONST_STRPTR body)
 {
-        struct EasyStruct es;
+    struct EasyStruct es;
 
-        if (!IntuitionBase)
-        {
-                Write(Output(), "Need AmigaDos 2.0+\n", -1);
-                return;
-        }
+    if (!IntuitionBase)
+    {
+        Write(Output(), "Need AmigaDos 2.0+\n", -1);
+        return;
+    }
 
-        /* initialise the structure */
-        es.es_StructSize = sizeof(struct EasyStruct);
-        es.es_Flags = 0L;
-        es.es_Title = "MUIBuilder";
-        es.es_TextFormat = body;
-        es.es_GadgetFormat = "Ok";
+    /* initialise the structure */
+    es.es_StructSize = sizeof(struct EasyStruct);
+    es.es_Flags = 0L;
+    es.es_Title = "MUIBuilder";
+    es.es_TextFormat = body;
+    es.es_GadgetFormat = "Ok";
 
-        /* display the requester */
-        EasyRequestArgs( NULL, &es, NULL, NULL);
+    /* display the requester */
+    EasyRequestArgs(NULL, &es, NULL, NULL);
 }
-

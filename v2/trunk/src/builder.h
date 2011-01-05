@@ -82,213 +82,217 @@
 #define ID_DELETEGRP    16
 #define ID_GENERATE     17
 #define ID_GAUGE        18
-#define ID_DOWN		19
-#define ID_UP		20
-#define ID_CYCLE	21
-#define ID_GENERATEWIN	22
-#define ID_RADIO	23
-#define ID_LABEL	30
-#define ID_SPACE	31
-#define ID_SAVE		32
-#define ID_LOAD		33
-#define ID_CHECK	34
-#define ID_EDIT		35
-#define ID_CONFIG	36
-#define ID_APPLI	37
-#define ID_GUIDE	38
-#define ID_MERGE	39
-#define ID_NEWAPPLI	40
-#define ID_SAVEAS	41
-#define ID_NOTIFY	42
-#define ID_NEW_SUBMENU	43
+#define ID_DOWN         19
+#define ID_UP           20
+#define ID_CYCLE        21
+#define ID_GENERATEWIN  22
+#define ID_RADIO        23
+#define ID_LABEL        30
+#define ID_SPACE        31
+#define ID_SAVE         32
+#define ID_LOAD         33
+#define ID_CHECK        34
+#define ID_EDIT         35
+#define ID_CONFIG       36
+#define ID_APPLI        37
+#define ID_GUIDE        38
+#define ID_MERGE        39
+#define ID_NEWAPPLI     40
+#define ID_SAVEAS       41
+#define ID_NOTIFY       42
+#define ID_NEW_SUBMENU  43
 
-#define TY_APPLI	0
+#define TY_APPLI        0
 #define TY_WINDOW       1
 #define TY_GROUP        2
 #define TY_KEYBUTTON    3
 #define TY_STRING       4
 #define TY_LISTVIEW     5
 #define TY_GAUGE        6
-#define TY_CYCLE	7
-#define TY_RADIO	8
-#define TY_LABEL	9
-#define TY_SPACE	10
+#define TY_CYCLE        7
+#define TY_RADIO        8
+#define TY_LABEL        9
+#define TY_SPACE        10
 
 #define GR_ROOT         1
 #define GR_NOROOT       2
 
 typedef struct help1
-        {
-                int     nb_char;
-                char    title[80];
-                APTR    content;
-		BOOL	generated;
-        } help;
+{
+    int nb_char;
+    char title[80];
+    APTR content;
+    BOOL generated;
+} help;
+
 typedef struct area1
-	{
-		BOOL	Hide;
-		BOOL	Disable;
-		BOOL	InputMode;
-		BOOL	Phantom;
-		int	Weight;
-		int	Background;
-		int	Frame;
-		char	key;
-		char	TitleFrame[80];
-	} area;
+{
+    BOOL Hide;
+    BOOL Disable;
+    BOOL InputMode;
+    BOOL Phantom;
+    int Weight;
+    int Background;
+    int Frame;
+    char key;
+    char TitleFrame[80];
+} area;
 
 typedef struct menu1
-        {
-                int  id;
-                char label[80];
-                APTR father;
-		BOOL generated;
-		help Help;
-		queue *notify;
-		queue *notifysource;
-		APTR muiobj;
-		char name[80];
-		char key;
-		BOOL menu_enable;
-		BOOL check_enable;
-		BOOL check_state;
-		BOOL Toggle;
-		queue *childs;
-		BOOL fold;
-        } menu;
+{
+    int id;
+    char label[80];
+    APTR father;
+    BOOL generated;
+    help Help;
+    queue *notify;
+    queue *notifysource;
+    APTR muiobj;
+    char name[80];
+    char key;
+    BOOL menu_enable;
+    BOOL check_enable;
+    BOOL check_state;
+    BOOL Toggle;
+    queue *childs;
+    BOOL fold;
+} menu;
 
 typedef struct conf1
-	{
-		BOOL	phantom;
-		BOOL	request;
-		char	langage[512];
-		char	editor[128];
-		BOOL	icons;
-		BOOL	depth;
-		char    tree_char;
-		int     columns;
-		BOOL    labels;
-	} conf;
+{
+    BOOL phantom;
+    BOOL request;
+    char langage[512];
+    char editor[128];
+    BOOL icons;
+    BOOL depth;
+    char tree_char;
+    int columns;
+    BOOL labels;
+} conf;
+
 typedef struct appli1
-	{
-		int	id;
-                char	label[80];
-                APTR	father;
-                BOOL	generated;
-                help    Help;
-                queue	*notify;
-		queue	*notifysource;
-                APTR	muiobj;
-		char	author[80];
-		char	base[80];
-		char	title[80];
-		char	version[80];
-		char	copyright[80];
-		char	description[80];
-		char	helpfile[256];
-		queue   *Idents;
-		queue	*Functions;
-		queue	*Constants;
-		queue	*Variables;
-		menu	*appmenu;
-	} appli;
+{
+    int id;
+    char label[80];
+    APTR father;
+    BOOL generated;
+    help Help;
+    queue *notify;
+    queue *notifysource;
+    APTR muiobj;
+    char author[80];
+    char base[80];
+    char title[80];
+    char version[80];
+    char copyright[80];
+    char description[80];
+    char helpfile[256];
+    queue *Idents;
+    queue *Functions;
+    queue *Constants;
+    queue *Variables;
+    menu *appmenu;
+} appli;
+
 typedef struct object1
-        {
-                int  id;
-                char label[80];
-                APTR father;
-		BOOL generated;
-		help	Help;
-		queue *notify;
-		queue	*notifysource;
-		APTR muiobj;
-        } object;
+{
+    int id;
+    char label[80];
+    APTR father;
+    BOOL generated;
+    help Help;
+    queue *notify;
+    queue *notifysource;
+    APTR muiobj;
+} object;
 
 typedef struct group1
-        {
-                int  id;
-                char label[80];
-                APTR father;
-		BOOL generated;
-		help Help;
-		queue *notify;
-		queue *notifysource;
-		APTR muiobj;
-		area Area;
-		BOOL root;
-                BOOL horizontal;
-                BOOL registermode;
-                BOOL sameheight;
-                BOOL samesize;
-                BOOL samewidth;
-                BOOL virtual;
-		BOOL columns;
-                BOOL rows;
-		BOOL horizspacing;
-		BOOL vertspacing;
-                int  number;
-                queue *child;
-		int  horizspace;
-		int  vertspace;
-		queue* entries;
-		char *registertitles[200];
-		BOOL deplie;
-        } group;
-typedef struct window1
-        {
-                int  id;
-                char label[80];
-		APTR father;
-		BOOL generated;
-		help	Help;
-		queue *notify;
-		queue	*notifysource;
-		APTR muiobj;
-                char title[80];
-		group root;
-                queue *groups;
-		BOOL appwindow;
-                BOOL backdrop;
-                BOOL borderless;
-                BOOL closegadget;
-                BOOL depthgadget;
-                BOOL dragbar;
-                BOOL sizegadget;
-		BOOL initopen;
-		BOOL deplie;
-		queue *chain;
-		menu *menu;
-		APTR muichain;
-		BOOL nomenu;
-		BOOL needmouse;
-        } window;
+{
+    int id;
+    char label[80];
+    APTR father;
+    BOOL generated;
+    help Help;
+    queue *notify;
+    queue *notifysource;
+    APTR muiobj;
+    area Area;
+    BOOL root;
+    BOOL horizontal;
+    BOOL registermode;
+    BOOL sameheight;
+    BOOL samesize;
+    BOOL samewidth;
+    BOOL virtual;
+    BOOL columns;
+    BOOL rows;
+    BOOL horizspacing;
+    BOOL vertspacing;
+    int number;
+    queue *child;
+    int horizspace;
+    int vertspace;
+    queue *entries;
+    char *registertitles[200];
+    BOOL deplie;
+} group;
 
-extern CONST_STRPTR GetStr( APTR );
-extern BOOL NewGroup ( group *, int, BOOL );
-extern BOOL NewWindow( window *, BOOL, object* );
-extern APTR NewChild ( APTR , BOOL );
-extern void TestWindow ( window * );
-extern APTR CreateWindow( APTR );
-extern void DeleteObject ( APTR );
-extern void DeleteLabel ( queue* ,APTR );
-extern void ErrorMessage ( CONST_STRPTR );
-extern void CodeCreate( object*, FILE* );
-extern void GenerateCode( queue * );
-extern void GenerateCodeWindow( APTR );
-extern void EXIT_PRG( void );
-extern void SaveObject ( APTR, FILE* );
-extern void SaveApplication( BOOL );
-extern void LoadApplication( void );
-extern APTR LoadObject( FILE*, APTR, int );
-extern void LoadFile( char * );
-extern BOOL RequestMessage( CONST_STRPTR );
-extern void Code( void );
-extern void Guide( void );
-extern void InitLocale( void );
-extern void CloseLocale( void );
-extern void NextLine( FILE* );
-extern BOOL LoadRequester( CONST_STRPTR, char*, char* );
-extern void ErrorMessageEasy( CONST_STRPTR );
+typedef struct window1
+{
+    int id;
+    char label[80];
+    APTR father;
+    BOOL generated;
+    help Help;
+    queue *notify;
+    queue *notifysource;
+    APTR muiobj;
+    char title[80];
+    group root;
+    queue *groups;
+    BOOL appwindow;
+    BOOL backdrop;
+    BOOL borderless;
+    BOOL closegadget;
+    BOOL depthgadget;
+    BOOL dragbar;
+    BOOL sizegadget;
+    BOOL initopen;
+    BOOL deplie;
+    queue *chain;
+    menu *menu;
+    APTR muichain;
+    BOOL nomenu;
+    BOOL needmouse;
+} window;
+
+extern CONST_STRPTR GetStr(APTR);
+extern BOOL NewGroup(group *, int, BOOL);
+extern BOOL NewWindow(window *, BOOL, object *);
+extern APTR NewChild(APTR, BOOL);
+extern void TestWindow(window *);
+extern APTR CreateWindow(APTR);
+extern void DeleteObject(APTR);
+extern void DeleteLabel(queue *, APTR);
+extern void ErrorMessage(CONST_STRPTR);
+extern void CodeCreate(object *, FILE *);
+extern void GenerateCode(queue *);
+extern void GenerateCodeWindow(APTR);
+extern void EXIT_PRG(void);
+extern void SaveObject(APTR, FILE *);
+extern void SaveApplication(BOOL);
+extern void LoadApplication(void);
+extern APTR LoadObject(FILE *, APTR, int);
+extern void LoadFile(char *);
+extern BOOL RequestMessage(CONST_STRPTR);
+extern void Code(void);
+extern void Guide(void);
+extern void InitLocale(void);
+extern void CloseLocale(void);
+extern void NextLine(FILE *);
+extern BOOL LoadRequester(CONST_STRPTR, char *, char *);
+extern void ErrorMessageEasy(CONST_STRPTR);
 
 extern char guidenamefile[256];
 extern char guidenamedir[128];

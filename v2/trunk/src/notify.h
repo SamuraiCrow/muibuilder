@@ -29,8 +29,8 @@
 #include "builder2.h"
 #include "notifyconstants.h"
 
-extern	void	CreateLabels( APTR, APTR );
-extern	BOOL	GetConstant( event *, int, BOOL );
+extern void CreateLabels(APTR, APTR);
+extern BOOL GetConstant(event *, int, BOOL);
 
 /* constantes */
 #define ID_evt
@@ -39,117 +39,117 @@ extern	BOOL	GetConstant( event *, int, BOOL );
 
 /********************* Application ********************/
 extern CONST_STRPTR ACTAppli[];
-extern int  TYAppli[];
+extern int TYAppli[];
 extern CONST_STRPTR EVTAppli[];
 
 /*********************** Window ***********************/
 extern CONST_STRPTR ACTWindow[];
-extern int  TYWindow[];
+extern int TYWindow[];
 extern CONST_STRPTR EVTWindow[];
 
 /*********************** Button ***********************/
 extern CONST_STRPTR ACTButton[];
-extern int  TYButton[];
+extern int TYButton[];
 extern CONST_STRPTR EVTButton[];
 
 /******************* Group *************************/
 extern CONST_STRPTR ACTGroup[];
-extern int  TYGroup[];
+extern int TYGroup[];
 extern CONST_STRPTR EVTGroup[];
 
 /******************* String ************************/
 extern CONST_STRPTR ACTString[];
-extern int  TYString[];
+extern int TYString[];
 extern CONST_STRPTR EVTString[];
 
 /****************** ListView ***********************/
 extern CONST_STRPTR ACTListview[];
-extern int  TYListview[];
+extern int TYListview[];
 extern CONST_STRPTR EVTListview[];
 
 /******************* Gauge *************************/
 extern CONST_STRPTR ACTGauge[];
-extern int  TYGauge[];
+extern int TYGauge[];
 extern CONST_STRPTR EVTGauge[];
 
 /******************* Cycle *************************/
 extern CONST_STRPTR ACTCycle[];
-extern int  TYCycle[];
+extern int TYCycle[];
 extern CONST_STRPTR EVTCycle[];
 
 /******************* Radio *************************/
 extern CONST_STRPTR ACTRadio[];
-extern int  TYRadio[];
+extern int TYRadio[];
 extern CONST_STRPTR EVTRadio[];
 
 /******************* Label *************************/
 extern CONST_STRPTR ACTLabel[];
-extern int  TYLabel[];
+extern int TYLabel[];
 extern CONST_STRPTR EVTLabel[];
 
 /******************* Space *************************/
 extern CONST_STRPTR ACTSpace[];
-extern int  TYSpace[];
+extern int TYSpace[];
 extern CONST_STRPTR EVTSpace[];
 
 /******************* Check *************************/
 extern CONST_STRPTR ACTCheck[];
-extern int  TYCheck[];
+extern int TYCheck[];
 extern CONST_STRPTR EVTCheck[];
 
 /******************* Scale *************************/
 extern CONST_STRPTR ACTScale[];
-extern int  TYScale[];
+extern int TYScale[];
 extern CONST_STRPTR EVTScale[];
 
 /******************* Image *************************/
 extern CONST_STRPTR ACTImage[];
-extern int  TYImage[];
+extern int TYImage[];
 extern CONST_STRPTR EVTImage[];
 
 /******************* Slider ************************/
 extern CONST_STRPTR ACTSlider[];
-extern int  TYSlider[];
+extern int TYSlider[];
 extern CONST_STRPTR EVTSlider[];
 
 /******************* Text *************************/
 extern CONST_STRPTR ACTText[];
-extern int  TYText[];
+extern int TYText[];
 extern CONST_STRPTR EVTText[];
 
 /******************* Prop *************************/
 extern CONST_STRPTR ACTProp[];
-extern int  TYProp[];
+extern int TYProp[];
 extern CONST_STRPTR EVTProp[];
 
 /******************* ColorField *************************/
 extern CONST_STRPTR ACTColorField[];
-extern int  TYColorField[];
+extern int TYColorField[];
 extern CONST_STRPTR EVTColorField[];
 
 /******************* PopAsl *************************/
 extern CONST_STRPTR ACTPopAsl[];
-extern int  TYPopAsl[];
+extern int TYPopAsl[];
 extern CONST_STRPTR EVTPopAsl[];
 
 /******************* PopObject *************************/
 extern CONST_STRPTR ACTPopObject[];
-extern int  TYPopObject[];
+extern int TYPopObject[];
 extern CONST_STRPTR EVTPopObject[];
 
 /******************* MenuStrip *****************************/
 extern CONST_STRPTR ACTMenuStrip[];
-extern int  TYMenuStrip[];
+extern int TYMenuStrip[];
 extern CONST_STRPTR EVTMenuStrip[];
 
 /******************* Menu *****************************/
 extern CONST_STRPTR ACTMenu[];
-extern int  TYMenu[];
+extern int TYMenu[];
 extern CONST_STRPTR EVTMenu[];
 
 /******************* MenuItem *************************/
 extern CONST_STRPTR ACTMenuItem[];
-extern int  TYMenuItem[];
+extern int TYMenuItem[];
 extern CONST_STRPTR EVTMenuItem[];
 
 /*************************** la totale *************************/

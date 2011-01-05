@@ -26,11 +26,11 @@
 #ifndef MUIBUILDER_REV_H
 #define MUIBUILDER_REV_H
 
-#define	VERSION		2
-#define	REVISION	3
-#define	DATE	"30.12.2010"
-#define	VERS	"MUIBuilder 2.3"
-#define	VSTRING	"MUIBuilder 2.3 (30.12.2010)\r\n"
-#define	VERSTAG	"\0$VER: MUIBuilder 2.3 (30.12.2010)"
+#define VERSION         2
+#define REVISION        3
+#define DATE    "30.12.2010"
+#define VERS    "MUIBuilder 2.3"
+#define VSTRING "MUIBuilder 2.3 (30.12.2010)\r\n"
+#define VERSTAG "\0$VER: MUIBuilder 2.3 (30.12.2010)"
 
 #endif
