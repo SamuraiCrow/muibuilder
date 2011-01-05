@@ -47,15 +47,9 @@ int nb_popobject, nb_menu, nb_space, nb_scale, nb_barlabel;
 
 // gpearman, 23/09/04
 //int nb_modules = 0;
-extern int nb_modules;
 
 conf config;
 appli application;
-extern char savedir[256];
-extern char savefile[256];
-extern char get_string[80];
-extern char real_getstring[100];
-extern APTR aux;
 static APTR WI_build;
 char MBDir[512], DocDir[512], Icon[512], ImageDir[256];
 char *PopModules[50];

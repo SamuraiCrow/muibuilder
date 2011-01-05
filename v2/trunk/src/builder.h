@@ -296,5 +296,10 @@ extern void ErrorMessageEasy(CONST_STRPTR);
 
 extern char guidenamefile[256];
 extern char guidenamedir[128];
+extern int nb_modules;
+extern char savedir[256];
+extern char savefile[256];
+extern char get_string[80];
+extern char real_getstring[100];
 
 #endif
