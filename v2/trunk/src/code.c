@@ -2742,7 +2742,7 @@ void GenerateCodeObject(APTR obj_aux)
             fprintf(fichier, "%s%c", buffer, 0);
             fprintf(fichier, "%s%c", real_getstring, 0);
             fprintf(fichier, "%s%c", catfile, 0);
-            fprintf(fichier, "%c%c%c%c%c%c%c", env, declarations,
+            fprintf(fichier, "%d%d%d%d%d%d%d", env, declarations,
                     code, local, notifications, 0, 0);
             fclose(fichier);
         }
@@ -2842,7 +2842,7 @@ void GenerateCode(queue * windows)
         }
         fprintf(fichier, "%s%c", real_getstring, 0);
         fprintf(fichier, "%s%c", catfile, 0);
-        fprintf(fichier, "%c%c%c%c%c%c%c", env, declarations, code, local,
+        fprintf(fichier, "%d%d%d%d%d%d%d", env, declarations, code, local,
                 notifications, 1, 0);
         fclose(fichier);
     }
