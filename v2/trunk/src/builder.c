@@ -802,7 +802,6 @@ void Merge(APTR lv_window)
 
 int main(int argc, char *argv[])
 {
-    // static APTR  WI_info;
     static APTR bt_new, bt_delete, bt_view, bt_code;
     static APTR bt_appli;
     static APTR bt_edit;
@@ -1051,11 +1050,7 @@ int main(int argc, char *argv[])
 
     DoMethod(WI_build, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2,
              MUIM_Application_ReturnID, ID_END);
-// FIXME: warning unactivated code in the morphos port
-#if 0
-    DoMethod(WI_info, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, WI_info,
-             3, MUIM_Set, MUIA_Window_Open, FALSE);
-#endif
+
 
         /***************************************************************/
     /* Chaine d'activation des gadgets                             */
