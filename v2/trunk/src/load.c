@@ -362,6 +362,7 @@ void LoadFile(char *file)
                     DeleteObject(nth(windows, 0));
                     delete_nth(windows, 0);
                 }
+
                 do
                 {
                     i = ReadInt(fichier);
@@ -369,8 +370,8 @@ void LoadFile(char *file)
                     {
                         add(windows, LoadObject(fichier, NULL, i));
                     }
-                }
-                while (i != -1);
+                } while (i != -1);
+
                 delete_all(labels);
                 CreateLabels(&application, NULL);
                 LinkNotify(0);
@@ -414,31 +415,31 @@ void MergeFile(void)
                         LitChaine(fichier);
                         LitChaine(fichier);
                     }
-                    nb_window = nb_window + ReadInt(fichier);
-                    nb_listview = nb_listview + ReadInt(fichier);
-                    nb_group = nb_group + ReadInt(fichier);
-                    nb_button = nb_button + ReadInt(fichier);
-                    nb_string = nb_string + ReadInt(fichier);
-                    nb_gauge = nb_gauge + ReadInt(fichier);
-                    nb_cycle = nb_cycle + ReadInt(fichier);
-                    nb_radio = nb_radio + ReadInt(fichier);
-                    nb_check = nb_check + ReadInt(fichier);
-                    nb_image = nb_image + ReadInt(fichier);
-                    nb_slider = nb_slider + ReadInt(fichier);
-                    nb_text = nb_text + ReadInt(fichier);
-                    nb_prop = nb_prop + ReadInt(fichier);
+                    nb_window += ReadInt(fichier);
+                    nb_listview += ReadInt(fichier);
+                    nb_group += ReadInt(fichier);
+                    nb_button += ReadInt(fichier);
+                    nb_string += ReadInt(fichier);
+                    nb_gauge += ReadInt(fichier);
+                    nb_cycle += ReadInt(fichier);
+                    nb_radio += ReadInt(fichier);
+                    nb_check += ReadInt(fichier);
+                    nb_image += ReadInt(fichier);
+                    nb_slider += ReadInt(fichier);
+                    nb_text += ReadInt(fichier);
+                    nb_prop += ReadInt(fichier);
                     if (version > 110)
                     {
-                        nb_rectangle = nb_rectangle + ReadInt(fichier);
-                        nb_colorfield = nb_colorfield + ReadInt(fichier);
-                        nb_popasl = nb_popasl + ReadInt(fichier);
-                        nb_popobject = nb_popobject + ReadInt(fichier);
+                        nb_rectangle += ReadInt(fichier);
+                        nb_colorfield += ReadInt(fichier);
+                        nb_popasl += ReadInt(fichier);
+                        nb_popobject += ReadInt(fichier);
                     }
                     if (version > 114)
                     {
-                        nb_menu = nb_menu + ReadInt(fichier);
-                        nb_space = nb_space + ReadInt(fichier);
-                        nb_scale = nb_scale + ReadInt(fichier);
+                        nb_menu += ReadInt(fichier);
+                        nb_space += ReadInt(fichier);
+                        nb_scale += ReadInt(fichier);
                     }
                     if (version > 124)
                         nb_barlabel = nb_barlabel + ReadInt(fichier);
@@ -498,6 +499,7 @@ void MergeFile(void)
                         DeleteObject(obj_aux);
                     }
                     n = windows->nb_elements;
+
                     do
                     {
                         fscanf(fichier, "%d", &i);
@@ -506,8 +508,8 @@ void MergeFile(void)
                         {
                             add(windows, LoadObject(fichier, NULL, i));
                         }
-                    }
-                    while (i != -1);
+                    } while (i != -1);
+
                     delete_all(labels);
                     CreateLabels(&application, NULL);
                     win_aux = nth(windows, n);
