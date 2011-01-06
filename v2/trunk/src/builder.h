@@ -293,6 +293,20 @@ extern void CloseLocale(void);
 extern void NextLine(FILE *);
 extern BOOL LoadRequester(CONST_STRPTR, char *, char *);
 extern void ErrorMessageEasy(CONST_STRPTR);
+extern unsigned char *GetMenuString(int);
+extern unsigned char *GetMenuChar(int);
+extern void ScanAvailableModules(void);
+extern void InitGroup(group * group_aux);
+extern void InitNotifyArrays(void);
+extern int ReadInt(FILE *);
+extern APTR LitChaine(FILE *);
+extern void Load(APTR, char *, BOOL);
+extern void MergeFile(void);
+extern menu *CreateMenu(BOOL);
+extern void DeleteObjNotify(object * obj);
+extern void DeleteSourceNotify(object * obj);
+extern BOOL NewMenu(menu *, BOOL);
+extern BOOL CreateNotify(object *, window *);
 
 extern char guidenamefile[256];
 extern char guidenamedir[128];
@@ -301,5 +315,6 @@ extern char savedir[256];
 extern char savefile[256];
 extern char get_string[80];
 extern char real_getstring[100];
+extern BOOL MakeTest;
 
 #endif

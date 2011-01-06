@@ -32,8 +32,6 @@
 #include "builder.h"
 #include "muibuilder_rev.h"
 
-extern APTR LitChaine(FILE *);
-
 APTR WI_current;
 APTR app, AppMenu;
 queue *windows;
@@ -53,7 +51,6 @@ appli application;
 static APTR WI_build;
 char MBDir[512], DocDir[512], Icon[512], ImageDir[256];
 char *PopModules[50];
-extern BOOL MakeTest;
 BOOL modify = FALSE;
 struct Library *MUIMasterBase;
 //LONG __stack = 20000;
@@ -101,8 +98,6 @@ CONST_STRPTR GetStr(APTR obj)
 
 void InitAppli(void)
 {
-    extern menu *CreateMenu(BOOL);
-
     application.id = TY_APPLI;
     strcpy(application.label, "App");
     application.generated = TRUE;
@@ -129,9 +124,6 @@ void DeleteApplication(void)
 {
     int i;
     int n;
-    // extern int nb_modules;
-    extern void DeleteObjNotify(object * obj);
-    extern void DeleteSourceNotify(object * obj);
 
     DeleteObject(application.appmenu);
     DeleteObjNotify((object *) & application);
@@ -232,8 +224,6 @@ void NewAppli(void)
     ULONG signal;
     BOOL running = TRUE;
     CONST_STRPTR aux;
-    extern BOOL NewMenu(menu *, BOOL);
-    extern BOOL CreateNotify(object *, window *);
 
     // *INDENT-OFF*
     WI_app = WindowObject,
@@ -739,8 +729,6 @@ LONG AppMsgFunc(struct Hook *hook, APTR obj, struct AppMessage **x)
     static char buf[256];
     BOOL bool_aux;
 
-    extern void Load(APTR, char *, BOOL);
-
     ap = amsg->am_ArgList;
 
     NameFromLock(ap->wa_Lock, buf, sizeof(buf));
@@ -799,8 +787,6 @@ void Merge(APTR lv_window)
     char *aux;
     int i;
 
-    extern void MergeFile(void);
-
     DoMethod(lv_window, MUIM_List_Clear);
     MergeFile();
     set(lv_window, MUIA_List_Quiet, TRUE);
@@ -834,12 +820,6 @@ int main(int argc, char *argv[])
     char buffer[512];
     struct WBStartup *WBMsg;
     BPTR lock;
-    extern void ScanAvailableModules(void);
-    extern unsigned char *GetMenuChar(int);
-    extern unsigned char *GetMenuString(int);
-    extern void InitGroup(group * group_aux);
-    extern void InitNotifyArrays(void);
-    extern int ReadInt(FILE *);
 
     static const struct Hook AppMsgHook =
         { {NULL, NULL}, (HOOKFUNC) HookEntry, (VOID *) AppMsgFunc, NULL };
