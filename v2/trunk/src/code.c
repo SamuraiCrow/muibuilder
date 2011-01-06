@@ -466,9 +466,9 @@ void GenerateInitLabels(APTR obj, FILE * fichier)
             if ((list_aux->type == 1) && (strlen(list_aux->content) > 0))
             {
                 if (!local)
-                    fprintf(fichier, "%s%c", list_aux->content);        // FIXME: too few arguments
+                    fprintf(fichier, "%s%c", list_aux->content, 0);
                 else
-                    fprintf(fichier, "%s%sContent%c", catprepend, list_aux->label);     // FIXME: too few arguments
+                    fprintf(fichier, "%s%sContent%c", catprepend, list_aux->label, 0);
             }
             break;
         case TY_POPASL:
@@ -2736,15 +2736,18 @@ void GenerateCodeObject(APTR obj_aux)
         strcpy(buffer, dir);
         AddPart(buffer, file, 512);
 
+        /* Options */
         if (fichier = fopen("T:MUIBuilder1.tmp", "w+"))
         {
             fprintf(fichier, "%s%c", buffer, 0);
             fprintf(fichier, "%s%c", real_getstring, 0);
             fprintf(fichier, "%s%c", catfile, 0);
-            fprintf(fichier, "%d%d%d%d%d%d%c", env, declarations,
+            fprintf(fichier, "%c%c%c%c%c%c%c", env, declarations,
                     code, local, notifications, 0, 0);
             fclose(fichier);
         }
+
+        /* Code */
         nb_identificateurs = 0;
         CalculeNbIdent(obj_aux);
         numfirstlabel = 0;
@@ -2755,11 +2758,15 @@ void GenerateCodeObject(APTR obj_aux)
             CodeCreate(obj_aux, fichier);
             fclose(fichier);
         }
+
+        /* Notifications */
         if (fichier = fopen("T:MUIBuilder5.tmp", "w+"))
         {
             CodeNotify(fichier, obj_aux, obj_aux);
             fclose(fichier);
         }
+
+        /* Variables declarations */
         if (fichier = fopen("T:MUIBuilder2.tmp", "w+"))
         {
             fprintf(fichier, "%d%c",
@@ -2773,6 +2780,8 @@ void GenerateCodeObject(APTR obj_aux)
                                TYPEVAR_EXTERNAL);
             fclose(fichier);
         }
+
+        /* Variables initializations */
         if (fichier = fopen("T:MUIBuilder3.tmp", "w+"))
         {
             /* les GenerateListInits doivent etre positionnes  */
@@ -2785,16 +2794,24 @@ void GenerateCodeObject(APTR obj_aux)
             GenerateListInits(fichier, application.Variables);
             fclose(fichier);
         }
+
+        /* Call GenCodeX */
         sprintf(buffer, "\"%s", MBDir);
         AddPart(buffer, "Modules/GenCode", 512);
         strncat(buffer, config.langage, 512);
         strcat(buffer, "\"");
         set(TextInfo, MUIA_Text_Contents,
             GetMUIBuilderString(MSG_GenerateSource));
-        SystemTags(buffer, SYS_Input, Open("NIL:", MODE_NEWFILE),
-                   SYS_Output, Open("NIL:", MODE_NEWFILE), SYS_Asynch,
-                   TRUE, SYS_UserShell, TRUE, NP_ConsoleTask, NULL,
+
+        // *INDENT-OFF*
+        SystemTags(buffer,
+                   SYS_Input, Open("NIL:", MODE_NEWFILE),
+                   SYS_Output, Open("NIL:", MODE_NEWFILE),
+                   SYS_Asynch, TRUE,
+                   SYS_UserShell, TRUE,
+                   NP_ConsoleTask, NULL,
                    TAG_DONE);
+        // *INDENT-ON*
     }
     if (parameters)
     {
@@ -2810,12 +2827,10 @@ void GenerateCode(queue * windows)
 
     if (!(parameters = create()))
         return;
+
+    /* Options */
     if (fichier = fopen("T:MUIBuilder1.tmp", "w+"))
     {
-      /************************************/
-        /* Generation du corps du programme */
-      /************************************/
-
         fprintf(fichier, "%s%c", genfile, 0);
         NoSpace(application.title);
         if (strlen(real_getstring) == 0)
@@ -2827,24 +2842,30 @@ void GenerateCode(queue * windows)
         }
         fprintf(fichier, "%s%c", real_getstring, 0);
         fprintf(fichier, "%s%c", catfile, 0);
-        fprintf(fichier, "%d%d%d%d%d%d%c", env, declarations, code, local,
+        fprintf(fichier, "%c%c%c%c%c%c%c", env, declarations, code, local,
                 notifications, 1, 0);
         fclose(fichier);
     }
     nb_identificateurs = 0;
     numfirstlabel = 0;
     CalculeNbIdent(&application);
+
+    /* Code */
     if (fichier = fopen("T:MUIBuilder4.tmp", "w+"))
     {
         nb_var_aux = 0;
         CodeCreate((object *) & application, fichier);
         fclose(fichier);
     }
+
+    /* Notifications */
     if (fichier = fopen("T:MUIBuilder5.tmp", "w+"))
     {
         CodeNotify(fichier, &application, (object *) & application);
         fclose(fichier);
     }
+
+    /* Variables declarations */
     if (fichier = fopen("T:MUIBuilder2.tmp", "w+"))
     {
         fprintf(fichier, "%d%c",
@@ -2857,6 +2878,8 @@ void GenerateCode(queue * windows)
                            TYPEVAR_EXTERNAL);
         fclose(fichier);
     }
+
+    /* Variables initializations */
     if (fichier = fopen("T:MUIBuilder3.tmp", "w+"))
     {
         GenerateInitLabels(&application, fichier);
@@ -2867,15 +2890,23 @@ void GenerateCode(queue * windows)
         fclose(fichier);
     }
 
+    /* Call GenCodeX */
     sprintf(buffer, "\"%s", MBDir);
     AddPart(buffer, "Modules/GenCode", 512);
     strncat(buffer, config.langage, 512);
     strcat(buffer, "\"");
     set(TextInfo, MUIA_Text_Contents,
         GetMUIBuilderString(MSG_GenerateSource));
-    SystemTags(buffer, SYS_Input, Open("NIL:", MODE_NEWFILE), SYS_Output,
-               Open("NIL:", MODE_NEWFILE), SYS_Asynch, TRUE, SYS_UserShell,
-               TRUE, NP_ConsoleTask, NULL, TAG_DONE);
+    // *INDENT-OFF*
+    SystemTags(buffer,
+               SYS_Input, Open("NIL:", MODE_NEWFILE),
+               SYS_Output, Open("NIL:", MODE_NEWFILE),
+               SYS_Asynch, TRUE,
+               SYS_UserShell, TRUE,
+               NP_ConsoleTask, NULL,
+               TAG_DONE);
+    // *INDENT-ON*
+
     if (parameters)
     {
         delete_all(parameters);
