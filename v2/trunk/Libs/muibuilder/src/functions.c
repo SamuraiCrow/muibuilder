@@ -98,7 +98,7 @@ LIBFUNC BOOL MB_Open(void)
 {
     BPTR TMPfile;
     BOOL success = TRUE;
-    struct FileInfoBlock Info; // FIXME: __aligned
+    struct FileInfoBlock *Info;
     char *adr_file;
 
     char *ptrvar, *ptrinit, *InitPtr;
@@ -110,11 +110,18 @@ LIBFUNC BOOL MB_Open(void)
     adr_declarations = NULL;
     File = NULL;
 
+    Info = AllocDosObjectTagList(DOS_FIB, NULL);
+    if (!Info)
+    {
+        rights = FALSE;
+        return FALSE;
+    }
+
     /* File with options */
     if ((TMPfile = Open("T:MUIBuilder1.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH(TMPfile, &Info);
-        length = Info.fib_Size;
+        ExamineFH(TMPfile, Info);
+        length = Info->fib_Size;
         adr_file = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (adr_file)
             Read(TMPfile, adr_file, length);
@@ -141,8 +148,8 @@ LIBFUNC BOOL MB_Open(void)
     /* File with declarations of variables */
     if ((TMPfile = Open("T:MUIBuilder2.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH(TMPfile, &Info);
-        length = Info.fib_Size;
+        ExamineFH(TMPfile, Info);
+        length = Info->fib_Size;
         adr_declarations = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (adr_declarations)
             Read(TMPfile, adr_declarations, length);
@@ -162,8 +169,8 @@ LIBFUNC BOOL MB_Open(void)
     /* File with initializations of variables */
     if ((TMPfile = Open("T:MUIBuilder3.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH(TMPfile, &Info);
-        length = Info.fib_Size;
+        ExamineFH(TMPfile, Info);
+        length = Info->fib_Size;
         inits = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (inits)
             Read(TMPfile, inits, length);
@@ -211,8 +218,8 @@ LIBFUNC BOOL MB_Open(void)
     /* File with MUI code */
     if ((TMPfile = Open("T:MUIBuilder4.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH(TMPfile, &Info);
-        length = Info.fib_Size;
+        ExamineFH(TMPfile, Info);
+        length = Info->fib_Size;
         MUIcode = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (MUIcode)
             Read(TMPfile, MUIcode, length);
@@ -229,8 +236,8 @@ LIBFUNC BOOL MB_Open(void)
     /* File with notifications */
     if ((TMPfile = Open("T:MUIBuilder5.tmp", MODE_OLDFILE)) != NULL)
     {
-        ExamineFH(TMPfile, &Info);
-        length = Info.fib_Size;
+        ExamineFH(TMPfile, Info);
+        length = Info->fib_Size;
         Notifycode = AllocVec(length, MEMF_PUBLIC | MEMF_CLEAR);
         if (Notifycode)
             Read(TMPfile, Notifycode, length);
@@ -245,6 +252,8 @@ LIBFUNC BOOL MB_Open(void)
             NotifyCodeEnd = 0;
         }
     }
+
+    FreeDosObject(DOS_FIB, Info);
 
     rights = success;
 

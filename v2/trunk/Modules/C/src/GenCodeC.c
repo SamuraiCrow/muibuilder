@@ -856,16 +856,22 @@ static BOOL WriteExternalFile(void)
     ULONG length, type;
     BPTR TMPfile;
     char *adr_file = NULL;
-    struct FileInfoBlock Info;  // FIXME: aligned
+    struct FileInfoBlock *Info;
     BOOL bool_aux = FALSE;
     char *varname;
     BOOL result = FALSE;
 
+    Info = AllocDosObjectTagList(DOS_FIB, NULL);
+    if (!Info)
+    {
+        return FALSE;
+    }
+
     /* If the file already exists, we load it in memory */
     if ((TMPfile = Open(Externals, MODE_OLDFILE)) != NULL)
     {
-        ExamineFH(TMPfile, &Info);
-        length = Info.fib_Size;
+        ExamineFH(TMPfile, Info);
+        length = Info->fib_Size;
         adr_file = AllocVec(length + 1, MEMF_PUBLIC | MEMF_CLEAR);
         Read(TMPfile, adr_file, length);
         adr_file[length] = '\0';
@@ -901,14 +907,17 @@ static BOOL WriteExternalFile(void)
         FreeVec(adr_file);
     if ((TMPfile = Open(Externals, MODE_OLDFILE)) != NULL)      /* if the file is 0 bytes long : we remove it */
     {
-        ExamineFH(TMPfile, &Info);
+        ExamineFH(TMPfile, Info);
         Close(TMPfile);
-        length = Info.fib_Size;
+        length = Info->fib_Size;
         if (length == 0)
             DeleteFile(Externals);
         else
             result = TRUE;
     }
+
+    FreeDosObject(DOS_FIB, Info);
+
     return result;
 }
 
