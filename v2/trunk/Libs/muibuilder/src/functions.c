@@ -351,21 +351,62 @@ LIBFUNC void MB_GetVarInfoA(REG(d0, ULONG varnb),
     if (!rights)
         return;
 
+    /*
+        Some #?.MUIB files create in T:MUIBuilder4.tmp references
+        to unexisting variables. To avoid a crash we are returning
+        a variable with a special name.
+    */
     TagInt = (ULONG *) GetTagData(MUIB_VarType, 0, TagList);
     if (TagInt)
-        *TagInt = (ULONG) * (Vars[varnb].Type);
+    {
+        if (varnb < varnum)
+        {
+            *TagInt = (ULONG) * (Vars[varnb].Type);
+        }
+        else
+        {
+            *TagInt = 0;
+        }
+    }
 
     TagString = (char **) GetTagData(MUIB_VarName, 0, TagList);
     if (TagString)
-        *TagString = Vars[varnb].Name;
+    {
+        if (varnb < varnum)
+        {
+            *TagString = Vars[varnb].Name;
+        }
+        else
+        {
+            *TagString = "ERROR_REFERENCE_TO_UNEXISTING_VARIABLE";
+        }
+    }
 
     TagInt = (ULONG *) GetTagData(MUIB_VarSize, 0, TagList);
     if (TagInt)
-        *TagInt = Vars[varnb].Size;
+    {
+        if (varnb < varnum)
+        {
+            *TagInt = Vars[varnb].Size;
+        }
+        else
+        {
+            *TagInt = 0;
+        }
+    }
 
     TagInt = (ULONG *) GetTagData(MUIB_VarInitPtr, 0, TagList);
     if (TagInt)
-        *TagInt = (ULONG) Vars[varnb].Init;
+    {
+        if (varnb < varnum)
+        {
+            *TagInt = (ULONG) Vars[varnb].Init;
+        }
+        else
+        {
+            *TagInt = 0;
+        }
+    }
 }
 
 LIBFUNC void MB_GetNextCode(REG(a0, ULONG * type), REG(a1, char **code))
