@@ -1,5 +1,5 @@
 CC      = i386-aros-gcc
-CFLAGS  = -g -Wall -Wno-parentheses -Wno-missing-braces -Wno-pointer-sign \
+CFLAGS  = -g -Wall -Wno-parentheses -Wno-pointer-sign \
           -DMUI_OBSOLETE
 LDFLAGS = -g -lmui
 EXE     = ../MUIBuilder

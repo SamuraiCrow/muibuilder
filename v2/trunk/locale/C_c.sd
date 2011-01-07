@@ -29,7 +29,7 @@ struct FC_Type
 
 static const struct FC_Type %b_Array [] =
 {
-    %d, (STRPTR) %s,
+    {%d, (STRPTR) %s},
 };
 
 static struct Catalog *%b_Catalog = NULL;
@@ -38,10 +38,11 @@ void Open%bCatalog(struct Locale *loc)
 { 
   if (LocaleBase != NULL  &&  MUIBuilder_Catalog == NULL)
   { 
-    MUIBuilder_Catalog = OpenCatalog(loc, (STRPTR) "%b.catalog",
-			     OC_BuiltInLanguage, %b_BuiltInLanguage,
-			     OC_Version, MUIBuilder_Version,
-			     TAG_DONE);
+    MUIBuilder_Catalog = OpenCatalog(
+        loc, (STRPTR) "%b.catalog",
+        OC_BuiltInLanguage, %b_BuiltInLanguage,
+        OC_Version, MUIBuilder_Version,
+        TAG_DONE);
   }
 }
 
@@ -66,7 +67,7 @@ CONST_STRPTR Get%bString(LONG strnum)
     if (%b_Array[i].ID == strnum)
     {
       defaultstr = %b_Array[i].Str;
-	  break;
+      break;
     }
   }
   return(GetCatalogStr(%b_Catalog, strnum, defaultstr));
