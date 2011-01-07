@@ -514,10 +514,16 @@ APTR CreateWindow(APTR objet)
                 chainon_aux = chainon_aux->next;
             }
             if (grp->child->nb_elements == 0)
+            {
                 if (grp->virtual)
+                {
                     DoMethod(virt, OM_ADDMEMBER, HVSpace);
+                }
                 else
+                {
                     DoMethod(result, OM_ADDMEMBER, HVSpace);
+                }
+            }
             for (i = 0; i < n; i++)
             {
                 if (grp->virtual)

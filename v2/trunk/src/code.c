@@ -1396,10 +1396,16 @@ void CodeCreate(object * obj, FILE * fichier)
                 else
                     WriteString(fichier, string_aux->title);
                 if (string_aux->Area.key != '\0')
+                {
                     if (local)
+                    {
                         WriteLocaleChar(fichier, string_aux->label);
+                    }
                     else
+                    {
                         WriteChar(fichier, string_aux->Area.key);
+                    }
+                }
                 WriteEndFunction(fichier);
                 WriteVarAffect(fichier, NumLabel(string_aux) + 1);
                 WriteCreateObj(fichier, MB_GroupObject);
@@ -1536,10 +1542,16 @@ void CodeCreate(object * obj, FILE * fichier)
                 else
                     WriteString(fichier, slider_aux->title);
                 if (slider_aux->Area.key != '\0')
+                {
                     if (local)
+                    {
                         WriteLocaleChar(fichier, slider_aux->label);
+                    }
                     else
+                    {
                         WriteChar(fichier, slider_aux->Area.key);
+                    }
+                }
                 WriteEndFunction(fichier);
                 WriteVarAffect(fichier, NumLabel(slider_aux) + 1);
                 WriteCreateObj(fichier, MB_GroupObject);
@@ -1898,10 +1910,16 @@ void CodeCreate(object * obj, FILE * fichier)
                 else
                     WriteString(fichier, check_aux->title);
                 if (check_aux->Area.key != '\0')
+                {
                     if (local)
+                    {
                         WriteLocaleChar(fichier, check_aux->label);
+                    }
                     else
+                    {
                         WriteChar(fichier, check_aux->Area.key);
+                    }
+                }
                 WriteEndFunction(fichier);
                 WriteVarAffect(fichier, NumLabel(check_aux) + 1);
                 WriteCreateObj(fichier, MB_GroupObject);

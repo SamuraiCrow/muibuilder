@@ -541,6 +541,7 @@ void CopyStrings(FILE * tmp, FILE * fichier)
     {
         fgets(string, 6, tmp);
         if (!feof(tmp))
+        {
             if (strncmp(string, ";MUIB", 5) == 0)
             {
                 if (strlen(string) >= 5)
@@ -554,6 +555,7 @@ void CopyStrings(FILE * tmp, FILE * fichier)
                 if (strlen(string) >= 5)
                     CopyLines(tmp, fichier, 1);
             }
+        }
     }
 }
 
