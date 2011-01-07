@@ -2805,8 +2805,8 @@ void GenerateCodeObject(APTR obj_aux)
 
         // *INDENT-OFF*
         SystemTags(buffer,
-                   SYS_Input, Open("NIL:", MODE_NEWFILE),
-                   SYS_Output, Open("NIL:", MODE_NEWFILE),
+                   SYS_Input, Open("CON:0/50//200/GenCode/AUTO/CLOSE/WAIT", MODE_NEWFILE),
+                   SYS_Output, NULL,
                    SYS_Asynch, TRUE,
                    SYS_UserShell, TRUE,
                    NP_ConsoleTask, NULL,
@@ -2899,8 +2899,8 @@ void GenerateCode(queue * windows)
         GetMUIBuilderString(MSG_GenerateSource));
     // *INDENT-OFF*
     SystemTags(buffer,
-               SYS_Input, Open("NIL:", MODE_NEWFILE),
-               SYS_Output, Open("NIL:", MODE_NEWFILE),
+               SYS_Input, Open("CON:0/50//200/GenCode/AUTO/CLOSE/WAIT", MODE_NEWFILE),
+               SYS_Output, NULL,
                SYS_Asynch, TRUE,
                SYS_UserShell, TRUE,
                NP_ConsoleTask, NULL,
