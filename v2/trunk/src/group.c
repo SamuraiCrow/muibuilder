@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitGroup(group * group_aux)
+void InitGroup(group *group_aux)
 {
     InitArea(&group_aux->Area);
     group_aux->Area.Background = MUII_WindowBack;
@@ -56,7 +56,7 @@ void InitGroup(group * group_aux)
     group_aux->deplie = FALSE;
 }
 
-APTR LoadGroup(FILE * fichier, APTR father, int version)
+APTR LoadGroup(FILE *fichier, APTR father, int version)
 {
     group *group_aux;
     char *chaine_aux;
@@ -147,7 +147,7 @@ APTR LoadGroup(FILE * fichier, APTR father, int version)
     return (group_aux);
 }
 
-void SaveGroup(FILE * fichier, group * group_aux)
+void SaveGroup(FILE *fichier, group *group_aux)
 {
     int i;
 
@@ -178,7 +178,7 @@ void SaveGroup(FILE * fichier, group * group_aux)
     fprintf(fichier, "%d\n", -1);
 }
 
-BOOL NewGroup(group * group_aux, int root, BOOL new)
+BOOL NewGroup(group *group_aux, int root, BOOL new)
 {
     APTR WI_group, RegGroup1, RegGroup2;
     APTR bt_okgroup, bt_cancelgroup;

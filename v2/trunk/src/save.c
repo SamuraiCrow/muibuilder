@@ -31,7 +31,7 @@ char savedir[256];
 
 #define SAVE_VERSION "BUILDER_SAVE_FILE1.26\n"
 
-void SaveNotify(FILE * fichier, object * obj)
+void SaveNotify(FILE *fichier, object *obj)
 {
     int i;
     event *evt;
@@ -48,7 +48,7 @@ void SaveNotify(FILE * fichier, object * obj)
     fprintf(fichier, "//END_ENTRIES//\n");
 }
 
-void SaveArea(FILE * fichier, area * Area)
+void SaveArea(FILE *fichier, area *Area)
 {
     fprintf(fichier, "%d\n", Area->Hide);
     fprintf(fichier, "%d\n", Area->Disable);
@@ -61,7 +61,7 @@ void SaveArea(FILE * fichier, area * Area)
     fprintf(fichier, "%s\n", Area->TitleFrame);
 }
 
-void SaveApplicationList(FILE * fichier, queue * list)
+void SaveApplicationList(FILE *fichier, queue *list)
 {
     int i;
 
@@ -153,7 +153,7 @@ void SaveApplication(BOOL SaveAs)
         SaveApplicationList(fichier, application.Idents);
         SaveApplicationList(fichier, application.Functions);
         SaveApplicationList(fichier, application.Variables);
-        SaveNotify(fichier, (object *) & application);
+        SaveNotify(fichier, (object *) &application);
         SaveObject(application.appmenu, fichier);
         for (i = 0; i < windows->nb_elements; i++)
         {
@@ -181,7 +181,7 @@ void SaveApplication(BOOL SaveAs)
     }
 }
 
-void SaveObject(APTR obj, FILE * fichier)
+void SaveObject(APTR obj, FILE *fichier)
 {
     object *obj_aux;
     bouton *button_aux;

@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitDirList(dirlist * dirlist_aux)
+void InitDirList(dirlist *dirlist_aux)
 {
     InitArea(&dirlist_aux->Area);
     dirlist_aux->Area.Background = MUII_ListBack;
@@ -52,7 +52,7 @@ void InitDirList(dirlist * dirlist_aux)
     dirlist_aux->sortdirs = 0;
 }
 
-APTR LoadDirList(FILE * fichier, APTR father, int version)
+APTR LoadDirList(FILE *fichier, APTR father, int version)
 {
     dirlist *dirlist_aux;
 
@@ -87,7 +87,7 @@ APTR LoadDirList(FILE * fichier, APTR father, int version)
     return (dirlist_aux);
 }
 
-void SaveDirList(FILE * fichier, dirlist * dirlist_aux)
+void SaveDirList(FILE *fichier, dirlist *dirlist_aux)
 {
     SaveArea(fichier, &dirlist_aux->Area);
     fprintf(fichier, "%d\n", dirlist_aux->drawers);
@@ -104,7 +104,7 @@ void SaveDirList(FILE * fichier, dirlist * dirlist_aux)
     fprintf(fichier, "%s\n", dirlist_aux->filterhook);
 }
 
-BOOL NewDirList(dirlist * dirlist_aux, BOOL new)
+BOOL NewDirList(dirlist *dirlist_aux, BOOL new)
 {
     ULONG signal;
     BOOL running = TRUE;

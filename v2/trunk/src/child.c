@@ -28,7 +28,6 @@
 #endif
 
 #include "builder2.h"
-#include <fcntl.h>
 
 #if __AROS__
 #define MB_BE2WORD(x) AROS_BE2WORD(x)
@@ -83,8 +82,8 @@ void WidthAndHeight(void)
     {
         if (fread(buffer, 1, 26, fh))
         {
-            height = MB_BE2WORD(*((UWORD *) & buffer[22]));
-            width = MB_BE2WORD(*((UWORD *) & buffer[20]));
+            height = MB_BE2WORD(*((UWORD *) &buffer[22]));
+            width = MB_BE2WORD(*((UWORD *) &buffer[20]));
         }
         fclose(fh);
     }
@@ -1352,7 +1351,7 @@ APTR NewChild(APTR obj, BOOL new)
     return (result);
 }
 
-BOOL EditChild(object * child_aux)
+BOOL EditChild(object *child_aux)
 {
     BOOL bool_aux;
     group *group_aux;

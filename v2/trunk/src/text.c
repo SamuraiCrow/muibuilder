@@ -43,7 +43,7 @@ void InitText(texte * text_aux)
     text_aux->notifysource = create();
 }
 
-APTR LoadText(FILE * fichier, APTR father, int version)
+APTR LoadText(FILE *fichier, APTR father, int version)
 {
     texte *text_aux;
 
@@ -72,7 +72,7 @@ APTR LoadText(FILE * fichier, APTR father, int version)
     return (text_aux);
 }
 
-void SaveText(FILE * fichier, texte * text_aux)
+void SaveText(FILE *fichier, texte * text_aux)
 {
     SaveArea(fichier, &text_aux->Area); /* 113 */
     fprintf(fichier, "%s\n", text_aux->preparse);       /* 113 */

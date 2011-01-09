@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitLabel(label * label_aux)
+void InitLabel(label *label_aux)
 {
     InitArea(&label_aux->Area);
     label_aux->Area.Weight = 0;
@@ -41,7 +41,7 @@ void InitLabel(label * label_aux)
     label_aux->notifysource = create();
 }
 
-BOOL NewLabel(label * label_aux, BOOL new)
+BOOL NewLabel(label *label_aux, BOOL new)
 {
     APTR WI_label, RegGroup;
     APTR bt_cancel, bt_ok;

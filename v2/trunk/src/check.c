@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitCheckMark(check * check_aux)
+void InitCheckMark(check *check_aux)
 {
     InitArea(&check_aux->Area);
     check_aux->Area.Background = MUII_ButtonBack;
@@ -42,7 +42,7 @@ void InitCheckMark(check * check_aux)
     check_aux->init_state = FALSE;
 }
 
-BOOL NewCheckMark(check * check_aux, BOOL new)
+BOOL NewCheckMark(check *check_aux, BOOL new)
 {
     APTR WI_check, RegGroup;
     APTR bt_cancel, bt_ok;

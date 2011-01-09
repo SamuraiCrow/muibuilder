@@ -30,7 +30,7 @@
 #include "builder2.h"
 #include <ctype.h>
 
-void InitMenu(menu * menu_aux)
+void InitMenu(menu *menu_aux)
 {
     sprintf(menu_aux->label, "MN_label_%d", nb_menu);
     menu_aux->name[0] = '\0';
@@ -45,7 +45,7 @@ void InitMenu(menu * menu_aux)
     menu_aux->notifysource = create();
 }
 
-APTR LoadMenu(FILE * fichier, APTR father, int version, int id)
+APTR LoadMenu(FILE *fichier, APTR father, int version, int id)
 {
     int i;
     menu *menu_aux, *tmp_menu;
@@ -84,7 +84,7 @@ APTR LoadMenu(FILE * fichier, APTR father, int version, int id)
     return (menu_aux);
 }
 
-void SaveMenu(FILE * fichier, menu * menu_aux)
+void SaveMenu(FILE *fichier, menu *menu_aux)
 {
     int i;
 
@@ -142,7 +142,7 @@ menu *CreateMenu(BOOL generated)
 }
 
 //LONG MenuDisplayFunc(char **array __asm("a2"), menu* menu_aux __asm("a1"))
-LONG MenuDisplayFunc(struct Hook * hook, char **array, menu * menu_aux)
+LONG MenuDisplayFunc(struct Hook *hook, char **array, menu *menu_aux)
 {
     static char buffer[10], buffer2[150];
     menu *aux;
@@ -186,7 +186,7 @@ LONG MenuDisplayFunc(struct Hook * hook, char **array, menu * menu_aux)
     return (0);
 }
 
-void InitMenuList(APTR list, menu * menu_aux)
+void InitMenuList(APTR list, menu *menu_aux)
 {
     int i;
 
@@ -209,7 +209,7 @@ void InitMenuList(APTR list, menu * menu_aux)
     }
 }
 
-BOOL IsMenuParent(menu * father, menu * menu_aux)
+BOOL IsMenuParent(menu *father, menu *menu_aux)
 {
     if (menu_aux->father == father)
         return (TRUE);
@@ -218,7 +218,7 @@ BOOL IsMenuParent(menu * father, menu * menu_aux)
     return (IsMenuParent(father, menu_aux->father));
 }
 
-menu *ParentMenu(menu * menu_aux)
+menu *ParentMenu(menu *menu_aux)
 {
     if (menu_aux->id == TY_MENU)
         return (menu_aux);
@@ -226,7 +226,7 @@ menu *ParentMenu(menu * menu_aux)
         return (ParentMenu(menu_aux->father));
 }
 
-void AddToSubMenu(APTR list, menu * father, menu * menu_aux)
+void AddToSubMenu(APTR list, menu *father, menu *menu_aux)
 {
     int i, j, n;
     menu *tmp_menu;
@@ -252,7 +252,7 @@ void AddToSubMenu(APTR list, menu * father, menu * menu_aux)
     set(list, MUIA_List_Quiet, FALSE);
 }
 
-void DeleteMenuEntry(APTR list, menu * menu_aux, int position)
+void DeleteMenuEntry(APTR list, menu *menu_aux, int position)
 {
     menu *tmp_menu;
     BOOL bool_aux;
@@ -275,7 +275,7 @@ void DeleteMenuEntry(APTR list, menu * menu_aux, int position)
     }
 }
 
-int DisplayMenuEntry(APTR list, menu * menu_aux, int position)
+int DisplayMenuEntry(APTR list, menu *menu_aux, int position)
 {
     int pos, i;
 
@@ -291,7 +291,7 @@ int DisplayMenuEntry(APTR list, menu * menu_aux, int position)
     return (pos);
 }
 
-BOOL NewMenu(menu * menu_aux, BOOL new)
+BOOL NewMenu(menu *menu_aux, BOOL new)
 {
     APTR WI_Menu, TX_label_1, CH_Check, CH_enable;
     APTR CH_CheckState, CH_Toggle, STR_ShortCut;

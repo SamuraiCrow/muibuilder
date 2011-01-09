@@ -33,10 +33,10 @@
 
 APTR testwin = NULL;
 
-void Toggle(object * obj, APTR list, int position);
-int AfficheObjet(APTR list, object * obj, int position);
+void Toggle(object *obj, APTR list, int position);
+int AfficheObjet(APTR list, object *obj, int position);
 
-void TestQuick(window * win)
+void TestQuick(window *win)
 {
     if (MakeTest)
     {
@@ -58,7 +58,7 @@ void TestQuick(window * win)
     }
 }
 
-void InitWindow(window * win_aux)
+void InitWindow(window *win_aux)
 {
     strcpy(win_aux->title, "window_title");
     sprintf(win_aux->label, "WI_label_%d", nb_window);
@@ -82,7 +82,7 @@ void InitWindow(window * win_aux)
     win_aux->father = &application;
 }
 
-APTR LoadWindow(FILE * fichier, int version)
+APTR LoadWindow(FILE *fichier, int version)
 {
     window *win_aux;
     group *group_aux;
@@ -128,10 +128,10 @@ APTR LoadWindow(FILE * fichier, int version)
 
     add(current_window->groups, &win_aux->root);
     group_aux = LoadObject(fichier, win_aux, ReadInt(fichier));
-    CopyObject((object *) group_aux, (object *) & win_aux->root,
+    CopyObject((object *) group_aux, (object *) &win_aux->root,
                sizeof(group), group_aux->father);
     if (strlen(group_aux->label) > 0)
-        win_aux->root.label[strlen(group_aux->label)] = '\0';
+         win_aux->root.label[strlen(group_aux->label)] = '\0';
     FreeVec(win_aux->root.notify);
     FreeVec(win_aux->root.notifysource);
     win_aux->root.notify = group_aux->notify;
@@ -149,7 +149,7 @@ APTR LoadWindow(FILE * fichier, int version)
     return (win_aux);
 }
 
-void SaveWindow(FILE * fichier, window * win_aux)
+void SaveWindow(FILE *fichier, window *win_aux)
 {
     fprintf(fichier, "%s\n", win_aux->title);
     fprintf(fichier, "%d\n", win_aux->appwindow);
@@ -166,7 +166,7 @@ void SaveWindow(FILE * fichier, window * win_aux)
     SaveObject(&win_aux->root, fichier);
 }
 
-void CreateChain(object * obj, window * win)
+void CreateChain(object *obj, window *win)
 {
     int i, n;
     group *group_aux;
@@ -179,7 +179,7 @@ void CreateChain(object * obj, window * win)
             {
                 delete_nth(win->chain, 0);
             }
-            CreateChain((object *) & win->root, win);
+            CreateChain((object *) &win->root, win);
             break;
         case TY_GROUP:
             group_aux = (group *) obj;
@@ -203,7 +203,7 @@ void CreateChain(object * obj, window * win)
     }
 }
 
-void AddToGroup(group * group_aux, APTR list, int position, object * obj)
+void AddToGroup(group *group_aux, APTR list, int position, object *obj)
 {
     int pos = position + 1;
     object *obj_aux;
@@ -283,7 +283,7 @@ void ForceFold(APTR obj, BOOL force)
     }
 }
 
-BOOL IsParent(object * obj, group * parent)
+BOOL IsParent(object *obj, group *parent)
 {
     if (obj->id == TY_WINDOW)
         return (FALSE);
@@ -294,7 +294,7 @@ BOOL IsParent(object * obj, group * parent)
 }
 
 /* display object in list */
-int AfficheObjet(APTR list, object * obj, int position)
+int AfficheObjet(APTR list, object *obj, int position)
 {
     group *group_aux;
     popobject *popobj_aux;
@@ -321,7 +321,7 @@ int AfficheObjet(APTR list, object * obj, int position)
     return (pos);
 }
 
-void EffaceObjet(APTR list, object * obj, int position)
+void EffaceObjet(APTR list, object *obj, int position)
 {
     group *group_aux;
     popobject *popobj_aux;
@@ -347,7 +347,7 @@ void EffaceObjet(APTR list, object * obj, int position)
     }
 }
 
-void Toggle(object * obj, APTR list, int position)
+void Toggle(object *obj, APTR list, int position)
 {
     object *obj_aux;
     group *group_aux;
@@ -379,7 +379,7 @@ void Toggle(object * obj, APTR list, int position)
     }
 }
 
-void EditObject(APTR WI_window, APTR lv_group, window * win_aux)
+void EditObject(APTR WI_window, APTR lv_group, window *win_aux)
 {
     BOOL bool_aux;
     object *child_aux;
@@ -404,7 +404,7 @@ void EditObject(APTR WI_window, APTR lv_group, window * win_aux)
         ErrorMessage(GetMUIBuilderString(MSG_SelectObject));
 }
 
-int SearchObject(APTR list, object * obj)
+int SearchObject(APTR list, object *obj)
 {
     int i;
     int nb;
@@ -441,7 +441,7 @@ void ShowObject(APTR lv_group)
 
 //__asm __saveds LONG DisplayTreeFunc( register __a2 char **array, register __a1 object* obj )
 //DisplayTreeFunc(char **array __asm("a2"), object *obj __asm("a1"))
-LONG DisplayTreeFunc(struct Hook *hook, char **array, object * obj)
+LONG DisplayTreeFunc(struct Hook *hook, char **array, object *obj)
 {
     static char buffer[10], buffer2[82];
     static char buffer3[2], buffer4[2];
@@ -501,7 +501,7 @@ LONG DisplayTreeFunc(struct Hook *hook, char **array, object * obj)
     return (0);
 }
 
-BOOL NewWindow(window * win_aux, BOOL new, object * obj2search)
+BOOL NewWindow(window *win_aux, BOOL new, object *obj2search)
 {
     APTR WI_window, RegGroup;
     APTR bt_cancelwin, bt_okwin, bt_test, bt_notify, bt_notify2;

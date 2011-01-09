@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitProp(prop * prop_aux)
+void InitProp(prop *prop_aux)
 {
     InitArea(&prop_aux->Area);
     prop_aux->Area.Background = MUII_PropBack;
@@ -47,7 +47,7 @@ void InitProp(prop * prop_aux)
     prop_aux->notifysource = create();
 }
 
-BOOL NewProp(prop * prop_aux, BOOL new)
+BOOL NewProp(prop *prop_aux, BOOL new)
 {
     APTR WI_prop, RegGroup;
     APTR bt_cancel, bt_ok;

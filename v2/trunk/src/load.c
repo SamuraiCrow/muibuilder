@@ -78,7 +78,7 @@ int SearchVersion(char *text)
     return (0);
 }
 
-void ReadHelp(FILE * fichier, APTR obj)
+void ReadHelp(FILE *fichier, APTR obj)
 {
     int i;
     object *obj_aux;
@@ -106,7 +106,7 @@ void ReadHelp(FILE * fichier, APTR obj)
     }
 }
 
-void ReadNotify(FILE * fichier, APTR obj_aux)
+void ReadNotify(FILE *fichier, APTR obj_aux)
 {
     object *obj;
     char *chaine_aux;
@@ -125,7 +125,7 @@ void ReadNotify(FILE * fichier, APTR obj_aux)
     }
 }
 
-void ReadArea(FILE * fichier, area * Area)
+void ReadArea(FILE *fichier, area *Area)
 {
     char chaine_aux[3];
 
@@ -141,7 +141,7 @@ void ReadArea(FILE * fichier, area * Area)
     strcpy(Area->TitleFrame, LitChaine(fichier));
 }
 
-void ReadApplicationList(FILE * fichier, queue * list)
+void ReadApplicationList(FILE *fichier, queue *list)
 {
     char *chaine_aux;
     char *chaine_aux2;
@@ -154,7 +154,7 @@ void ReadApplicationList(FILE * fichier, queue * list)
     }
 }
 
-void ReadFunctionHook(FILE * fichier, char **name)
+void ReadFunctionHook(FILE *fichier, char **name)
 {
     char *chaine_aux;
 
@@ -176,7 +176,7 @@ void ReadFunctionHook(FILE * fichier, char **name)
     }
 }
 
-APTR LitChaine(FILE * fichier)
+APTR LitChaine(FILE *fichier)
 {
     char *aux2;
 
@@ -193,14 +193,14 @@ APTR LitChaine(FILE * fichier)
     return (aux);
 }
 
-void NextLine(FILE * fichier)
+void NextLine(FILE *fichier)
 {
     char chaine_aux[80];
 
     fgets(chaine_aux, 80, fichier);
 }
 
-int ReadInt(FILE * fichier)
+int ReadInt(FILE *fichier)
 {
     int i;
 
@@ -531,7 +531,7 @@ void MergeFile(void)
     }
 }
 
-APTR LoadObject(FILE * fichier, APTR father, int obj)
+APTR LoadObject(FILE *fichier, APTR father, int obj)
 {
     APTR result = NULL;
     bouton *button_aux;
@@ -549,7 +549,7 @@ APTR LoadObject(FILE * fichier, APTR father, int obj)
     static char chaine2_aux[80];
     int i;
 
-    APTR PointerOnString(char *chaine, queue * list);
+    APTR PointerOnString(char *chaine, queue *list);
 
     switch (obj)
     {

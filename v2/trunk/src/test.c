@@ -88,7 +88,7 @@ void Interprete(char *src, char *dest)
     }
 }
 
-void TestChain(window * win)
+void TestChain(window *win)
 {
     int i;
     object *obj_aux;
@@ -118,7 +118,7 @@ void TestChain(window * win)
     }
 }
 
-void TestWindow(window * win)
+void TestWindow(window *win)
 {
     window *win_aux;
     APTR okwin;

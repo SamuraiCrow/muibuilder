@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitRectangle(rectangle * rect)
+void InitRectangle(rectangle *rect)
 {
     InitArea(&rect->Area);
     rect->Area.Background = MUII_WindowBack;
@@ -44,7 +44,7 @@ void InitRectangle(rectangle * rect)
     rect->notifysource = create();
 }
 
-BOOL NewRectangle(rectangle * rect, BOOL new)
+BOOL NewRectangle(rectangle *rect, BOOL new)
 {
     APTR WI_rect, RegGroup, CH_fixheight, CH_fixwidth, STR_height;
     APTR STR_width, STR_label, BT_ok, BT_cancel, CY_type;

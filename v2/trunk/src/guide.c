@@ -157,7 +157,7 @@ void Modify(APTR obj)
     set(app, MUIA_Application_Sleep, FALSE);
 }
 
-void WriteHelp(APTR obj, FILE * fichier)
+void WriteHelp(APTR obj, FILE *fichier)
 {
     object *obj_aux;
     int i;
@@ -172,7 +172,7 @@ void WriteHelp(APTR obj, FILE * fichier)
     }
 }
 
-void GuideReference(APTR obj, FILE * fichier)
+void GuideReference(APTR obj, FILE *fichier)
 {
     object *obj_aux;
     group *group_aux;

@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitString(chaine * chaine_aux)
+void InitString(chaine *chaine_aux)
 {
     InitArea(&chaine_aux->Area);
     chaine_aux->Area.Background = MUII_WindowBack;
@@ -48,7 +48,7 @@ void InitString(chaine * chaine_aux)
     chaine_aux->notifysource = create();
 }
 
-BOOL NewString(chaine * chaine_aux, BOOL new)
+BOOL NewString(chaine *chaine_aux, BOOL new)
 {
     APTR WI_string, RegGroup;
     APTR bt_cancel, bt_ok;

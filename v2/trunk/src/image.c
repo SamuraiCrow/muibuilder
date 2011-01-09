@@ -38,7 +38,7 @@
     MUIA_InputMode, MUIV_InputMode_RelVerify, \
 End
 
-void InitImage(image * image_aux)
+void InitImage(image *image_aux)
 {
     InitArea(&image_aux->Area);
     image_aux->Area.Frame = MUIV_Frame_ImageButton;
@@ -55,7 +55,7 @@ void InitImage(image * image_aux)
     image_aux->spec[0] = '\0';
 }
 
-APTR LoadImage(FILE * fichier, APTR father, int version)
+APTR LoadImage(FILE *fichier, APTR father, int version)
 {
     image *image_aux;
 
@@ -86,7 +86,7 @@ APTR LoadImage(FILE * fichier, APTR father, int version)
     return (image_aux);
 }
 
-void SaveImage(FILE * fichier, image * image_aux)
+void SaveImage(FILE *fichier, image *image_aux)
 {
     SaveArea(fichier, &image_aux->Area);
     fprintf(fichier, "%d\n", image_aux->type);
@@ -99,7 +99,7 @@ void SaveImage(FILE * fichier, image * image_aux)
     fprintf(fichier, "%s\n", image_aux->spec);
 }
 
-BOOL NewImage(image * image_aux, BOOL new)
+BOOL NewImage(image *image_aux, BOOL new)
 {
     APTR WI_image, RegGroup;
     APTR bt_cancel, bt_ok;

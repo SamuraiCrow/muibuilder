@@ -30,7 +30,7 @@
 #include "builder2.h"
 #include <exec/memory.h>
 
-void InitArea(area * Area)
+void InitArea(area *Area)
 {
     Area->Hide = FALSE;
     Area->Disable = FALSE;
@@ -43,7 +43,7 @@ void InitArea(area * Area)
     Area->TitleFrame[0] = '\0';
 }
 
-void ValidateArea(struct ObjGR_AreaGroup *Obj, area * Area)
+void ValidateArea(struct ObjGR_AreaGroup *Obj, area *Area)
 {
     int active;
 
@@ -64,7 +64,7 @@ void ValidateArea(struct ObjGR_AreaGroup *Obj, area * Area)
         Area->Background = Area->Background + 120;
 }
 
-struct ObjGR_AreaGroup *CreateGR_AreaGroup(area * Area, BOOL InputMode,
+struct ObjGR_AreaGroup *CreateGR_AreaGroup(area *Area, BOOL InputMode,
                                            BOOL Background, BOOL Frame,
                                            BOOL Char, BOOL TitleFrame)
 {

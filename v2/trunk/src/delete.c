@@ -25,7 +25,7 @@
 
 #include "builder2.h"
 
-void DeleteLabel(queue * file, APTR lab_obj)
+void DeleteLabel(queue *file, APTR lab_obj)
 {
     int i, n;
 
@@ -39,7 +39,7 @@ void DeleteLabel(queue * file, APTR lab_obj)
     }
 }
 
-void DeleteSourceNotify(object * obj)
+void DeleteSourceNotify(object *obj)
 {
     int i, j, n, m;
     object *obj_aux;
@@ -64,7 +64,7 @@ void DeleteSourceNotify(object * obj)
     FreeVec(obj->notifysource);
 }
 
-void DeleteObjNotify(object * obj)
+void DeleteObjNotify(object *obj)
 {
     int i, j, n, m;
     object *obj_aux;

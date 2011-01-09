@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitButton(bouton * keybutton)
+void InitButton(bouton *keybutton)
 {
     sprintf(keybutton->label, "BT_label_%d", nb_button);
     strcpy(keybutton->title, "button title");
@@ -41,7 +41,7 @@ void InitButton(bouton * keybutton)
     keybutton->Area.Frame = MUIV_Frame_Button;
 }
 
-BOOL NewButton(bouton * keybutton, BOOL new)
+BOOL NewButton(bouton *keybutton, BOOL new)
 {
     APTR WI_button, RegGroup;
     APTR bt_cancel, bt_ok;

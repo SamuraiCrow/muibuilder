@@ -35,7 +35,7 @@ int GetAction(int ACT[], int id)
     return (ACT[id]);
 }
 
-BOOL IsApplicationMenu(menu * menu_aux)
+BOOL IsApplicationMenu(menu *menu_aux)
 {
     if (menu_aux == application.appmenu)
         return (TRUE);
@@ -46,7 +46,7 @@ BOOL IsApplicationMenu(menu * menu_aux)
         return (FALSE);
 }
 
-void ObjectNotify(object * obj)
+void ObjectNotify(object *obj)
 {
     int i, id_src, id_dest;
     object *obj_aux, *obj_aux2;
@@ -188,7 +188,7 @@ void ObjectNotify(object * obj)
     }
 }
 
-void TestNotify(object * obj)
+void TestNotify(object *obj)
 {
     window *win_aux;
     group *group_aux;

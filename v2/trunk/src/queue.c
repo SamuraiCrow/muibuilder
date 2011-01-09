@@ -29,17 +29,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void up(queue * file, int n)
+void up(queue *file, int n)
 {
     exchange(file, n - 1, n);
 }
 
-void down(queue * file, int n)
+void down(queue *file, int n)
 {
     exchange(file, n, n + 1);
 }
 
-void exchange(queue * file, int m, int n)
+void exchange(queue *file, int m, int n)
 {
     chainon *aux1, *aux2;
     APTR elt_aux;
@@ -60,7 +60,7 @@ void exchange(queue * file, int m, int n)
     }
 }
 
-void add(queue * file, APTR element)
+void add(queue *file, APTR element)
 {
     chainon *chainon_aux;
 
@@ -83,7 +83,7 @@ void add(queue * file, APTR element)
     file->nb_elements = file->nb_elements + 1;
 }
 
-APTR nth(queue * file, int n)
+APTR nth(queue *file, int n)
 {
     int i;
     chainon *chainon_aux;
@@ -104,7 +104,7 @@ APTR nth(queue * file, int n)
         return (NULL);
 }
 
-void delete_nth(queue * file, int n)
+void delete_nth(queue *file, int n)
 {
     int i;
     chainon *chainon_aux, *chainon_aux2;
@@ -135,7 +135,7 @@ void delete_nth(queue * file, int n)
     }
 }
 
-void delete_all(queue * file)
+void delete_all(queue *file)
 {
     int i, n;
 

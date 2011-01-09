@@ -49,7 +49,7 @@ int numfirstlabel;
 APTR TextInfo;
 queue *parameters;
 
-BOOL IsParentFrom(object * objsrc, object * objdest)
+BOOL IsParentFrom(object *objsrc, object *objdest)
 {
     if ((objdest == objsrc) || (objsrc->id == TY_APPLI))
         return (TRUE);
@@ -59,7 +59,7 @@ BOOL IsParentFrom(object * objsrc, object * objdest)
         return (IsParentFrom(objsrc, objdest->father));
 }
 
-LONG PopObjectDepth(popobject * popobj)
+LONG PopObjectDepth(popobject *popobj)
 {
     if (popobj->obj->id == TY_POPOBJECT)
         return (PopObjectDepth((popobject *) popobj->obj) + 1);
@@ -67,7 +67,7 @@ LONG PopObjectDepth(popobject * popobj)
         return (0);
 }
 
-void UpdateNodeIdent(queue * list, char *content)
+void UpdateNodeIdent(queue *list, char *content)
 {
     chainon *chainon_aux;
     int i;
@@ -180,7 +180,7 @@ void CalculeNbIdent(APTR obj)
     }
 }
 
-void GenerateListLabels(FILE * fichier, queue * list, char type)
+void GenerateListLabels(FILE *fichier, queue *list, char type)
 {
     int i;
     chainon *chainon_aux;
@@ -197,7 +197,7 @@ void GenerateListLabels(FILE * fichier, queue * list, char type)
     }
 }
 
-void GenerateListInits(FILE * fichier, queue * list)
+void GenerateListInits(FILE *fichier, queue *list)
 {
     int i;
     chainon *chainon_aux;
@@ -214,7 +214,7 @@ void GenerateListInits(FILE * fichier, queue * list)
     }
 }
 
-void GenerateExternalLabels(FILE * fichier)
+void GenerateExternalLabels(FILE *fichier)
 {
     chainon *chainon_aux;
     int i;
@@ -229,7 +229,7 @@ void GenerateExternalLabels(FILE * fichier)
     }
 }
 
-void GenerateLabels(APTR obj, FILE * fichier)
+void GenerateLabels(APTR obj, FILE *fichier)
 {
     object *obj_aux;
     window *win_aux;
@@ -344,7 +344,7 @@ void GenerateLabels(APTR obj, FILE * fichier)
     }
 }
 
-void GenerateExternalInits(FILE * fichier)
+void GenerateExternalInits(FILE *fichier)
 {
     int i;
 
@@ -354,7 +354,7 @@ void GenerateExternalInits(FILE * fichier)
     }
 }
 
-void GenerateInitLabels(APTR obj, FILE * fichier)
+void GenerateInitLabels(APTR obj, FILE *fichier)
 {
     object *obj_aux;
     window *win_aux;
@@ -468,7 +468,8 @@ void GenerateInitLabels(APTR obj, FILE * fichier)
                 if (!local)
                     fprintf(fichier, "%s%c", list_aux->content, 0);
                 else
-                    fprintf(fichier, "%s%sContent%c", catprepend, list_aux->label, 0);
+                    fprintf(fichier, "%s%sContent%c", catprepend,
+                            list_aux->label, 0);
             }
             break;
         case TY_POPASL:
@@ -663,7 +664,7 @@ void VerifyLabels(void)
     FreeVec(multi);
 }
 
-void CreateLabels(APTR obj_aux, window * win)
+void CreateLabels(APTR obj_aux, window *win)
 {
     object *obj;
     window *win_aux;
@@ -793,37 +794,37 @@ void NoSpace(char *chaine)
     }
 }
 
-void WriteCreateObj(FILE * fichier, int chaine)
+void WriteCreateObj(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_CREATEOBJ, chaine, 0);
 }
 
-void WriteAttribut(FILE * fichier, int chaine)
+void WriteAttribut(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_ATTRIBUT, chaine, 0);
 }
 
-void WriteEnd(FILE * fichier, int chaine)
+void WriteEnd(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_END, chaine, 0);
 }
 
-void WriteFunction(FILE * fichier, int chaine)
+void WriteFunction(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_FUNCTION, chaine, 0);
 }
 
-void WriteObjFunction(FILE * fichier, int chaine)
+void WriteObjFunction(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_OBJFUNCTION, chaine, 0);
 }
 
-void WriteString(FILE * fichier, char *chaine)
+void WriteString(FILE *fichier, char *chaine)
 {
     fprintf(fichier, "%c%s%c", TC_STRING, chaine, 0);
 }
 
-void WriteLocaleString(FILE * fichier, char *chaine)
+void WriteLocaleString(FILE *fichier, char *chaine)
 {
     char aux[84];
 
@@ -833,7 +834,7 @@ void WriteLocaleString(FILE * fichier, char *chaine)
 }
 
 /* For Title Frame strings */
-void WriteLocaleString2(FILE * fichier, char *chaine)
+void WriteLocaleString2(FILE *fichier, char *chaine)
 {
     char aux[89];
 
@@ -842,7 +843,7 @@ void WriteLocaleString2(FILE * fichier, char *chaine)
     fprintf(fichier, "%c%s%c", TC_LOCALESTRING, aux, 0);
 }
 
-void WriteLocaleChar(FILE * fichier, char *chaine)
+void WriteLocaleChar(FILE *fichier, char *chaine)
 {
     char aux[84];
 
@@ -851,7 +852,7 @@ void WriteLocaleChar(FILE * fichier, char *chaine)
     fprintf(fichier, "%c%s%c", TC_LOCALECHAR, aux, 0);
 }
 
-void WriteLocaleCharAsString(FILE * fichier, char *chaine)
+void WriteLocaleCharAsString(FILE *fichier, char *chaine)
 {
     char aux[84];
 
@@ -860,42 +861,42 @@ void WriteLocaleCharAsString(FILE * fichier, char *chaine)
     fprintf(fichier, "%c%s%c", TC_LOCALESTRING, aux, 0);
 }
 
-void WriteExternalFunction(FILE * fichier, char *chaine)
+void WriteExternalFunction(FILE *fichier, char *chaine)
 {
     fprintf(fichier, "%c%s%c", TC_EXTERNAL_FUNCTION, chaine, 0);
 }
 
-void WriteExternalConstant(FILE * fichier, char *chaine)
+void WriteExternalConstant(FILE *fichier, char *chaine)
 {
     fprintf(fichier, "%c%s%c", TC_EXTERNAL_CONSTANT, chaine, 0);
 }
 
-void WriteVariable(FILE * fichier, char *chaine)
+void WriteVariable(FILE *fichier, char *chaine)
 {
     fprintf(fichier, "%c%s%c", TC_EXTERNAL_VARIABLE, chaine, 0);
 }
 
-void WriteInteger(FILE * fichier, int entier)
+void WriteInteger(FILE *fichier, int entier)
 {
     fprintf(fichier, "%c%d%c", TC_INTEGER, entier, 0);
 }
 
-void WriteChar(FILE * fichier, char caractere)
+void WriteChar(FILE *fichier, char caractere)
 {
     fprintf(fichier, "%c%c%c", TC_CHAR, caractere, 0);
 }
 
-void WriteVarAffect(FILE * fichier, int entier)
+void WriteVarAffect(FILE *fichier, int entier)
 {
     fprintf(fichier, "%c%d%c", TC_VAR_AFFECT, entier, 0);
 }
 
-void WriteVarArg(FILE * fichier, int entier)
+void WriteVarArg(FILE *fichier, int entier)
 {
     fprintf(fichier, "%c%d%c", TC_VAR_ARG, entier, 0);
 }
 
-void WriteObjArg(FILE * fichier, object * obj)
+void WriteObjArg(FILE *fichier, object *obj)
 {
     int i = 0;
     chaine *string_aux;
@@ -924,58 +925,58 @@ void WriteObjArg(FILE * fichier, object * obj)
     fprintf(fichier, "%c%d%c", TC_OBJ_ARG, NumLabel(obj) + i, 0);
 }
 
-void WriteObjArg2(FILE * fichier, int entier)
+void WriteObjArg2(FILE *fichier, int entier)
 {
     fprintf(fichier, "%c%d%c", TC_OBJ_ARG, entier, 0);
 }
 
-void WriteEndFunction(FILE * fichier)
+void WriteEndFunction(FILE *fichier)
 {
     fprintf(fichier, "%c%c", TC_END_FUNCTION, 0);
 }
 
-void WriteBool(FILE * fichier, BOOL entier)
+void WriteBool(FILE *fichier, BOOL entier)
 {
     fprintf(fichier, "%c%d%c", TC_BOOL, entier, 0);
 }
 
 
-void WriteMUIArg(FILE * fichier, int chaine)
+void WriteMUIArg(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_MUIARG, chaine, 0);
 }
 
-void WriteMUIArgAttribute(FILE * fichier, int chaine)
+void WriteMUIArgAttribute(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_MUIARG_ATTRIBUT, chaine, 0);
 }
 
-void WriteMUIArgFunction(FILE * fichier, int chaine)
+void WriteMUIArgFunction(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_MUIARG_FUNCTION, chaine, 0);
 }
 
-void WriteMUIArgObjFunction(FILE * fichier, int chaine)
+void WriteMUIArgObjFunction(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_MUIARG_OBJFUNCTION, chaine, 0);
 }
 
-void WriteMUIArgObj(FILE * fichier, int chaine)
+void WriteMUIArgObj(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_MUIARG_OBJ, chaine, 0);
 }
 
-void WriteBeginNotification(FILE * fichier, int chaine)
+void WriteBeginNotification(FILE *fichier, int chaine)
 {
     fprintf(fichier, "%c%d%c", TC_BEGIN_NOTIFICATION, chaine, 0);
 }
 
-void WriteEndNotification(FILE * fichier)
+void WriteEndNotification(FILE *fichier)
 {
     fprintf(fichier, "%c%c", TC_END_NOTIFICATION, 0);
 }
 
-void WriteWindowID(FILE * fichier, window * win_aux)
+void WriteWindowID(FILE *fichier, window *win_aux)
 {
     char ID[10];
     int i;
@@ -995,7 +996,7 @@ void WriteWindowID(FILE * fichier, window * win_aux)
     WriteEndFunction(fichier);
 }
 
-void CodeArea(FILE * fichier, object * obj, area * Area,
+void CodeArea(FILE *fichier, object *obj, area *Area,
               BOOL Hide, BOOL Disable, BOOL InputMode,
               BOOL Phantom, BOOL Weight, BOOL Background,
               BOOL Frame, BOOL key, BOOL TitleFrame)
@@ -1062,7 +1063,7 @@ void CodeArea(FILE * fichier, object * obj, area * Area,
     }
 }
 
-void CodeCreate(object * obj, FILE * fichier)
+void CodeCreate(object *obj, FILE *fichier)
 {
     window *win_aux;
     group *group_aux;
@@ -1156,7 +1157,7 @@ void CodeCreate(object * obj, FILE * fichier)
         case TY_WINDOW:
             win_aux = (window *) obj;
 
-            CodeCreate((object *) & win_aux->root, fichier);
+            CodeCreate((object *) &win_aux->root, fichier);
             if (win_aux->menu->childs->nb_elements > 0)
                 CodeCreate((object *) win_aux->menu, fichier);
 
@@ -1225,7 +1226,7 @@ void CodeCreate(object * obj, FILE * fichier)
                 WriteBool(fichier, win_aux->needmouse);
             }
             WriteAttribut(fichier, MB_WindowContents);
-            WriteObjArg(fichier, (object *) & win_aux->root);
+            WriteObjArg(fichier, (object *) &win_aux->root);
             WriteEnd(fichier, MB_End);
             break;
         case TY_GROUP:
@@ -2190,7 +2191,7 @@ void CodeCreate(object * obj, FILE * fichier)
             break;
         case TY_POPASL:
             popasl = (popaslobj *) obj;
-            i = popasl->image + MB_MUII_PopUp;
+            i = popasl->image +MB_MUII_PopUp;
             WriteVarAffect(fichier, NumLabel(popasl) + 1);
             if (popasl->Area.key == '\0')
             {
@@ -2248,7 +2249,7 @@ void CodeCreate(object * obj, FILE * fichier)
             break;
         case TY_POPOBJECT:
             popobj_aux = (popobject *) obj;
-            i = popobj_aux->image + MB_MUII_PopUp;
+            i = popobj_aux->image +MB_MUII_PopUp;
             CodeCreate(popobj_aux->obj, fichier);
             WriteVarAffect(fichier, NumLabel(popobj_aux) + 1);
             if (popobj_aux->Area.key == '\0')
@@ -2450,7 +2451,7 @@ void AddObjAsParameter(APTR obj)
 
 /* Write a notification for the object parameter objpar  */
 /* objpar is the object on which the notification occurs */
-void WriteNotify(FILE * fichier, APTR objpar, APTR father)
+void WriteNotify(FILE *fichier, APTR objpar, APTR father)
 {
     object *obj;
     int i, id_src, id_dest, aux, num_label;
@@ -2648,7 +2649,7 @@ void WriteNotify(FILE * fichier, APTR objpar, APTR father)
     }
 }
 
-void CreateCodeChain(FILE * fichier, window * win_aux)
+void CreateCodeChain(FILE *fichier, window *win_aux)
 {
     int i;
     object *obj_aux;
@@ -2664,7 +2665,7 @@ void CreateCodeChain(FILE * fichier, window * win_aux)
     WriteEndNotification(fichier);
 }
 
-void CodeNotify(FILE * fichier, APTR objpar, object * father)
+void CodeNotify(FILE *fichier, APTR objpar, object *father)
 {
     object *obj;
     window *win_aux;
@@ -2838,7 +2839,7 @@ void GenerateCodeObject(APTR obj_aux)
     }
 }
 
-void GenerateCode(queue * windows)
+void GenerateCode(queue *windows)
 {
     FILE *fichier;
     char buffer[512];
@@ -2872,14 +2873,14 @@ void GenerateCode(queue * windows)
     if (fichier = fopen("T:MUIBuilder4.tmp", "w+"))
     {
         nb_var_aux = 0;
-        CodeCreate((object *) & application, fichier);
+        CodeCreate((object *) &application, fichier);
         fclose(fichier);
     }
 
     /* Notifications */
     if (fichier = fopen("T:MUIBuilder5.tmp", "w+"))
     {
-        CodeNotify(fichier, &application, (object *) & application);
+        CodeNotify(fichier, &application, (object *) &application);
         fclose(fichier);
     }
 
@@ -2915,6 +2916,7 @@ void GenerateCode(queue * windows)
     strcat(buffer, "\"");
     set(TextInfo, MUIA_Text_Contents,
         GetMUIBuilderString(MSG_GenerateSource));
+
     // *INDENT-OFF*
     SystemTags(buffer,
                SYS_Input, Open("CON:0/50//200/GenCode/AUTO/CLOSE/WAIT", MODE_NEWFILE),

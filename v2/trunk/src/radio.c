@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitRadio(radio * radio_aux)
+void InitRadio(radio *radio_aux)
 {
     radio_aux->entries = create();
     sprintf(radio_aux->label, "RA_label_%d", nb_radio);
@@ -41,7 +41,7 @@ void InitRadio(radio * radio_aux)
     radio_aux->notifysource = create();
 }
 
-queue *CopyStringsList(queue * list)
+queue *CopyStringsList(queue *list)
 {
     int i;
     queue *result;
@@ -62,7 +62,7 @@ queue *CopyStringsList(queue * list)
     return (result);
 }
 
-APTR LoadRadio(FILE * fichier, APTR father, int version)
+APTR LoadRadio(FILE *fichier, APTR father, int version)
 {
     radio *radio_aux;
     int i;
@@ -104,7 +104,7 @@ APTR LoadRadio(FILE * fichier, APTR father, int version)
     return (radio_aux);
 }
 
-void SaveRadio(FILE * fichier, radio * radio_aux)
+void SaveRadio(FILE *fichier, radio *radio_aux)
 {
     int i;
 
@@ -116,7 +116,7 @@ void SaveRadio(FILE * fichier, radio * radio_aux)
     fprintf(fichier, "%s\n", "//END_ENTRIES//");
 }
 
-BOOL NewRadio(radio * radio_aux, BOOL new)
+BOOL NewRadio(radio *radio_aux, BOOL new)
 {
     APTR WI_radio, RegGroup;
     APTR bt_cancel, bt_ok;

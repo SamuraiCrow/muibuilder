@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitPopAsl(popaslobj * popasl)
+void InitPopAsl(popaslobj *popasl)
 {
     InitArea(&popasl->Area);
     popasl->Area.Background = MUII_WindowBack;
@@ -43,7 +43,7 @@ void InitPopAsl(popaslobj * popasl)
     popasl->notifysource = create();
 }
 
-APTR LoadPopAsl(FILE * fichier, APTR father, int version)
+APTR LoadPopAsl(FILE *fichier, APTR father, int version)
 {
     popaslobj *popasl;
 
@@ -64,7 +64,7 @@ APTR LoadPopAsl(FILE * fichier, APTR father, int version)
     return (popasl);
 }
 
-void SavePopAsl(FILE * fichier, popaslobj * popasl)
+void SavePopAsl(FILE *fichier, popaslobj *popasl)
 {
     SaveArea(fichier, &popasl->Area);
     fprintf(fichier, "%s\n", popasl->starthook);
@@ -73,7 +73,7 @@ void SavePopAsl(FILE * fichier, popaslobj * popasl)
     fprintf(fichier, "%d\n", popasl->image);
 }
 
-BOOL NewPopAsl(popaslobj * popasl, BOOL new)
+BOOL NewPopAsl(popaslobj *popasl, BOOL new)
 {
 
     BOOL running = TRUE;

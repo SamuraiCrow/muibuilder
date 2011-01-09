@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitScale(scale * scale_aux)
+void InitScale(scale *scale_aux)
 {
     InitArea(&scale_aux->Area);
     scale_aux->Area.Background = MUII_WindowBack;
@@ -40,7 +40,7 @@ void InitScale(scale * scale_aux)
     scale_aux->notifysource = create();
 }
 
-BOOL NewScale(scale * scale_aux, BOOL new)
+BOOL NewScale(scale *scale_aux, BOOL new)
 {
     APTR WI_scale, RegGroup;
     APTR bt_ok, bt_cancel;

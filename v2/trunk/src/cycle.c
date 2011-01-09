@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitCycle(cycle * cycle_aux)
+void InitCycle(cycle *cycle_aux)
 {
     cycle_aux->entries = create();
     sprintf(cycle_aux->label, "CY_label_%d", nb_cycle);
@@ -40,7 +40,7 @@ void InitCycle(cycle * cycle_aux)
     cycle_aux->notifysource = create();
 }
 
-APTR LoadCycle(FILE * fichier, APTR father, int version)
+APTR LoadCycle(FILE *fichier, APTR father, int version)
 {
     cycle *cycle_aux;
     int i;
@@ -81,7 +81,7 @@ APTR LoadCycle(FILE * fichier, APTR father, int version)
     return (cycle_aux);
 }
 
-void SaveCycle(FILE * fichier, cycle * cycle_aux)
+void SaveCycle(FILE *fichier, cycle *cycle_aux)
 {
     int i;
 
@@ -93,7 +93,7 @@ void SaveCycle(FILE * fichier, cycle * cycle_aux)
     fprintf(fichier, "%s\n", "//END_ENTRIES//");
 }
 
-BOOL NewCycle(cycle * cycle_aux, BOOL new)
+BOOL NewCycle(cycle *cycle_aux, BOOL new)
 {
     APTR WI_cycle, RegGroup;
     APTR bt_cancel, bt_ok;

@@ -28,7 +28,7 @@
 BOOL createwin;
 
 /* effectue la copie de la partie commune a tous les objets */
-BOOL CopyObject(object * objsrc, object * objdest, int taille, APTR father)
+BOOL CopyObject(object *objsrc, object *objdest, int taille, APTR father)
 {
     APTR helptext;
     BOOL result = TRUE;
@@ -96,8 +96,8 @@ APTR Duplicate(APTR src, APTR father)
 
             /* on copie le groupe 'root' */
             copyok =
-                CopyObject((object *) & win1_aux->root,
-                           (object *) & win2_aux->root, sizeof(group),
+                CopyObject((object *) &win1_aux->root,
+                           (object *) &win2_aux->root, sizeof(group),
                            father);
             if (!copyok)
                 return (NULL);

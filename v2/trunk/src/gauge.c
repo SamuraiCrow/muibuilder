@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitGauge(gauge * gauge_aux)
+void InitGauge(gauge *gauge_aux)
 {
     InitArea(&gauge_aux->Area);
     gauge_aux->Area.Background = MUII_WindowBack;
@@ -47,7 +47,7 @@ void InitGauge(gauge * gauge_aux)
     gauge_aux->notifysource = create();
 }
 
-BOOL NewGauge(gauge * gauge_aux, BOOL new)
+BOOL NewGauge(gauge *gauge_aux, BOOL new)
 {
     APTR WI_gauge, RegGroup;
     APTR bt_cancel, bt_ok;

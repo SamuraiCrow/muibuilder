@@ -126,8 +126,8 @@ void DeleteApplication(void)
     int n;
 
     DeleteObject(application.appmenu);
-    DeleteObjNotify((object *) & application);
-    DeleteSourceNotify((object *) & application);
+    DeleteObjNotify((object *) &application);
+    DeleteSourceNotify((object *) &application);
     if (application.Help.nb_char > 0)
         FreeVec(application.Help.content);
     n = windows->nb_elements;
@@ -368,7 +368,7 @@ void NewAppli(void)
                 running = FALSE;
                 break;
             case ID_NOTIFY:
-                CreateNotify((object *) & application, NULL);
+                CreateNotify((object *) &application, NULL);
                 WI_current = WI_app;
                 break;
             case ID_NEW_SUBMENU:

@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitListview(listview * list)
+void InitListview(listview *list)
 {
     InitArea(&list->Area);
     list->Area.Background = MUII_ListBack;
@@ -53,7 +53,7 @@ void InitListview(listview * list)
     list->notifysource = create();
 }
 
-APTR LoadListview(FILE * fichier, APTR father, int version)
+APTR LoadListview(FILE *fichier, APTR father, int version)
 {
     listview *listview_aux;
 
@@ -101,7 +101,7 @@ APTR LoadListview(FILE * fichier, APTR father, int version)
     return (listview_aux);
 }
 
-void SaveListview(FILE * fichier, listview * listview_aux)
+void SaveListview(FILE *fichier, listview *listview_aux)
 {
     SaveArea(fichier, &listview_aux->Area);
     fprintf(fichier, "%d\n", listview_aux->type);
@@ -121,7 +121,7 @@ void SaveListview(FILE * fichier, listview * listview_aux)
     fprintf(fichier, "%s\n", listview_aux->content);
 }
 
-BOOL NewListView(listview * list, BOOL new)
+BOOL NewListView(listview *list, BOOL new)
 {
     APTR WI_list, RegGroup;
     APTR bt_cancel, bt_ok;

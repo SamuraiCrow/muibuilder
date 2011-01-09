@@ -31,7 +31,7 @@
 #include "notifyconstants.h"
 
 /* does a string already exist in a list ? */
-BOOL ExistInList(CONST_STRPTR chaine, queue * list)
+BOOL ExistInList(CONST_STRPTR chaine, queue *list)
 {
     BOOL result = FALSE;
     int i;
@@ -49,7 +49,7 @@ BOOL ExistInList(CONST_STRPTR chaine, queue * list)
 }
 
 /* Add an element in list if it doesn't exist */
-BOOL AddInList(char *chaine, queue * list)
+BOOL AddInList(char *chaine, queue *list)
 {
     BOOL result;
 
@@ -60,7 +60,7 @@ BOOL AddInList(char *chaine, queue * list)
 }
 
 /* Get the pointer in the list for the string 'chaine' */
-APTR PointerOnString(char *chaine, queue * list)
+APTR PointerOnString(char *chaine, queue *list)
 {
     int i;
     APTR result;
@@ -144,8 +144,8 @@ APTR FindArgument(char *chaine)
 }
 
 /* get an argument : could be a function, a constant ID, depending on the given list */
-BOOL GetMUIarg(object * obj_aux, APTR * stringptr, char *stringname,
-               queue * list, BOOL old, CONST_STRPTR title)
+BOOL GetMUIarg(object *obj_aux, APTR * stringptr, char *stringname,
+               queue *list, BOOL old, CONST_STRPTR title)
 {
     ULONG signal, active;
     BOOL running = TRUE;
@@ -331,7 +331,7 @@ BOOL GetMUIarg(object * obj_aux, APTR * stringptr, char *stringname,
 }
 
 /* get a constant of a given type (bool, integer, string, ... ) */
-BOOL GetConstant(event * evt, int Type, BOOL old)
+BOOL GetConstant(event *evt, int Type, BOOL old)
 {
     ULONG signal;
     BOOL running = TRUE;

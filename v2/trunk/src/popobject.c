@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitPopObject(popobject * popobj_aux)
+void InitPopObject(popobject *popobj_aux)
 {
     InitArea(&popobj_aux->Area);
     popobj_aux->Area.Background = MUII_WindowBack;
@@ -46,7 +46,7 @@ void InitPopObject(popobject * popobj_aux)
     popobj_aux->notifysource = create();
 }
 
-BOOL NewPopObject(popobject * popobj_aux, BOOL new)
+BOOL NewPopObject(popobject *popobj_aux, BOOL new)
 {
     APTR WI_PopObject, RegGroup, LV_images, CH_follow, CH_light,
         CH_Volatile, BT_obj;

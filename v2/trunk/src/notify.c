@@ -178,7 +178,7 @@ LONG Position(APTR obj, APTR list)
 
 //__asm __saveds LONG DisplayFunc( register __a2 char **array, register __a1 object* obj )
 //LONG DisplayFunc(char **array __asm("a2"), object *obj __asm("a1"))
-LONG DisplayFunc(struct Hook * hook, char **array, object * obj)
+LONG DisplayFunc(struct Hook *hook, char **array, object *obj)
 {
     static char buffer[10], buffer2[82];
     window *win_aux;
@@ -209,7 +209,7 @@ LONG DisplayFunc(struct Hook * hook, char **array, object * obj)
     return (0);
 }
 
-void InitLabels(APTR obj_aux, window * win, APTR list)
+void InitLabels(APTR obj_aux, window *win, APTR list)
 {
     object *obj;
     window *win_aux;
@@ -342,7 +342,7 @@ void WriteInList(APTR list, CONST_STRPTR chaines[])
     set(list, MUIA_List_Quiet, FALSE);
 }
 
-void ObjectEvents(object * obj, APTR list)
+void ObjectEvents(object *obj, APTR list)
 {
     if (obj->id <= Current_Max)
         WriteInList(list, Evenements[obj->id]);
@@ -350,7 +350,7 @@ void ObjectEvents(object * obj, APTR list)
         ErrorMessage(GetMUIBuilderString(MSG_InternalError));
 }
 
-void ObjectActions(object * obj, APTR list)
+void ObjectActions(object *obj, APTR list)
 {
     if (obj->id <= Current_Max)
         WriteInList(list, Actions[obj->id]);
@@ -358,7 +358,7 @@ void ObjectActions(object * obj, APTR list)
         ErrorMessage(GetMUIBuilderString(MSG_InternalError));
 }
 
-BOOL NotifyExist(object * obj, object * obj_dest, int src_type,
+BOOL NotifyExist(object *obj, object *obj_dest, int src_type,
                  int dest_type)
 {
     int i;
@@ -375,7 +375,7 @@ BOOL NotifyExist(object * obj, object * obj_dest, int src_type,
     return (result);
 }
 
-BOOL AddArgument(APTR obj, event * evt, int type[])
+BOOL AddArgument(APTR obj, event *evt, int type[])
 {
     BOOL result = TRUE;
     object *obj_aux;
@@ -421,7 +421,7 @@ BOOL AddArgument(APTR obj, event * evt, int type[])
     return (result);
 }
 
-BOOL EditEvent(event * evt)
+BOOL EditEvent(event *evt)
 {
     BOOL result = TRUE;
 
@@ -457,7 +457,7 @@ BOOL EditEvent(event * evt)
     return (result);
 }
 
-void DeleteNotification(APTR LV_notify, object * obj, int active)
+void DeleteNotification(APTR LV_notify, object *obj, int active)
 {
     event *evenement;
     object *obj_aux;
@@ -479,7 +479,7 @@ void DeleteNotification(APTR LV_notify, object * obj, int active)
     DoMethod(LV_notify, MUIM_List_Remove, MUIV_List_Remove_Active);
 }
 
-BOOL CreateNotify(object * obj, window * win)
+BOOL CreateNotify(object *obj, window *win)
 {
     APTR WI_notify, LV_evt, LV_cible, LV_action, LV_notify;
     APTR BT_quit, BT_add, BT_remove;

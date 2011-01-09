@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitColorField(colorfield * field_aux)
+void InitColorField(colorfield *field_aux)
 {
     InitArea(&field_aux->Area);
     sprintf(field_aux->label, "CF_label_%d", nb_colorfield);
@@ -44,7 +44,7 @@ void InitColorField(colorfield * field_aux)
     field_aux->notifysource = create();
 }
 
-BOOL NewColorField(colorfield * field_aux, BOOL new)
+BOOL NewColorField(colorfield *field_aux, BOOL new)
 {
     APTR WI_ColorField, RegGroup;
     APTR bt_cancel, bt_ok;

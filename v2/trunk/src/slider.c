@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitSlider(slider * slider_aux)
+void InitSlider(slider *slider_aux)
 {
     InitArea(&slider_aux->Area);
     slider_aux->Area.Background = MUII_WindowBack;
@@ -47,7 +47,7 @@ void InitSlider(slider * slider_aux)
     slider_aux->horizontal = TRUE;
 }
 
-BOOL NewSlider(slider * slider_aux, BOOL new)
+BOOL NewSlider(slider *slider_aux, BOOL new)
 {
     APTR WI_slider, RegGroup;
     APTR bt_cancel, bt_ok;

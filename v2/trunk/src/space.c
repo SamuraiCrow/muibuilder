@@ -29,7 +29,7 @@
 
 #include "builder2.h"
 
-void InitSpace(space * space_aux)
+void InitSpace(space *space_aux)
 {
     space_aux->notify = create();
     space_aux->notifysource = create();
@@ -38,7 +38,7 @@ void InitSpace(space * space_aux)
     sprintf(space_aux->label, "Space_%d", nb_space);
 }
 
-BOOL NewSpace(space * space_aux, BOOL new)
+BOOL NewSpace(space *space_aux, BOOL new)
 {
     APTR WI_space;
     APTR bt_ok, bt_cancel;

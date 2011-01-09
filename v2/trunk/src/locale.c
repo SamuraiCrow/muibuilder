@@ -87,7 +87,7 @@ void CreateLocaleString(char *chaine, char car)
     *aux = '\0';
 }
 
-void NotifyCatalog(APTR obj, FILE * fichier)
+void NotifyCatalog(APTR obj, FILE *fichier)
 {
     int i, id_dest;
     event *evt;
@@ -108,7 +108,7 @@ void NotifyCatalog(APTR obj, FILE * fichier)
     }
 }
 
-void ObjectCatalog(APTR obj, FILE * fichier)
+void ObjectCatalog(APTR obj, FILE *fichier)
 {
     object *obj_aux;
     window *win_aux;
@@ -505,7 +505,7 @@ void ObjectCatalog(APTR obj, FILE * fichier)
     }
 }
 
-void ReadLine(FILE * tmp)
+void ReadLine(FILE *tmp)
 {
     int aux;
 
@@ -516,7 +516,7 @@ void ReadLine(FILE * tmp)
     while ((aux != EOL) && (aux != EOF));
 }
 
-void CopyLines(FILE * tmp, FILE * fichier, int nb)
+void CopyLines(FILE *tmp, FILE *fichier, int nb)
 {
     int i;
     int aux = 0;
@@ -533,7 +533,7 @@ void CopyLines(FILE * tmp, FILE * fichier, int nb)
         }
 }
 
-void CopyStrings(FILE * tmp, FILE * fichier)
+void CopyStrings(FILE *tmp, FILE *fichier)
 {
     char string[6];
 
