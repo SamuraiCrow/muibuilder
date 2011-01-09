@@ -26,13 +26,9 @@
 struct LibraryHeader
 {
   struct Library          libBase;
-  // FIXME: do we need these elements?
   struct Library          *sysBase;
   BPTR                    segList;
   struct SignalSemaphore  libSem;
-  APTR                    pool;
-  struct SignalSemaphore  poolSem;
-  ULONG                   flags;
 };
 
 /***************************************************************************/

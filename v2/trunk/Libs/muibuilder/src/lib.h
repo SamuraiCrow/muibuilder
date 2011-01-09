@@ -30,8 +30,6 @@
 #include <proto/dos.h>
 #include <proto/utility.h>
 
-//#include <libraries/muibuilder.h>
-
 #include <string.h>
 #include <stdlib.h>
 

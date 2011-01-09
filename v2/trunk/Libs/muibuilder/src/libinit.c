@@ -522,12 +522,8 @@ static struct LibraryHeader * LIBFUNC LibInit(REG(d0, struct LibraryHeader *base
 
     memset(&base->libSem, 0, sizeof(base->libSem));
     InitSemaphore(&base->libSem);
-    memset(&base->poolSem, 0, sizeof(base->poolSem));
-    InitSemaphore(&base->poolSem);
 
     base->sysBase = (APTR)SysBase;
-    base->pool = NULL;
-    base->flags = 0;
 
     // protect access to initBase()
     ObtainSemaphore(&base->libSem);
