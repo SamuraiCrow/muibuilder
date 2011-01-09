@@ -24,7 +24,7 @@
 ***************************************************************************/
 
 /* Prototypes */
-#include <proto/alib.h>
+#include <clib/alib_protos.h>
 #include <proto/exec.h>
 #include <proto/dos.h>
 #include <proto/muibuilder.h>
@@ -46,7 +46,7 @@
 char *version = "$VER: GenCodeC 2.3 (04.01.2011)";
 
 struct Library *MUIBBase = NULL;
-struct Library *DOSBase = NULL;
+struct DosLibrary *DOSBase = NULL;
 
 /* Global variables */
 ULONG varnb;                    /* number of variables */
@@ -87,7 +87,7 @@ static void End(void)
     if (MUIBBase)
         CloseLibrary(MUIBBase);
     if (DOSBase)
-        CloseLibrary(DOSBase);
+        CloseLibrary((struct Library *)DOSBase);
 }
 
 static void Indent(int nb)
@@ -151,7 +151,7 @@ static void WriteDeclarations(int vartype)
                 case TYPEVAR_TABSTRING:
                     fprintf
                         (file,
-                         "\t%s\t%s[%d];\n", typename, varname, size + 1);
+                         "\t%s\t%s[%u];\n", typename, varname, size + 1);
                     break;
                 case TYPEVAR_IDENT:
                     fprintf(file, "#define %s %d\n", varname, nb_ident++);
@@ -505,7 +505,7 @@ static void WriteCode(void)
                 }
                 break;
             default:
-                printf("Type = %d\n", type);
+                printf("Type = %u\n", type);
                 printf
                     ("ERROR !!!!! THERE IS A PROBLEM WITH THIS FILE !!!\n");
                 End();
@@ -674,7 +674,7 @@ static void WriteNotify(void)
                     fprintf(file, "\n");
                 break;
             default:
-                printf("Type = %d\n", type);
+                printf("Type = %u\n", type);
                 printf
                     ("ERROR !!!!! THERE IS A PROBLEM WITH THIS FILE !!!\n");
                 End();
@@ -927,7 +927,7 @@ int main(void)
     MUIBBase = OpenLibrary("muibuilder.library", 0);
 
     /* Open Dos Library */
-    DOSBase = OpenLibrary("dos.library", 0);
+    DOSBase = (struct DosLibrary *)OpenLibrary("dos.library", 0);
 
     /* exit if it can't open */
     if ((!MUIBBase) || (!DOSBase))

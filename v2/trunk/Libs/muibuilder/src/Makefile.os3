@@ -1,6 +1,6 @@
-CC = i386-aros-gcc
-CFLAGS = -Wall -g -Wno-pointer-sign  -I../../../include
-LDFLAGS = -g -lrom -nostartfiles
+CC = m68k-amigaos-gcc
+CFLAGS = -Wall -g -noixemul -I../../../include
+LDFLAGS = -g -nostartfiles -noixemul
 EXE = ../../muibuilder.library
 RM = rm -f
 OBJS = libinit.o functions.o

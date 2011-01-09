@@ -1,6 +1,6 @@
-CC = i386-aros-gcc
-CFLAGS = -g -Wall -Wno-pointer-sign -I../../../include
-LDFLAGS = -g
+CC      = m68k-amigaos-gcc
+CFLAGS = -g -Wall -noixemul -I../../../include
+LDFLAGS = -g -noixemul
 EXE = ../../GenCodeC
 OBJS = GenCodeC.o file.o
 RM = rm -f

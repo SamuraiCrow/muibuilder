@@ -168,6 +168,11 @@ asm(".text                    \n\
      moveq #0,d0              \n\
      rts");
 #endif
+#else
+int _main(void)
+{
+  return RETURN_FAIL;
+}
 #endif
 
 static LONG LIBFUNC LibNull(VOID)

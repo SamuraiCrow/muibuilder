@@ -24,7 +24,7 @@
 ***************************************************************************/
 
 /* Prototypes */
-#include <proto/alib.h>
+#include <clib/alib_protos.h>
 #include <proto/exec.h>
 #include <proto/dos.h>
 #include <proto/utility.h>
@@ -71,14 +71,14 @@ int varnum = 0;
 /* TRUE if MB_Open was successful */
 BOOL rights = FALSE;
 
-struct Library *DOSBase;
-struct Library *UtilityBase;
+struct DosLibrary *DOSBase;
+struct UtilityBase *UtilityBase;
 
 ULONG initBase(struct LibraryHeader *lib)
 {
     BOOL retval = FALSE;
-    DOSBase = OpenLibrary("dos.library", 0);
-    UtilityBase = OpenLibrary("utility.library", 0);
+    DOSBase = (struct DosLibrary *)OpenLibrary("dos.library", 0);
+    UtilityBase = (struct UtilityBase *)OpenLibrary("utility.library", 0);
     if (DOSBase && UtilityBase)
     {
         retval = TRUE;
@@ -88,8 +88,8 @@ ULONG initBase(struct LibraryHeader *lib)
 
 ULONG freeBase(struct LibraryHeader * lib)
 {
-    CloseLibrary(DOSBase);
-    CloseLibrary(UtilityBase);
+    CloseLibrary((struct Library *)DOSBase);
+    CloseLibrary((struct Library *)UtilityBase);
     return TRUE;
 }
 
