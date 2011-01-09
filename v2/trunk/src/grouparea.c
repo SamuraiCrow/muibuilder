@@ -61,7 +61,7 @@ void ValidateArea(struct ObjGR_AreaGroup *Obj, area *Area)
     get(Obj->CH_Phantom, MUIA_Selected, &active);
     Area->Phantom = (active == 1);
     if (Area->Background > MUII_SelectedBack)
-        Area->Background = Area->Background + 120;
+        Area->Background += 120;
 }
 
 struct ObjGR_AreaGroup *CreateGR_AreaGroup(area *Area, BOOL InputMode,

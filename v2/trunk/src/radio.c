@@ -124,7 +124,8 @@ BOOL NewRadio(radio *radio_aux, BOOL new)
     APTR STR_entry, STR_label;
     APTR lv_entries;
     APTR label_aux;
-    ULONG signal, active;
+    ULONG signal;
+    LONG active;
     BOOL running = TRUE;
     BOOL result = FALSE;
     BOOL dbclick = FALSE;

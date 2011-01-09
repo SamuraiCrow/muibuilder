@@ -45,7 +45,7 @@ void InitMenu(menu *menu_aux)
     menu_aux->notifysource = create();
 }
 
-APTR LoadMenu(FILE *fichier, APTR father, int version, int id)
+APTR LoadMenu(FILE *fichier, APTR father, UNUSED int version, int id)
 {
     int i;
     menu *menu_aux, *tmp_menu;
@@ -142,7 +142,7 @@ menu *CreateMenu(BOOL generated)
 }
 
 //LONG MenuDisplayFunc(char **array __asm("a2"), menu* menu_aux __asm("a1"))
-LONG MenuDisplayFunc(struct Hook *hook, char **array, menu *menu_aux)
+LONG MenuDisplayFunc(UNUSED struct Hook *hook, char **array, menu *menu_aux)
 {
     static char buffer[10], buffer2[150];
     menu *aux;
@@ -291,7 +291,7 @@ int DisplayMenuEntry(APTR list, menu *menu_aux, int position)
     return (pos);
 }
 
-BOOL NewMenu(menu *menu_aux, BOOL new)
+BOOL NewMenu(menu *menu_aux, UNUSED BOOL new)
 {
     APTR WI_Menu, TX_label_1, CH_Check, CH_enable;
     APTR CH_CheckState, CH_Toggle, STR_ShortCut;
@@ -307,7 +307,8 @@ BOOL NewMenu(menu *menu_aux, BOOL new)
     APTR obj_aux18, obj_aux19, obj_aux20, obj_aux21;
     BOOL result = FALSE;
     BOOL running = TRUE;
-    ULONG signal, active;
+    ULONG signal;
+    LONG active;
     CONST_STRPTR aux;
     menu *tmp_menu, *father, *tmp_menu2;
     int action = 0;

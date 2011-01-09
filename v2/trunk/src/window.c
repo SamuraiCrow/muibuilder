@@ -441,7 +441,7 @@ void ShowObject(APTR lv_group)
 
 //__asm __saveds LONG DisplayTreeFunc( register __a2 char **array, register __a1 object* obj )
 //DisplayTreeFunc(char **array __asm("a2"), object *obj __asm("a1"))
-LONG DisplayTreeFunc(struct Hook *hook, char **array, object *obj)
+LONG DisplayTreeFunc(UNUSED struct Hook *hook, char **array, object *obj)
 {
     static char buffer[10], buffer2[82];
     static char buffer3[2], buffer4[2];

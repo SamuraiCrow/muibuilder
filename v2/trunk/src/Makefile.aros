@@ -1,6 +1,6 @@
 CC      = i386-aros-gcc
-CFLAGS  = -g -Wall -Wno-parentheses -Wno-pointer-sign \
-          -DMUI_OBSOLETE
+CFLAGS  = -g -Wall -Wextra -Wno-parentheses -Wno-pointer-sign \
+          -DMUI_OBSOLETE -I../include
 LDFLAGS = -g -lmui
 EXE     = ../MUIBuilder
 RM      = rm -f

@@ -51,7 +51,7 @@
 /* Locale */
 #include "MUIBuilder_cat.h"
 
-#include <exec/memory.h>
+#include "SDI_compiler.h"
 
 /********************************/
 /* Propre au programme lui-meme */

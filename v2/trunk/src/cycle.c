@@ -102,7 +102,7 @@ BOOL NewCycle(cycle *cycle_aux, BOOL new)
     APTR lv_entries;
     APTR label_aux;
     ULONG signal;
-    ULONG active;
+    LONG active;
     BOOL running = TRUE;
     BOOL result = FALSE;
     BOOL dbclick = FALSE;

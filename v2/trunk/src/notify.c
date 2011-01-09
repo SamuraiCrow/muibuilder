@@ -178,7 +178,7 @@ LONG Position(APTR obj, APTR list)
 
 //__asm __saveds LONG DisplayFunc( register __a2 char **array, register __a1 object* obj )
 //LONG DisplayFunc(char **array __asm("a2"), object *obj __asm("a1"))
-LONG DisplayFunc(struct Hook *hook, char **array, object *obj)
+LONG DisplayFunc(UNUSED struct Hook *hook, char **array, object *obj)
 {
     static char buffer[10], buffer2[82];
     window *win_aux;
@@ -375,7 +375,7 @@ BOOL NotifyExist(object *obj, object *obj_dest, int src_type,
     return (result);
 }
 
-BOOL AddArgument(APTR obj, event *evt, int type[])
+BOOL AddArgument(UNUSED APTR obj, event *evt, int type[])
 {
     BOOL result = TRUE;
     object *obj_aux;

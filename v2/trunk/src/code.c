@@ -1001,7 +1001,7 @@ void CodeArea(FILE *fichier, object *obj, area *Area,
               BOOL Phantom, BOOL Weight, BOOL Background,
               BOOL Frame, BOOL key, BOOL TitleFrame)
 {
-    int i;
+    unsigned i;
 
     if ((Hide) && (Area->Hide))
     {
@@ -2839,7 +2839,7 @@ void GenerateCodeObject(APTR obj_aux)
     }
 }
 
-void GenerateCode(queue *windows)
+void GenerateCode(UNUSED queue *windows)
 {
     FILE *fichier;
     char buffer[512];

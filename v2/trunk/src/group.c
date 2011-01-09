@@ -190,7 +190,8 @@ BOOL NewGroup(group *group_aux, int root, BOOL new)
         STR_entry;
     BOOL running = TRUE;
     BOOL result = FALSE;
-    ULONG signal, active;
+    ULONG signal;
+    LONG active;
     int i, n;
     CONST_STRPTR aux;
     char *label_aux;

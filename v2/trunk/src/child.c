@@ -696,7 +696,7 @@ APTR ImagesWithoutText(char *ImageNames[], BOOL new)
     return (result);
 }
 
-APTR NewChild(APTR obj, BOOL new)
+APTR NewChild(UNUSED APTR obj, BOOL new)
 {
     APTR WI_Objects;
 

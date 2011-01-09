@@ -147,7 +147,8 @@ APTR FindArgument(char *chaine)
 BOOL GetMUIarg(object *obj_aux, APTR * stringptr, char *stringname,
                queue *list, BOOL old, CONST_STRPTR title)
 {
-    ULONG signal, active;
+    ULONG signal;
+    LONG active;
     BOOL running = TRUE;
     APTR WI_MUIarg, LV_labels, BT_ok, BT_cancel;
     APTR BT_remove, STR_add, TX_Text;

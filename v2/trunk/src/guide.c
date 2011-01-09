@@ -422,7 +422,7 @@ void Guide()
     char buffer[128];
     window *win_aux;
     object *obj_aux;
-    ULONG active;
+    LONG active;
     int i;
     char name[255];
 

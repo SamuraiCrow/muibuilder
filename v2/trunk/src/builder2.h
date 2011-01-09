@@ -48,8 +48,7 @@
 /* locale */
 #include "MUIBuilder_cat.h"
 
-/* memory */
-#include <exec/memory.h>
+#include "SDI_compiler.h"
 
 #include "queue.h"
 #include "file.h"
@@ -241,7 +240,7 @@ typedef struct area1
     BOOL InputMode;
     BOOL Phantom;
     int Weight;
-    int Background;
+    unsigned Background;
     int Frame;
     char key;
     char TitleFrame[80];
