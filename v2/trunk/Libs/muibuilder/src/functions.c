@@ -72,13 +72,24 @@ int varnum = 0;
 BOOL rights = FALSE;
 
 struct DosLibrary *DOSBase;
-struct UtilityBase *UtilityBase;
+
+#ifdef __AROS__
+struct UtilityBase *UtilityBase = NULL;
+#else
+struct UtilityBase *UtilityBase = NULL;
+struct UtilityBase *__UtilityBase = NULL; // required by clib2 & libnix
+#endif
 
 ULONG initBase(struct LibraryHeader *lib)
 {
     BOOL retval = FALSE;
     DOSBase = (struct DosLibrary *)OpenLibrary("dos.library", 0);
     UtilityBase = (struct UtilityBase *)OpenLibrary("utility.library", 0);
+
+    #if !defined(__NEWLIB__) && !defined(__AROS__)
+    __UtilityBase = (APTR)UtilityBase;
+    #endif
+
     if (DOSBase && UtilityBase)
     {
         retval = TRUE;

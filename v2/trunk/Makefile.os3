@@ -1,4 +1,4 @@
-CC      = m68k-amigaos-gcc
+CC=m68k-amigaos-gcc
 RELEASEDIR=../muibuilder.os3
 RM=rm -f
 MKDIR=mkdir
@@ -8,19 +8,19 @@ STRIP=strip --strip-unneeded --remove-section .comment
 .PHONY : all
 all:
 	$(MAKE) -f Makefile.os3 -C src
-	#$(MAKE) -f Makefile.os3 -C Libs/muibuilder/src
+	$(MAKE) -f Makefile.os3 -C Libs/muibuilder/src
 	$(MAKE) -f Makefile.os3 -C Modules/C/src
 
 .PHONY : clean
 clean:
 	$(MAKE) -f Makefile.os3 clean -C src
-	#$(MAKE) -f Makefile.os3 clean -C Libs/muibuilder/src
+	$(MAKE) -f Makefile.os3 clean -C Libs/muibuilder/src
 	$(MAKE) -f Makefile.os3 clean -C Modules/C/src
 
 .PHONY : distclean
 distclean:
 	$(MAKE) -f Makefile.os3 distclean -C src
-	#$(MAKE) -f Makefile.os3 distclean -C Libs/muibuilder/src
+	$(MAKE) -f Makefile.os3 distclean -C Libs/muibuilder/src
 	$(MAKE) -f Makefile.os3 distclean -C Modules/C/src
 
 .PHONY : release
@@ -30,8 +30,8 @@ release:
 	$(CP) COPYING COPYING.LIB ChangeLog History.info MUIBuilder.info BuilderSave.info MUIBuilder Documentations.info History ReadMe ReadMe.info TODO $(RELEASEDIR)
 	$(MKDIR) $(RELEASEDIR)/BuilderSave
 	$(CP) BuilderSave/*.MUIB* $(RELEASEDIR)/BuilderSave
-	#$(MKDIR) $(RELEASEDIR)/Libs
-	#$(CP) Libs/muibuilder.library $(RELEASEDIR)/Libs
+	$(MKDIR) $(RELEASEDIR)/Libs
+	$(CP) Libs/muibuilder.library $(RELEASEDIR)/Libs
 	$(MKDIR) $(RELEASEDIR)/Images
 	$(MKDIR) $(RELEASEDIR)/Images/Tobi_Small_8
 	$(CP) Images/Tobi_Small_8/*.iff $(RELEASEDIR)/Images/Tobi_Small_8
