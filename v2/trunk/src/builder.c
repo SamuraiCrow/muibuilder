@@ -32,13 +32,13 @@
 #include "builder.h"
 #include "muibuilder_rev.h"
 
-#if defined(__amigaos4__) 
-#define SYS_EDITOR "SYS:Tools/NotePad" 
-#elif defined(__AROS__) 
-#define SYS_EDITOR "SYS:Tools/Editor" 
-#else 
-#define SYS_EDITOR "C:Ed" 
-#endif 
+#if defined(__amigaos4__)
+#define SYS_EDITOR "SYS:Tools/NotePad"
+#elif defined(__AROS__)
+#define SYS_EDITOR "SYS:Tools/Editor"
+#else
+#define SYS_EDITOR "C:Ed"
+#endif
 
 APTR WI_current;
 APTR app, AppMenu;
@@ -63,9 +63,7 @@ BOOL modify = FALSE;
 struct Library *MUIMasterBase;
 //LONG __stack = 20000;
 
-/*************************/
-/* Init & Fail Functions */
-/*************************/
+/* Init & Fail Functions*/
 
 static VOID fail(APTR app, CONST_STRPTR str)
 {
@@ -944,36 +942,44 @@ int main(int argc, char *argv[])
         MUIA_Application_DiskObject, dobj = GetDiskObject(Icon),
         MUIA_Application_Menustrip, AppMenu = MenustripObject, End,
         SubWindow, WI_build = WindowObject,
-        MUIA_Window_Title, VERS,
-        MUIA_Window_ID, MAKE_ID('B', 'U', 'I', 'L'),
-        MUIA_Window_AppWindow, TRUE,
-        MUIA_Window_Menustrip, MUI_MakeObject(MUIO_MenustripNM, Menu),
-        WindowContents, VGroup,
-        Child, HGroup,
-        Child, ColGroup(2), GroupFrameT(GetMUIBuilderString(MSG_Windows)),
-        MUIA_Weight, 300,
-        Child, lv_window = ListviewObject,
-        MUIA_Listview_DoubleClick, TRUE,
-        MUIA_Listview_List, ListObject, InputListFrame, End,
+            MUIA_Window_Title, VERS,
+            MUIA_Window_ID, MAKE_ID('B', 'U', 'I', 'L'),
+            MUIA_Window_AppWindow, TRUE,
+            MUIA_Window_Menustrip, MUI_MakeObject(MUIO_MenustripNM, Menu),
+            WindowContents, VGroup,
+                Child, HGroup,
+                    Child, ColGroup(2),
+                        GroupFrameT(GetMUIBuilderString(MSG_Windows)),
+                        MUIA_Weight, 300,
+                        Child, lv_window = ListviewObject,
+                            MUIA_Listview_DoubleClick, TRUE,
+                            MUIA_Listview_List, ListObject,
+                                InputListFrame,
+                            End,
+                        End,
+                    End,
+                    Child, VGroup,
+                        GroupFrameT(GetMUIBuilderString(MSG_Creation)),
+                        Child, HVSpace,
+                        Child, bt_appli = MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_Appli)),
+                        Child, HVSpace,
+                        Child, bt_new = MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_NewWindow)),
+                        Child, HVSpace,
+                        Child, bt_edit = MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_EditWindow)),
+                        Child, HVSpace,
+                        Child, bt_delete = MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_Delete)),
+                        Child, HVSpace,
+                        Child, bt_view = MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_View)),
+                        Child, HVSpace,
+                        Child, bt_code = MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_Code)),
+                        Child, HVSpace,
+                        Child, bt_guide = MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_Guide)),
+                        Child, HVSpace,
+                    End,
+                End,
+            End,
         End,
-        End,
-        Child, VGroup, GroupFrameT(GetMUIBuilderString(MSG_Creation)),
-        Child, HVSpace,
-        Child, bt_appli =
-        MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_Appli)), Child,
-        HVSpace, Child, bt_new =
-        MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_NewWindow)),
-        Child, HVSpace, Child, bt_edit =
-        MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_EditWindow)),
-        Child, HVSpace, Child, bt_delete =
-        MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_Delete)),
-        Child, HVSpace, Child, bt_view =
-        MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_View)), Child,
-        HVSpace, Child, bt_code =
-        MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_Code)), Child,
-        HVSpace, Child, bt_guide =
-        MUI_MakeObject(MUIO_Button, GetMUIBuilderString(MSG_Guide)), Child,
-        HVSpace, End, End, End, End, End;
+    End;
     // *INDENT-ON*
 
     if (!app)
@@ -1026,9 +1032,7 @@ int main(int argc, char *argv[])
         }
     }
 
-        /***************************************/
-    /* Notifications associees aux boutons */
-        /***************************************/
+    /* Button notifications */
 
     DoMethod(bt_appli, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
              MUIM_Application_ReturnID, ID_APPLI);
@@ -1045,24 +1049,18 @@ int main(int argc, char *argv[])
     DoMethod(bt_guide, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
              MUIM_Application_ReturnID, ID_GUIDE);
 
-        /********************************************/
-    /* Notifications associees aux Double-Clics */
-        /********************************************/
+    /* Double-click notifications */
 
     DoMethod(lv_window, MUIM_Notify, MUIA_Listview_DoubleClick, TRUE, app,
              2, MUIM_Application_ReturnID, ID_DBCLICK);
 
-        /***************************************************************/
-    /* Notifications associees au gadget de fermeture des fenetres */
-        /***************************************************************/
+    /* Close window notification */
 
     DoMethod(WI_build, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2,
              MUIM_Application_ReturnID, ID_END);
 
 
-        /***************************************************************/
-    /* Chaine d'activation des gadgets                             */
-        /***************************************************************/
+    /* Cycle chain */
 
     DoMethod(WI_build, MUIM_Window_SetCycleChain, bt_appli, bt_new,
              bt_edit, bt_delete, bt_view, bt_code, bt_guide, lv_window,
@@ -1072,15 +1070,11 @@ int main(int argc, char *argv[])
              lv_window, 3, MUIM_CallHook, &AppMsgHook, MUIV_TriggerValue);
     DoMethod(app, MUIM_Application_Load, MUIV_Application_Load_ENV);
 
-        /*************************************************/
-    /* Ouverture de la fenetre principale de l'appli */
-        /*************************************************/
+    /* Open main window */
 
     set(WI_build, MUIA_Window_Open, TRUE);
 
-        /**********************************/
-    /* Boucle principale du programme */
-        /**********************************/
+    /* Main event handling */
 
     running = TRUE;
     while (running)

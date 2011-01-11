@@ -2804,9 +2804,11 @@ void GenerateCodeObject(APTR obj_aux)
         /* Variables initializations */
         if (fichier = fopen("T:MUIBuilder3.tmp", "w+"))
         {
-            /* les GenerateListInits doivent etre positionnes  */
-            /* obligatoirement apres les GenerateListLabels    */
-            /* car ils repositionnent les elements 'non generes */
+            /*
+                les GenerateListInits doivent etre positionnes
+                obligatoirement apres les GenerateListLabels
+                car ils repositionnent les elements 'non generes
+            */
             GenerateInitLabels(obj_aux, fichier);
             GenerateExternalInits(fichier);
             GenerateListInits(fichier, application.Functions);
@@ -3113,11 +3115,7 @@ void Code()
 
     set(app, MUIA_Application_Sleep, TRUE);
 
-  /**************************************************************/
-    /* Generation des listes de variables a partir de             */
-    /* l'arborescence de la GUI                                   */
-  /**************************************************************/
-
+    /* Create variables lists */
     genlabels = create();
     delete_all(labels);
     CreateLabels(&application, NULL);
