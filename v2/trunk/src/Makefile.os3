@@ -92,7 +92,7 @@ label.o: label.c builder.h MUIBuilder_cat.h ../include/SDI_compiler.h \
   queue.h file.h grouparea.h
 listview.o: listview.c builder.h MUIBuilder_cat.h \
   ../include/SDI_compiler.h queue.h file.h grouparea.h
-load.o: load.c builder2.h MUIBuilder_cat.h ../include/SDI_compiler.h \
+load.o: load.c MUIBuilder_cat.h ../include/SDI_compiler.h \
   queue.h file.h grouparea.h
 locale.o: locale.c notify.h builder.h MUIBuilder_cat.h \
   ../include/SDI_compiler.h queue.h file.h grouparea.h notifyconstants.h

@@ -23,7 +23,7 @@
 
 ***************************************************************************/
 
-#include "builder2.h"
+#include "builder.h"
 
 window *current_window;
 char aux[256];
