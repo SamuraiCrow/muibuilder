@@ -87,7 +87,7 @@ static void End(void)
     if (MUIBBase)
         CloseLibrary(MUIBBase);
     if (DOSBase)
-        CloseLibrary((struct Library *)DOSBase);
+        CloseLibrary((struct Library *) DOSBase);
 }
 
 static void Indent(int nb)
@@ -222,7 +222,8 @@ static void WriteInitialisations(int vartype)
                         else
                             fprintf(file, "\tobject->%s = %s(%s);\n", name,
                                     GetMBString, inits);
-                    } else
+                    }
+                    else
                         fprintf(file, "\tobject->%s = NULL;\n", name);
                     break;
                 case TYPEVAR_HOOK:
@@ -325,7 +326,8 @@ static void WriteCode(void)
                     if (type != TC_END_FUNCTION)
                         fprintf(file, ", ");
                     IndentFunction = FALSE;
-                } else
+                }
+                else
                     fprintf(file, ",\n");
                 break;
             case TC_LOCALESTRING:
@@ -337,7 +339,8 @@ static void WriteCode(void)
                     if (type != TC_END_FUNCTION)
                         fprintf(file, ", ");
                     IndentFunction = FALSE;
-                } else
+                }
+                else
                     fprintf(file, ",\n");
                 break;
             case TC_LOCALECHAR:
@@ -349,7 +352,8 @@ static void WriteCode(void)
                     if (type != TC_END_FUNCTION)
                         fprintf(file, ", ");
                     IndentFunction = FALSE;
-                } else
+                }
+                else
                     fprintf(file, ",\n");
                 break;
             case TC_INTEGER:
@@ -361,7 +365,8 @@ static void WriteCode(void)
                     if (type != TC_END_FUNCTION)
                         fprintf(file, ", ");
                     IndentFunction = FALSE;
-                } else
+                }
+                else
                     fprintf(file, ",\n");
                 break;
             case TC_CHAR:
@@ -373,7 +378,8 @@ static void WriteCode(void)
                     if (type != TC_END_FUNCTION)
                         fprintf(file, ", ");
                     IndentFunction = FALSE;
-                } else
+                }
+                else
                     fprintf(file, ",\n");
                 break;
             case TC_VAR_AFFECT:
@@ -413,7 +419,8 @@ static void WriteCode(void)
                         fprintf(file, "),");
                     else
                         fprintf(file, ")");
-                } else
+                }
+                else
                 {
                     if (obj_function)
                         fprintf(file, ");\n\n");
@@ -438,7 +445,8 @@ static void WriteCode(void)
                         fprintf(file, ", ");
                         IndentFunction = FALSE;
                     }
-                } else
+                }
+                else
                     fprintf(file, ",\n");
                 break;
             case TC_MUIARG:
@@ -454,7 +462,8 @@ static void WriteCode(void)
                         fprintf(file, ", ");
                         IndentFunction = FALSE;
                     }
-                } else
+                }
+                else
                 {
                     fprintf(file, ",\n");
                     IndentFunction = TRUE;
@@ -475,7 +484,8 @@ static void WriteCode(void)
                             fprintf(file, "%s,", MUIStrings[name]);
                         else
                             fprintf(file, "%s", MUIStrings[name]);
-                    } else
+                    }
+                    else
                     {
                         fprintf(file, "%s;\n\n", MUIStrings[name]);
                     }
@@ -498,7 +508,8 @@ static void WriteCode(void)
                         fprintf(file, ", ");
                         IndentFunction = FALSE;
                     }
-                } else
+                }
+                else
                 {
                     fprintf(file, ",\n");
                     IndentFunction = TRUE;
@@ -737,7 +748,8 @@ static void WriteHeaderFile(void)
         AddPart(buffer, "H-Header", 512);
         sprintf(buffer2, "copy \"%s\" \"%s\"", buffer, HeaderFile);
         Execute(buffer2, 0, 0);
-    } else
+    }
+    else
         DeleteFile(HeaderFile);
     file = fopen(HeaderFile, "a+");
     if (file)
@@ -778,7 +790,8 @@ static void WriteGUIFile(void)
         AddPart(buffer, "C-Header", 512);
         sprintf(buffer2, "copy \"%s\" \"%s\"", buffer, GUIFile);
         Execute(buffer2, 0, 0);
-    } else
+    }
+    else
         DeleteFile(GUIFile);
     if ((file = fopen(GUIFile, "a+")) != NULL)
     {
@@ -841,11 +854,13 @@ static void WriteGUIFile(void)
             fprintf(file, "\n\treturn object;\n}\n");
             fprintf(file, "\nvoid Dispose%s(struct Obj%s * object)\n{\n",
                     name, name);
-            fprintf(file, "\tMUI_DisposeObject(object->%s);\n", name);
-            fprintf(file, "\tFreeVec(object);\n}\n");
+            fprintf(file, "\tif (object)\n\t{\n");
+            fprintf(file, "\t\tMUI_DisposeObject(object->%s);\n", name);
+            fprintf(file, "\t\tFreeVec(object);\n\t}\n}\n");
         }
         fclose(file);
-    } else
+    }
+    else
         printf("Unable to open GUI-File !\n");
 }
 
@@ -896,7 +911,8 @@ static BOOL WriteExternalFile(void)
                     if (adr_file)
                         bool_aux = (strstr(adr_file, varname) != NULL);
                     if (!bool_aux)
-                        fprintf(file, "extern void %s( Object* );\n",
+                        fprintf(file,
+                                "extern void %s(struct Hook *, Object *);\n",
                                 varname);
                     break;
             }
@@ -927,7 +943,7 @@ int main(void)
     MUIBBase = OpenLibrary("muibuilder.library", 0);
 
     /* Open Dos Library */
-    DOSBase = (struct DosLibrary *)OpenLibrary("dos.library", 0);
+    DOSBase = (struct DosLibrary *) OpenLibrary("dos.library", 0);
 
     /* exit if it can't open */
     if ((!MUIBBase) || (!DOSBase))
@@ -939,7 +955,7 @@ int main(void)
     /* exit if we can't init the Library */
     if (!MB_Open())
     {
-        printf("Unable to Get Temporary files !\n");
+        printf("Unable to get temporary files !\n");
         End();
         return 20;
     }
