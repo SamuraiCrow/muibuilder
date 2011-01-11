@@ -195,6 +195,7 @@ void InitMenuList(APTR list, menu *menu_aux)
         case TY_SUBMENU:
             DoMethod(list, MUIM_List_Insert, &menu_aux, 1,
                      MUIV_List_Insert_Bottom);
+            // FIXME: intentionally falltrough?
         case TY_MENU:
             if (menu_aux->fold)
                 for (i = 0; i < menu_aux->childs->nb_elements; i++)

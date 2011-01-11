@@ -1364,6 +1364,7 @@ BOOL NewWindow(window *win_aux, BOOL new, object *obj2search)
                 set(testwin, MUIA_Window_Open, FALSE);
                 if (new)
                     delete_nth(windows, windows->nb_elements - 1);
+                // FIXME: intentionally falltrough?
             case MUIV_Application_ReturnID_Quit:
                 running = FALSE;
                 break;

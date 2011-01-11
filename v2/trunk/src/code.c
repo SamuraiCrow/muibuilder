@@ -754,6 +754,7 @@ int NumLabel(APTR obj)
                 if ((listview_aux->type == 1)
                     && (strlen(listview_aux->content) > 0))
                     nb++;
+                break;
             case TY_CHECK:
                 check_aux = (check *) obj1;
                 if (check_aux->title_exist)
