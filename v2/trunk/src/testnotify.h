@@ -26,7 +26,7 @@
 #ifndef TESTNOTIFY_H
 #define TESTNOTIFY_H
 
-#include "builder2.h"
+#include "builder.h"
 #include "notifyconstants.h"
 
 /* constantes */

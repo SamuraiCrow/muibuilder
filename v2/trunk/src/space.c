@@ -27,7 +27,7 @@
 #undef USE_INLINE_STDARG
 #endif
 
-#include "builder2.h"
+#include "builder.h"
 
 void InitSpace(space *space_aux)
 {

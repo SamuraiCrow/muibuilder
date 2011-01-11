@@ -23,7 +23,7 @@
 
 ***************************************************************************/
 
-#include "builder2.h"
+#include "builder.h"
 #include <exec/memory.h>
 
 int nb_modules = 0;

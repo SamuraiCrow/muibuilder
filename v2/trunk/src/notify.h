@@ -26,7 +26,7 @@
 #ifndef NOTIFY_H
 #define NOTIFY_H
 
-#include "builder2.h"
+#include "builder.h"
 #include "notifyconstants.h"
 
 extern BOOL GetConstant(event *, int, BOOL);

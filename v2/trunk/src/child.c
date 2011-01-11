@@ -27,7 +27,7 @@
 #undef USE_INLINE_STDARG
 #endif
 
-#include "builder2.h"
+#include "builder.h"
 
 #if __AROS__
 #define MB_BE2WORD(x) AROS_BE2WORD(x)
@@ -379,7 +379,7 @@ APTR ImagesWithText(char *ImageNames[], BOOL new)
     DoMethod(bt_gauge, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
              MUIM_Application_ReturnID, ID_GAUGE);
     DoMethod(bt_prop, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
-             MUIM_Application_ReturnID, ID_PROP);
+             MUIM_Application_ReturnID, ID_PROPG);
     DoMethod(bt_cycle, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
              MUIM_Application_ReturnID, ID_CYCLE);
     DoMethod(bt_radio, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
@@ -671,7 +671,7 @@ APTR ImagesWithoutText(char *ImageNames[], BOOL new)
     DoMethod(bt_gauge, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
              MUIM_Application_ReturnID, ID_GAUGE);
     DoMethod(bt_prop, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
-             MUIM_Application_ReturnID, ID_PROP);
+             MUIM_Application_ReturnID, ID_PROPG);
     DoMethod(bt_cycle, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
              MUIM_Application_ReturnID, ID_CYCLE);
     DoMethod(bt_radio, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
@@ -1188,7 +1188,7 @@ APTR NewChild(UNUSED APTR obj, BOOL new)
                     WI_current = WI_Objects;
                 }
                 break;
-            case ID_PROP:
+            case ID_PROPG:
                 prop_aux =
                     AllocVec(sizeof(prop), MEMF_PUBLIC | MEMF_CLEAR);
                 if (prop_aux == NULL)

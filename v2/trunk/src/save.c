@@ -24,7 +24,7 @@
 ***************************************************************************/
 
 #include <dos/dostags.h>
-#include "builder2.h"
+#include "builder.h"
 
 char savefile[256];
 char savedir[256];

@@ -28,7 +28,7 @@
 #endif
 
 #include <dos/dostags.h>
-#include "builder2.h"
+#include "builder.h"
 #include "muib_file.h"
 #include "codenotify.h"
 
@@ -3095,7 +3095,7 @@ void Code()
     DoMethod(WI_code, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, app, 2,
              MUIM_Application_ReturnID, ID_END);
     DoMethod(bt_catalog, MUIM_Notify, MUIA_Pressed, FALSE, app, 2,
-             MUIM_Application_ReturnID, ID_CAT);
+             MUIM_Application_ReturnID, ID_CATALOG);
     DoMethod(STR_GetString, MUIM_Notify, MUIA_String_Acknowledge,
              MUIV_EveryTime, WI_code, 3, MUIM_Set,
              MUIA_Window_ActiveObject, STR_filename);
@@ -3258,7 +3258,7 @@ void Code()
                 else
                     ErrorMessage(GetMUIBuilderString(MSG_SelectLabel));
                 break;
-            case ID_CAT:
+            case ID_CATALOG:
                 strcpy(catprepend, GetStr(STR_CatalogPrepend));
                 strcpy(catfile, GetStr(STR_catalog));
                 CreateCatalog();

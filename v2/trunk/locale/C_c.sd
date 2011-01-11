@@ -60,7 +60,7 @@ void Close%bCatalog(void)
 CONST_STRPTR Get%bString(LONG strnum)
 { 
   STRPTR defaultstr = NULL;
-  LONG i;
+  ULONG i;
 
   for (i = 0;  i < sizeof(%b_Array)/sizeof(struct FC_Type);  i++)
   {

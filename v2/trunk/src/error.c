@@ -23,7 +23,7 @@
 
 ***************************************************************************/
 
-#include "builder2.h"
+#include "builder.h"
 
 BOOL RequestMessage(CONST_STRPTR message)
 {

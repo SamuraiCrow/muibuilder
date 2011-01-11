@@ -27,7 +27,7 @@
 #undef USE_INLINE_STDARG
 #endif
 
-#include "builder2.h"
+#include "builder.h"
 #include <exec/memory.h>
 
 void InitArea(area *Area)

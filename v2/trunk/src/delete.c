@@ -23,7 +23,7 @@
 
 ***************************************************************************/
 
-#include "builder2.h"
+#include "builder.h"
 
 void DeleteLabel(queue *file, APTR lab_obj)
 {

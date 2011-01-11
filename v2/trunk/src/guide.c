@@ -28,7 +28,7 @@
 #endif
 
 #include <dos/dostags.h>
-#include "builder2.h"
+#include "builder.h"
 
 char guidenamedir[256];
 char filename[512];

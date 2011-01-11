@@ -23,7 +23,7 @@
 
 ***************************************************************************/
 
-#include "builder2.h"
+#include "builder.h"
 
 BOOL LoadRequester(CONST_STRPTR title, char *dir, char *file)
 {

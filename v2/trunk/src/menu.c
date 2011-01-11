@@ -27,7 +27,7 @@
 #undef USE_INLINE_STDARG
 #endif
 
-#include "builder2.h"
+#include "builder.h"
 #include <ctype.h>
 
 void InitMenu(menu *menu_aux)
