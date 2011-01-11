@@ -1,6 +1,6 @@
 CC      = m68k-amigaos-gcc
 CFLAGS  = -g -Wall -noixemul -Wno-parentheses \
-          -DMUI_OBSOLETE -DNO_INLINE_STDARG
+          -DMUI_OBSOLETE -DNO_INLINE_STDARG -I../include
 LDFLAGS = -g -noixemul
 EXE     = ../MUIBuilder
 RM      = rm -f
