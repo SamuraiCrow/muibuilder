@@ -32,6 +32,14 @@
 #include "builder.h"
 #include "muibuilder_rev.h"
 
+#if defined(__amigaos4__) 
+#define SYS_EDITOR "SYS:Tools/NotePad" 
+#elif defined(__AROS__) 
+#define SYS_EDITOR "SYS:Tools/Editor" 
+#else 
+#define SYS_EDITOR "C:Ed" 
+#endif 
+
 APTR WI_current;
 APTR app, AppMenu;
 queue *windows;
@@ -899,7 +907,7 @@ int main(int argc, char *argv[])
         MakeTest = FALSE;
         strcpy(config.langage, "C");
         config.icons = TRUE;
-        strcpy(config.editor, "ed");
+        strcpy(config.editor, SYS_EDITOR);
         get_string[0] = '\0';
         config.depth = 1;
         config.tree_char = ' ';
