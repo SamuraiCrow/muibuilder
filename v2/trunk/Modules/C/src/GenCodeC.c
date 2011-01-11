@@ -69,16 +69,16 @@ char Main[512];
 
 /* variable types */
 char *STR_type[] = {
-    "BOOL",
-    "int",
-    "char *",
-    "char *",
-    "APTR",
-    "",
-    "",
-    "",
-    "APTR",
-    "APTR"
+    "BOOL",             // TYPEVAR_BOOL
+    "int",              // TYPEVAR_INT
+    "CONST_STRPTR",     // TYPEVAR_STRING
+    "CONST_STRPTR",     // TYPEVAR_TABSTRING
+    "APTR",             // TYPEVAR_PTR
+    "",                 // TYPEVAR_HOOK
+    "",                 // TYPEVAR_IDENT
+    "",                 // TYPEVAR_EXTERNAL
+    "APTR",             // TYPEVAR_LOCAL_PTR
+    "APTR"              // TYPEVAR_EXTERNAL_PTR
 };
 
 static void End(void)
