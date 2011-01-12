@@ -146,6 +146,7 @@ void LinkNotify(int depart)
 
 window *ParentWindow(APTR obj)
 {
+    // FIXME: I get crashes because obj == NULL
     object *obj_aux;
 
     obj_aux = obj;
