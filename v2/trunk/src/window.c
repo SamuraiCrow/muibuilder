@@ -441,7 +441,7 @@ void ShowObject(APTR lv_group)
 
 //__asm __saveds LONG DisplayTreeFunc( register __a2 char **array, register __a1 object* obj )
 //DisplayTreeFunc(char **array __asm("a2"), object *obj __asm("a1"))
-LONG DisplayTreeFunc(UNUSED struct Hook *hook, char **array, object *obj)
+HOOKPROTONH(DisplayTreeFunc, LONG, char **array, object *obj)
 {
     static char buffer[10], buffer2[82];
     static char buffer3[2], buffer4[2];
@@ -528,12 +528,7 @@ BOOL NewWindow(window *win_aux, BOOL new, object *obj2search)
     BOOL bool_aux;
     CONST_STRPTR registertitles[3];
 
-    static struct Hook DisplayHook = {
-        {NULL, NULL},
-        (HOOKFUNC) HookEntry,
-        (void *) DisplayTreeFunc,
-        NULL
-    };
+    MakeStaticHook(DisplayHook, DisplayTreeFunc);
 
     struct NewMenu Menu[] = {
         {NM_TITLE, "", "", 0, 0, (APTR) 0},

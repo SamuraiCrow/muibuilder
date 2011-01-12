@@ -49,6 +49,7 @@
 #include "MUIBuilder_cat.h"
 
 #include "SDI_compiler.h"
+#include "SDI_hook.h"
 
 #include "queue.h"
 #include "file.h"

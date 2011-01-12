@@ -142,7 +142,7 @@ menu *CreateMenu(BOOL generated)
 }
 
 //LONG MenuDisplayFunc(char **array __asm("a2"), menu* menu_aux __asm("a1"))
-LONG MenuDisplayFunc(UNUSED struct Hook *hook, char **array, menu *menu_aux)
+HOOKPROTONH(MenuDisplayFunc, LONG, char **array, menu* menu_aux)
 {
     static char buffer[10], buffer2[150];
     menu *aux;
@@ -315,12 +315,7 @@ BOOL NewMenu(menu *menu_aux, UNUSED BOOL new)
     int action = 0;
     int i, j, n;
 
-    static struct Hook MenuDisplayHook = {
-        {NULL, NULL},
-        (HOOKFUNC) HookEntry,
-        (void *) MenuDisplayFunc,
-        NULL
-    };
+    MakeStaticHook(MenuDisplayHook, MenuDisplayFunc);
 
     obj_aux1 =
         MUI_MakeObject(MUIO_BarTitle,

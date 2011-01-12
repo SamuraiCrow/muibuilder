@@ -403,7 +403,7 @@ void NewAppli(void)
 
 //SAVEDS ASM LONG StrObjFunc(REG(a2) Object *pop,REG(a1) Object *str)
 //BOOL StrObjFunc(Object *pop __asm("a2"), Object *str __asm("a1"))
-BOOL StrObjFunc(UNUSED struct Hook *hook, Object *pop, Object *str)
+HOOKPROTONH(StrObjFunc, BOOL, Object *pop, Object *str)
 {
     char *x, *s;
     int i;
@@ -429,7 +429,7 @@ BOOL StrObjFunc(UNUSED struct Hook *hook, Object *pop, Object *str)
 
 //SAVEDS ASM VOID ObjStrFunc(REG(a2) Object *pop,REG(a1) Object *str)
 //void ObjStrFunc(Object *pop __asm("a2"), Object *str __asm("a1"))
-void ObjStrFunc(UNUSED struct Hook *hook, Object *pop, Object *str)
+HOOKPROTONH(ObjStrFunc, void, Object *pop, Object *str)
 {
     char *x;
     DoMethod(pop, MUIM_List_GetEntry, MUIV_List_GetEntry_Active, &x);
@@ -481,10 +481,8 @@ void Config(void)
     char filename[256];
     CONST_STRPTR registertitle[4];
 
-    static const struct Hook StrObjHook =
-        { {NULL, NULL}, (HOOKFUNC) HookEntry, (VOID *) StrObjFunc, NULL };
-    static const struct Hook ObjStrHook =
-        { {NULL, NULL}, (HOOKFUNC) HookEntry, (VOID *) ObjStrFunc, NULL };
+    MakeStaticHook(StrObjHook, StrObjFunc);
+    MakeStaticHook(ObjStrHook, ObjStrFunc);
 
     APTR popup, plist;
 
@@ -728,7 +726,7 @@ void Config(void)
 
 //SAVEDS ASM LONG AppMsgFunc(REG(a2) APTR obj, REG(a1) struct AppMessage **x)
 //int AppMsgFunc(APTR obj __asm("a2"), struct AppMessage **x __asm("a1"))
-LONG AppMsgFunc(UNUSED struct Hook *hook, APTR obj, struct AppMessage **x)
+HOOKPROTONH(AppMsgFunc, LONG, APTR obj, struct AppMessage **x)
 {
     struct WBArg *ap;
     struct AppMessage *amsg = *x;
@@ -826,8 +824,7 @@ int main(int argc, char *argv[])
     struct WBStartup *WBMsg;
     BPTR lock;
 
-    static const struct Hook AppMsgHook =
-        { {NULL, NULL}, (HOOKFUNC) HookEntry, (VOID *) AppMsgFunc, NULL };
+    MakeStaticHook(AppMsgHook, AppMsgFunc);
 
     struct NewMenu Menu[] = {
         {NM_TITLE, "", "", 0, 0, (APTR) 0},

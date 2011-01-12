@@ -178,7 +178,7 @@ LONG Position(APTR obj, APTR list)
 
 //__asm __saveds LONG DisplayFunc( register __a2 char **array, register __a1 object* obj )
 //LONG DisplayFunc(char **array __asm("a2"), object *obj __asm("a1"))
-LONG DisplayFunc(UNUSED struct Hook *hook, char **array, object *obj)
+HOOKPROTONH(DisplayFunc, LONG, char **array, object *obj)
 {
     static char buffer[10], buffer2[82];
     window *win_aux;
@@ -493,12 +493,7 @@ BOOL CreateNotify(object *obj, window *win)
     char title[120];
     char description[240];
 
-    static struct Hook DisplayHook = {
-        {NULL, NULL},
-        (HOOKFUNC) HookEntry,
-        (void *) DisplayFunc,
-        NULL
-    };
+    MakeStaticHook(DisplayHook, DisplayFunc);
 
     sprintf(title, GetMUIBuilderString(MSG_Editing));
     strncat(title, obj->label, 120);
