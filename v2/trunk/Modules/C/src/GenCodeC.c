@@ -65,7 +65,7 @@ char HeaderFile[512];
 char GUIFile[512];
 char MBDir[512];
 char Externals[512];
-char Main[512];
+char MainFile[512];
 
 /* variable types */
 char *STR_type[] = {
@@ -228,7 +228,7 @@ static void WriteInitialisations(int vartype)
                     break;
                 case TYPEVAR_HOOK:
                     fprintf(file,
-                            "\tstatic const struct Hook %sHook = { { NULL,NULL }, HookEntry, (HOOKFUNC)%s, NULL };\n",
+                            "\tMakeStaticHook(%sHook, %s);\n",
                             name, name);
                     break;
                 default:
@@ -726,9 +726,9 @@ static void Init(void)
     strncpy(Externals, FileName, 512);
     strncat(Externals, "Extern", 512);
     add_extend(Externals, ".h");
-    strncpy(Main, FileName, 512);
-    strncat(Main, "Main", 512);
-    add_extend(Main, ".c");
+    strncpy(MainFile, FileName, 512);
+    strncat(MainFile, "Main", 512);
+    add_extend(MainFile, ".c");
 
     /* Get Current Directory Name */
     lock = Lock("PROGDIR:", ACCESS_READ);
@@ -798,9 +798,12 @@ static void WriteGUIFile(void)
         if (Env)
         {
             MB_GetVarInfo(0, MUIB_VarName, (IPTR) &name, TAG_END);
-            fprintf(file, "\n#include \"%s\"\n", FilePart(HeaderFile));
             if (ExternalExist)
-                fprintf(file, "#include \"%s\"\n\n", FilePart(Externals));
+            {
+                fprintf(file, "#include \"SDI_hook.h\"\n\n");
+                fprintf(file, "#include \"%s\"\n", FilePart(Externals));
+            }
+            fprintf(file, "#include \"%s\"\n\n", FilePart(HeaderFile));
             if (Locale)
             {
                 remove_extend(CatalogName);
@@ -912,7 +915,7 @@ static BOOL WriteExternalFile(void)
                         bool_aux = (strstr(adr_file, varname) != NULL);
                     if (!bool_aux)
                         fprintf(file,
-                                "extern void %s(struct Hook *, Object *);\n",
+                                "HOOKPROTONHNP(%s, void, Object *);\n",
                                 varname);
                     break;
             }
@@ -921,7 +924,9 @@ static BOOL WriteExternalFile(void)
     }
     if (adr_file)
         FreeVec(adr_file);
-    if ((TMPfile = Open(Externals, MODE_OLDFILE)) != NULL)      /* if the file is 0 bytes long : we remove it */
+    
+    /* if the file is 0 bytes long we remove it */
+    if ((TMPfile = Open(Externals, MODE_OLDFILE)) != NULL)
     {
         ExamineFH(TMPfile, Info);
         Close(TMPfile);
@@ -935,6 +940,53 @@ static BOOL WriteExternalFile(void)
     FreeDosObject(DOS_FIB, Info);
 
     return result;
+}
+
+static void WriteMainFile(void)
+{
+    char buffer[600];
+    char buffer2[600];
+
+    if (Env)
+    {
+        strncpy(buffer, MBDir, 600);
+        AddPart(buffer, "C-Header", 512);
+        sprintf(buffer2, "copy \"%s\" \"%s\"", buffer, MainFile);
+        Execute(buffer2, 0, 0);
+    }
+    else
+        DeleteFile(MainFile);
+
+    file = fopen(MainFile, "a+");
+    if (file)
+    {
+        fprintf(file, "\n#include \"%s\"\n\n", FilePart(HeaderFile));
+
+        fprintf(file, "int main(void)\n");
+        fprintf(file, "{\n");
+        fprintf(file, "\tULONG sigs = 0;\n");
+        fprintf(file, "\tstruct ObjApp * obj = CreateApp();\n");
+
+        fprintf(file, "\tif (obj)\n");
+        fprintf(file, "\t{\n");
+        fprintf(file, "\t\twhile (DoMethod(obj->App, MUIM_Application_NewInput, (IPTR)&sigs)\n");
+        fprintf(file, "\t\t\t!= MUIV_Application_ReturnID_Quit)\n");
+        fprintf(file, "\t\t{\n");
+        fprintf(file, "\t\t\tif (sigs)\n");
+        fprintf(file, "\t\t\t{\n");
+        fprintf(file, "\t\t\t\tsigs = Wait(sigs | SIGBREAKF_CTRL_C);\n");
+        fprintf(file, "\t\t\t\tif (sigs & SIGBREAKF_CTRL_C)\n");
+        fprintf(file, "\t\t\t\t\tbreak;\n");
+        fprintf(file, "\t\t\t}\n");
+        fprintf(file, "\t\t}\n");
+
+        fprintf(file, "\t\tDisposeApp(obj);\n");
+        fprintf(file, "\t}\n");
+        fprintf(file, "\treturn 0;\n");
+        fprintf(file, "}\n");
+
+        fclose(file);
+    }
 }
 
 int main(void)
@@ -968,6 +1020,8 @@ int main(void)
         ExternalExist = WriteExternalFile();
 
     WriteGUIFile();
+    WriteMainFile();
+
     End();
 
     return 0;
