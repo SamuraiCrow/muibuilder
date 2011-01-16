@@ -43,7 +43,7 @@
 #include "SDI_compiler.h"
 
 
-char *version = "$VER: GenCodeC 2.3 (04.01.2011)";
+char *version = "$VER: GenCodeC 2.3 (16.01.2011)";
 
 struct Library *MUIBBase = NULL;
 struct DosLibrary *DOSBase = NULL;
@@ -227,9 +227,22 @@ static void WriteInitialisations(int vartype)
                         fprintf(file, "\tobject->%s = NULL;\n", name);
                     break;
                 case TYPEVAR_HOOK:
+                    /*
+                        We can't use the SDI macros here because they create "static" functions
+                        but for MUIBuilder we need external functions
+                    */
                     fprintf(file,
-                            "\tMakeStaticHook(%sHook, %s);\n",
+                            "#if defined(__amigaos4__)\n");
+                    fprintf(file,
+                            "\tstatic const struct Hook %sHook = { { NULL,NULL }, (HOOKFUNC)%s, NULL, NULL };\n",
                             name, name);
+                    fprintf(file,
+                            "#else\n");
+                    fprintf(file,
+                            "\tstatic const struct Hook %sHook = { { NULL,NULL }, HookEntry, (HOOKFUNC)%s, NULL };\n",
+                            name, name);
+                    fprintf(file,
+                            "#endif\n");
                     break;
                 default:
                     break;
@@ -800,7 +813,6 @@ static void WriteGUIFile(void)
             MB_GetVarInfo(0, MUIB_VarName, (IPTR) &name, TAG_END);
             if (ExternalExist)
             {
-                fprintf(file, "#include \"SDI_hook.h\"\n\n");
                 fprintf(file, "#include \"%s\"\n", FilePart(Externals));
             }
             fprintf(file, "#include \"%s\"\n\n", FilePart(HeaderFile));
@@ -843,10 +855,11 @@ static void WriteGUIFile(void)
             WriteCode();
         if (Env)
         {
-            fprintf(file,
-                    "\n\tif (!object->%s)\n\t{\n\t\tFreeVec(object);",
-                    name);
-            fprintf(file, "\n\t\treturn NULL;\n\t}\n");
+            fprintf(file, "\n\tif (!object->%s)\n", name);
+            fprintf(file, "\t{\n");
+            fprintf(file, "\t\tFreeVec(object);\n");
+            fprintf(file, "\t\treturn NULL;\n");
+            fprintf(file, "\t}\n");
         }
         if (Notifications)
         {
@@ -854,12 +867,17 @@ static void WriteGUIFile(void)
         }
         if (Env)
         {
-            fprintf(file, "\n\treturn object;\n}\n");
-            fprintf(file, "\nvoid Dispose%s(struct Obj%s * object)\n{\n",
-                    name, name);
-            fprintf(file, "\tif (object)\n\t{\n");
+            fprintf(file, "\n\treturn object;\n");
+            fprintf(file, "}\n");
+            fprintf(file, "\nvoid Dispose%s(struct Obj%s * object)\n", name, name);
+            fprintf(file, "{\n");
+            fprintf(file, "\tif (object)\n");
+            fprintf(file, "\t{\n");
             fprintf(file, "\t\tMUI_DisposeObject(object->%s);\n", name);
-            fprintf(file, "\t\tFreeVec(object);\n\t}\n}\n");
+            fprintf(file, "\t\tFreeVec(object);\n");
+            fprintf(file, "\t\tobject = NULL;\n");
+            fprintf(file, "\t}\n");
+            fprintf(file, "}\n");
         }
         fclose(file);
     }
@@ -915,7 +933,7 @@ static BOOL WriteExternalFile(void)
                         bool_aux = (strstr(adr_file, varname) != NULL);
                     if (!bool_aux)
                         fprintf(file,
-                                "HOOKPROTONHNP(%s, void, Object *);\n",
+                                "void %s(struct Hook *h, Object *o);\n",
                                 varname);
                     break;
             }
@@ -961,12 +979,33 @@ static void WriteMainFile(void)
     if (file)
     {
         fprintf(file, "\n#include \"%s\"\n\n", FilePart(HeaderFile));
-
+        fprintf(file, "struct Library *MUIMasterBase;\n\n");
+        fprintf(file, "void CleanExit(CONST_STRPTR s)\n");
+        fprintf(file, "{\n");
+        fprintf(file, "\tif (s)\n");
+        fprintf(file, "\t{\n");
+        fprintf(file, "\t\tPutStr(s);\n");
+        fprintf(file, "\t}\n");
+        fprintf(file, "\tMyCleanExit();\n");
+        fprintf(file, "\tCloseLibrary(MUIMasterBase);\n");
+        fprintf(file, "}\n\n");
+        fprintf(file, "BOOL InitApp(int argc, char **argv)\n");
+        fprintf(file, "{\n");
+        fprintf(file, "\tif ((MUIMasterBase = OpenLibrary(\"muimaster.library\", 19)) == NULL)\n");
+        fprintf(file, "\t{\n");
+        fprintf(file, "\t\tCleanExit(\"Can't open muimaster.library v19\\n\");\n");
+        fprintf(file, "\t}\n");
+        fprintf(file, "\tif (!MyInitApp(argc, argv))\n");
+        fprintf(file, " \t{\n");
+        fprintf(file, "\t\tCleanExit(\"Can't initialize application\\n\");\n");
+        fprintf(file, "\t}\n");
+        fprintf(file, "\treturn TRUE;\n");
+        fprintf(file, "}\n\n");
         fprintf(file, "int main(int argc, char **argv)\n");
         fprintf(file, "{\n");
+        fprintf(file, "\tInitApp(argc, argv);\n");
         fprintf(file, "\tULONG sigs = 0;\n");
         fprintf(file, "\tstruct ObjApp * obj = CreateApp();\n");
-
         fprintf(file, "\tif (obj)\n");
         fprintf(file, "\t{\n");
         fprintf(file, "\t\twhile (DoMethod(obj->App, MUIM_Application_NewInput, (IPTR)&sigs)\n");
@@ -979,9 +1018,13 @@ static void WriteMainFile(void)
         fprintf(file, "\t\t\t\t\tbreak;\n");
         fprintf(file, "\t\t\t}\n");
         fprintf(file, "\t\t}\n");
-
         fprintf(file, "\t\tDisposeApp(obj);\n");
         fprintf(file, "\t}\n");
+        fprintf(file, "\telse\n");
+        fprintf(file, "\t{\n");
+        fprintf(file, "\t\tCleanExit(\"Can't create application\\n\");\n");
+        fprintf(file, "\t}\n");
+        fprintf(file, "\tCleanExit(NULL);\n");
         fprintf(file, "\treturn 0;\n");
         fprintf(file, "}\n");
 
