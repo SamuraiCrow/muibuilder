@@ -809,13 +809,13 @@ static void WriteGUIFile(void)
                 remove_extend(CatalogName);
                 fprintf(file, "#include \"%s_cat.h\"\n\n",
                         FilePart(CatalogName));
-                fprintf(file, "extern char* %s(int);\n", GetString);
-                fprintf(file, "\nstatic char *%s(int ref)\n{\n",
-                        GetMBString);
-                fprintf(file, "\tchar *aux;\n\n");
-                fprintf(file, "\taux = %s(ref);\n", GetString);
-                fprintf(file, "\tif (aux[1] == '\\0') return &aux[2];\n");
-                fprintf(file, "\telse                return aux;\n}\n");
+                fprintf(file, "static CONST_STRPTR GetMBString(CONST_STRPTR ref)\n");
+                fprintf(file, "{\n");
+                fprintf(file, "\tif (ref[1] == '\\0')\n");
+                fprintf(file, "\t\treturn &ref[2];\n");
+                fprintf(file, "\telse\n");
+                fprintf(file, "\t\treturn ref;\n");
+                fprintf(file, "}\n");
             }
             fprintf(file, "\nstruct Obj%s * Create%s(", name, name);
             WriteParameters();
@@ -962,7 +962,7 @@ static void WriteMainFile(void)
     {
         fprintf(file, "\n#include \"%s\"\n\n", FilePart(HeaderFile));
 
-        fprintf(file, "int main(void)\n");
+        fprintf(file, "int main(int argc, char **argv)\n");
         fprintf(file, "{\n");
         fprintf(file, "\tULONG sigs = 0;\n");
         fprintf(file, "\tstruct ObjApp * obj = CreateApp();\n");
