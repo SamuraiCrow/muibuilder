@@ -15,11 +15,11 @@ $(EXE): $(OBJS)
 
 .PHONY: clean
 clean:
-	$(RM) $(EXE) $(OBJS)
+	$(RM) $(EXE) *.o
 
 .PHONY: distclean
 distclean:
-	$(RM) $(EXE) $(OBJS)
+	$(RM) $(EXE) *.o
 
 .PHONY: deps
 deps: $(SRCS)

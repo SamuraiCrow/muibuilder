@@ -40,3 +40,9 @@ release:
 	$(MKDIR) $(RELEASEDIR)/Modules
 	$(CP) Modules/C-Header Modules/GenCodeC Modules/H-Header $(RELEASEDIR)/Modules
 	$(STRIP) $(RELEASEDIR)/MUIBuilder $(RELEASEDIR)/Libs/muibuilder.library $(RELEASEDIR)/Modules/GenCodeC
+	$(MKDIR) Documentations
+	$(CP) Documentations/*.guide* $(RELEASEDIR)/Documentations
+	$(MKDIR) Libs/muibuilder/Documentations
+	$(CP) Libs/muibuilder/Documentations/MUIBuilder.* $(RELEASEDIR)/Libs/muibuilder/Documentations
+	$(MKDIR) Modules/C/Documentations
+	$(CP) Modules/C/Documentations/GenCodeC* $(RELEASEDIR)/Modules/C/Documentations

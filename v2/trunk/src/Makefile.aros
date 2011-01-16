@@ -25,11 +25,11 @@ $(EXE): $(OBJS)
 
 .PHONY: clean
 clean:
-	$(RM) $(EXE) $(OBJS)
+	$(RM) $(EXE) *.o
 
 .PHONY: distclean
 distclean:
-	$(RM) $(EXE) $(OBJS)
+	$(RM) $(EXE) *.o
 	$(RM) MUIBuilder_cat.c MUIBuilder_cat.h
 
 .PHONY: deps

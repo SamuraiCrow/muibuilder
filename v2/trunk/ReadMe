@@ -1,98 +1,46 @@
 ###################
-# MUIBuilder V2.2 #                                     March, 8th, 1995
+# MUIBuilder V2.3 #                               January, 16th, 2011
 ###################
 
+MUIBuilder is an graphical interface builder for the MUI toolkit.
 
-        This is the official 2.2 release of MUIBuilder.
+This is the 1st release of MUIBuilder since it is an open source
+project which is hosted at http://sourceforge.net/projects/muibuilder/.
 
-        ################
-        # Installation #
-        ################
 
-        To install MUIBuilder, you just have to click
-        on the 'Installer' Icon ( find it in the 'Install' directory ) !
-        You need to have the Commodore Installer in your SYS:Utilities/
-        directory.
+################
+# Installation #
+################
 
-        the installation is available in 8 languages:
+Unpack the archive and copy the content to where you like it.
+Copy "muibuilder.library" to "Libs:" or do something like:
+Assign Libs: MUIBuilder/Libs ADD
 
-                - Français
-                - Deutsch
-                - English
-                - Czech
-                - Polen
-                - Spanish
-                - Italian
-                - Dansk
 
-        Chose your prefered language, and follow the instructions ...
+###########
+# Changes #
+###########
 
-        If you don't have the Commodore Installer :
-                - copy Env/ to ENV: & ENVARC:
-                - copy Libs/ to LIBS:
-                - copy the MB/ directory where you want MUIBuilder
-                  to be.
-                - make a directory 'documentations' in the root directory
-                  of MUIBuilder, and put your documentation in it under
-                  the name 'MUIBuilder.guide'
-                - copy the locale file in the right directory
-                  'LOCALE:catalogs/xxxx' where xxxxx is your language name.
+- start as Open Source project on Sourceforge.
+- source cleanup
+- AROS port
+- OS3 port
+- made output of GenCodeC portable for all Amiga-like OSs
+- fixes for 2 segfaults
 
-        #################
-        # Translations  #
-        #################
 
-        The translations included in this archive are the MUIBuilder 2.1
-        files. They work under MUIBuilder 2.2. Only three strings will
-        appear in english ... (The french catalog is up to date).
+#########
+# Usage #
+#########
+You can find documentation in the drawers:
+- Documentations
+- Libs/Documentations
+- Modules/Documentations
 
-        #################
-        #     Icons     #
-        #################
 
-                ########## MAGIC WORKBENCH #########
-
-        The different icons are in Magic-Workbench 2.0 style.
-        Some of them come directly from the Magic-Workbench package.
-
-        Magic Workbench is a shareware product copyrighted
-        by   >>>>>>>>>>  Martin Huttenloher <<<<<<<<<<<<<
-        You can find his wonderful package on Aminet or
-        on lot of good PD disks !!!
-
-        You can register MagicWB by sending DM 30.- or US$ 20.- to :
-
-                        Martin Huttenloher
-                        Am HochStraess 4
-                        D- 89081 Ulm
-                        Germany/Europe
-
-        If you want to use immediately the icons and haven't got MagicWB yet,
-        then copy the Misc/palette.prefs file to your ENV: and ENVARC:
-        directories and use an 8 colours workbench. (this palette.prefs
-        file comes from WB3.0).
-
-        I put in this archive only drawers which were used by other people
-        in other distributions (such as MUI for example) : in this way
-        i don't distribute new drawer icons, except those i drawn myself
-        (i put my name in these ones, so that nobody could think MagicWB
-        is a crap !! But it is really easy to recognize the icons I've
-        drawn  : they are not so beautiful as the MagiWB ones !!)
-
-        You can distribute my icons as long as you keep my name inside !!!
-
-        Please : register MagicWB : it is worth the price !!!
-
-        Note to Martin : you can take my icons and make what you want with them !!
-
-                ########## More Icons ##########
-
-        The beautiful C-project icons in the C/ directory were drawn
-        by Walter Dörwald.
-
-        You can find other icons for MUIBuilder in the Misc/ directory.
-         - one using the MagicWb palette (by Jan Skypala)
-         - and three 4 colours icons to use with a standard amiga palette
-           (drawn by Jérôme Chesnot)
-
-        * Eric Totel *
+###########
+# License #
+###########
+MUIBuilder and GenCodeC are GNU General Public License V3
+muibuilder.library is GNU Lesser General Public License V3
+See the files COPYING and COPYING.LIB for details.
