@@ -26,7 +26,9 @@
 #include "builder.h"
 #include <exec/memory.h>
 
+/* globals */
 int nb_modules = 0;
+
 
 BOOL RecordFileInfoBlock(struct FileInfoBlock *fib)
 {

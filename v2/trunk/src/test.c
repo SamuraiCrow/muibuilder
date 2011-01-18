@@ -29,7 +29,9 @@
 
 #include "builder.h"
 
+/* globals */
 BOOL MakeTest;
+
 
 /* Interpreter of C-like strings */
 void Interprete(char *src, char *dest)

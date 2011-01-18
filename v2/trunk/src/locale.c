@@ -28,10 +28,12 @@
 
 #define EOL 10
 
+/* globals */
 char catfile[512];
 struct Library *LocaleBase;
 char locale_string[82];
 char catprepend[5];
+
 
 void InitLocale(void)
 {

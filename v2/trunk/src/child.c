@@ -35,8 +35,8 @@
 #define MB_BE2WORD(x) (x)
 #endif
 
-UWORD width, height;
-int nb_images;
+static UWORD width, height;
+static int nb_images;
 
 char ControlChar(CONST_STRPTR string)
 {

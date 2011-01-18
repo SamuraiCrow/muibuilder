@@ -25,9 +25,11 @@
 
 #include "builder.h"
 
+/* globals */
 window *current_window;
 char aux[256];
 int version = 0;
+
 
 int SearchVersion(char *text)
 {

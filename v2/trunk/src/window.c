@@ -31,10 +31,10 @@
 #include "muibuilder_rev.h"
 #include <utility/hooks.h>
 
-APTR testwin = NULL;
+static APTR testwin = NULL;
 
-void Toggle(object *obj, APTR list, int position);
-int AfficheObjet(APTR list, object *obj, int position);
+static void Toggle(object *obj, APTR list, int position);
+static int AfficheObjet(APTR list, object *obj, int position);
 
 void TestQuick(window *win)
 {
@@ -294,7 +294,7 @@ BOOL IsParent(object *obj, group *parent)
 }
 
 /* display object in list */
-int AfficheObjet(APTR list, object *obj, int position)
+static int AfficheObjet(APTR list, object *obj, int position)
 {
     group *group_aux;
     popobject *popobj_aux;
@@ -347,7 +347,7 @@ void EffaceObjet(APTR list, object *obj, int position)
     }
 }
 
-void Toggle(object *obj, APTR list, int position)
+static void Toggle(object *obj, APTR list, int position)
 {
     object *obj_aux;
     group *group_aux;

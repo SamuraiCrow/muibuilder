@@ -40,6 +40,7 @@
 #define SYS_EDITOR "C:Ed"
 #endif
 
+/* globals */
 APTR WI_current;
 APTR app, AppMenu;
 queue *windows;
@@ -50,6 +51,7 @@ int nb_window, nb_listview, nb_group, nb_button, nb_string;
 int nb_gauge, nb_cycle, nb_radio, nb_label, nb_check, nb_image, nb_slider;
 int nb_text, nb_prop, nb_rectangle, nb_colorfield, nb_popasl;
 int nb_popobject, nb_menu, nb_space, nb_scale, nb_barlabel;
+
 
 // gpearman, 23/09/04
 //int nb_modules = 0;

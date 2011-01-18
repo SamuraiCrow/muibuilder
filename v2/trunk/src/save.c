@@ -26,8 +26,10 @@
 #include <dos/dostags.h>
 #include "builder.h"
 
+/* globals */
 char savefile[256];
 char savedir[256];
+
 
 #define SAVE_VERSION "BUILDER_SAVE_FILE1.26\n"
 

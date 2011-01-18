@@ -30,10 +30,10 @@
 #include <dos/dostags.h>
 #include "builder.h"
 
-char guidenamedir[256];
-char filename[512];
-queue *objects;
-FILE *ficguide;
+static char guidenamedir[256];
+static char filename[512];
+static queue *objects;
+static FILE *ficguide;
 
 void Modify(APTR obj)
 {

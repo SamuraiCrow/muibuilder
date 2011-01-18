@@ -32,6 +32,7 @@
 #include "muib_file.h"
 #include "codenotify.h"
 
+/* globals */
 char genfile[512];
 char nospace[80];
 queue *genlabels;

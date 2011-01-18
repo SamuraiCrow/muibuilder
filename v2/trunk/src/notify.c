@@ -29,7 +29,7 @@
 
 #include "notify.h"
 
-char description[256];
+static char description[256];
 
 APTR SearchLabel(char *objlabel, int depart)
 {
