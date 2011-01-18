@@ -146,10 +146,10 @@ void LinkNotify(int depart)
 
 window *ParentWindow(APTR obj)
 {
+    object *obj_aux;
+
     if (obj == NULL) // FIX for a segfault
         return NULL;
-
-    object *obj_aux;
 
     obj_aux = obj;
 
