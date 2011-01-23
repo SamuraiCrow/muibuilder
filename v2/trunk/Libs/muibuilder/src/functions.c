@@ -76,19 +76,27 @@ struct DosLibrary *DOSBase;
 #ifdef __AROS__
 struct UtilityBase *UtilityBase = NULL;
 #else
+#ifdef __MORPHOS__
+struct Library *UtilityBase = NULL;
+#else
 struct UtilityBase *UtilityBase = NULL;
 struct UtilityBase *__UtilityBase = NULL; // required by clib2 & libnix
+#endif
 #endif
 
 ULONG initBase(struct LibraryHeader *lib)
 {
     BOOL retval = FALSE;
     DOSBase = (struct DosLibrary *)OpenLibrary("dos.library", 0);
+#ifdef __MORPHOS__
+    UtilityBase = OpenLibrary("utility.library", 0);
+#else
     UtilityBase = (struct UtilityBase *)OpenLibrary("utility.library", 0);
+#endif
 
-    #if !defined(__NEWLIB__) && !defined(__AROS__)
+#if !defined(__NEWLIB__) && !defined(__AROS__) && !defined(__MORPHOS__)
     __UtilityBase = (APTR)UtilityBase;
-    #endif
+#endif
 
     if (DOSBase && UtilityBase)
     {
