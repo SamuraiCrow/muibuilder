@@ -8,14 +8,12 @@ project which is hosted at http://sourceforge.net/projects/muibuilder/.
 
 
 ## Installation
-
 Unpack the archive and copy the content to where you like it.
 Copy "muibuilder.library" to "Libs:" or do something like:
 Assign Libs: MUIBuilder/Libs ADD
 
 
 ## Changes
-
 - start as Open Source project on Sourceforge.
 - source cleanup
 - AROS port
@@ -25,7 +23,6 @@ Assign Libs: MUIBuilder/Libs ADD
 
 
 ## Usage
-
 You can find documentation in the drawers:
 - Documentations
 - Libs/Documentations
@@ -33,7 +30,6 @@ You can find documentation in the drawers:
 
 
 ## License
-
-MUIBuilder and GenCodeC are GNU General Public License V3
-muibuilder.library is GNU Lesser General Public License V3
-See the files COPYING and COPYING.LIB for details.
+- MUIBuilder and GenCodeC are GNU General Public License V3
+- muibuilder.library is GNU Lesser General Public License V3
+- See the files COPYING and COPYING.LIB for details.
