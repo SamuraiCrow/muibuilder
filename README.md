@@ -1,6 +1,5 @@
-###################
-# MUIBuilder V2.3 #                               January, 16th, 2011
-###################
+# MUIBuilder V2.3
+### January, 16th, 2011
 
 MUIBuilder is an graphical interface builder for the MUI toolkit.
 
@@ -8,18 +7,14 @@ This is the 1st release of MUIBuilder since it is an open source
 project which is hosted at http://sourceforge.net/projects/muibuilder/.
 
 
-################
-# Installation #
-################
+## Installation
 
 Unpack the archive and copy the content to where you like it.
 Copy "muibuilder.library" to "Libs:" or do something like:
 Assign Libs: MUIBuilder/Libs ADD
 
 
-###########
-# Changes #
-###########
+## Changes
 
 - start as Open Source project on Sourceforge.
 - source cleanup
@@ -29,18 +24,16 @@ Assign Libs: MUIBuilder/Libs ADD
 - fixes for 2 segfaults
 
 
-#########
-# Usage #
-#########
+## Usage
+
 You can find documentation in the drawers:
 - Documentations
 - Libs/Documentations
 - Modules/Documentations
 
 
-###########
-# License #
-###########
+## License
+
 MUIBuilder and GenCodeC are GNU General Public License V3
 muibuilder.library is GNU Lesser General Public License V3
 See the files COPYING and COPYING.LIB for details.
